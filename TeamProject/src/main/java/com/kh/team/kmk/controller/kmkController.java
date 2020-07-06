@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/kmk")
 public class kmkController {
 
-	@RequestMapping("/test")
+	@RequestMapping("/exam")
 	public void test() throws Exception {
 	}
 }

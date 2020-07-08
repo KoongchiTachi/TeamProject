@@ -5,7 +5,7 @@
     <footer class="footer-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4"> 
                     <div class="footer-item">
                         <div class="footer-logo">
                             <a href="#"><img src="/resources/img/logo.png" alt=""></a>
@@ -34,31 +34,31 @@
                 </div>
             </div>
         </div>
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        
-                        <ul>
-                            <li class="active"><a href="./home.jsp">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Rooms</a></li>
-                            <li><a href="#">Facilities</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-<div class="row pt-5">
-                    <div class="col-lg-12 ">
-                        <div class="small text-white text-center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+       	<div class="row">
+<!--                     <div class="col-lg-12"> -->
+<!--                         <ul> -->
+<!--                             <li class="active"><a href="./home.jsp">Home</a></li> -->
+<!--                             <li><a href="#">About</a></li> -->
+<!--                             <li><a href="#">Rooms</a></li> -->
+<!--                             <li><a href="#">Facilities</a></li> -->
+<!--                             <li><a href="#">News</a></li> -->
+<!--                             <li><a href="#">Contact</a></li> -->
+<!--                         </ul> -->
+<!--                     </div> -->
+           	<div class="col-lg-12 ">
+				<div class="small text-white text-center">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					Copyright &copy;
+					<script>
+						document.write(new Date().getFullYear());
+					</script>
+					All rights reserved | This template is made with <i
+						class="fa fa-heart-o" aria-hidden="true"></i> by <a
+						href="https://colorlib.com" target="_blank">Colorlib</a>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				</div>
+			</div>
+   		</div>
     </footer>
     <!-- Footer Section End -->
 

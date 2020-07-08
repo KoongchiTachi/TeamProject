@@ -9,5 +9,6 @@ public class kmkController {
 
 	@RequestMapping("/exam")
 	public void test() throws Exception {
+		
 	}
 }

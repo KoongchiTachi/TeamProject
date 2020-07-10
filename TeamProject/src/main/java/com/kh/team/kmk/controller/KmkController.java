@@ -10,7 +10,7 @@ public class KmkController {
 	
 	@RequestMapping(value = "/premium", method = RequestMethod.GET)
 	public String premiumAuction() throws Exception {
-		return "kmk/auction/premium";
+		return "/kmk/auction/premium";  
 	}
 }
  

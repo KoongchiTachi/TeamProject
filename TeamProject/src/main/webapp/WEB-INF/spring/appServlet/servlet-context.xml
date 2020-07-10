@@ -31,7 +31,7 @@
 	<!-- String uploadPath = new String("D:/upload") -->
 	<beans:bean id="uploadPath" class="java.lang.String">
 <!-- 		<beans:constructor-arg value="D:\Team"/>  -->
-		<beans:constructor-arg value="//192.168.0.254/upload"/>
+		<beans:constructor-arg value="//192.168.0.208/upload"/>
 	</beans:bean>
 	 
 	<!-- 인터셉터 빈 -->
@@ -51,7 +51,5 @@
 <!-- 	</interceptors> -->
 	
 	<context:component-scan base-package="com.kh.team" />
-	
-	
 	
 </beans:beans>

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "/auction")  
+@RequestMapping(value = "/kmk/auction")  
 public class KmkController {
 	
 	@RequestMapping(value = "/premium", method = RequestMethod.GET)

@@ -38,7 +38,7 @@
                     <a href="#"><img src="/resources/img/logo.png" alt=""></a>
                 </div>
                 <div class="nav-right">
-                    <a href="kjy/member/login" class="primary-btn">Login</a> 
+                    <a href="/kjy/member/login" class="primary-btn">Login</a> 
                 </div> 
                 <nav class="main-menu mobile-menu">
                     <ul>

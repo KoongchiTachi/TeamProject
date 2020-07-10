@@ -39,7 +39,11 @@
                 </div>
                 <div class="nav-right">
                     <a href="/kjy/member/login" class="primary-btn">Login</a> 
+<<<<<<< HEAD
                 </div>
+=======
+                </div> 
+>>>>>>> branch 'master' of https://github.com/KoongchiTachi/TeamProject.git
                 <nav class="main-menu mobile-menu">
                     <ul>
                         <li class="active"><a href="/">Home</a></li>

@@ -35,7 +35,7 @@
 					<button class="login100-form-btn" style="margin : 10px">
 						로그인
 					</button>
-					<a href="/member/joinForm" class="btn login100-form-btn" style="margin : 10px" id="btnJoin">
+					<a href="/kjy/member/joinForm" class="btn login100-form-btn" style="margin : 10px" id="btnJoin">
 						회원가입
 					</a>
 				</div>

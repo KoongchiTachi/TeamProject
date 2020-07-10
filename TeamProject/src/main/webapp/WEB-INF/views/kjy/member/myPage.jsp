@@ -61,9 +61,10 @@ div p {
     border-radius: 1.5rem;
     width: 100%;
     padding: 2%;
-    font-weight: 600;
+    font-weight: 200;
     color: #6c757d;
     cursor: pointer;
+    font-size : 20px; 
 }
 .proile-rating{
     font-size: 12px;
@@ -73,44 +74,50 @@ div p {
 .proile-rating span{
     color: #495057;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 200;
 }
 .profile-head .nav-tabs{
     margin-bottom:5%;
 }
 .profile-head .nav-tabs .nav-link{
-    font-weight:600;
+    font-weight:200;
     border: none;
+    color : #000000;
 }
 .profile-head .nav-tabs .nav-link.active{
     border: none;
-    border-bottom:2px solid #0062cc;
+    border-bottom:2px solid #f9ad81;
+    color : #f9ad81;
+    font-weight : 400; 
 }
 .profile-work{
     padding: 14%;
     margin-top: -15%;
 }
 .profile-work p{
-    font-size: 12px;
+    font-size: 20px;
     color: #818182;
-    font-weight: 600;
+    font-weight: 200;
     margin-top: 10%;
+}
+.profile-work p > a{
+	font-size: 20px;
 }
 .profile-work a{
     text-decoration: none;
     color: #495057;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 200;
+    font-size: 15px;
 }
 .profile-work ul{
     list-style: none;
 }
 .profile-tab label{
-    font-weight: 600;
+    font-weight: 200;
 }
 .profile-tab p{
-    font-weight: 600;
-    color: #0062cc;
+    font-weight: 200;
+    color: #312219;
 }
 </style>
 
@@ -127,15 +134,12 @@ div p {
                             <h5 style="font-size : 40px;">
                                	이름
                             </h5>
-                            <h6>
-                                Web Developer and Designer
-                            </h6>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">나의 정보</a>
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">MY INFO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">MY GRADE</a>
                         </li>
                     </ul>
                 </div>
@@ -147,22 +151,18 @@ div p {
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-work">
-                    <p>WORK LINK</p>
-                    <a href="">Website Link</a><br/>
-                    <a href="">Bootsnipp Profile</a><br/>
-                    <a href="">Bootply Profile</a>
-                    <p>SKILLS</p>
-                    <a href="">Web Designer</a><br/>
-                    <a href="">Web Developer</a><br/>
-                    <a href="">WordPress</a><br/>
-                    <a href="">WooCommerce</a><br/>
-                    <a href="">PHP, .Net</a><br/>
+                    <p>ACUTION LIST</p>
+                    <a href=""> 응찰 </a><br/> 
+                    <a href=""> 낙찰 </a><br/>
+                    <p><a href="">WISH LIST</a></p>
+                    <p><a href="">1 : 1 문의 내역</a></p>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="row">
+                                <!-- 다음 개인정보변경페이지 참고 -->
                                     <div class="col-md-6">
                                         <label>아이디</label>
                                     </div>
@@ -212,50 +212,28 @@ div p {
                                 </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Experience</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Expert</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Hourly Rate</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>10$/hr</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Total Projects</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>230</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>English Level</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>Expert</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Availability</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>6 months</p>
-                                    </div>
-                                </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <label>Your Bio</label><br/>
-                                <p>Your detail description</p>
+                            <div class="col-md-6">
+                                <label>등급</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>g_name</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>거래 횟수</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>c_trade</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>할인율</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>g_discount</p>
                             </div>
                         </div>
                     </div>

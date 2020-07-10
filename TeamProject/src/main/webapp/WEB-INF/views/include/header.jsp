@@ -38,7 +38,7 @@
                     <a href="#"><img src="/resources/img/logo.png" alt=""></a>
                 </div>
                 <div class="nav-right">
-                    <a href="#" class="primary-btn">로그인</a> 
+                    <a href="kjy/member/login" class="primary-btn">Login</a> 
                 </div> 
                 <nav class="main-menu mobile-menu">
                     <ul>
@@ -48,7 +48,7 @@
                                 <li><a href="kmk/auction/premium">프리미엄</a></li> 
                                 <li><a href="/resources/rooms.html">최근등록상품</a></li>
                                 <li><a href="/resources/services.html">지난경매 및 결과</a></li>
-                                <li><a href="/resources/services.html">응찰방법</a></li>
+                                <li><a href="/resources/services.html">응찰방법</a></li> 
                             </ul>
                         </li>
                         <li><a href="#">Service</a>

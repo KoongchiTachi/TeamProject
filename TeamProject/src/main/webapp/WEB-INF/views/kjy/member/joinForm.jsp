@@ -10,7 +10,7 @@
                 <h2 class="title">회원 가입</h2>
             </div>
             <div class="card-body">
-                <form action="/member/joinRun" method="post">
+                <form action="/kjy/member/joinRun" method="post">
                     <div class="form-row m-b-55">
                         <div class="name">아이디</div>
                         <div class="value">

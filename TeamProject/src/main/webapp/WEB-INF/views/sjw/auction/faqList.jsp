@@ -48,7 +48,7 @@
 		<div class="col-md-4">
 		<div class="moreFaq" style="margin: 10px;">
 			<p>· 더 궁금하신 사항은 1:1문의를 이용해 주세요.
-				<a href="/sjw/auction/qna" class="primary-btn">1:1문의 바로가기</a>
+				<a href="/sjw/auction/qnaForm" class="primary-btn">1:1문의 바로가기</a>
 			</p>
 		</div>
 		</div>

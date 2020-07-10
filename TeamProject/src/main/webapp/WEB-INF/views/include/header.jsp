@@ -38,8 +38,8 @@
                     <a href="#"><img src="/resources/img/logo.png" alt=""></a>
                 </div>
                 <div class="nav-right">
-                    <a href="kjy/member/login" class="primary-btn">Login</a> 
-                </div> 
+                    <a href="/kjy/member/login" class="primary-btn">Login</a> 
+                </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
                         <li class="active"><a href="/">Home</a></li>

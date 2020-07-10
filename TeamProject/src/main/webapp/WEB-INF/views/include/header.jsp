@@ -33,9 +33,9 @@
     <!-- Header Section Begin -->
     <header class="header-section">
         <div class="container-fluid">
-            <div class="inner-header">
+            <div class="inner-header"> 
                 <div class="logo">
-                    <a href="#"><img src="/resources/img/logo.png" alt=""></a>
+                    <a href="/"><img src="/resources/img/logo.png" alt=""></a>
                 </div>
                 <div class="nav-right">
                     <a href="/kjy/member/login" class="primary-btn">Login</a> 

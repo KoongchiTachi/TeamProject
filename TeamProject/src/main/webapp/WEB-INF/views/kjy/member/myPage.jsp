@@ -9,7 +9,7 @@
 
 <style>
 body{ 
-	background: -webkit-linear-gradient(left, #dddddd, #ffffff); 
+/* 	background: -webkit-linear-gradient(left, #dddddd, #ffffff);  */
 }
 div {
 	font-size : 25px;
@@ -17,8 +17,11 @@ div {
 div p {
 	font-size : 25px;
 }
-.row {
-	margin-top : 30px;
+#home > div {
+	margin-top : 25px; 
+}
+#profile > div {
+	margin-top : 25px; 
 }
 .emp-profile{
     padding: 3%;
@@ -26,6 +29,13 @@ div p {
     margin-bottom: 3%;
     border-radius: 0.5rem;
     background: #fff;
+    background: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
 }
 .profile-img{
     text-align: center;
@@ -92,7 +102,7 @@ div p {
 }
 .profile-work{
     padding: 14%;
-    margin-top: -15%;
+    margin-top: -5%;
 }
 .profile-work p{
     font-size: 20px;
@@ -118,6 +128,12 @@ div p {
 .profile-tab p{
     font-weight: 200;
     color: #312219;
+}
+#myTab {
+	margin-top : 50px;
+}
+.profile-head {
+	margin-top : 50px;
 }
 </style>
 

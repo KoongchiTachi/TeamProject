@@ -12,5 +12,10 @@ public class KmkController {
 	public String premiumAuction() throws Exception {
 		return "/kmk/auction/premium";  
 	}
+	
+	@RequestMapping(value="/latest", method = RequestMethod.GET)
+	public String latestAuction() throws Exception {
+		return "/kmk/auction/latest";
+	}
 }
  

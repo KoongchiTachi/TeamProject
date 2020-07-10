@@ -20,7 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="/resources/vendor/animate/animate.css">
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="/resources/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
+<!--===============================================================================================-->z
 	<link rel="stylesheet" type="text/css" href="/resources/vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/resources/vendor/select2/select2.min.css">

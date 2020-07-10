@@ -3,6 +3,49 @@
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <%@ include file="/WEB-INF/views/include/kjy/login_css.jsp" %>
 
+<style>
+.container-login100-form-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.primary-btn {
+  font-family: poppins-bold;    
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2; 
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 62px;
+  background-color: #f9ad81; 
+  border-radius: 3px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.primary-btn:hover {
+  background-color: #9b3d07;
+}
+</style>
+
+
+
 <div class="limiter">
 	<div class="container-login100">
 		<div class="wrap-login100 p-t-50 p-b-90">

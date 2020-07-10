@@ -46,9 +46,9 @@
                         <li><a href="#">Auction</a>
                         	<ul class="drop-menu">
                                 <li><a href="/kmk/auction/premium">프리미엄</a></li> 
-                                <li><a href="/resources/rooms.html">최근등록상품</a></li>
+                                <li><a href="/kmk/auction/latest">최근등록상품</a></li> 
                                 <li><a href="/resources/services.html">지난경매 및 결과</a></li>
-                                <li><a href="/resources/services.html">응찰방법</a></li> 
+                                <li><a href="/kmk/auction/howBid">응찰방법</a></li> 
                             </ul>
                         </li>
                         <li><a href="#">Service</a>
@@ -64,7 +64,7 @@
                                 <li><a href="/sjw/auction/map">오시는 길</a></li>
                             </ul>
                         </li>
-                        <li><a href="/resources/contact.html">Contact</a>
+                        <li><a href="#">Contact</a>
                         	<ul class="drop-menu">
                                 <li><a href="/sjw/auction/faqList">FAQ</a></li>
                                 <li><a href="/sjw/auction/qnaForm">1:1 문의</a></li>

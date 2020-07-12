@@ -1,63 +1,120 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
-<!-- <head> -->
-<!--  <!-- Css Styles --> -->
-<!--     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="css/flaticon.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="css/nice-select.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css"> -->
-<!--     <link rel="stylesheet" href="css/style.css" type="text/css"> -->
-<!-- </head> -->
 <style>
 .contact-form #inputFile {
 	padding: 25px;
 	width: 50%;
 	height: 56px;
 	border: none;
-	font-size: 13px;
+	font-size: 18px;
 	font-weight: 600;
 	margin-bottom: 20px;
 }
-
 .contact-form span {
-	font-size: 14px; 
+	font-size: 18px; 
 }
-
-.contact-form #btnCancel {
-	background-color : #bfbfbf; 
-}
-
 #fileDrop {
-	width : 85%;
-	height : 100px;
+	width : 100%;
+	height : 130px;
 	margin : 20px auto;
 	border : 1px dashed gray;
 }
 .help-block { 
- 	font-size : 11px; 
+ 	font-size : 16px; 
 }
-
 #uploadedList > div {
 	float : left;
 	margin : 20px;
 }
-
 #btnDiv {
 	clear : both;
 }
+.contact-form textarea {
+	color: #5E5E5E;
+	resize : vertical;
+	font-size: 20px;
+	margin-bottom: 100px;
+}
+.contact-form textarea::placeholder {
+	color: #BDBDBD;
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+}
 
+.contact-form input {
+	color: #5E5E5E;
+	font-size: 20px;
+	margin-bottom: 50px;
+}
+.contact-form input::placeholder {
+	color: #BDBDBD;
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+}
+.contact-form button { 
+ 	font-size: 18px; 
+ 	letter-spacing: 0.5px; 
+ 	font-weight: 600; 
+ 	border: none; 
+ 	padding: 20px 100px;
+ 	display: inline-block; 
+ 	cursor: pointer; 
+ }
+.contact-form a { 
+ 	color: #ffffff; 
+ 	background: #bfbfbf; 
+ 	font-size: 18px; 
+ 	letter-spacing: 0.5px; 
+ 	font-weight: 600; 
+ 	border: none; 
+ 	padding: 20px 100px; 
+ 	display: inline-block; 
+ 	cursor: pointer; 
+ }
+.contact-container {
+	margin-left : 25%;
+}
+
+#btnDiv {
+	margin-top : 10%;
+}
+.check-form {
+	padding-left: 28px;
+	margin-bottom: 90px;
+}
+.check-form:after {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0%;
+	height: 0%;
+	background: #000000;
+	content: "";
+	opacity: 0;
+	z-index: 0;
+}
+
+.suit-select {
+	width : 91%;
+	font-size : 20px;
+ 	position: absolute;
+}
+.check-form .room-selector .nice-select span {
+	font-size: 20px;
+	color: #717171;
+}
 </style>
-    
-<body>   
+
+<script>
+
+</script>
     
     <!-- Contact Section Begin -->
     <section class="contact-section spad">
-        <div class="container">
+        <div class="contact-container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="contact-title">
@@ -72,17 +129,24 @@
                 <div class="col-lg-8">
                     <form action="#" class="contact-form">
                         <div class="row">
-                        
                             <div class="col-lg-12">
-                                <input type="text" placeholder="회원아이디 넘어오게" readonly>
-                            </div>
-                            
-                            <div class="col-lg-12">
-                            
-                                <input type="text" class="subject" placeholder="제목">
-                                <textarea placeholder="문의내용"></textarea>
-                                
-								<div class="row">
+                                <input type="text" placeholder="userId 넘어오게 할 거예요" id="userId" readonly>
+                                	<div class="check-form">
+										<div class="room-selector">
+												<select class="suit-select">
+													<option selected disabled>문의유형을 선택해 주세요.</option>
+													<option value="">주문/배송</option>
+									 				<option value="">상품</option>
+													<option value="">경매</option>
+													<option value="">낙찰</option>
+													<option value="">위탁</option>
+												</select>
+											</div>
+										</div>
+							<input type="text" class="subject" placeholder="제목을 입력해 주세요.">
+                            <textarea placeholder="내용을 입력해 주세요." style="height: auto;"></textarea>
+							
+							<div class="row">
 									<div class="col-md-12">
 										<div class="row">
 										
@@ -100,31 +164,17 @@
 										</div>
 									</div>
 								</div>
-								<div id="#btnDiv">
-									<button type="submit" class="primary-btn" id="btnSubmit" style="margin: 5px">등록</button>
-                               		<a href="/sjw/auction/faq" class="primary-btn" id="btnCancel" style="margin: 5px">취소</a>
+								<div id="btnDiv" style="text-align:center;">
+									<button type="submit" class="primary-btn" id="btnSubmit" style="margin: 20px">등록</button>
+                               		<a href="/sjw/auction/faqList" class="submit-btn" id="btnCancel" style="margin: 20px">취소</a>
                                	</div>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
+              </div>
+             </div>
     </section>
     <!-- Contact Section End -->
-    
-         <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-  
-    </body>
    
-
-
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>

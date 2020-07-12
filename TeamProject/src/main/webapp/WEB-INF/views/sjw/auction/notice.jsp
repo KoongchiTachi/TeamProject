@@ -3,12 +3,20 @@
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <style>
 .notice {
-	min-height : 60vh;
+	min-height : 70vh;
+	min-width: 90%;
+	padding-left: 450px;
 }
-
-textarea {
- 	min-height: 50%; 
+.contact-form textarea {
+	font-size: 20px;
+ 	min-height: 50%;
+ 	height : 130px;
+ 	
  }
+.contact-form input {
+	font-size: 20px;
+	margin-bottom: 50px;
+} 
 </style>
 
 
@@ -43,12 +51,12 @@ textarea {
 	</div>
 	
 	<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-8">
 			</div>
 			<div class="col-md-2">
 			<a href="/sjw/auction/noticeList" class="primary-btn">목록으로</a>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-2">
 				
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-package com.kh.tem.domain;
+package com.kh.team.domain;
 
 public class ProductVo {
 

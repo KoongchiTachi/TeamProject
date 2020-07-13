@@ -7,8 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.kh.team.domain.MemberVo;
-
-import persistence.MemberDao;
+import com.kh.team.persistence.MemberDao;
 
 @Service
 public class MemberServcieImple implements MemberService {

@@ -9,13 +9,12 @@ body {
 
 .tile{
 	width: 100%;
-	background:#fff;
+	background:#fff; 
 	border-radius:10px; 
 	box-shadow:0px 2px 3px -1px rgba(151, 171, 187, 0.7);
 	float:left;
   	transform-style: preserve-3d;
   	margin: 10px 5px;
-
 }
 
 .title{

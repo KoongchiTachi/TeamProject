@@ -9,8 +9,8 @@
 	margin-top : 50%;
 }
 .table {
-	border-top: 3px solid #888888;
-	border-bottom: 3px solid #888888;
+	border-top: 2px solid #888888;
+	border-bottom: 2px solid #888888;
 }
 .table td {
 	font-size : 20px;
@@ -21,12 +21,12 @@
 }
 .blog-right {
 	float: right;
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 .blog-right .blog-search input {
 	color : #5E5E5E;
-	width: 63%;
+	width: 64%;
 	height: 40px;
 	border: none;
 	border-bottom: 1px solid #888888;

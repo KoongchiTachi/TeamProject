@@ -4,7 +4,7 @@
 <style>
 .notice {
 	min-height : 70vh;
-	min-width: 90%;
+	min-width: 100%;
 	padding-left: 450px;
 }
 .contact-form textarea {
@@ -16,7 +16,7 @@
 .contact-form input {
 	font-size: 20px;
 	margin-bottom: 50px;
-} 
+}
 </style>
 
 

@@ -1,13 +1,13 @@
-package persistence;
+package com.kh.team.service;
 
 import java.util.List;
 
 import com.kh.team.domain.MemberVo;
 
-public interface MemberDao {
-	
-	// 로그인 확인 
-	public MemberVo selectMemberByIdAndPw(String user_id, String user_pw) throws Exception;
+public interface MemberService {
+
+	// 로그인
+	public boolean login(String m_id, String m_pw) throws Exception;
 	
 	// 멤버 목록
 	public List<MemberVo> memberList() throws Exception;

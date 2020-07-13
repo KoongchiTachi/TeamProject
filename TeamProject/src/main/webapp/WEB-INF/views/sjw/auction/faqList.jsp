@@ -48,7 +48,7 @@
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #EEEEEE;
   font-size: 20px;
-  color: #9e9e9e;
+  color: #5E5E5E;
 }
 
 /* ----- v CAN BE DELETED v ----- */
@@ -99,13 +99,13 @@ p {
 				<h4 class="panel-title">
 					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 						<i class="more-less glyphicon glyphicon-chevron-down"></i>
-						Collapsible Group Item #1
+						위탁은 어떻게 하나요?
 					</a>
 				</h4>
 			</div>
 			<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 				<div class="panel-body">
-					  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					자세한 내용은 위탁안내 페이지를 참고 해주시기 바랍니다.
 				</div>
 			</div>
 		</div>

@@ -21,7 +21,7 @@
 	border : 1px dashed gray;
 }
 .help-block { 
- 	font-size : 16px; 
+ 	font-size : 15px; 
 }
 #uploadedList > div {
 	float : left;
@@ -98,7 +98,7 @@
 }
 
 .suit-select {
-	width : 91%;
+	width : 90%;
 	font-size : 20px;
  	position: absolute;
 }

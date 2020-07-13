@@ -4,9 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<!-- 각각의 클래스 단위 -->
-		<!-- <typeAlias type="com.kh.sample01.domain.MemberVo" alias="MemberVo"/> -->
-		
 		<!-- 패키지 단위 (별칭 지정 : 줄여쓰기 위함) -->
 		<package name="com.kh.team.domain"/>
 	</typeAliases>

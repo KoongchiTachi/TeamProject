@@ -93,19 +93,19 @@
 						<div class="start" id="countdown0" style="margin-left: 100px;">  
 						</div>
 					</div>
-					<div class="stats">
+					<div class="stats s_price">
 						<div>
 							<strong>시작가</strong> 10,000,000원
 						</div>
 					</div>
-					<div class="stats">
+					<div class="stats h_price">
 						<div>
-							<strong>최고 입찰가</strong> 15,000,000원
+							<strong>현재 입찰가</strong> 15,000,000원
 						</div>
 					</div>
 					<div class="footer">
-						<a href="#" class="Cbtn Cbtn-primary">상품보기</a>
-						<a href="#myModal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal">응찰하기</a>
+						<a href="#myModal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal">상품보기</a>
+						<a href="#" class="Cbtn Cbtn-primary">응찰하기</a>
 					</div>
 				</div>
 			</div>

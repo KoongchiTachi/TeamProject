@@ -27,4 +27,9 @@ public class KjyController {
 	public void myPage() throws Exception {
 		
 	}
+	
+	@RequestMapping(value = "/wishList", method = RequestMethod.GET)
+	public void wishList() throws Exception {
+		
+	}
 }

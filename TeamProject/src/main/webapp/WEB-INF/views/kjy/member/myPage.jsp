@@ -170,7 +170,7 @@ div p {
                     <p>ACUTION LIST</p>
                     <a href=""> 응찰 </a><br/> 
                     <a href=""> 낙찰 </a><br/>
-                    <p><a href="">WISH LIST</a></p>
+                    <p><a href="/kjy/member/wishList">WISH LIST</a></p>
                     <p><a href="">1 : 1 문의 내역</a></p>
                 </div>
             </div>

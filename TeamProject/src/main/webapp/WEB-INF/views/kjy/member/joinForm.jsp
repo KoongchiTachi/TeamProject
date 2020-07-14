@@ -146,7 +146,21 @@ $(function() {
 	});
 	
 	// 주소
-	
+	$("#btnHomecode").click(function() {
+		new daum.Postcode({
+			oncomplete: function(data) {
+				$('[name=homecode]').val(data.zonecode); // 우편번호 (5자리)
+				$('[name=addr1]').val(data.address);
+				$('[name=addr2]').val(data.buildingName);
+			}
+		}).open();
+	});
+	$("#addr2").blur(function() {
+		var addr1 = $("#addr1").val();
+		var addr2 = $("#addr2").val();
+		var m_address = addr1.concat(addr2);
+		$("#m_address").val(m_address);
+	});
 });
 </script>
 
@@ -160,6 +174,7 @@ $(function() {
                 <form action="/kjy/member/joinRun" method="post">
                 <input type="hidden" name="m_grade" value="g1001">
                 <input type="hidden" id="m_phone" name="m_phone">
+                <input type="hidden" id="m_address" name="m_address">
                     <div class="form-row m-b-55">
                         <div class="name">아이디</div>
                         <div class="value row row-space">
@@ -228,11 +243,9 @@ $(function() {
                                 <div class="input-group-desc">
                                     <input class="input--style-5" type="text" name="homecode" style="width:120px; height:40px;">
 									<button type="button" class="btn-sm btn-primary" id="btnHomecode">우편번호</button><br>  
-									<input class="input--style-5" type="text" name="addr1" style="width:350px; height:40px; margin-top:10px;" readonly/>&nbsp;기본주소<br>
-									<input class="input--style-5" type="text" name="addr2" style="width:350px; height:40px; margin-top:10px;"/>상세주소 
+									<input class="input--style-5" type="text" id="addr1" name="addr1" style="width:350px; height:40px; margin-top:10px;" readonly/>&nbsp;&nbsp;기본주소<br>
+									<input class="input--style-5" type="text" id="addr2" name="addr2" style="width:350px; height:40px; margin-top:10px;"/>&nbsp;&nbsp;상세주소 
                                 </div> 
-                                
-<!--                                 <input class="input--style-5" type="text" id="m_address" name="m_address"> -->
                             </div>
                         </div>
                     </div>
@@ -240,6 +253,14 @@ $(function() {
                         <div class="name">은행</div>
                         <div class="value">
                             <div class="row row-refine">
+                           		<select name="m_bank"> 
+                               	   		<option value="삼성">삼성</option>
+                               	   		<option value="롯데">롯데</option>
+                               	   		<option value="신한">신한</option>
+                               	   		<option value="우리">우리</option>
+                               	   		<option value="국민">국민</option>
+                               	   		<option value="농협">농협</option>
+                               	 </select>
                                 <input class="input--style-5" type="text" id="m_bank" name="m_bank" maxlength="15">
                             </div>
                         </div>

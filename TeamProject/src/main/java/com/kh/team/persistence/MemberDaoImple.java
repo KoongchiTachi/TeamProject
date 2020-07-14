@@ -19,6 +19,7 @@ public class MemberDaoImple implements MemberDao {
 	@Inject
 	private SqlSession sqlSession;
 	
+	// 로그인 아이디, 비밀번호 체크
 	@Override
 	public MemberVo selectMemberByIdAndPw(String m_id, String m_pw) throws Exception {
 		Map<String, String> paramMap = new HashMap<>();
@@ -37,6 +38,7 @@ public class MemberDaoImple implements MemberDao {
 		sqlSession.insert(NAMESPACE + "insertMember", memberVo);
 	}
 
+	// 아이디 체크
 	@Override
 	public MemberVo selectMember(String m_id) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "selectMember", m_id);

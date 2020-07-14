@@ -17,7 +17,7 @@
 	
 	<insert id="insertMember">
 		insert into tbl_member(m_id, m_pw, m_name, m_phone, m_address, m_account, m_bank, m_email, m_grade)
-		values(#{m_id}, #{m_name}, #{m_phone}, #{m_address}, #{m_account}, #{m_bank}, #{m_grade})
+		values(#{m_id}, #{m_pw}, #{m_name}, #{m_phone}, #{m_address}, #{m_account}, #{m_bank}, #{m_email}, #{m_grade}) 
 	</insert>
 	
 	<select id="selectMember" resultType="MemberVo">

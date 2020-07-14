@@ -15,6 +15,7 @@ public class MemberServcieImple implements MemberService {
 	@Inject
 	private MemberDao memberDao;
 	
+	// 로그인 아이디, 비밀번호 체크
 	@Override
 	public boolean login(String m_id, String m_pw) throws Exception {
 		MemberVo memberVo = memberDao.selectMemberByIdAndPw(m_id, m_pw);
@@ -34,6 +35,7 @@ public class MemberServcieImple implements MemberService {
 		memberDao.insertMember(memberVo);
 	}
 
+	// 아이디 체크
 	@Override
 	public MemberVo selectMember(String m_id) throws Exception {
 		return memberDao.selectMember(m_id);

@@ -40,14 +40,6 @@ public class SjwController {
 		model.addAttribute("noticeVo", noticeVo);
 	}
 	
-	// 글목록
-//	@RequestMapping(value = "/noticeList", method=RequestMethod.GET)
-//	public String noticeList(Model model) throws Exception {
-//		List<NoticeVo> list = noticeService.noticeList();
-//		model.addAttribute("list", list);
-//		return "sjw/auction/noticeList";
-//	}
-	
 	// 글목록 - 페이징
 	@RequestMapping(value = "/noticeList", method=RequestMethod.GET)
 	public void noticeList(NoticePagingDto noticePagingDto, Model model) throws Exception {

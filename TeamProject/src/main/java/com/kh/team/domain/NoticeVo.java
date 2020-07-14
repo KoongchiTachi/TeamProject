@@ -10,7 +10,7 @@ public class NoticeVo {
 	private int view_cnt;
 
 	public NoticeVo() {
-		super();
+		super(); 
 	}
 
 	public NoticeVo(int nno, String n_title, String n_content, Date n_date, int view_cnt) {

@@ -2,7 +2,7 @@ package com.kh.team.domain;
 
 public class NoticePagingDto {
 	private int page = 1;
-	private int perPage = 10; // 한 페이지당 보여질 글의 갯수
+	private int perPage = 10;
 	private int startRow = 1;
 	private int endRow = 10;
 	private String keyword;
@@ -13,15 +13,9 @@ public class NoticePagingDto {
 	private final int PAGE_BLOCK = 10; // 페이지 블럭 수
 	
 	public void setPageInfo() {
-		// perPage : 10,     15
-		// 1, 1, 10          1, 1, 15
-		// 2, 11, 20         2, 16, 30
-		// 3, 21, 30         3, 31, 451
 		this.endRow = page * perPage;
 		this.startRow = this.endRow - this.perPage + 1;
 		
-		// 시작 페이지
-		// 현재 페이지 15 : 11 ~ 20
 		this.endPage = (int) (Math.ceil((double)page / PAGE_BLOCK) * PAGE_BLOCK);
 		this.startPage = this.endPage - PAGE_BLOCK + 1;
 	}

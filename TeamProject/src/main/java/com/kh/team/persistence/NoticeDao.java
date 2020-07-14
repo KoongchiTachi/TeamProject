@@ -5,26 +5,23 @@ import com.kh.team.domain.NoticePagingDto;
 import com.kh.team.domain.NoticeVo;
 
 public interface NoticeDao {
-
-	// 글목록
-	//public List<NoticeVo> noticeList() throws Exception;
 	
-	// 글목록 - 페이징
+	// 공지사항 목록 - 페이징
 	public List<NoticeVo> noticeList(NoticePagingDto noticePagingDto) throws Exception;
 	
 	// 게시글 수
 	public int getCount(NoticePagingDto noticePagingDto) throws Exception;
 	
-	// 글내용보기
+	// 공지사항 내용보기
 	public NoticeVo notice(int nno) throws Exception;
 	
-	// 글쓰기
+	// 공지사항 입력
 	public void insertNotice(NoticeVo noticeVo) throws Exception;
 	
-	// 글수정
+	// 공지사항 수정
 	public void updateNotice(NoticeVo noticeVo) throws Exception;
 	
-	// 삭제
+	// 공지사항 삭제
 	public void deleteNotice(int nno) throws Exception;
 	
 	// 조회수 증가

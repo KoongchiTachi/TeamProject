@@ -15,12 +15,6 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Inject
 	private SqlSession sqlSession;
-	
-	// 공지사항 목록
-//	@Override
-//	public List<NoticeVo> noticeList() throws Exception {
-//		return sqlSession.selectList(NAMESPACE + "noticeList");
-//	}
 
 	// 공지사항 내용보기
 	@Override
@@ -28,25 +22,22 @@ public class NoticeDaoImpl implements NoticeDao {
 		return sqlSession.selectOne(NAMESPACE + "notice", nno);
 	}
 
-	// 공지사항 쓰기
+	// 공지사항 입력
 	@Override
 	public void insertNotice(NoticeVo noticeVo) throws Exception {
 		sqlSession.insert(NAMESPACE + "insertNotice", noticeVo);
-
 	}
 
 	// 공지사항 수정
 	@Override
 	public void updateNotice(NoticeVo noticeVo) throws Exception {
 		sqlSession.update(NAMESPACE + "updateNotice", noticeVo);
-
 	}
 
 	// 공지사항 삭제
 	@Override
 	public void deleteNotice(int nno) throws Exception {
 		sqlSession.delete(NAMESPACE + "deleteNotice", nno);
-
 	}
 	
 	// 공지사항 조회수 증가
@@ -55,7 +46,7 @@ public class NoticeDaoImpl implements NoticeDao {
 		sqlSession.update(NAMESPACE + "updateViewCnt", nno);
 	}
 
-	// 글목록 - 페이징
+	// 공지사항 목록 - 페이징
 	@Override
 	public List<NoticeVo> noticeList(NoticePagingDto noticePagingDto) throws Exception {
 		List<NoticeVo> list = sqlSession.selectList(NAMESPACE + "noticeList", noticePagingDto);

@@ -16,12 +16,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Inject
 	private NoticeDao noticeDao;
 
-//	@Override
-//	public List<NoticeVo> noticeList() throws Exception {
-//		List<NoticeVo> list = noticeDao.noticeList();
-//		return list;
-//	}
-
+	// 공지사항 내용보기
 	@Override
 	public NoticeVo notice(int nno) throws Exception {
 		noticeDao.updateViewCnt(nno); // 공지사항 조회수
@@ -29,29 +24,34 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeVo;
 	}
 
+	// 공지사항 입력
 	@Override
 	public void insertNotice(NoticeVo noticeVo) throws Exception {
 		noticeDao.insertNotice(noticeVo);
 
 	}
 
+	// 공지사항 수정
 	@Override
 	public void updateNotice(NoticeVo noticeVo) throws Exception {
 		noticeDao.updateNotice(noticeVo);
 
 	}
 
+	// 공지사항 삭제
 	@Override
 	public void deleteNotice(int nno) throws Exception {
 		noticeDao.deleteNotice(nno);
 
 	}
 
+	// 공지사항 목록
 	@Override
 	public List<NoticeVo> noticeList(NoticePagingDto noticePagingDto) throws Exception {
 		return noticeDao.noticeList(noticePagingDto);
 	}
 
+	// 게시글 수
 	@Override
 	public int getCount(NoticePagingDto noticePagingDto) throws Exception {
 		return noticeDao.getCount(noticePagingDto);

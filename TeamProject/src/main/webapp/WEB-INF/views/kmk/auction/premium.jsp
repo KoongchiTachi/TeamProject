@@ -18,7 +18,15 @@
     .thead {  
 		background: #1E1F23;
         font-style: #fff;  
-		}  
+		}
+		
+	#myModal .modal-dialog {
+    -webkit-transform: translate(0,-50%);
+    -o-transform: translate(0,-50%);  
+    transform: translate(0,-50%);    
+    top: 50%; 
+    margin: 0 auto;
+	}	
 }
 </style>
 
@@ -55,7 +63,7 @@
 				var seconds2 = Math.floor((timeLeft2 % (1000 * 60)) / 1000);
 				if (seconds2 < 10) seconds2 = "0" + seconds2; 
 				 
-				document.getElementById("countdown"+ i +"").innerHTML = "<strong>마감</strong>" + days2 + "일 " + hours2 + "시 " + minutes2 + "분 "  + seconds2; 
+				document.getElementById("countdown"+ i +"").innerHTML = days2 + "일 " + hours2 + "시 " + minutes2 + "분 "  + seconds2; 
  
 				if (seconds2 <= 0) { 
 					clearInterval(timing2); 
@@ -121,36 +129,6 @@
                                 <td class="col-md-3"><i class="fa fa-usd" aria-hidden="true"></i> 대충 </td>
                                 <td class="col-md-3"><i class="fa fa-usd" aria-hidden="true"></i> 10,000,000 </td>
                             </tr>
-                           <!--  <tr>
-                                <td class="text-xs-right">
-                                <p>
-                                    <strong>Total Amount: </strong>
-                                </p>
-                                <p>
-                                    <strong>Late Fees: </strong>
-                                </p>
-							    <p>
-                                    <strong>Payable Amount: </strong>
-                                </p>
-							    <p>
-                                    <strong>Balance Due: </strong>
-                                </p>
-							    </td>
-                                <td>
-                                <p>
-                                    <strong><i class="fa fa-usd" aria-hidden="true"></i> 2569,00 </strong>
-                                </p>
-                                <p>
-                                    <strong><i class="fa fa-usd" aria-hidden="true"></i> 700,00</strong>
-                                </p>
-							    <p>
-                                    <strong><i class="fa fa-usd" aria-hidden="true"></i> 159,00 </strong>
-                                </p>
-							    <p>
-                                    <strong><i class="fa fa-usd" aria-hidden="true"></i> 5010,00 </strong>
-                                </p>
-							    </td>
-                            </tr> -->
                             <tr style="color: #F81D2D;">
                                 <td class="text-xs-right"><h4><strong>Total: </strong></h4></td>
                                 <td class="text-xs-left"><h4><strong><i class="fa fa-usd" aria-hidden="true"></i> 2365,00 </strong></h4></td>
@@ -166,7 +144,6 @@
     </div>
 </div>
 
-
 <div class="container-fluid" style="margin-top: 120;">
 	<div class="row">
 		<div class="col-md-12">
@@ -179,10 +156,10 @@
 	</div>
 </div>
 <div class="container-fluid">
-	<div class="row">
+	<div class="row justify-content-center"> 
 		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">   
-			<div class="tile">  
-				<div class="wrapper">   
+			<div class="tile">
+				<div class="wrapper">    
 					<div class="title">GUCCI</div>
 					<div class="banner-img">
 						<img src="/resources/img/bag/gucci01.jpg" alt="Image 1"> 

@@ -11,7 +11,7 @@ public class NoticeVo {
 
 	public NoticeVo() {
 		super(); 
-	} 
+	}
 
 	public NoticeVo(int nno, String n_title, String n_content, Date n_date, int view_cnt) {
 		super();

@@ -48,7 +48,7 @@ public class SjwController {
 		noticePagingDto.setTotalCount(totalCount);
 		List<NoticeVo> list = noticeService.noticeList(noticePagingDto);
 		model.addAttribute("list", list);
-		model.addAttribute("noticePagingDto", noticePagingDto); 
+		model.addAttribute("noticePagingDto", noticePagingDto);  
 	}
 	
 	@RequestMapping("/map")

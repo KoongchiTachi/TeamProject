@@ -15,7 +15,7 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Inject
 	private SqlSession sqlSession;
- 
+  
 	// 공지사항 내용보기
 	@Override
 	public NoticeVo notice(int nno) throws Exception {

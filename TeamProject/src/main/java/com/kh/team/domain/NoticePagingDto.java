@@ -10,7 +10,7 @@ public class NoticePagingDto {
 	private int totalPage; // 전체 페이지 수
 	private int startPage; // 페이지 블럭에서 시작 페이지
 	private int endPage; // 페이지 블럭에서 끝 페이지
-	private final int PAGE_BLOCK = 10; // 페이지 블럭 수 
+	private final int PAGE_BLOCK = 10; // 페이지 블럭 수
 	
 	public void setPageInfo() {
 		this.endRow = page * perPage;

@@ -40,7 +40,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public void deleteNotice(int nno) throws Exception {
 		noticeDao.deleteNotice(nno);
-	}
+ 	}
 
 	// 공지사항 목록
 	@Override

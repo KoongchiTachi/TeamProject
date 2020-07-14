@@ -22,6 +22,6 @@ public interface NoticeService {
 	public void updateNotice(NoticeVo noticeVo) throws Exception;
 	
 	// 공지사항 삭제
-	public void deleteNotice(int nno) throws Exception; 
+	public void deleteNotice(int nno) throws Exception;  
 
 }

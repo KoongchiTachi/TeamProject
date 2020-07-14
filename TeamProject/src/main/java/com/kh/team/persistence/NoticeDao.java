@@ -25,6 +25,6 @@ public interface NoticeDao {
 	public void deleteNotice(int nno) throws Exception;
 	
 	// 조회수 증가
-	public void updateViewCnt(int nno) throws Exception;
+	public void updateViewCnt(int nno) throws Exception; 
 	
 }

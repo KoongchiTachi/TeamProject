@@ -11,7 +11,7 @@ public class NoticeVo {
 
 	public NoticeVo() {
 		super(); 
-	}
+	} 
 
 	public NoticeVo(int nno, String n_title, String n_content, Date n_date, int view_cnt) {
 		super();
@@ -41,7 +41,7 @@ public class NoticeVo {
 	public String getN_content() {
 		return n_content;
 	}
-
+ 
 	public void setN_content(String n_content) {
 		this.n_content = n_content;
 	}

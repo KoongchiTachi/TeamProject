@@ -9,15 +9,18 @@
 }
 .contact-form textarea {
 	font-size: 20px;
- 	min-height: 50%;
- 	height : 130px;
- 	
+  	min-height: 50%;
+ 	height : 330px;
+ 	color: #5E5E5E;
  }
-.contact-form input {
+.contact-form input.subject {
+	border-bottom: 1px solid #000000;
+	margin-bottom: 100px;
 	font-size: 20px;
-	margin-bottom: 50px;
+	color: #5E5E5E;
 }
 </style>
+
 
 
 <section class="about-us spad">
@@ -31,18 +34,14 @@
                     </div>
                 </div>
             </div>
-            
-            
+             
             <div class="row">
                 <div class="col-lg-8">
                     <form action="#" class="contact-form">
                         <div class="row">
                             <div class="col-lg-12">
-                                <input type="text" class="subject" placeholder="코로나 19 바이러스 관련 안내입니다." readonly/>
-                                <textarea placeholder="케이옥션은 전시장의 위생관리를 위한 관리 시스템을 갖추고 안전 유지를 위해 최선을 다하고 있으니, 안심하시고 방문해 주시면 감사하겠습니다.
-아울러, 전시장 출입시 반드시 입구에서 소독제로 손을 세척해 주시고, 마스크 착용을 부탁드립니다.
-또 최근 해외 및 지방 방문 이력이 있으시거나 증상이 있으신 경우, 방문을 자제해 주시기를 부탁드립니다.
-조속히 현 사태가 안정되기를 기원하며, 오늘 하루도 건강하게 보내시기 바랍니다." readonly></textarea>
+                                <input type="text" class="subject" value="${noticeVo.n_title}" readonly/>
+                                <textarea readonly>${noticeVo.n_content}</textarea>
                             </div>
                         </div>
                     </form>

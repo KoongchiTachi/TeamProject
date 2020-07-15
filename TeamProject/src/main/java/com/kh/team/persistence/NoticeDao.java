@@ -13,7 +13,7 @@ public interface NoticeDao {
 	public int getCount(NoticePagingDto noticePagingDto) throws Exception;
 	
 	// 공지사항 내용보기
-	public NoticeVo notice(int nno) throws Exception;
+	public NoticeVo noticeRead(int nno) throws Exception;
 	
 	// 공지사항 입력
 	public void insertNotice(NoticeVo noticeVo) throws Exception;

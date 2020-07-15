@@ -1,7 +1,9 @@
 package com.kh.team.persistence;
 
 import java.util.List;
+
 import javax.inject.Inject;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -15,11 +17,24 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Inject
 	private SqlSession sqlSession;
+	
+	// 공지사항 목록 - 페이징
+	@Override
+	public List<NoticeVo> noticeList(NoticePagingDto noticePagingDto) throws Exception {
+		List<NoticeVo> list = sqlSession.selectList(NAMESPACE + "noticeList", noticePagingDto);
+		return list;
+	}
+
+	// 게시글 수
+	@Override
+	public int getCount(NoticePagingDto noticePagingDto) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getCount", noticePagingDto);
+	}
   
 	// 공지사항 내용보기
 	@Override
-	public NoticeVo notice(int nno) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + "notice", nno);
+	public NoticeVo noticeRead(int nno) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "noticeRead", nno);
 	}
 
 	// 공지사항 입력
@@ -44,19 +59,6 @@ public class NoticeDaoImpl implements NoticeDao {
 	@Override
 	public void updateViewCnt(int nno) throws Exception {
 		sqlSession.update(NAMESPACE + "updateViewCnt", nno);
-	}
-
-	// 공지사항 목록 - 페이징
-	@Override
-	public List<NoticeVo> noticeList(NoticePagingDto noticePagingDto) throws Exception {
-		List<NoticeVo> list = sqlSession.selectList(NAMESPACE + "noticeList", noticePagingDto);
-		return list;
-	}
-
-	// 게시글 수
-	@Override
-	public int getCount(NoticePagingDto noticePagingDto) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + "getCount", noticePagingDto);
 	}
 
 }

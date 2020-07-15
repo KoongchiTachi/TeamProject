@@ -110,7 +110,7 @@ $(function() {
 									<c:forEach items="${list}" var="noticeVo">
 										<tr>
 											<td>${noticeVo.nno}</td>
-											<td><a href="/sjw/auction/notice" class="n_title" data-nno="${noticeVo.nno}">${noticeVo.n_title}</a></td>
+											<td><a href="/sjw/auction/noticeRead" class="n_title" data-nno="${noticeVo.nno}">${noticeVo.n_title}</a></td>
 											<td>${noticeVo.n_date}</td>
 											<td>${noticeVo.view_cnt}</td>
 										</tr>

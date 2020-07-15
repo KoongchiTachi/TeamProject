@@ -5,13 +5,7 @@
 
 <mapper namespace="mappers.notice-mapper">
 	
- 	<!-- 글목록 --> 
-<!-- 	<select id="noticeList" resultType="NoticeVo"> -->
-<!-- 		select * from tbl_notice -->
-<!-- 		order by nno desc -->
-<!-- 	</select> -->
-	
-	<!-- 글목록 페이징 -->
+	<!-- 공지사항 목록 페이징 -->
 	<select id="noticeList" resultType="NoticeVo">
 		select *
 			from (select rownum rnum, a.* 
@@ -27,19 +21,19 @@
 		<include refid="search"></include>
 	</select>
 	
-	<!-- 글쓰기 -->
+	<!-- 공지사항 입력 -->
 	<insert id="insertNotice">
 		insert into tbl_notice (nno, n_title, n_content)
 		values (seq_nno.nextval, #{n_title}, #{n_content})	
 	</insert>
 	
-	<!-- 글내용 -->
-	<select id="notice" resultType="NoticeVo">
+	<!-- 공지사항 내용보기 -->
+	<select id="noticeRead" resultType="NoticeVo">
 		select * from tbl_notice
 		where nno = #{nno}
 	</select>
 	
-	<!-- 글수정 -->
+	<!-- 공지사항 수정 -->
 	<update id="updateNotice">
 		update tbl_notice set
 			n_title = #{n_title},
@@ -47,7 +41,7 @@
 		where nno = #{nno}
 	</update>
 	
-	<!-- 글삭제 -->
+	<!-- 공지사항 삭제 -->
 	<delete id="deleteNotice">
 		delete from tbl_notice
 		where nno = #{nno}
@@ -63,8 +57,8 @@
 	<!-- 검색 -->
 	<sql id="search">
 		<if test="keyword != null">
-					where n_title like '%' || #{keyword} || '%'
-					or n_content like '%' || #{keyword} || '%'
+			where n_title like '%' || #{keyword} || '%'
+			or n_content like '%' || #{keyword} || '%'
 		</if>
 	</sql>
 	

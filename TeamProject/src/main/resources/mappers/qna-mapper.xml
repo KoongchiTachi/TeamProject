@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.qna-mapper">
+
+	<!-- nextval 값 얻기 -->
+	<select id="getNextVal" resultType="int">
+		select seq_qno.nextval from dual
+	</select>
+	
+	<!-- QnA 목록 -->
+	<select id="qnaList" resultType="QnaVo">
+		select * from tbl_qna
+		order by qno desc
+	</select>
+	
+	<!-- QnA 내용보기 -->
+	<select id="qnaRead" resultType="QnaVo">
+		select * from tbl_qna
+		where qno = #{qno}
+	</select>
+	
+	<!-- QnA 입력 -->
+	<insert id="insertQna">
+		insert into tbl_qna (qno, m_id, q_kind, q_title, q_content, q_answer)
+		values (#{qno}, #{m_id}, #{q_kind}, #{q_title}, #{q_content}, #{q_answer})	
+	</insert>
+	
+	<!-- QnA 수정 -->
+	<update id="updateQna">
+		update tbl_qna set
+			m_id = #{m_id},
+			q_kind = #{q_kind},
+			q_title = #{q_title},
+			q_content = #{q_content},
+			q_answer = #{q_answer}
+		where qno = #{qno}
+	</update>
+	
+	<!-- QnA 삭제 -->
+	<delete id="deleteQna">
+		delete from tbl_qna
+		where qno = #{qno}
+	</delete>
+	
+	<!-- 첨부파일 추가 -->
+	<insert id="insertQUpload">
+		insert into tbl_qupload(file_name, qno)
+		values (#{file_name}, #{qno})
+	</insert>
+	
+</mapper>

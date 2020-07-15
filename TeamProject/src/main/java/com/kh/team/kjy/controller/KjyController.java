@@ -1,15 +1,22 @@
 package com.kh.team.kjy.controller;
 
+import java.util.Random;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.team.domain.MemberVo;
 import com.kh.team.service.MemberService;
+import com.kh.team.util.MailHandler;
 
 @Controller
 @RequestMapping("/kjy/member")
@@ -17,6 +24,8 @@ public class KjyController {
 
 	@Inject
 	private MemberService memberService;
+	@Autowired
+	private JavaMailSender mailSender;
 	
 	// 로그인 페이지
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -37,6 +46,22 @@ public class KjyController {
 			return "redirect:/kjy/member/myPage";
 		}
 		return "redirect:/kjy/member/login";
+	}
+	
+	// 이메일 인증
+	@ResponseBody
+	@RequestMapping(value = "/emailAuth", method = RequestMethod.GET)
+	public String emailAuth(@RequestParam String m_email) throws Exception {
+		int ran = new Random().nextInt(900000) + 100000;
+		String authCode = String.valueOf(ran);
+		MailHandler sendMail = new MailHandler(mailSender);
+		sendMail.setSubject("[회원가입 인증 코드 발급 안내]");
+		sendMail.setText(new StringBuffer().append("<h1>이메일인증</h1><br/>")
+				.append("Luxtion에 가입해주셔서 감사합니다. 귀하의 인증 코드는 "+ authCode +" 입니다.").toString());
+		sendMail.setFrom("whitebritz@gmail.com", "Luxtion");
+		sendMail.setTo(m_email);
+		sendMail.send();
+		return authCode;
 	}
 	
 	// 회원가입폼 이동

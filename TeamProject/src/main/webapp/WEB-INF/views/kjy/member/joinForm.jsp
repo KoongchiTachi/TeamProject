@@ -25,23 +25,23 @@
   	left: -90px;  
 }
 .mobile{
-	outline: none;
-  	margin: 0;
-    border: none;
-    -webkit-box-shadow: none;
- 	-moz-box-shadow: none;
- 	box-shadow: none;
- 	width: 23%;
- 	font-size: 14px;
- 	font-family: inherit;
-	background: #e5e5e5;
-	line-height: 50px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	padding: 0 -22px;
-	font-size: 16px;
-	color: #555;
+/* 	outline: none; */
+/*   	margin: 0; */
+/*     border: none; */
+/*     -webkit-box-shadow: none; */
+/*  	-moz-box-shadow: none; */
+/*  	box-shadow: none; */
+/*  	width: 23%; */
+/*  	font-size: 14px; */
+/*  	font-family: inherit; */
+/* 	background: #e5e5e5; */
+/* 	line-height: 50px; */
+/* 	-webkit-border-radius: 5px; */
+/* 	-moz-border-radius: 5px; */
+/* 	border-radius: 5px; */
+/* 	padding: 0 -22px; */
+/* 	font-size: 16px; */
+/* 	color: #555; */
 }
 select {
 	-webkit-appearance: none; /* 네이티브 외형 감추기 */ 
@@ -59,9 +59,39 @@ select {
 	appearance: none;
 }
 #btnHomecode {
+	cursor : pointer;
 	background: #f9ad81;
 	position: relative;
   	left: 20px; 
+}
+#btnHomecode:hover {
+	color : #000000;
+}
+#btnEmailAuth {
+	cursor : pointer;
+	margin-top : 7px;
+	height : 40px;
+	background: #f9ad81;
+	position: relative;
+  	left: 20px; 
+}
+#btnEmailAuth:hover {
+	color : #000000;
+}
+#btnAuthCode {
+	color : #ffffff; 
+	cursor : pointer;
+	height : 40px;
+	margin-top : 14px;
+	background: #f9ad81;
+	position: relative;
+  	left: 20px;
+}
+#btnAuthCode:hover {
+	color : #000000;
+}
+#spanAuthCode {
+  	margin-top : 20px;
 }
 </style>
 
@@ -161,9 +191,81 @@ $(function() {
 		var m_address = addr1.concat(addr2);
 		$("#m_address").val(m_address);
 	});
+	
+	// 이메일 인증코드 보내기
+	$("#btnEmailAuth").click(function() {
+		var url = "/kjy/member/emailAuth";
+		$.ajax({
+			"type" : "get",
+			"url" : url,
+			"data" : "m_email=" + $("#m_email").val(),
+			"success" : function(result) {
+				alert("사용가능한 이메일입니다. 인증 코드를 입력해주세요.");
+				$("m_email2").focus();
+				obj = jQuery.parseJSON(result);
+				$("#authCode").val(obj);
+			},
+			"error" : function(data) {
+				alert("에러가 발생했습니다.");
+				return false;
+			}
+		});
+	});
+	// 이메일 인증하기
+	$("#btnAuthCode").click(function() {
+		var authCode = $("#authCode").val();
+		var m_email2 = $("#m_email2").val();
+		if (authCode == "") {
+			$("#spanAuthCode").text("인증 번호를 입력해주세요.").css("color", "red");
+			return;
+		} else if (authCode == m_email2) {
+			$("#spanAuthCode").text("인증이 완료되었습니다.").css("color", "blue");
+		} else {
+			$("#spanAuthCode").text("인증 번호를 잘못 입력하셨습니다.").css("color", "red");
+			return;
+		} 
+	});
+	
+	// 공란 확인
+	$("#joinForm").submit(function() {
+		if ($("#m_id").val() == "") {
+			alert("아이디를 입력해주세요.");
+			return false;
+		}
+		if ($("#spanDup").text() == "") {
+			alert("아이디 중복 확인이 필요합니다.");
+			$("#btnJoinDupId").focus();
+			return false;
+		}
+		if ($("#m_pw").val() == "") {
+			alert("비밀번호를 입력해주세요.");
+			return false;
+		}
+		if ($("#m_name").val() == "") {
+			alert("이름을 입력해주세요.");
+			return false;
+		}
+		if ($("#m_phone").val() == "") {
+			alert("휴대전화를 입력해주세요.");
+			return false;
+		}
+		if ($("#m_address").val() == "") {
+			alert("주소를 입력해주세요.");
+			return false;
+		}
+		if ($("#m_bank").val() == "" || $("#m_account").val() == "") {
+			alert("은행정보와 계좌번호를 입력해주세요.");
+			return false;
+		}
+		if ($("#authCode").val() != "success") {
+			alert("인증코드를 확인해주세요.");
+			return false;
+		}
+	});
+	
 });
 </script>
-
+<input type="hidden" id="authCode">
 <div class="page-wrapper bg-gra-03 p-t-45 p-b-50" style="margin-top : 120px;">
     <div class="wrapper wrapper--w790">
         <div class="card card-5">
@@ -171,7 +273,7 @@ $(function() {
                 <h2 class="title">회원 가입</h2>
             </div>
             <div class="card-body">
-                <form action="/kjy/member/joinRun" method="post">
+                <form id="joinForm" action="/kjy/member/joinRun" method="post">
                 <input type="hidden" name="m_grade" value="g1001">
                 <input type="hidden" id="m_phone" name="m_phone">
                 <input type="hidden" id="m_address" name="m_address">
@@ -222,7 +324,7 @@ $(function() {
                         <div class="value">
                             <div class="row row-space">
                                <div class="input-group-desc">
-                               	   <select id="m_phone1" name="m_phone[]">
+                               	   <select id="m_phone1">
                                	   		<option value="010">010</option>
                                	   		<option value="011">011</option>
                                	   		<option value="016">016</option>
@@ -230,8 +332,8 @@ $(function() {
                                	   		<option value="018">018</option>
                                	   		<option value="019">019</option>
                                	   </select> - 
-                                   <input class="mobile" type="tel" id="m_phone2" name="m_phone[]" maxlength="4"> - 
-                                   <input class="mobile" type="tel" id="m_phone3" name="m_phone[]" maxlength="4">
+                                   <input class="input--style-5" type="tel" id="m_phone2" maxlength="4" style="width : 23%;"> - 
+                                   <input class="input--style-5" type="tel" id="m_phone3" maxlength="4" style="width : 23%;">
                                </div>
                             </div>
                         </div>
@@ -250,26 +352,11 @@ $(function() {
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="name">은행</div>
+                        <div class="name">은행, 계좌번호</div>
                         <div class="value">
                             <div class="row row-refine">
-                           		<select name="m_bank"> 
-                               	   		<option value="삼성">삼성</option>
-                               	   		<option value="롯데">롯데</option>
-                               	   		<option value="신한">신한</option>
-                               	   		<option value="우리">우리</option>
-                               	   		<option value="국민">국민</option>
-                               	   		<option value="농협">농협</option>
-                               	 </select>
-                                <input class="input--style-5" type="text" id="m_bank" name="m_bank" maxlength="15">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="name">계좌번호</div>
-                        <div class="value">
-                            <div class="row row-refine">
-                                <input class="input--style-5" type="text" id="m_account" name="m_account" maxlength="20">
+                                <input class="input--style-5" type="text" id="m_bank" name="m_bank" maxlength="15" style="width : 25%;" placeholder="ex)농협">
+                                <input class="input--style-5" type="text" id="m_account" name="m_account" maxlength="20" style="width : 40%; margin-left: 5px;" placeholder="ex)000-00-000000">
                             </div>
                         </div>
                     </div>
@@ -277,8 +364,14 @@ $(function() {
                         <div class="name">이메일</div>
                         <div class="value">
                             <div class="row row-refine">
-                                <input class="input--style-5" type="email" id="m_email" name="m_email">
+                                <input class="input--style-5" type="email" id="m_email" name="m_email" style="width : 50%;">
+                                <button type="button" class="btn-sm btn-primary" id="btnEmailAuth">인증번호 보내기</button>
                             </div>
+                            <div class="row row-refine">
+                                <input class="input--style-5" type="text" id="m_email2" style="width:50%; margin-top:10px;">
+                                <button type="button" class="btn-sm btn-primary" id="btnAuthCode">인증하기</button>
+                            </div>
+                        <span id="spanAuthCode"></span>
                         </div>
                     </div>
                     <div>

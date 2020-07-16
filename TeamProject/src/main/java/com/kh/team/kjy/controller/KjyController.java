@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.team.domain.MemberVo;
 import com.kh.team.service.MemberService;
@@ -26,27 +27,6 @@ public class KjyController {
 	private MemberService memberService;
 	@Autowired
 	private JavaMailSender mailSender;
-	
-	// 로그인 페이지
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public void loginGet() throws Exception {
-
-	}
-	
-	// 로그인 처리
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPost(String m_id, String m_pw, HttpSession session) throws Exception {
-		System.out.println("m_id:" + m_id);
-		System.out.println("m_pw:" + m_pw);
-		boolean result = memberService.login(m_id, m_pw);
-		System.out.println("result:" + result);
-		if (result == true) {
-			session.setAttribute("m_id", m_id);
-			// TODO 로그인 안하면 다른 페이지 접근 불가능은 나중에
-			return "redirect:/kjy/member/myPage";
-		}
-		return "redirect:/kjy/member/login";
-	}
 	
 	// 이메일 인증
 	@ResponseBody
@@ -87,11 +67,6 @@ public class KjyController {
 			return "unavailable";
 		}
 		return "available";
-	}
-	
-	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
-	public void myPage() throws Exception {
-		
 	}
 	
 	@RequestMapping(value = "/wishList", method = RequestMethod.GET)

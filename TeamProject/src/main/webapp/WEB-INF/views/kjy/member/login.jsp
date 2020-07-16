@@ -3,6 +3,15 @@
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <%@ include file="/WEB-INF/views/include/kjy/login_css.jsp" %>
 
+<script>
+$(function() {
+	var msg = "${msg}";
+	if (msg == "fail") {
+		alert("로그인에 실패했습니다.\n아이디와 비밀번호를 다시 확인해주세요.");
+	}
+});
+</script>
+
 <div class="limiter">
 	<div class="container-login100">
 		<div class="wrap-login100 p-t-50 p-b-90">
@@ -19,25 +28,19 @@
 					<span class="focus-input100"></span>
 				</div>
 				<div class="flex-sb-m w-full p-t-3 p-b-24">
-					<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							로그인 상태 유지
-						</label>
-					</div>
+<!-- 					<div class="contact100-form-checkbox"> -->
+<!-- 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"> -->
+<!-- 						<label class="label-checkbox100" for="ckb1"> -->
+<!-- 							로그인 상태 유지 -->
+<!-- 						</label> -->
+<!-- 					</div> -->
 					<div>
-						<a href="#" class="txt1">
-							비밀번호 찾기
-						</a>
+						<a href="/kjy/member/idPwFind" class="txt1" style="position : relative; left : 230px;">아이디/비밀번호 찾기</a> 
 					</div>
 				</div>
 				<div class="container-login100-form-btn m-t-17">
-					<button class="login100-form-btn" style="margin : 10px">
-						로그인
-					</button>
-					<a href="/kjy/member/joinForm" class="btn login100-form-btn" style="margin : 10px" id="btnJoin">
-						회원가입
-					</a>
+					<button class="login100-form-btn" style="margin : 10px">로그인</button>
+					<a href="/kjy/member/joinForm" class="btn login100-form-btn" style="margin : 10px" id="btnJoin">회원가입</a>
 				</div>
 			</form>
 		</div>

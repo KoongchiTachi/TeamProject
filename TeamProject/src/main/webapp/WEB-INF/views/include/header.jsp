@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -41,7 +42,15 @@
                     <a href="/"><img src="/resources/img/logo.png" alt=""></a>
                 </div>
                 <div class="nav-right">
-                    <a href="/kjy/member/login" class="primary-btn">Login</a> 
+                <c:choose>
+                	<c:when test="${not empty sessionScope.m_id}">
+	                	<a href="/kjy/member/myPage" class="primary-btn">My Page</a>
+	                	<a href="/kjy/member/logout" class="primary-btn" style="background-color : #9b3d07;">Logout</a>
+                	</c:when>
+                	<c:otherwise>
+                		<a href="/kjy/member/login" class="primary-btn">Login</a> 
+                	</c:otherwise>
+                </c:choose>
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>

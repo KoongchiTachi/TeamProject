@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style>
 .faq {min-height : 50vh;}
-.tab {width:100%; background:#F6F9FB;}
+.tab {width:100%;}
 .tab ul {text-align:center; font-size:0; line-height:0;}
 .tab ul li {display:inline; margin:0 0 0 -1px;}
 .tab ul li a {display:inline-block; font-size:20px; color:#333; letter-spacing:1.6px; padding:0 30px; margin:0 0 10px 0; border-left:1px #333 solid; border-right:1px #333 solid;}
 .tab ul li.on a {color:#F9AD81; font-weight:600;}
-/*******************************
-* Does not work properly if "in" is added after "collapse".
-*******************************/
+.info-box {
+	height: 100px;
+}
 .panel-group {
 	border-top: 1px solid #888888;
 	border-bottom: 1px solid #888888;
@@ -64,7 +65,49 @@ p {
 	padding-left: 250px;
 }
 </style>
+<script>
+$(function () {
+// 	var msg = "{msg}";
+// 	if (msg == "success") {
+// 		alert("FAQ 게시물 등록 성공");
+// 	}
+	
+	// 검색
+// 	$("#btnSearch").click(function () {
+// 		//var searchType = $("select[name=searchType]").val();
+// 		var keyword = $("#keyword").val();
+		
+// 		//$("#frmPage > input[name=searchType]").val(searchType);
+// 		$("#frmPage > input[name=keyword]").val(keyword);
+// 		$("#frmPage").submit();
+// 	});
+	
+	// 페이지 번호
+// 	$("a.page-link").click(function(e) {
+// 		e.preventDefault();
+// 		var page = $(this).attr("href").trim();
+// 		$("#frmPage > input[name=page]").val(page);
+// 		$("#frmPage").submit();
+// 	});
 
+	// 현재 페이지 active
+// 	$("a.page-link").each(function () {
+// 		var page = $(this).attr("href");
+// 		if (page == "${faqPagingDto.page}"){
+// 			$(this).parent().addClass("active");
+// 			return;
+// 		}
+// 	});
+});
+</script>
+
+<form id="frmPage" action="sjw/auction/faqList" method="get">
+	<input type="hidden" name="fno" value="${faqVo.fno}"/>
+	<input type="hidden" name="page" value="${faqPagingDto.page}"/>
+	<input type="hidden" name="perPage" value="${faqPagingDto.perPage}"/>
+	<input type="hidden" name="searchType" value="${faqPagingDto.searchType}"/>
+	<input type="hidden" name="keyword" value="${faqPagingDto.keyword}"/>
+</form>
 
 <section class="contact-section spad">
 	<div class="container faq">
@@ -93,65 +136,33 @@ p {
 			</div>
 
 			<div class="container demo">
-	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="headingOne">
-				<h4 class="panel-title">
-					<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						<i class="more-less glyphicon glyphicon-chevron-down"></i>
-						위탁은 어떻게 하나요?
-					</a>
-				</h4>
-			</div>
-			<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-				<div class="panel-body">
-					자세한 내용은 위탁안내 페이지를 참고 해주시기 바랍니다.
-				</div>
-			</div>
-		</div>
+				<div class="panel-group" id="accordion" role="tablist"
+					aria-multiselectable="true">
+					<c:forEach items="${list}" var="faqVo" >
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse"
+										data-parent="#accordion" href="#collapseOne"
+										aria-expanded="true" aria-controls="collapseOne"> <i
+										class="more-less glyphicon glyphicon-chevron-down"></i>${faqVo.f_title}
+									</a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse"
+								role="tabpanel" aria-labelledby="headingOne">
+								<div class="panel-body">${faqVo.f_content}</div>
+							</div>
+						</div>
+					</c:forEach>
 
-		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="headingTwo">
-				<h4 class="panel-title">
-					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						<i class="more-less glyphicon glyphicon-chevron-down"></i>
-						Collapsible Group Item #2
-					</a>
-				</h4>
-			</div>
-			<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-				<div class="panel-body">
-					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
 				</div>
 			</div>
-		</div>
-
-		<div class="panel panel-default">
-			<div class="panel-heading" role="tab" id="headingThree">
-				<h4 class="panel-title">
-					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						<span class="more-less glyphicon glyphicon-chevron-down"></span>
-						Collapsible Group Item #3
-					</a>
-				</h4>
-			</div>
-			<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-				<div class="panel-body">
-					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 			<div class="row">
 				<div class="col-md-5"></div>
 				<div class="col-md-2">
-					<div class="blog-pagination">
-						<a href="#">01.</a> <a href="#">02.</a> <a href="#">03.</a>
-					</div>
 				</div>
-				<div class="col-md-5"></div>
 			</div>
 		</div>
 	</div>
@@ -172,18 +183,5 @@ p {
 	</div>
 
 </section>
-
-<script>
-
-// function toggleIcon(e) {
-//     $(e.target)
-//         .prev('.panel-heading')
-//         .find(".more-less")
-//         .toggleClass('glyphicon-chevron-up glyphicon-chevron-down');
-// }
-//   	$('.panel-group').on('hidden.bs.collapse', toggleIcon);
-//  	$('.panel-group').on('shown.bs.collapse', toggleIcon);
-
-</script>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>

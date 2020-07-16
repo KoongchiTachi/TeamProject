@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.faq-mapper">
+
+	<!-- faq 목록 -->
+	<select id="faqList" resultType="FaqVo">
+		select * from tbl_faq
+		order by fno desc
+	</select>
+	
+	<!-- faq 목록 페이징 -->
+<!-- 	<select id="faqList" resultType="FaqVo"> -->
+<!-- 		select * -->
+<!-- 			from (select rownum rnum, a.*  -->
+<!--       			from (select * from tbl_faq -->
+<!--       			<include refid="search"></include> -->
+<!--         		order by fno desc) a) -->
+<!-- 		where rnum between #{startRow} and #{endRow} -->
+<!-- 	</select> -->
+	
+	<!-- 게시글수 -->
+<!-- 	<select id="getCount" resultType="int"> -->
+<!-- 		select count(*) from tbl_faq -->
+<!-- 		<include refid="search"></include> -->
+<!-- 	</select> -->
+	
+	<!-- faq 입력 -->
+	<insert id="insertFaq">
+		insert into tbl_faq (fno, f_title, f_content, f_cate)
+		values (seq_fno.nextval, #{f_title}, #{f_content}, #{f_cate})	
+	</insert>
+	
+	<!-- faq 내용보기 -->
+	<select id="faqRead" resultType="FaqVo">
+		select * from tbl_faq
+		where fno = #{fno}
+	</select>
+	
+	<!-- faq 수정 -->
+	<update id="updateFaq">
+		update tbl_faq set
+			f_title = #{f_title},
+			f_content = #{f_content}
+			f_cate = #{f_cate}
+		where fno = #{fno}
+	</update>
+	
+	<!-- faq 삭제 -->
+	<delete id="deleteFaq">
+		delete from tbl_faq
+		where fno = #{fno}
+	</delete>
+	
+ 	<!-- 검색 -->
+<!-- 	<sql id="search"> -->
+<!-- 		<if test="searchType != null"> -->
+<!-- 			<choose> -->
+<!-- 				<when test='searchType == "f1001"'> -->
+<!-- 					where f_title like '%' || #{keyword} || '%' -->
+<!-- 					or f_content like '%' || #{keyword} || '%' -->
+<!-- 				</when> -->
+<!-- 				<when test='searchType == "f1002"'> -->
+<!-- 					where f_title like '%' || #{keyword} || '%' -->
+<!-- 					or f_content like '%' || #{keyword} || '%' -->
+<!-- 				</when> -->
+<!-- 				<when test='searchType == "f1003"'> -->
+<!-- 					where f_title like '%' || #{keyword} || '%' -->
+<!-- 					or f_content like '%' || #{keyword} || '%' -->
+<!-- 				</when> -->
+<!-- 				<when test='searchType == "f1004"'> -->
+<!-- 					where f_title like '%' || #{keyword} || '%' -->
+<!-- 					or f_content like '%' || #{keyword} || '%' -->
+<!-- 				</when> -->
+<!-- 				<when test='searchType == "f1005"'> -->
+<!-- 					where f_title like '%' || #{keyword} || '%' -->
+<!-- 					or f_content like '%' || #{keyword} || '%' -->
+<!-- 				</when> -->
+<!-- 			</choose> -->
+<!-- 		</if> -->
+<!-- 	</sql> -->
+	
+</mapper>

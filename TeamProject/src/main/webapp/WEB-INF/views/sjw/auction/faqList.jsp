@@ -10,9 +10,7 @@
 .tab ul li {display:inline; margin:0 0 0 -1px;}
 .tab ul li a {display:inline-block; font-size:20px; color:#333; letter-spacing:1.6px; padding:0 30px; margin:0 0 10px 0; border-left:1px #333 solid; border-right:1px #333 solid;}
 .tab ul li.on a {color:#F9AD81; font-weight:600;}
-.info-box {
-	height: 100px;
-}
+.info-box {height: 100px;}
 .panel-group {
 	border-top: 1px solid #888888;
 	border-bottom: 1px solid #888888;
@@ -33,9 +31,7 @@
   background-color: #ffffff;
   border-color: #EEEEEE;
 }
-.panel-title {
-  font-size: 20px;
-}
+.panel-title {font-size: 20px;}
 .panel-title > a {
 	display: block;
 	padding: 15px;

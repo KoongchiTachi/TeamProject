@@ -32,8 +32,10 @@
 	<beans:bean id="uploadPath" class="java.lang.String">
 	
 <!-- 		<beans:constructor-arg value="D:\Team"/>  -->
- 		<beans:constructor-arg value="//192.168.0.225/Team"/>
+		<beans:constructor-arg value="//192.168.0.225/Team"/>
 	</beans:bean>
+	
+	
 	 
 	<!-- 인터셉터 빈 -->
 <!-- 	<beans:bean id="sampleInterceptor" class="com.kh.sample01.interceptor.SampleInterceptor"/> -->

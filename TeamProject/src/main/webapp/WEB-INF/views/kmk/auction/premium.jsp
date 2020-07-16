@@ -66,11 +66,13 @@
 				document.getElementById("countdown"+ i +"").innerHTML = days2 + "일 " + hours2 + "시 " + minutes2 + "분 "  + seconds2; 
  
 				if (seconds2 <= 0) { 
-					clearInterval(timing2); 
+					clearInterval(timing2); 	
 					document.getElementById("countdown" + i + "").innerHTML = "경매 종료";
 			}
 		}
 	}, 1000);
+	
+	
 </script> 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -143,7 +145,6 @@
         </div>
     </div>
 </div>
-
 <div class="container-fluid" style="margin-top: 120;">
 	<div class="row">
 		<div class="col-md-12">
@@ -180,7 +181,7 @@
 					</div>
 					<div class="footer">
 						<a href="#myModal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal">상품보기</a>
-						<a href="#" class="Cbtn Cbtn-primary">응찰하기</a>
+						<a href="/kmk/auction/bid" class="Cbtn Cbtn-primary">응찰하기</a>
 					</div>
 				</div>
 			</div>

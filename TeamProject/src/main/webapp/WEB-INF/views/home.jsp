@@ -16,9 +16,9 @@
             </div>
         </div>
     </section>
-    <!-- Hero Area Section End -->
+<!-- Hero Area Section End -->
 
-    <!-- Search Filter Section Begin -->
+<!-- Search Filter Section Begin -->
     <section class="search-filter">
         <div class="container">
             <div class="row">
@@ -64,7 +64,7 @@
             </div>
         </div>
     </section>
-    <!-- Search Filter Section End -->
+<!-- Search Filter Section End -->
 
 
 <%@ include file="./include/footer.jsp" %>

@@ -194,6 +194,13 @@ $(function() {
 	
 	// 이메일 인증코드 보내기
 	$("#btnEmailAuth").click(function() {
+		var m_email = $("#m_email").val();
+		var result = m_email.indexOf("@");
+		if (result == -1) {
+			alert("이메일의 형식을 확인해 주세요.");
+			return;
+		}
+		
 		var url = "/kjy/member/emailAuth";
 		$.ajax({
 			"type" : "get",
@@ -221,6 +228,7 @@ $(function() {
 		} else if (authCode == m_email2) {
 			$("#spanAuthCode").text("인증이 완료되었습니다.").css("color", "blue");
 			$("#keep").val("success");
+			$("#m_email2").prop("disabled", "false");
 		} else {
 			$("#spanAuthCode").text("인증 번호를 잘못 입력하셨습니다.").css("color", "red");
 			return;

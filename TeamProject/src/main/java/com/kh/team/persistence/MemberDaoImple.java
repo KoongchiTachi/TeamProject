@@ -54,4 +54,23 @@ public class MemberDaoImple implements MemberDao {
 		sqlSession.delete(NAMESPACE + "deleteMember", memberVo);
 	}
 
+	// 아이디 찾기
+	@Override
+	public MemberVo findId(String m_name, String m_email) throws Exception {
+		Map<String, String> param = new HashMap<>();
+		param.put("m_name", m_name);
+		param.put("m_email", m_email);
+		return sqlSession.selectOne(NAMESPACE + "findId", param);
+	}
+
+	// 비밀번호 찾기
+	@Override
+	public void findPwNew(String m_id, String m_email, String newPw) throws Exception {
+		Map<String, String> param = new HashMap<>();
+		param.put("m_id", m_id);
+		param.put("m_email", m_email);
+		param.put("newPw", newPw);
+		sqlSession.selectOne(NAMESPACE + "findPwNew", param);
+	}
+
 }

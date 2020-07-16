@@ -1,0 +1,20 @@
+package com.kh.team.service;
+
+import java.util.List;
+
+import com.kh.team.domain.ProductVo;
+
+public interface ProductService {
+	// 상품 등록
+	public void insertProduct() throws Exception;
+	// 상품 수정
+	public void updateProduct() throws Exception;
+	// 상품 삭제
+	public void deleteProduct() throws Exception;
+	// 상품 목록 ( 경매 종료 )
+	public List<ProductVo> endProduct(String p_state) throws Exception; 
+	// 상품 목록 ( 프리미엄 )
+	public List<ProductVo> premiumProduct() throws Exception;
+	// 상품 목록 ( 일반 )
+	public List<ProductVo> normalProduct() throws Exception;
+}

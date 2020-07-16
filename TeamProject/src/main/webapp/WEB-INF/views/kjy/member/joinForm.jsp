@@ -220,6 +220,7 @@ $(function() {
 			return;
 		} else if (authCode == m_email2) {
 			$("#spanAuthCode").text("인증이 완료되었습니다.").css("color", "blue");
+			$("#keep").val("success");
 		} else {
 			$("#spanAuthCode").text("인증 번호를 잘못 입력하셨습니다.").css("color", "red");
 			return;
@@ -257,7 +258,7 @@ $(function() {
 			alert("은행정보와 계좌번호를 입력해주세요.");
 			return false;
 		}
-		if ($("#authCode").val() != "success") {
+		if ($("#keep").val() == "") {
 			alert("인증코드를 확인해주세요.");
 			return false;
 		}
@@ -266,6 +267,7 @@ $(function() {
 });
 </script>
 <input type="hidden" id="authCode">
+<input type="hidden" id="keep">
 <div class="page-wrapper bg-gra-03 p-t-45 p-b-50" style="margin-top : 120px;">
     <div class="wrapper wrapper--w790">
         <div class="card card-5">

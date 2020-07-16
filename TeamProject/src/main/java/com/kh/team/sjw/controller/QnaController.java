@@ -1,12 +1,12 @@
 package com.kh.team.sjw.controller;
 
-import java.util.List;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.kh.team.domain.QnaVo;
 import com.kh.team.service.QnaService;
@@ -20,7 +20,10 @@ public class QnaController {
 	
 	// QnA 입력 폼
 	@RequestMapping(value = "/qnaForm", method = RequestMethod.GET)
-	public void qnaRegisterGet() throws Exception {
+	public void qnaRegisterGet(HttpServletRequest request, Model model) throws Exception {
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
+		model.addAttribute("m_id", m_id);
 	}
 	
 	// QnA 입력 처리

@@ -208,7 +208,7 @@ $(function () {
                     <form action="/sjw/auction/qnaForm" class="contact-form" id="contact-form" method="post">
                         <div class="row">
                             <div class="col-lg-12">
-                                <input type="text" name="m_id" placeholder="회원아이디 넘어가게 할 거예요"  value="${memberVo.m_id}" readonly>
+                                <input type="text" name="m_id" placeholder="회원아이디 넘어가게 할 거예요"  value="${m_id}" readonly>
                                 	<div class="check-form">
 										<div class="room-selector">
 												<select class="suit-select" name="q_kind" id="q_kind" required>

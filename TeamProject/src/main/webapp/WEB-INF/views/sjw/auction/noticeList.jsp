@@ -98,14 +98,14 @@ $(function() {
 						<div class="col-md-10">
 
 							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th>글번호</th>
-										<th>제목</th>
-										<th>작성일</th>
-										<th>조회수</th>
-									</tr>
-								</thead>
+<!-- 								<thead> -->
+<!-- 									<tr> -->
+<!-- 										<th>글번호</th> -->
+<!-- 										<th>제목</th> -->
+<!-- 										<th>작성일</th> -->
+<!-- 										<th>조회수</th> -->
+<!-- 									</tr> -->
+<!-- 								</thead> -->
 								<tbody>
 									<c:forEach items="${list}" var="noticeVo">
 										<tr>

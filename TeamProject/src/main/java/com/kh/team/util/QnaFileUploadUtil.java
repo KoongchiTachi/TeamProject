@@ -43,7 +43,7 @@ public class QnaFileUploadUtil {
 		BufferedImage destImage = Scalr.resize(srcImage,
 											   Scalr.Method.AUTOMATIC,
 											   Scalr.Mode.FIT_TO_HEIGHT,
-											   100);
+											   80);
 		File thumbFile = new File(thumbnailName);
 		ImageIO.write(destImage, getFormatName(thumbnailName), thumbFile);
 	}

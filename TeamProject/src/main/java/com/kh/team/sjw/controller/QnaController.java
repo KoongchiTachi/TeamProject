@@ -28,7 +28,7 @@ public class QnaController {
 	public String qnaRegisterPost(QnaVo qnaVo, RedirectAttributes rttr) throws Exception {
 		qnaService.insertQna(qnaVo);
 		rttr.addFlashAttribute("msg", "success");
-		return "redirect:/sjw/auction/qnaList";
+		return "redirect:/sjw/auction/faqList";
 	}
 	
 	/*

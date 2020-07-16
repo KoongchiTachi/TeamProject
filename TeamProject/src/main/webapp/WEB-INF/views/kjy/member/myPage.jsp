@@ -148,7 +148,7 @@ div p {
             <div class="col-md-6">
                 <div class="profile-head">
                             <h5 style="font-size : 40px;">
-                               	이름
+                               	${memberVo.m_name} 님의 MY PAGE
                             </h5>
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
@@ -183,7 +183,7 @@ div p {
                                         <label>아이디</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>m_id</p>
+                                        <p>${memberVo.m_id}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -191,7 +191,7 @@ div p {
                                         <label>이름</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>mname</p>
+                                        <p>${memberVo.m_name}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -199,7 +199,7 @@ div p {
                                         <label>전화번호</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>m_phone</p>
+                                        <p>${memberVo.m_phone}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -207,7 +207,7 @@ div p {
                                         <label>주소</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>m_address</p>
+                                        <p>${memberVo.m_address}</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -215,15 +215,15 @@ div p {
                                         <label>이메일</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>m_email</p>
+                                        <p>${memberVo.m_email}</p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label>계좌번호</label>
+                                        <label>은행 계좌번호</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>m_account</p>
+                                        <p>${memberVo.m_bank} ${memberVo.m_account}</p>
                                     </div>
                                 </div>
                     </div>
@@ -233,7 +233,7 @@ div p {
                                 <label>등급</label>
                             </div>
                             <div class="col-md-6">
-                                <p>g_name</p>
+                                <p>${memberVo.m_grade}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -241,7 +241,7 @@ div p {
                                 <label>거래 횟수</label>
                             </div>
                             <div class="col-md-6">
-                                <p>c_trade</p>
+                                <p>${memberVo.m_trade}</p>
                             </div>
                         </div>
                         <div class="row">

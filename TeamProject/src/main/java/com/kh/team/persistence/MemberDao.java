@@ -18,12 +18,6 @@ public interface MemberDao {
 	// 멤버 선택
 	public MemberVo selectMember(String m_id) throws Exception;
 	
-	// 아이디 찾기
-	public MemberVo findId(String m_name, String m_email) throws Exception;
-		
-	// 비밀번호 찾기
-	public void findPwNew(String m_id, String m_email, String newPw) throws Exception;
-	
 	// 멤버 수정
 	public void updateMember(MemberVo memberVo) throws Exception;
 	

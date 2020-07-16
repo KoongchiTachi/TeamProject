@@ -51,16 +51,4 @@ public class MemberServcieImple implements MemberService {
 		memberDao.deleteMember(memberVo); 
 	}
 
-	// 아이디 찾기
-	@Override
-	public MemberVo findId(String m_name, String m_email) throws Exception {
-		return memberDao.findId(m_name, m_email);
-	}
-
-	// 비밀번호 찾기
-	@Override
-	public void findPwNew(String m_id, String m_email, String newPw) throws Exception {
-		memberDao.findPwNew(m_id, m_email, newPw);
-	}
-
 }

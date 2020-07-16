@@ -25,17 +25,6 @@
 		where m_id = #{m_id}
 	</select>
 	
-	<select id="findId" resultType="MemberVo">
-		select * from tbl_member
-		where m_name = #{m_name} and m_email = #{m_email}
-	</select>
-	
-	<update id="findPwNew">
-		update tbl_member set
-			m_pw = #{newPw}
-		where m_id = #{m_id} and m_email = #{m_email}
-	</update>
-	
 	<update id="updateMember">
 		update tbl_member set
 			m_pw = #{m_pw},

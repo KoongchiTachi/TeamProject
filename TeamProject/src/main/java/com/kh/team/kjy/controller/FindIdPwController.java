@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.team.domain.MemberVo;
-import com.kh.team.service.MemberService;
+import com.kh.team.service.FindIdPwService;
 import com.kh.team.util.MailHandler;
 
 @Controller
@@ -20,7 +20,7 @@ import com.kh.team.util.MailHandler;
 public class FindIdPwController {
 
 	@Inject
-	private MemberService memberService;
+	private FindIdPwService findIdPwService;
 	@Autowired
 	private JavaMailSender mailSender;
 	
@@ -34,7 +34,7 @@ public class FindIdPwController {
 	@ResponseBody
 	@RequestMapping(value = "/findId", method = RequestMethod.POST)
 	public String findId(String m_name, String m_email) throws Exception {
-		MemberVo memberVo = memberService.findId(m_name, m_email);
+		MemberVo memberVo = findIdPwService.findId(m_name, m_email);
 		String m_id = memberVo.getM_id();
 		return m_id;
 	}
@@ -54,7 +54,7 @@ public class FindIdPwController {
 		sendMail.setTo(m_email);
 		sendMail.send();
 		
-		memberService.findPwNew(m_id, m_email, newPw);
+		findIdPwService.findPwNew(m_id, m_email, newPw);
 		return "success";
 	}
 	

@@ -249,7 +249,7 @@ div p {
                                 <label>할인율</label>
                             </div>
                             <div class="col-md-6">
-                                <p>g_discount</p>
+                                <p>g_discount</p>  
                             </div>
                         </div>
                     </div>

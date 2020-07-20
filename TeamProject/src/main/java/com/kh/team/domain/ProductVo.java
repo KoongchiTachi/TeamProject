@@ -2,6 +2,8 @@ package com.kh.team.domain;
 
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ProductVo {
 
 	private String pno;
@@ -12,9 +14,11 @@ public class ProductVo {
 	private int p_price;
 	private String p_info;
 	private String p_brand;
+//	@JsonFormat(pattern = "dd hh:mm:ss")  
 	private Timestamp p_until;
 	private String p_progress;
 	private String p_state;
+	private String b_name;
 
 	public String getPno() {
 		return pno;
@@ -104,11 +108,19 @@ public class ProductVo {
 		this.p_state = p_state;
 	}
 
+	public String getB_name() {
+		return b_name;
+	}
+
+	public void setB_name(String b_name) {
+		this.b_name = b_name;
+	}
+
 	@Override
 	public String toString() {
 		return "ProductVo [pno=" + pno + ", m_id=" + m_id + ", p_name=" + p_name + ", p_img=" + p_img + ", s_price="
 				+ s_price + ", p_price=" + p_price + ", p_info=" + p_info + ", p_brand=" + p_brand + ", p_until="
-				+ p_until + ", p_progress=" + p_progress + ", p_state=" + p_state + "]";
+				+ p_until + ", p_progress=" + p_progress + ", p_state=" + p_state + ", b_name=" + b_name + "]";
 	}
 
 }

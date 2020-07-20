@@ -85,7 +85,7 @@
                         <li><a href="#">Service</a>
                         	<ul class="drop-menu">
                                 <li><a href="/resources/about-us.html">위탁안내</a></li>
-                                <li><a href="/resources/rooms.html">위탁신청</a></li>
+                                <li><a href="/kmk/consign/consign_form">위탁신청</a></li> 
                             </ul>
                         </li>
                         <li><a href="#">About</a>

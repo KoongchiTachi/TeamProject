@@ -6,13 +6,15 @@
 <mapper namespace="mappers.product-mapper">
 	<!-- 상품 (프리미엄) -->
 	<select id="premiumProduct" resultType="ProductVo">
-		select * from tbl_product
-		where s_price >= #{premium}
+		select * from tbl_product p
+		join code_brand b on p_brand = b_code 
+		where s_price >= #{p_value}
 	</select>
 
 	<!-- 상품 (종료) -->
 	<select id="endProduct" resultType="ProductVo">
-		select * from tbl_product
+		select * from tbl_product p
+		join code_brand b on p_brand = b_code
 		where p_state = #{p_state}
 	</select>
 	
@@ -21,6 +23,5 @@
 		select * from tbl_product
 		where pno = #{pno}
 	</select>
-
 
 </mapper>

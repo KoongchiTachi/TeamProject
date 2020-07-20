@@ -12,7 +12,7 @@ $(function() {
 });
 </script>
 
-<div class="limiter">
+<div class="limiter" style="margin-top:120px;">
 	<div class="container-login100">
 		<div class="wrap-login100 p-t-50 p-b-90">
 			<form class="login100-form validate-form flex-sb flex-w" action="/kjy/member/login" method="post">

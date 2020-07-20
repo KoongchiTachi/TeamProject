@@ -15,7 +15,7 @@ public interface ProductService {
 	// 상품 목록 ( 경매 종료 )
 	public List<ProductVo> endProduct(String p_state) throws Exception; 
 	// 상품 목록 ( 프리미엄 )
-	public List<ProductVo> premiumProduct() throws Exception;
+	public List<ProductVo> premiumProduct(int p_value) throws Exception;
 	// 상품 목록 ( 일반 )
 	public List<ProductVo> normalProduct() throws Exception;
 	// 응찰 내역

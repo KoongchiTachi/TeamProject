@@ -15,10 +15,10 @@ public class ProductServiceImpl implements ProductService {
 
 	@Inject
 	private ProductDao productDao;
-	
+
 	@Override
 	public void insertProduct() throws Exception {
-		
+
 	}
 
 	@Override
@@ -38,8 +38,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductVo> premiumProduct() throws Exception {
-		return null;
+	public List<ProductVo> premiumProduct(int p_value) throws Exception {
+		List<ProductVo> list = productDao.premiumProduct(p_value);
+		return list;
 	}
 
 	@Override

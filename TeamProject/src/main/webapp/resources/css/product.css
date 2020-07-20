@@ -40,14 +40,14 @@ body {
 	border-radius:5px;
 	padding:20px 0px;
 	margin:10px 20px;
-	font-size:24px; 
-	color:#5aadef;
-	font-weight:600;	
+	font-size:26px;    
+	color:#5aadef; 
+	font-weight:650;
 	overflow:auto;
 }
 .dates div{
 	float:left;
-	width:50%;
+	width:100%; 
 	text-align:center;
 	position:relative;
 }
@@ -55,7 +55,7 @@ body {
 .stats strong{
 	display:block;
 	color:#adb8c2;
-	text-align:center;
+	text-align:center; 
 	font-size:22px;
 	font-weight:700;
 }

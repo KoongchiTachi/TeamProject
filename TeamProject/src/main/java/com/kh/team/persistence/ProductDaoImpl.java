@@ -41,8 +41,9 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public List<ProductVo> premiumProduct() throws Exception {
-		return null; 
+	public List<ProductVo> premiumProduct(int p_value) throws Exception {
+		List<ProductVo> list = sqlSession.selectList(NAMESPACE + "premiumProduct" , p_value);
+		return list;  
 	}
 
 	@Override

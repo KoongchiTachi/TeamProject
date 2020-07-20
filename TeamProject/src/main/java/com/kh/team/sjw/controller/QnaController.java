@@ -12,7 +12,7 @@ import com.kh.team.domain.QnaVo;
 import com.kh.team.service.QnaService;
 
 @Controller
-@RequestMapping("/sjw/auction")
+@RequestMapping("/sjw/contact")
 public class QnaController {
 	
 	@Inject

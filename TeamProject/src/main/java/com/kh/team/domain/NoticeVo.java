@@ -61,7 +61,7 @@ public class NoticeVo {
 	public void setView_cnt(int view_cnt) {
 		this.view_cnt = view_cnt;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "NoticeVo [nno=" + nno + ", n_title=" + n_title + ", n_content=" + n_content + ", n_date=" + n_date

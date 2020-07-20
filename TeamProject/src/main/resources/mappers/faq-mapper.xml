@@ -4,28 +4,50 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mappers.faq-mapper">
-
-	<!-- faq 목록 -->
-	<select id="faqList" resultType="FaqVo">
-		select * from tbl_faq
-		order by fno asc
-	</select>
 	
 	<!-- faq 목록 페이징 -->
-<!-- 	<select id="faqList" resultType="FaqVo"> -->
-<!-- 		select * -->
-<!-- 			from (select rownum rnum, a.*  -->
-<!--       			from (select * from tbl_faq -->
-<!--       			<include refid="search"></include> -->
-<!--         		order by fno desc) a) -->
-<!-- 		where rnum between #{startRow} and #{endRow} -->
-<!-- 	</select> -->
+	<select id="faqList" resultType="FaqVo">
+		select *
+			from (select rownum rnum, a.* 
+      			from (select * from tbl_faq
+        		order by fno asc) a)
+		where rnum between #{startRow} and #{endRow}
+	</select>
 	
 	<!-- 게시글수 -->
-<!-- 	<select id="getCount" resultType="int"> -->
-<!-- 		select count(*) from tbl_faq -->
-<!-- 		<include refid="search"></include> -->
-<!-- 	</select> -->
+	<select id="getCount" resultType="int">
+		select count(*) from tbl_faq
+	</select>
+	
+	<!-- faq f_cate = f1001 회원 관련 목록 -->
+	<select id="faq1" resultType="FaqVo">
+		select * from tbl_faq
+		where f_cate = 'f1001'
+	</select>
+	
+	<!-- faq f_cate = f1002 경매 관련 목록 -->
+	<select id="faq2" resultType="FaqVo">
+		select * from tbl_faq
+		where f_cate = 'f1002'
+	</select>
+	
+		<!-- faq f_cate = f1003 경매 관련 목록 -->
+	<select id="faq3" resultType="FaqVo">
+		select * from tbl_faq
+		where f_cate = 'f1003'
+	</select>
+	
+		<!-- faq f_cate = f1004 경매 관련 목록 -->
+	<select id="faq4" resultType="FaqVo">
+		select * from tbl_faq
+		where f_cate = 'f1004'
+	</select>
+	
+		<!-- faq f_cate = f1005 경매 관련 목록 -->
+	<select id="faq5" resultType="FaqVo">
+		select * from tbl_faq
+		where f_cate = 'f1005'
+	</select>
 	
 	<!-- faq 입력 -->
 	<insert id="insertFaq">

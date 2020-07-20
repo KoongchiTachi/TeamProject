@@ -97,7 +97,7 @@ public class NoticePagingDto {
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "PagingDto [page=" + page + ", perPage=" + perPage + ", startRow=" + startRow + ", endRow=" + endRow

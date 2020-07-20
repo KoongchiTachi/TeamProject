@@ -90,15 +90,15 @@
                         </li>
                         <li><a href="#">About</a>
                             <ul class="drop-menu">
-                                <li><a href="/sjw/auction/info">회사 소개</a></li>
-                                <li><a href="/sjw/auction/noticeList">공지사항</a></li>
-                                <li><a href="/sjw/auction/map">오시는 길</a></li>
+                                <li><a href="/sjw/about/info">회사 소개</a></li>
+                                <li><a href="/sjw/about/noticeList">공지사항</a></li>
+                                <li><a href="/sjw/about/map">오시는 길</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Contact</a>
                         	<ul class="drop-menu">
-                                <li><a href="/sjw/auction/faqList">FAQ</a></li>
-                                <li><a href="/sjw/auction/qnaForm">1:1 문의</a></li>
+                                <li><a href="/sjw/contact/faqList">FAQ</a></li>
+                                <li><a href="/sjw/contact/qnaForm">1:1 문의</a></li>
                             </ul>
                         </li>
                     </ul>

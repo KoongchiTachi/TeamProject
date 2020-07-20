@@ -15,7 +15,7 @@ import com.kh.team.domain.NoticeVo;
 import com.kh.team.service.NoticeService;
 
 @Controller
-@RequestMapping("/sjw/auction")
+@RequestMapping("/sjw/about")
 public class NoticeController {
 	
 	@Inject

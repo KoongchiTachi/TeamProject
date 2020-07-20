@@ -13,24 +13,47 @@ public class FaqServiceImpl implements FaqService {
 	
 	@Inject
 	private FaqDao faqDao;
-	
-	// faq 목록
-	@Override
-	public List<FaqVo> faqList() throws Exception {
-		List<FaqVo> list = faqDao.faqList();
-		return list;
-	}
 
 	// faq 목록 - 페이징
 	@Override
 	public List<FaqVo> faqList(FaqPagingDto faqPagingDto) throws Exception {
 		return faqDao.faqList(faqPagingDto);
 	}
-
 	// 게시글 수
 	@Override
 	public int getCount(FaqPagingDto faqPagingDto) throws Exception {
 		return faqDao.getCount(faqPagingDto);
+	}
+	
+	// faq f_cate = f1001 회원 관련 목록
+	@Override
+	public List<FaqVo> faq1() throws Exception {
+		List<FaqVo> list = faqDao.faq1();
+		return list;
+	}
+	// faq f_cate = f1002 경매 관련 목록
+	@Override
+	public List<FaqVo> faq2() throws Exception {
+		List<FaqVo> list = faqDao.faq2();
+		return list;
+	}
+	// faq f_cate = f1003 낙찰 관련 목록
+	@Override
+	public List<FaqVo> faq3() throws Exception {
+		List<FaqVo> list = faqDao.faq3();
+		return list;
+	}
+	// faq f_cate = f1004 위탁 관련 목록
+	@Override
+	public List<FaqVo> faq4() throws Exception {
+		List<FaqVo> list = faqDao.faq4();
+		return list;
+	}
+	// faq f_cate = f1005 기타 관련 목록
+	@Override
+	public List<FaqVo> faq5() throws Exception {
+		List<FaqVo> list = faqDao.faq5();
+		return list;
 	}
 	
 	// faq 내용보기

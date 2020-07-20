@@ -16,23 +16,42 @@ public class FaqDaoImpl implements FaqDao {
 	@Inject
 	private SqlSession sqlSession;
 	
-	// faq 목록
-	@Override
-	public List<FaqVo> faqList() throws Exception {
-		return sqlSession.selectList(NAMESPACE + "faqList");
-	}
-	
 	// faq 목록 - 페이징
 	@Override
 	public List<FaqVo> faqList(FaqPagingDto faqPagingDto) throws Exception {
-		List<FaqVo> list = sqlSession.selectList(NAMESPACE + "faqList");
+		List<FaqVo> list = sqlSession.selectList(NAMESPACE + "faqList", faqPagingDto);
 		return list;
 	}
-
 	// 게시글 수
 	@Override
 	public int getCount(FaqPagingDto faqPagingDto) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "getCount", faqPagingDto);
+	}
+	
+	// faq f_cate = f1001 회원 관련 목록
+	@Override
+	public List<FaqVo> faq1() throws Exception {
+		return sqlSession.selectList(NAMESPACE + "faq1");
+	}
+	// faq f_cate = f1002 경매 관련 목록
+	@Override
+	public List<FaqVo> faq2() throws Exception {
+		return sqlSession.selectList(NAMESPACE + "faq2");
+	}
+	// faq f_cate = f1003 낙찰 관련 목록
+	@Override
+	public List<FaqVo> faq3() throws Exception {
+		return sqlSession.selectList(NAMESPACE + "faq3");
+	}
+	// faq f_cate = f1004 위탁 관련 목록
+	@Override
+	public List<FaqVo> faq4() throws Exception {
+		return sqlSession.selectList(NAMESPACE + "faq4");
+	}
+	// faq f_cate = f1005 기타 관련 목록
+	@Override
+	public List<FaqVo> faq5() throws Exception {
+		return sqlSession.selectList(NAMESPACE + "faq5");
 	}
 
 	// faq 내용보기

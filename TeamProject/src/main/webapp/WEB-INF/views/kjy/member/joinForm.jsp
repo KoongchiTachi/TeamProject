@@ -173,23 +173,18 @@ $(function() {
 		var phone3 = $("#m_phone3").val();
 		var m_phone = phone1.concat(phone2, phone3);
 		$("#m_phone").val(m_phone);
+		console.log("m_phone:" + m_phone);
 	});
 	
 	// 주소
 	$("#btnHomecode").click(function() {
 		new daum.Postcode({
 			oncomplete: function(data) {
-				$('[name=homecode]').val(data.zonecode); // 우편번호 (5자리)
-				$('[name=addr1]').val(data.address);
-				$('[name=addr2]').val(data.buildingName);
+				$('[name=m_zip]').val(data.zonecode); // 우편번호 (5자리)
+				$('[name=m_address]').val(data.address);
+				$('[name=m_address2]').val(data.buildingName);
 			}
 		}).open();
-	});
-	$("#addr2").blur(function() {
-		var addr1 = $("#addr1").val();
-		var addr2 = $("#addr2").val();
-		var m_address = addr1.concat(addr2);
-		$("#m_address").val(m_address);
 	});
 	
 	// 이메일 인증코드 보내기
@@ -286,7 +281,6 @@ $(function() {
                 <form id="joinForm" action="/kjy/member/joinRun" method="post">
                 <input type="hidden" name="m_grade" value="g1001">
                 <input type="hidden" id="m_phone" name="m_phone">
-                <input type="hidden" id="m_address" name="m_address">
                     <div class="form-row m-b-55">
                         <div class="name">아이디</div>
                         <div class="value row row-space">
@@ -353,10 +347,10 @@ $(function() {
                         <div class="value">
                              <div class="row row-space">
                                 <div class="input-group-desc">
-                                    <input class="input--style-5" type="text" name="homecode" style="width:120px; height:40px;">
+                                    <input class="input--style-5" type="text" id="m_zip" name="m_zip" style="width:120px; height:40px;">
 									<button type="button" class="btn-sm btn-primary" id="btnHomecode">우편번호</button><br>  
-									<input class="input--style-5" type="text" id="addr1" name="addr1" style="width:350px; height:40px; margin-top:10px;" readonly/>&nbsp;&nbsp;기본주소<br>
-									<input class="input--style-5" type="text" id="addr2" name="addr2" style="width:350px; height:40px; margin-top:10px;"/>&nbsp;&nbsp;상세주소 
+									<input class="input--style-5" type="text" id="m_address" name="m_address" style="width:350px; height:40px; margin-top:10px;" readonly/>&nbsp;&nbsp;기본주소<br>
+									<input class="input--style-5" type="text" id="m_address2" name="m_address2" style="width:350px; height:40px; margin-top:10px;"/>&nbsp;&nbsp;상세주소 
                                 </div> 
                             </div>
                         </div>

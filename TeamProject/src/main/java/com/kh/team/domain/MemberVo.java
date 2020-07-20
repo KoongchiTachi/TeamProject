@@ -3,18 +3,22 @@ package com.kh.team.domain;
 import java.sql.Timestamp;
 
 public class MemberVo {
-	
+
 	private String m_id;
 	private String m_pw;
 	private String m_name;
-	private int m_phone;
+	private String m_phone;
 	private String m_address;
+	private String m_address2;
+	private String m_zip;
 	private String m_account;
 	private String m_bank;
 	private String m_email;
 	private Timestamp join_date;
 	private String m_grade;
 	private int m_trade;
+	private String g_name;
+	private int g_discount;
 
 	public String getM_id() {
 		return m_id;
@@ -40,11 +44,11 @@ public class MemberVo {
 		this.m_name = m_name;
 	}
 
-	public int getM_phone() {
+	public String getM_phone() {
 		return m_phone;
 	}
 
-	public void setM_phone(int m_phone) {
+	public void setM_phone(String m_phone) {
 		this.m_phone = m_phone;
 	}
 
@@ -54,6 +58,22 @@ public class MemberVo {
 
 	public void setM_address(String m_address) {
 		this.m_address = m_address;
+	}
+
+	public String getM_address2() {
+		return m_address2;
+	}
+
+	public void setM_address2(String m_address2) {
+		this.m_address2 = m_address2;
+	}
+
+	public String getM_zip() {
+		return m_zip;
+	}
+
+	public void setM_zip(String m_zip) {
+		this.m_zip = m_zip;
 	}
 
 	public String getM_account() {
@@ -104,11 +124,28 @@ public class MemberVo {
 		this.m_trade = m_trade;
 	}
 
+	public String getG_name() {
+		return g_name;
+	}
+
+	public void setG_name(String g_name) {
+		this.g_name = g_name;
+	}
+
+	public int getG_discount() {
+		return g_discount;
+	}
+
+	public void setG_discount(int g_discount) {
+		this.g_discount = g_discount;
+	}
+
 	@Override
 	public String toString() {
 		return "MemberVo [m_id=" + m_id + ", m_pw=" + m_pw + ", m_name=" + m_name + ", m_phone=" + m_phone
-				+ ", m_address=" + m_address + ", m_account=" + m_account + ", m_bank=" + m_bank + ", m_email="
-				+ m_email + ", join_date=" + join_date + ", m_grade=" + m_grade + ", m_trade=" + m_trade + "]";
+				+ ", m_address=" + m_address + ", m_address2=" + m_address2 + ", m_zip=" + m_zip + ", m_account="
+				+ m_account + ", m_bank=" + m_bank + ", m_email=" + m_email + ", join_date=" + join_date + ", m_grade="
+				+ m_grade + ", m_trade=" + m_trade + ", g_name=" + g_name + ", g_discount=" + g_discount + "]";
 	}
 
 }

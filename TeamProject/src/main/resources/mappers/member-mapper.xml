@@ -16,13 +16,15 @@
 	</select>
 	
 	<insert id="insertMember">
-		insert into tbl_member(m_id, m_pw, m_name, m_phone, m_address, m_account, m_bank, m_email, m_grade)
-		values(#{m_id}, #{m_pw}, #{m_name}, #{m_phone}, #{m_address}, #{m_account}, #{m_bank}, #{m_email}, #{m_grade}) 
+		insert into tbl_member(m_id, m_pw, m_name, m_phone, m_address, m_address2, m_zip, m_account, m_bank, m_email, m_grade)
+		values(#{m_id}, #{m_pw}, #{m_name}, #{m_phone}, #{m_address}, #{m_address2}, #{m_zip}, #{m_account}, #{m_bank}, #{m_email}, #{m_grade}) 
 	</insert>
 	
 	<select id="selectMember" resultType="MemberVo">
-		select * from tbl_member
-		where m_id = #{m_id}
+		select m.*, g.g_name, g.g_discount
+		from tbl_member m, code_grade g
+		where m.m_grade = g.g_code
+		and m.m_id = #{m_id}
 	</select>
 	
 	<update id="updateMember">
@@ -30,8 +32,11 @@
 			m_pw = #{m_pw},
 			m_phone = #{m_phone},
 			m_address = #{m_address},
+			m_address2 = #{m_address2},
+			m_zip = #{m_zip},
 			m_account = #{m_account},
-			m_bank = #{m_bank}
+			m_bank = #{m_bank},
+			m_email = #{m_email}
 		where m_id = #{m_id}
 	</update>
 	
@@ -39,5 +44,10 @@
 		delete from tbl_member
 		where m_id = #{m_id} and m_pw = #{m_pw}
 	</delete>
+	
+	<select id="myGname" resultType="String">
+		select * from tbl_member
+		where m_id = #{m_id}
+	</select>
 
 </mapper>

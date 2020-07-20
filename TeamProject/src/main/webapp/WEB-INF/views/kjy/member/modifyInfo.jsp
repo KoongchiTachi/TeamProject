@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -139,20 +140,105 @@ div p {
 .profile-head {
 	margin-top : 50px;
 }
+#btnHomecode {
+	background : #f9ad81;
+	cursor : pointer;
+	position: relative;
+	left: 10px; 
+	border: 3px solid #f9ad81;
+}
+#btnHomecode:hover {
+	color : #000000;
+}
+#home input {
+	border: 2px solid #eeedec;
+	-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  font-weight: 10; 
+}
+#m_pw2::placeholder {
+	font-size : 15px;
+}
 </style>
 
 <script>
 $(function() {
+	// 불러오기 
+	// 휴대전화
 	var m_phone = "${memberVo.m_phone}";
-	var phone1 = m_phone.substring(0, 3);
-	var phone2 = m_phone.substring(3,7);
-	var phone3 = m_phone.substring(7);
-	$("#phone").text(phone1 + "-" + phone2 + "-" + phone3);
+	var phone1 = m_phone.substring(3,7);
+	var phone2 = m_phone.substring(7);
+	$("#m_phone2").val(phone1);
+	$("#m_phone3").val(phone2);
+	
+	// 전송하기
+	
+	// 비밀번호 확인
+	$("#m_pw2").blur(function() {
+		var m_pw = $("#m_pw").val();
+		var m_pw2 = $("#m_pw2").val();
+		
+		if (m_pw != m_pw2) {
+			$("#spanPw").text("비밀번호가 일치하지 않습니다.").css("color", "orange");
+			$("#m_pw").focus();
+			return;
+		} else {
+			$("#spanPw").text("");
+		}
+	}); // 비밀번호 확인
+	
+	// 휴대전화
+	$("#m_phone3").blur(function() {
+		var phone1 = $("#m_phone1").val();
+		var phone2 = $("#m_phone2").val();
+		var phone3 = $("#m_phone3").val();
+		var m_phone = phone1.concat(phone2, phone3);
+		$("#m_phone").val(m_phone);
+		console.log("m_phone:" + m_phone);
+	});
+	
+	// 주소
+	$("#btnHomecode").click(function() {
+		new daum.Postcode({
+			oncomplete: function(data) {
+				$('[name=m_zip]').val(data.zonecode); // 우편번호 (5자리)
+				$('[name=m_address]').val(data.address);
+				$('[name=m_address2]').val(data.buildingName);
+			}
+		}).open();
+	});
+	
+	// 공란 확인
+	$("#modifyForm").submit(function() {
+		if ($("#m_pw").val() == "") {
+			alert("비밀번호를 입력해주세요.");
+			return false;
+		}
+		if ($("#m_phone").val() == "") {
+			alert("휴대전화를 입력해주세요.");
+			return false;
+		}
+		if ($("#m_address").val() == "") {
+			alert("주소를 입력해주세요.");
+			return false;
+		}
+		if ($("#m_email").val() == "") {
+			alert("이메일을 입력해주세요.");
+			return false;
+		}
+		if ($("#m_bank").val() == "" || $("#m_account").val() == "") {
+			alert("은행정보와 계좌번호를 입력해주세요.");
+			return false;
+		}
+	});
 });
 </script>
 
 <div class="container emp-profile" style="margin-top : 170px;">
-    <form method="post">
+    <form id="modifyForm" action="/kjy/member/modifyInfo" method="post">
+    <input type="hidden" name="m_id" value="${memberVo.m_id}">
+    <input type="hidden" id="m_phone" name="m_phone">
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
@@ -175,7 +261,7 @@ $(function() {
                 </div>
             </div>
             <div class="col-md-2">
-            	<a href="/kjy/member/modifyInfo" class="btn profile-edit-btn" name="btnModifyInfo">회원 정보 수정</a>
+            	<button type="submit" class="btn profile-edit-btn" name="btnModifyInfo">정보 변경</button>
             </div>
         </div>
         <div class="row">
@@ -204,7 +290,17 @@ $(function() {
                                         <label>이름</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <p>${memberVo.m_name}</p>
+                                        <p style="font-size: 20px;">${memberVo.m_name}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>비밀번호</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                      	<input type="password" id="m_pw" name="m_pw" style="width : 40%;" maxlength="30"/>
+                                      	<input type="password" id="m_pw2" style="width : 40%;" maxlength="30" placeholder="비밀번호 확인"/><br/>
+                                      	<span id="spanPw"></span>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -212,8 +308,16 @@ $(function() {
                                         <label>전화번호</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <p id="phone">
-                                        </p>
+                                        <select id="m_phone1" style="font-size: 20px;">
+	                               	   		<option value="010">010</option>
+	                               	   		<option value="011">011</option>
+	                               	   		<option value="016">016</option>
+	                               	   		<option value="017">017</option>
+	                               	   		<option value="018">018</option>
+	                               	   		<option value="019">019</option>
+	                               	   </select> - 
+	                                   <input type="tel" id="m_phone2" maxlength="4" style="width : 23%;"> - 
+	                                   <input type="tel" id="m_phone3" maxlength="4" style="width : 23%;">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -221,7 +325,10 @@ $(function() {
                                         <label>주소</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <p>${memberVo.m_address}&nbsp;${memberVo.m_address2}</p>
+                                        <input type="text" name="m_zip" style="width:120px; height:40px;" value="${memberVo.m_zip}">
+									<button type="button" class="btn-sm btn-primary" id="btnHomecode">우편번호</button><br>  
+									<input type="text" id="m_address" name="m_address" style="width:70%; height:40px; margin-top:10px; font-size: 20px;" value="${memberVo.m_address}" readonly/>&nbsp;&nbsp;<span style="font-size: 15px;">기본주소</span><br>
+									<input type="text" id="m_address2" name="m_address2" style="width:70%; height:40px; margin-top:10px; font-size: 20px;" value="${memberVo.m_address2}"/>&nbsp;&nbsp;<span style="font-size: 15px;">상세주소</span> 
                                     </div>
                                 </div>
                                 <div class="row">
@@ -229,7 +336,7 @@ $(function() {
                                         <label>이메일</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <p>${memberVo.m_email}</p>
+                                       	<input type="email" id="m_email" name="m_email" value="${memberVo.m_email}">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -237,7 +344,8 @@ $(function() {
                                         <label>은행 계좌번호</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <p>${memberVo.m_bank} ${memberVo.m_account}</p>
+                                        <input type="text" id="m_bank" name="m_bank" style="width: 30%; font-size: 20px;" value="${memberVo.m_bank}">
+                                        <input type="text" id="m_account" name="m_account" style="width: 65%;" value="${memberVo.m_account}">
                                     </div>
                                 </div>
                     </div>

@@ -41,6 +41,7 @@ public class MemberServcieImple implements MemberService {
 		return memberDao.selectMember(m_id);
 	}
 
+	// 회원정보 수정
 	@Override
 	public void updateMember(MemberVo memberVo) throws Exception {
 		memberDao.updateMember(memberVo);

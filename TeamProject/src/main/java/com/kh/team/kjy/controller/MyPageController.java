@@ -27,9 +27,19 @@ public class MyPageController {
 		model.addAttribute("memberVo", memberVo);
 	}
 	
-	@RequestMapping(value = "/myPage", method = RequestMethod.POST)
-	public void myPagePost() throws Exception {
-		
+	@RequestMapping(value = "/modifyInfo", method = RequestMethod.GET)
+	public void modifyInfoGet(HttpServletRequest request, Model model) throws Exception {
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
+		MemberVo memberVo = memberService.selectMember(m_id);
+		model.addAttribute("memberVo", memberVo);
+	}
+	
+	@RequestMapping(value = "/modifyInfo", method = RequestMethod.POST)
+	public String modifyInfoPost(MemberVo memberVo) throws Exception {
+		System.out.println("memberVo:" + memberVo);
+		memberService.updateMember(memberVo);
+		return "redirect:/kjy/member/myPage";
 	}
 	
 }

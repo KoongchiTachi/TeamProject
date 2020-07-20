@@ -44,6 +44,7 @@ public class MemberDaoImple implements MemberDao {
 		return sqlSession.selectOne(NAMESPACE + "selectMember", m_id);
 	}
 
+	// 회원정보 수정
 	@Override
 	public void updateMember(MemberVo memberVo) throws Exception {
 		sqlSession.update(NAMESPACE + "updateMember", memberVo);

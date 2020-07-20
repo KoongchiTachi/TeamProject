@@ -15,19 +15,22 @@ import com.kh.team.service.ProductService;
 
 @Controller
 @RequestMapping(value = "/kmk/auction")  
-public class KmkController {
+public class AuctionController {
 	
 	@Inject
 	private ProductService productService;
 	
 	// 프리미엄 상품 페이지
 	@RequestMapping(value = "/premium", method = RequestMethod.GET)
-	public String premiumAuction() throws Exception {
+	public String premiumAuction(Model model) throws Exception {
+		int p_value = 700000;
+		List<ProductVo> list = productService.premiumProduct(p_value); 
+		model.addAttribute("list", list);
 		return "/kmk/auction/premium";  
 	}
 	
 	// 일반 상품 페이지
-	@RequestMapping(value="/latest", method = RequestMethod.GET)
+	@RequestMapping(value="/latest", method = RequestMethod.GET) 
 	public String latestAuction() throws Exception {
 		return "/kmk/auction/latest";
 	} 

@@ -83,6 +83,10 @@ var {
 .figcaption {
 	margin : auto
 }
+
+.title {
+	text-transform : uppercase;
+} 
 </style>
 
 <div class="container" style="margin-top: 150px;">
@@ -108,18 +112,8 @@ var {
 									<img src="/resources/img/bag/${product.p_img}" class="img-thumbnail img-sm">
 								</div>
 								<figcaption class="media-body figcaption">
-									<c:choose> 
-										<c:when test="${product.p_brand == '1001'}">
-											<h6 class="title text-truncate">GUCCI</h6>
-										</c:when>
-										<c:when test="${product.p_brand == '1002'}">
-											<h6 class="title text-truncate">PRADA</h6>
-										</c:when>
-										<c:when test="${product.p_brand == '1003'}">
-											<h6 class="title text-truncate">CHANEL</h6>
-										</c:when>
-									</c:choose>
-									<dl class="param param-inline small">
+									<h6 class="title text-truncate">${product.b_name}</h6>
+									<dl class="param param-inline small"> 
 										<dt>${product.p_info}</dt>
 										<dd></dd>
 									</dl>

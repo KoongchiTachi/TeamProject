@@ -161,8 +161,8 @@ h2.heading {
 .controls button:hover + label,
 .controls select:focus + label,
 .controls select:hover + label {
-  color: #bdcc00;
-  cursor: text;
+  color: #F9AD81;
+  cursor: text; 
 }
 .controls .fa-sort {
   position: absolute;
@@ -205,14 +205,14 @@ h2.heading {
 
 button {
   cursor: pointer;
-  background-color: #1b3d4d;
+  background-color: #F9AD81; 
   border: none;
   color: #fff;
   padding: 12px 0;
-  float: right;
-}
+  float: right; 
+} 
 button:hover {
-  background-color: #224c60;
+  background-color: #9b3d07;
 }
 
 .clear:after {

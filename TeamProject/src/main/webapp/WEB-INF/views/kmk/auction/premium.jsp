@@ -42,7 +42,11 @@
 	.offset-md-3 {
 		margin-left: auto; 
 	}
-}
+	
+	.title {
+		text-transform: uppercase;
+	}
+} 
 </style>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -53,43 +57,6 @@
 
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 
-<script>
-	// 타이머
-	var yourDateToGo2 = new Date();
-	var yD = yourDateToGo2.getDate() + 3;
-// 	console.log(yD);
-	yourDateToGo2.setDate(yourDateToGo2.getDate() + 3);
-	
-	var timing2 = setInterval(
-		function() {
-			for (var i = 0 ; i <= 7 ; i++) { 
-				var currentDate2 = new Date().getTime();
-// 				console.log("cD : ", currentDate2);
-				var timeLeft2 = yourDateToGo2 - currentDate2;
-// 				console.log("tD : ", timeLeft2); 
-				var days2 = Math.floor(timeLeft2 / (1000 * 60 * 60 * 24));
-				if (days2 < 10) days2 = "0" + days2;
-				
-				var hours2 = Math.floor((timeLeft2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-				if (hours2 < 10) hours2 = "0" + hours2;
-				
-				var minutes2 = Math.floor((timeLeft2 % (1000 * 60 * 60)) / (1000 * 60));
-				if (minutes2 < 10) minutes2 = "0" + minutes2;
-				
-				var seconds2 = Math.floor((timeLeft2 % (1000 * 60)) / 1000);
-				if (seconds2 < 10) seconds2 = "0" + seconds2; 
-				 
-				/* document.getElementById("countdown"+ i +"").innerHTML = days2 + "일 " + hours2 + "시 " + minutes2 + "분 "  + seconds2;  */
- 
-				if (seconds2 <= 0) { 
-					clearInterval(timing2); 	
-					/* document.getElementById("countdown" + i + "").innerHTML = "경매 종료"; */
-			}
-		}
-	}, 1000);
-	
-	
-</script> 
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -168,127 +135,8 @@
 		</div>
 	</div>
 </div>
-<div class="container-fluid">
-	<div class="row justify-content-center"> 
-		<div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch"> 
-			<div class="tile">
-				<div class="wrapper">    
-					<div class="title">GUCCI</div>
-					<div class="banner-img">
-						<img src="/resources/img/bag/molemole.jpg" alt="Image 1"> 
-					</div>
-					<div class="dates">    
-						<div class="start" id="countdown0" style="margin-left: 100px;">  
-						</div>
-					</div>
-					<div class="stats s_price">
-						<div>
-							<strong>시작가</strong> 10,000,000원
-						</div>
-					</div>
-					<div class="stats h_price">
-						<div>
-							<strong>현재 입찰가</strong> 15,000,000원
-						</div>
-					</div>
-					<div class="footer"> 
-						<a href="#myModal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal">상품보기</a>
-						<a href="/kmk/auction/bids" class="Cbtn Cbtn-primary">응찰하기</a>
-					</div>
-				</div>
-			</div>
-		</div>
 
-		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-			<div class="tile">
-				<div class="wrapper">
-					<div class="title">GUCCI</div> 
-					<div class="banner-img">
-						<img src="/resources/img/bag/molemole2.jpg" alt="Image 1">
-					</div>
-					<div class="dates">   
-						<div class="start" id="countdown1" style="margin-left: 100px;">  
-						</div>
-					</div>
-					<div class="stats">
-						<div>
-							<strong>시작가</strong> 10,000,000원
-						</div>
-					</div>
-					<div class="stats">
-						<div>
-							<strong>최고 입찰가</strong> 15,000,000원
-						</div>
-					</div>
-					<div class="footer">
-						<a href="#" class="Cbtn Cbtn-primary">상품보기</a> <a href="#"
-							class="Cbtn Cbtn-danger">응찰하기</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-3 ">
-			<div class="tile">
-				<div class="wrapper">
-					<div class="title">GUCCI</div>
-					<div class="banner-img">
-						<img src="/resources/img/bag/molemole3.jpg" alt="Image 1">
-					</div>
-					<div class="dates">   
-						<div class="start" id="countdown2" style="margin-left: 100px;">  
-						</div>
-					</div>
-					<div class="stats">
-						<div>
-							<strong>시작가</strong> 10,000,000원
-						</div>
-					</div>
-					<div class="stats">
-						<div>
-							<strong>최고 입찰가</strong> 15,000,000원
-						</div>
-					</div>
-					<div class="footer">
-						<a href="#" class="Cbtn Cbtn-primary">상품보기</a> <a href="#"
-							class="Cbtn Cbtn-danger">응찰하기</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-			<div class="tile">
-				<div class="wrapper">
-					<div class="title">GUCCI</div> 
-					<div class="banner-img">
-						<img src="/resources/img/bag/gucci04.jpg" alt="Image 1">
-					</div> 
-					<div class="dates">   
-						<div class="start" id="countdown3" style="margin-left: 100px;">  
-						</div>
-					</div>
-					<div class="stats">
-						<div>
-							<strong>시작가</strong> 10,000,000원
-						</div>
-					</div>
-					<div class="stats">
-						<div>
-							<strong>최고 입찰가</strong> 15,000,000원
-						</div> 
-					</div>
-					<div class="footer">
-						<a href="#" class="Cbtn Cbtn-primary">상품보기</a> <a href="#"
-							class="Cbtn Cbtn-danger">응찰하기</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="container mt-5"> 
+<div class="container mt-5" style="max-width: 1440px;">  
 
   
 	<!--Section: Content-->
@@ -306,27 +154,32 @@
 		<div class="row">
 
 			<!-- Grid column -->
+			<c:forEach items="${list}" var="premium"> 
 			<div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch">
 				<!-- Card -->
 				<div class="tile align-items-center">
 					<!-- Card image -->
-					<div class="wrapper">    
-					<div class="title">GUCCI</div>
-					<div class="banner-img">
-						<img src="/resources/img/bag/molemole.jpg" alt="Image 1"> 
+					<div class="wrapper">
+					<div class="title">${premium.b_name}</div> 
+					<div class="banner-img"> 
+						<img src="/resources/img/bag/${premium.p_img}" alt="Image 1"> 
 					</div>
-					<div class="dates">    
-						<div class="start" id="countdown0" style="margin-left: 100px;">  
-						</div>
+					
+					<div class="dates">
+						<div class="start" id="countdown">${premium.p_until}</div>
 					</div>
 					<div class="stats s_price">
 						<div>
-							<strong>시작가</strong> 10,000,000원
-						</div>
+							<strong>시작가</strong>
+							<fmt:setLocale value="ko_KR" />
+							<fmt:formatNumber type="currency" value="${premium.s_price}" />
+						</div> 
 					</div> 
 					<div class="stats h_price">
 						<div>
-							<strong>현재 입찰가</strong> 15,000,000원
+							<strong>현재 입찰가</strong> 
+							<fmt:setLocale value="ko_KR" /> 
+							<fmt:formatNumber type="currency" value="${premium.p_price}" />
 						</div>
 					</div>
 					<div class="footer">
@@ -338,120 +191,51 @@
 				</div>
 				<!-- Card -->
 			</div>
-			<!-- Grid column -->
-
-			<!-- Grid column -->
-			<div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch">
-				<!-- Card -->
-				<div class="tile align-items-center">
-					<!-- Card image -->
-					<div class="wrapper">    
-					<div class="title">GUCCI</div>
-					<div class="banner-img">
-						<img src="/resources/img/bag/molemole.jpg" alt="Image 1"> 
-					</div>
-					<div class="dates">    
-						<div class="start" id="countdown0" style="margin-left: 100px;">  
-						</div>
-					</div>
-					<div class="stats s_price">
-						<div>
-							<strong>시작가</strong> 10,000,000원
-						</div>
-					</div>
-					<div class="stats h_price">
-						<div>
-							<strong>현재 입찰가</strong> 15,000,000원
-						</div>
-					</div>
-					<div class="footer">
-						<a href="#myModal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal">상품보기</a>
-						<a href="/kmk/auction/bids" class="Cbtn Cbtn-primary">응찰하기</a>
-					</div>
-				</div>
-					<!-- Card content -->
-				</div>
-				<!-- Card -->
-			</div>
-			<!-- Grid column -->
-
-			<!-- Grid column -->
-			<div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch">
-				<!-- Card -->
-				<div class="tile align-items-center">
-					<!-- Card image -->
-					<div class="wrapper">    
-					<div class="title">GUCCI</div>
-					<div class="banner-img">
-						<img src="/resources/img/bag/molemole.jpg" alt="Image 1"> 
-					</div>
-					<div class="dates">    
-						<div class="start" id="countdown0" style="margin-left: 100px;">  
-						</div>
-					</div>
-					<div class="stats s_price">
-						<div>
-							<strong>시작가</strong> 10,000,000원
-						</div>
-					</div>
-					<div class="stats h_price">
-						<div>
-							<strong>현재가</strong> 15,000,000원 
-						</div>
-					</div>
-					<div class="footer">
-						<a href="#myModal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal">상품보기</a>
-						<a href="/kmk/auction/bids" class="Cbtn Cbtn-primary">응찰하기</a>
-					</div>
-				</div>
-					<!-- Card content -->
-				</div>
-				<!-- Card -->
-			</div>
-			<!-- Grid column -->
-
-			<!-- Grid column -->
-			<div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch">
-				<!-- Card -->
-				<div class="tile align-items-center">
-					<!-- Card image -->
-					<div class="wrapper">    
-					<div class="title">GUCCI</div>
-					<div class="banner-img">
-						<img src="/resources/img/bag/molemole.jpg" alt="Image 1"> 
-					</div>
-					<div class="dates">    
-						<div class="start" id="countdown0" style="margin-left: 100px;">  
-						</div>
-					</div>
-					<div class="stats s_price">
-						<div>
-							<strong>시작가</strong> 10,000,000원
-						</div>
-					</div>
-					<div class="stats h_price">
-						<div>
-							<strong>현재 입찰가</strong> 15,000,000원
-						</div>
-					</div>
-					<div class="footer">
-						<a href="#myModal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal">상품보기</a>
-						<a href="/kmk/auction/bids" class="Cbtn Cbtn-primary">응찰하기</a>
-					</div>
-				</div>
-					<!-- Card content -->
-				</div>
-				<!-- Card -->
-			</div>
-			<!-- Grid column -->
-
+			</c:forEach>
+			<!-- Grid column --> 
 		</div>
 		<!-- Grid row -->
 
 	</section>
 	<!--Section: Content-->
 
-
 </div>
+
+<script>
+	// 타이머
+	var p_until = $("#countdown").text; 
+	console.log(p_until);
+	var yourDateToGo2 = new Date();
+	var yD = yourDateToGo2.getDate() + 3;
+// 	console.log(yD);
+	yourDateToGo2.setDate(yourDateToGo2.getDate() + 3);
+	
+	var timing2 = setInterval(
+		function() {
+				var currentDate2 = new Date().getTime();
+// 				console.log("cD : ", currentDate2);
+				var timeLeft2 = yourDateToGo2 - currentDate2;
+// 				console.log("tD : ", timeLeft2); 
+				var days2 = Math.floor(timeLeft2 / (1000 * 60 * 60 * 24));
+				if (days2 < 10) days2 = "0" + days2;
+				
+				var hours2 = Math.floor((timeLeft2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				if (hours2 < 10) hours2 = "0" + hours2;
+				
+				var minutes2 = Math.floor((timeLeft2 % (1000 * 60 * 60)) / (1000 * 60));
+				if (minutes2 < 10) minutes2 = "0" + minutes2;
+				
+				var seconds2 = Math.floor((timeLeft2 % (1000 * 60)) / 1000);
+				if (seconds2 < 10) seconds2 = "0" + seconds2; 
+				 
+// 				document.getElementById("countdown"+ i +"").innerHTML = days2 + "일 " + hours2 + "시 " + minutes2 + "분 "  + seconds2;
+ 
+				if (seconds2 <= 0) { 
+					clearInterval(timing2); 	
+// 					 document.getElementById("countdown" + i + "").innerHTML = "경매 종료";
+			}
+	}, 1000);
+	
+</script> 
 
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>

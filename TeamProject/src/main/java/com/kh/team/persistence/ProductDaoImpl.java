@@ -8,6 +8,7 @@ import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.kh.team.domain.BidVo;
 import com.kh.team.domain.ProductVo;
 
 @Repository
@@ -47,6 +48,12 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public List<ProductVo> normalProduct() throws Exception {
 		return null;
+	}
+
+	@Override
+	public List<BidVo> bidList(String pno) throws Exception {
+		List<BidVo> list = sqlSession.selectList(NAMESPACE + "bidList", pno);
+		return list;
 	}
 
 }

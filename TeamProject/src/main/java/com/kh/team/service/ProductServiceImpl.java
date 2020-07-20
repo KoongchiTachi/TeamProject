@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.kh.team.domain.BidVo;
 import com.kh.team.domain.ProductVo;
 import com.kh.team.persistence.ProductDao;
 
@@ -44,6 +45,12 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductVo> normalProduct() throws Exception {
 		return null;
+	}
+
+	@Override
+	public List<BidVo> bidList(String pno) throws Exception {
+		List<BidVo> list = productDao.bidList(pno);
+		return list;
 	}
 
 }

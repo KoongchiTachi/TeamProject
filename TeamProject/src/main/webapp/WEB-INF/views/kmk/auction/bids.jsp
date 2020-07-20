@@ -8,7 +8,7 @@
 
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 
-<script type="text/javascript">
+<script type="text/javascript"> 
 $(function($) {
 	function floatLabel(inputType) { 
 		$(inputType).each(function() {

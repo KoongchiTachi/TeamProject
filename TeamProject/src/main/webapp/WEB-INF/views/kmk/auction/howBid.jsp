@@ -9,7 +9,7 @@
 <!-- 		<div id="location"> -->
 <!-- 			<span><img src="../images/ico/ico_home.gif" alt="home" /></span> -->
 <!-- 			<span>OnlineAuction</span> <span class="last">온라인 응찰방법</span> -->
-<!-- 		</div> -->
+<!-- 		</div> --> 
 		<!-- 내용시작 -->
 		<div id="auction">
 			<div id="bidMethod">

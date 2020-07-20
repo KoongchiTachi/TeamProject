@@ -7,7 +7,7 @@ public class BidVo {
 	private String m_id;
 	private int b_price;
 	private Timestamp b_date;
-	private String b_note;
+	private String b_note; 
 	private String pno;
 
 	public int getBno() {

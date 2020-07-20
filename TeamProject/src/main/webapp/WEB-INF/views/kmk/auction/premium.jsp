@@ -191,7 +191,7 @@
 							<strong>현재 입찰가</strong> 15,000,000원
 						</div>
 					</div>
-					<div class="footer">
+					<div class="footer"> 
 						<a href="#myModal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal">상품보기</a>
 						<a href="/kmk/auction/bids" class="Cbtn Cbtn-primary">응찰하기</a>
 					</div>

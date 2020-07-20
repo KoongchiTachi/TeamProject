@@ -7,7 +7,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
-<head>
+<head> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>eCommerce Product Detail</title>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">

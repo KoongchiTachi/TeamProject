@@ -166,7 +166,7 @@ $(function() {
 			<div class="row">
 				<div class="col-md-5"></div>
 				<div class="col-md-2">
-					<div class="pagination">
+					<div class="blog-pagination">
 						<c:forEach begin="${faqPagingDto.startPage}"
 							end="${faqPagingDto.endPage}" var="v">
 						

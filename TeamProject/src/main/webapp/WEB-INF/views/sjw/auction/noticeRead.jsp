@@ -3,14 +3,13 @@
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <style>
 .notice {
-	min-height : 70vh;
+	min-height : 80vh;
 	min-width: 100%;
 	padding-left: 450px;
 }
 .contact-form textarea {
 	font-size: 20px;
-  	min-height: 50%;
- 	height : 330px;
+  	min-height: 60%;
  	color: #5E5E5E;
  }
 .contact-form input.subject {
@@ -39,7 +38,10 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <input type="text" class="subject" value="${noticeVo.n_title}" readonly/>
-                                <textarea readonly>${noticeVo.n_content}</textarea>
+                                <textarea style="height: auto;" readonly>${noticeVo.n_content}</textarea>
+                                <p>이전글 : <a href="noticeRead?nno=${noticeVo.nno}&page=${noticePagingDto.page}&perPage=${noticePagingDto.perPage}&keyword=${noticePagingDto.keyword}"></a></p>
+                                <hr>
+                                <p>다음글 : <a href="noticeRead?nno=${noticeVo.nno}&page=${noticePagingDto.page}&perPage=${noticePagingDto.perPage}&keyword=${noticePagingDto.keyword}"></a></p>
                             </div>
                         </div>
                     </form>

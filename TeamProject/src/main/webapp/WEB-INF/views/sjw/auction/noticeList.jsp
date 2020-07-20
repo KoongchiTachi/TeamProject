@@ -11,11 +11,11 @@
 	border-bottom: 2px solid #888888;
 }
 .table td {
-	font-size : 18px;
+	font-size : 20px;
 }
 .blog-right {
 	float: right;
-/* 	margin-top: 0px; */
+ 	margin-top: -10px;
 }
 
 .blog-right .blog-search input {
@@ -27,7 +27,6 @@
 	font-size: 15px;
 	font-weight: 600;
 }
-
 .blog-right .blog-search button {
 	color: #ffffff;
 	font-size: 14px;
@@ -110,7 +109,7 @@ $(function() {
 									<c:forEach items="${list}" var="noticeVo">
 										<tr>
 											<td>${noticeVo.nno}</td>
-											<td><a href="/sjw/auction/noticeRead" class="n_title" data-nno="${noticeVo.nno}">${noticeVo.n_title}</a></td>
+											<td><a href="/sjw/auction/noticeRead" class="n_title" style="color: #525252;" data-nno="${noticeVo.nno}">${noticeVo.n_title}</a></td>
 											<td>${noticeVo.n_date}</td>
 											<td>${noticeVo.view_cnt}</td>
 										</tr>
@@ -133,7 +132,7 @@ $(function() {
 								<div class="col-md-5">
 									<div class="blog-right">
 										<div class="blog-search">
-											<input type="text" id="keyword" name="keyword" value="${noticePagingDto.keyword}">
+											<input type="text" id="keyword" name="keyword" placeholder="제목/내용 입력" value="${noticePagingDto.keyword}">
 											<button type="button" id="btnSearch">검색</button>
 										</div>
 									</div>

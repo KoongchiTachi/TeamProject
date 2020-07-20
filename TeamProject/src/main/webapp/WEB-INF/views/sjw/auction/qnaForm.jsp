@@ -116,20 +116,29 @@ contact-form .subject {
 
 <script>
 $(function () {
-
+	
 	$("#file_name").on("change", function(e) {
+		var maxSize = 10485760;
+		var maxFile = 4;
 		
   		var file = e.target.files[0];
-  		console.log(file);
+  		//console.log(file);
+  		var fileSize = file.size;
+		var fileCount = $("#uploadedList > div").length;
+  		//console.log(fileCount);
   		
-		var file_count = $("#uploadedList > div").length;
-  		console.log(file_count);
+  		if (fileSize > maxSize) {
+  			alert("10MB 미만의 이미지 파일만 등록 가능합니다.");
+  			$("#file_name").val("");
+  			return false;
+  		}
   		
-  		if (file_count >= 4) {
-  			alert("첨부파일은 4개까지 등록 가능합니다.");
-  			//$("#file_name").attr("disabled", "true");
-  			return; 
-  		} 
+  		if (fileCount >= maxFile) {
+  			alert("이미지 파일 첨부는 4개까지 등록 가능합니다.");
+  			$("#file_name").val("");
+  			return false; 
+  		}
+  		
  		var formData = new FormData();
  			formData.append("file", file);
  		//console.log("formData", formData);
@@ -177,6 +186,13 @@ $(function () {
 		});
 	});
 	
+	$("#btnSubmit").click(function() {
+		if($("#q_kind > option:selected").val()==""){
+			alert("문의 유형을 선택해 주세요.");
+			return false;
+		}
+	});
+	
 	$("#contact-form").submit(function() {
 		var upDiv = $("#uploadedList > div");
 		upDiv.each(function(index) {
@@ -208,7 +224,7 @@ $(function () {
                     <form action="/sjw/auction/qnaForm" class="contact-form" id="contact-form" method="post">
                         <div class="row">
                             <div class="col-lg-12">
-                                <input type="text" name="m_id" placeholder="회원아이디 넘어가게 할 거예요"  value="${m_id}" readonly>
+                                <input type="text" name="m_id" placeholder="회원아이디" value="${m_id}" readonly>
                                 	<div class="check-form">
 										<div class="room-selector">
 												<select class="suit-select" name="q_kind" id="q_kind" required>

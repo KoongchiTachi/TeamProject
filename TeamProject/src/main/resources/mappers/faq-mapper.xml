@@ -8,7 +8,7 @@
 	<!-- faq 목록 -->
 	<select id="faqList" resultType="FaqVo">
 		select * from tbl_faq
-		order by fno desc
+		order by fno asc
 	</select>
 	
 	<!-- faq 목록 페이징 -->

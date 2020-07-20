@@ -2,6 +2,7 @@ package com.kh.team.service;
 
 import java.util.List;
 
+import com.kh.team.domain.BidVo;
 import com.kh.team.domain.ProductVo;
 
 public interface ProductService {
@@ -17,4 +18,6 @@ public interface ProductService {
 	public List<ProductVo> premiumProduct() throws Exception;
 	// 상품 목록 ( 일반 )
 	public List<ProductVo> normalProduct() throws Exception;
+	// 응찰 내역
+	public List<BidVo> bidList(String pno) throws Exception;
 }

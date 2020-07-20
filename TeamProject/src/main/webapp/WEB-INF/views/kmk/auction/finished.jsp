@@ -26,7 +26,7 @@
 .param {
 	margin-bottom: 7px;
 	line-height: 1.4;
-}
+} 
 
 .param-inline dt {
 	display: inline-block;

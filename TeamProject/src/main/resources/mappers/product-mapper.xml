@@ -4,9 +4,23 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mappers.product-mapper">
+	<!-- 상품 (프리미엄) -->
+	<select id="premiumProduct" resultType="ProductVo">
+		select * from tbl_product
+		where s_price >= #{premium}
+	</select>
+
 	<!-- 상품 (종료) -->
 	<select id="endProduct" resultType="ProductVo">
-		select * from tbl_product 
+		select * from tbl_product
 		where p_state = #{p_state}
 	</select>
+	
+	<!-- 응찰내역 -->
+	<select id="bidList" resultType="BidVo">
+		select * from tbl_product
+		where pno = #{pno}
+	</select>
+
+
 </mapper>

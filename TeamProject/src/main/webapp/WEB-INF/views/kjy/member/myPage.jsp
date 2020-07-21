@@ -185,7 +185,7 @@ $(function() {
                     <a href=""> 응찰 </a><br/> 
                     <a href=""> 낙찰 </a><br/>
                     <p><a href="/kjy/member/wishList">WISH LIST</a></p>
-                    <p><a href="">1 : 1 문의 내역</a></p>
+                    <p><a href="/sjw/member/myQna">1 : 1 문의 내역</a></p>
                 </div>
             </div>
             <div class="col-md-8">

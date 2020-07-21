@@ -104,6 +104,13 @@ $(function() {
 		$("#frmPage").submit();
 	});
 	
+	$("a.page-link").each(function () {
+		var page = $(this).attr("href");
+		if (page == "${faqPagingDto.page}") {
+			$(this).parent().addClass("active");
+			return;
+		}
+	});
 });
 </script>
 <form id="frmPage" action="/sjw/contact/faqList" method="get">
@@ -166,10 +173,21 @@ $(function() {
 			<div class="row">
 				<div class="col-md-5"></div>
 				<div class="col-md-2">
-					<div class="blog-pagination">
+					<div class="pagination">
 						<c:forEach begin="${faqPagingDto.startPage}"
 							end="${faqPagingDto.endPage}" var="v">
-						
+
+						<li class="page-item"
+ 						<c:choose>
+ 							<c:when test="${faqPagingDto.page == v}">
+ 								class="page-item active"
+ 							</c:when>
+ 							<c:otherwise>
+ 						 		class="page-item"
+							</c:otherwise>
+ 						</c:choose>
+						>
+							
 							<a class="page-link" href="${v}">${v}</a>
 						</c:forEach>
 					</div>

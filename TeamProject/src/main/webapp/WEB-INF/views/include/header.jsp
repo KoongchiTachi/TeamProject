@@ -93,7 +93,7 @@
                                 <li><a href="/sjw/about/info">회사 소개</a></li>
                                 <li><a href="/sjw/about/noticeList">공지사항</a></li>
                                 <li><a href="/sjw/about/map">오시는 길</a></li>
-                            </ul>
+                            </ul> 
                         </li>
                         <li><a href="#">Contact</a>
                         	<ul class="drop-menu">

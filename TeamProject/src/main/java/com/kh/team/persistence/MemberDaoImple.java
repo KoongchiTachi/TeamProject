@@ -51,8 +51,11 @@ public class MemberDaoImple implements MemberDao {
 	}
 
 	@Override
-	public void deleteMember(MemberVo memberVo) throws Exception {
-		sqlSession.delete(NAMESPACE + "deleteMember", memberVo);
+	public void deleteMember(String m_id, String m_pw) throws Exception {
+		Map<String, String> param = new HashMap<>();
+		param.put("m_id", m_id);
+		param.put("m_pw", m_pw);
+		sqlSession.delete(NAMESPACE + "deleteMember", param);
 	}
 
 }

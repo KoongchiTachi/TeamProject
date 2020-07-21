@@ -186,6 +186,7 @@ $(function() {
                     <a href=""> 낙찰 </a><br/>
                     <p><a href="/kjy/member/wishList">WISH LIST</a></p>
                     <p><a href="/sjw/member/myQna">1 : 1 문의 내역</a></p>
+                    <p><a href="/kjy/member/deleteMemberForm">회원 탈퇴</a></p>
                 </div>
             </div>
             <div class="col-md-8">

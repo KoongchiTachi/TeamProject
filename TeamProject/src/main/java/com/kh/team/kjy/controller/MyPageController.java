@@ -19,6 +19,7 @@ public class MyPageController {
 	@Inject
 	private MemberService memberService;
 	
+	// 마이페이지
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public void myPageGet(HttpServletRequest request, Model model) throws Exception {
 		HttpSession session = request.getSession();
@@ -27,6 +28,7 @@ public class MyPageController {
 		model.addAttribute("memberVo", memberVo);
 	}
 	
+	// 회원 정보 수정 폼
 	@RequestMapping(value = "/modifyInfo", method = RequestMethod.GET)
 	public void modifyInfoGet(HttpServletRequest request, Model model) throws Exception {
 		HttpSession session = request.getSession();
@@ -35,6 +37,7 @@ public class MyPageController {
 		model.addAttribute("memberVo", memberVo);
 	}
 	
+	// 회원 정보 수정 처리
 	@RequestMapping(value = "/modifyInfo", method = RequestMethod.POST)
 	public String modifyInfoPost(MemberVo memberVo) throws Exception {
 		System.out.println("memberVo:" + memberVo);

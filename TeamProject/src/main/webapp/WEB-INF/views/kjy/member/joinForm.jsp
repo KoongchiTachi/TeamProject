@@ -22,7 +22,7 @@
 #spanName {
 	position: relative;
 	margin-top: 10px;
-  	left: -90px;  
+	right : 130px;
 }
 .mobile{
 /* 	outline: none; */
@@ -162,11 +162,20 @@ $(function() {
 		}
 		if (m_name.length > 12) {
 			$("#spanName").text("이름은 한글4자, 영문15까지 입력가능합니다.").css("color", "orange");
+			$("#m_name").val("");
 			return;
 		}
 	});
 	
 	// 휴대전화
+	$("#m_phone2").blur(function() {
+		var phone1 = $("#m_phone1").val();
+		var phone2 = $("#m_phone2").val();
+		var phone3 = $("#m_phone3").val();
+		var m_phone = phone1.concat(phone2, phone3);
+		$("#m_phone").val(m_phone);
+		console.log("m_phone:" + m_phone);
+	});
 	$("#m_phone3").blur(function() {
 		var phone1 = $("#m_phone1").val();
 		var phone2 = $("#m_phone2").val();

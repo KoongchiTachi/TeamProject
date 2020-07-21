@@ -153,9 +153,9 @@ div p {
 #home input {
 	border: 2px solid #eeedec;
 	-webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  font-weight: 10; 
+  	-moz-border-radius: 10px;
+ 	border-radius: 10px;
+  	font-weight: 10; 
 }
 #m_pw2::placeholder {
 	font-size : 15px;
@@ -172,8 +172,8 @@ $(function() {
 	$("#m_phone2").val(phone1);
 	$("#m_phone3").val(phone2);
 	
-	// 전송하기
 	
+	// 전송하기
 	// 비밀번호 확인
 	$("#m_pw2").blur(function() {
 		var m_pw = $("#m_pw").val();
@@ -186,9 +186,23 @@ $(function() {
 		} else {
 			$("#spanPw").text("");
 		}
+		var phone1 = $("#m_phone1").val();
+		var phone2 = $("#m_phone2").val();
+		var phone3 = $("#m_phone3").val();
+		var m_phone = phone1.concat(phone2, phone3);
+		$("#m_phone").val(m_phone);
+		console.log("m_phone:" + m_phone);
 	}); // 비밀번호 확인
 	
 	// 휴대전화
+	$("#m_phone2").blur(function() {
+		var phone1 = $("#m_phone1").val();
+		var phone2 = $("#m_phone2").val();
+		var phone3 = $("#m_phone3").val();
+		var m_phone = phone1.concat(phone2, phone3);
+		$("#m_phone").val(m_phone);
+		console.log("m_phone:" + m_phone);
+	});
 	$("#m_phone3").blur(function() {
 		var phone1 = $("#m_phone1").val();
 		var phone2 = $("#m_phone2").val();
@@ -305,7 +319,7 @@ $(function() {
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label>전화번호</label>
+                                        <label>휴대전화</label>
                                     </div>
                                     <div class="col-md-8">
                                         <select id="m_phone1" style="font-size: 20px;">
@@ -381,4 +395,16 @@ $(function() {
     </form>           
 </div>
 
+<script>
+$(function() {
+	// 불러오기 
+	// 휴대전화
+// 	var m_phone = "${memberVo.m_phone}";
+// 	var phone1 = m_phone.substring(3,7);
+// 	var phone2 = m_phone.substring(7);
+// 	$("#m_phone2").val(phone1);
+// 	$("#m_phone3").val(phone2);
+// 	console.log(phone1);
+});
+</script>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

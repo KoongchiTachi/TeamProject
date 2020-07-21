@@ -48,8 +48,8 @@ public class MemberServcieImple implements MemberService {
 	}
 
 	@Override
-	public void deleteMember(MemberVo memberVo) throws Exception {
-		memberDao.deleteMember(memberVo); 
+	public void deleteMember(String m_id, String m_pw) throws Exception {
+		memberDao.deleteMember(m_id, m_pw); 
 	}
 
 }

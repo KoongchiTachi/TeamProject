@@ -3,12 +3,15 @@ package com.kh.team.kjy.controller;
 import java.util.Random;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,6 +71,23 @@ public class KjyController {
 		}
 		return "available";
 	}
+	
+	// 회원 탈퇴 폼
+	@RequestMapping(value = "/deleteMemberForm", method = RequestMethod.GET)
+	public void deleteMemberForm(HttpServletRequest request, Model model) throws Exception {
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
+		model.addAttribute("m_id", m_id);
+	}
+	
+	// 회원 탈퇴 처리
+	@RequestMapping(value = "/deleteMemberRun", method = RequestMethod.POST)
+	public String deleteMemberRun(HttpSession session, String m_id, String m_pw) throws Exception {
+		memberService.deleteMember(m_id, m_pw);
+		session.invalidate();
+		return "redirect:/";
+	}
+	
 	
 	@RequestMapping(value = "/wishList", method = RequestMethod.GET)
 	public void wishList() throws Exception {

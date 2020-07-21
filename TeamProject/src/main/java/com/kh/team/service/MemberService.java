@@ -22,6 +22,6 @@ public interface MemberService {
 	public void updateMember(MemberVo memberVo) throws Exception;
 	
 	// 멤버 삭제
-	public void deleteMember(MemberVo memberVo) throws Exception;
+	public void deleteMember(String m_id, String m_pw) throws Exception;
 	
 }

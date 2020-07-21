@@ -209,7 +209,7 @@ $(function() {
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label>전화번호</label>
+                                        <label>휴대전화</label>
                                     </div>
                                     <div class="col-md-8">
                                         <p id="phone">

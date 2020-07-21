@@ -1,5 +1,6 @@
 package com.kh.team.kjy.controller;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.inject.Inject;
@@ -19,7 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.team.domain.MemberVo;
+import com.kh.team.domain.WishlistVo;
 import com.kh.team.service.MemberService;
+import com.kh.team.service.WishlistService;
 import com.kh.team.util.MailHandler;
 
 @Controller
@@ -30,6 +33,8 @@ public class KjyController {
 	private MemberService memberService;
 	@Autowired
 	private JavaMailSender mailSender;
+	@Inject
+	private WishlistService wishlistSertvice;
 	
 	// 이메일 인증
 	@ResponseBody
@@ -88,9 +93,13 @@ public class KjyController {
 		return "redirect:/";
 	}
 	
-	
+	// 위시리스트 목록
 	@RequestMapping(value = "/wishList", method = RequestMethod.GET)
-	public void wishList() throws Exception {
-		
+	public void wishList(HttpServletRequest request, Model model) throws Exception {
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
+		List<WishlistVo> list = wishlistSertvice.wishList(m_id);
+//		System.out.println("list:" + list);
+		model.addAttribute("list", list);
 	}
 }

@@ -1,5 +1,6 @@
 package com.kh.team.persistence;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -55,6 +56,22 @@ public class ProductDaoImpl implements ProductDao {
 	public List<BidVo> bidList(String pno) throws Exception {
 		List<BidVo> list = sqlSession.selectList(NAMESPACE + "bidList", pno);
 		return list;
+	}
+
+	@Override
+	public ProductVo selectByPno(String pno) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "selectByPno", pno);
+	}
+
+	@Override
+	public void updateP_state(String p_state) throws Exception {
+		sqlSession.update(NAMESPACE + "updateP_state", p_state);
+		
+	}
+
+	@Override
+	public List<Timestamp> selectP_until() throws Exception {
+		return sqlSession.selectList(NAMESPACE + "selectP_until");
 	}
 
 }

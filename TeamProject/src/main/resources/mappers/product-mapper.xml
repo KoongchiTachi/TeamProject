@@ -8,7 +8,7 @@
 	<select id="premiumProduct" resultType="ProductVo">
 		select * from tbl_product p
 		join code_brand b on p_brand = b_code 
-		where s_price >= #{p_value}
+		where s_price >= #{p_value} order by pno desc
 	</select>
 
 	<!-- 상품 (종료) -->
@@ -18,10 +18,34 @@
 		where p_state = #{p_state}
 	</select>
 	
+	<!-- 상품 내용 -->
+	<select id="selectByPno" resultType="ProductVo">
+		select * from tbl_product
+		where pno = #{pno}
+	</select>
+	
 	<!-- 응찰내역 -->
 	<select id="bidList" resultType="BidVo">
 		select * from tbl_product
 		where pno = #{pno}
+	</select>
+	
+	<!-- 최근 등록 상품 -->
+	<select id="ProductVo">
+		select * from tbl_product
+	</select>
+	
+	<!-- 상태 변경 -->
+	<update id="updateP_state">
+		update tbl_product set
+    		p_state = #{p_state}
+		where p_until &lt; sysdate
+	</update>
+	
+	<!-- 경매중인 상품 날짜 얻기 -->
+	<select id="selectP_until" resultType="java.sql.Timestamp">
+		select p_until from tbl_product
+		where p_state = 's01'
 	</select>
 
 </mapper>

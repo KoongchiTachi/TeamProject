@@ -12,6 +12,8 @@ public interface ProductService {
 	public void updateProduct() throws Exception;
 	// 상품 삭제
 	public void deleteProduct() throws Exception;
+	// 상품 내용
+	public ProductVo selectByPno(String pno) throws Exception;
 	// 상품 목록 ( 경매 종료 )
 	public List<ProductVo> endProduct(String p_state) throws Exception; 
 	// 상품 목록 ( 프리미엄 )

@@ -1,5 +1,6 @@
 package com.kh.team.persistence;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import com.kh.team.domain.BidVo;
@@ -12,6 +13,8 @@ public interface ProductDao {
 	public void updateProduct() throws Exception;
 	// 상품 삭제
 	public void deleteProduct() throws Exception;
+	// 상품 내용
+	public ProductVo selectByPno(String pno) throws Exception;
 	// 상품 목록 ( 경매 종료 )
 	public List<ProductVo> endProduct(String p_state) throws Exception; 
 	// 상품 목록 ( 프리미엄 )
@@ -20,4 +23,8 @@ public interface ProductDao {
 	public List<ProductVo> normalProduct() throws Exception;
 	// 응찰 내역
 	public List<BidVo> bidList(String pno) throws Exception;
+	// 경매상태 변경
+	public void updateP_state(String p_state) throws Exception;
+	
+	public List<Timestamp> selectP_until() throws Exception;
 }

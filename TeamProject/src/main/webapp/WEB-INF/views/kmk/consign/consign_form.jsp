@@ -58,20 +58,6 @@ $(function($) {
 					</div>
 				</div>
 			</div>
-			<div class="grid">
-				<div class="col-2-3">
-					<div class="controls">
-						<input type="text" id="city" class="floatLabel" name="city">
-						<label for="city">거주지역</label>
-					</div>
-				</div>
-				<div class="col-1-3">
-					<div class="controls">
-						<input type="text" id="post-code" class="floatLabel" name="post-code">
-						<label for="post-code">우편번호</label>
-					</div>
-				</div>
-			</div>
 			<div class="controls">
 				<input type="text" id="country" class="floatLabel" name="country">
 				<label for="country">Country</label>

@@ -54,4 +54,9 @@ public class ProductServiceImpl implements ProductService {
 		return list;
 	}
 
+	@Override
+	public ProductVo selectByPno(String pno) throws Exception {
+		return productDao.selectByPno(pno);
+	}
+
 }

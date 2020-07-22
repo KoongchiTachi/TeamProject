@@ -3,6 +3,7 @@ package com.kh.team.domain;
 import java.sql.Timestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 public class ProductVo {
 
@@ -14,7 +15,7 @@ public class ProductVo {
 	private int p_price;
 	private String p_info;
 	private String p_brand;
-//	@JsonFormat(pattern = "dd hh:mm:ss")  
+	@JsonFormat(shape = Shape.STRING, pattern = "dd HH:mm:ss", timezone = "GMT+9")
 	private Timestamp p_until;
 	private String p_progress;
 	private String p_state;

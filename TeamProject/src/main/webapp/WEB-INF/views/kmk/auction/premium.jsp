@@ -46,6 +46,17 @@
 	.title {
 		text-transform: uppercase;
 	}
+	
+	.p_logo {
+		padding: 10px;
+		position: relative;
+		z-index: 2;
+	}
+	
+	.banner-img {
+		position: relative;
+		z-index: 1;
+	}
 } 
 </style>
 
@@ -55,8 +66,16 @@
 <link rel="stylesheet" href="/resources/css/product.css" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
 
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
+<script>
+$(function() {
+	$("#mymodal").click(function() {
+		
+	});
+});
+</script>
 
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
+ 
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -145,10 +164,7 @@
 		<!-- Section heading -->
 		<h3 class="font-weight-bold mb-4 pb-2">Our bestsellers</h3>
 		<!-- Section description -->
-		<p class="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor
-			sit amet, consectetur adipisicing elit fugit, error amet numquam iure
-			provident voluptate esse quasi nostrum quisquam eum porro a pariatur
-			veniam.</p>
+		<p class="grey-text w-responsive mx-auto mb-5">GUCCI PRADA CHANEL LOUISVUITTON HERMES CARTIER</p>
 
 		<!-- Grid row --> 
 		<div class="row">
@@ -160,15 +176,15 @@
 				<div class="tile align-items-center">
 					<!-- Card image -->
 					<div class="wrapper">
-					<div class="title">${premium.b_name}</div> 
+					<div class="title">${premium.b_name}</div>
+					<div class="p_logo"><%-- ${premium.pno} --%><img alt="premium" src="/resources/img/logo/premium_icon.png"></div> 
 					<div class="banner-img"> 
 						<img src="/resources/img/bag/${premium.p_img}" alt="Image 1"> 
 					</div>
-					
-					<div class="dates">
-						<div class="start" id="countdown">${premium.p_until}</div>
+					<div class="dates"> 
+						<div class="start" id="countdown" data-until="${premium.p_until}"></div> 
 					</div>
-					<div class="stats s_price">
+					<div class="stats s_price"> 
 						<div>
 							<strong>시작가</strong>
 							<fmt:setLocale value="ko_KR" />
@@ -176,14 +192,21 @@
 						</div> 
 					</div> 
 					<div class="stats h_price">
-						<div>
+						<div> 
 							<strong>현재 입찰가</strong> 
 							<fmt:setLocale value="ko_KR" /> 
-							<fmt:formatNumber type="currency" value="${premium.p_price}" />
+							<c:choose>
+								<c:when test="${premium.p_price != 0}">
+									<fmt:formatNumber type="currency" value="${premium.p_price}" />
+								</c:when>
+								<c:otherwise>
+									<fmt:formatNumber type="currency" value="${premium.s_price}" />
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 					<div class="footer">
-						<a href="#myModal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal">상품보기</a>
+						<a href="#myModal" id="mymodal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal">상세보기</a>
 						<a href="/kmk/auction/bids" class="Cbtn Cbtn-primary">응찰하기</a>
 					</div>
 				</div>
@@ -202,40 +225,45 @@
 </div>
 
 <script>
-	// 타이머
-	var p_until = $("#countdown").text; 
-	console.log(p_until);
-	var yourDateToGo2 = new Date();
-	var yD = yourDateToGo2.getDate() + 3;
-// 	console.log(yD);
-	yourDateToGo2.setDate(yourDateToGo2.getDate() + 3);
+
+// product timecount
+$(function() { 
+	const countDownTimer = function (c_tag, date) {
+		var untilDate = new Date(date);
+		var timer;
+		function showRemaining() { 
+			var currentDate = new Date().getTime();
+			var timeLeft = untilDate - currentDate;
 	
-	var timing2 = setInterval(
-		function() {
-				var currentDate2 = new Date().getTime();
-// 				console.log("cD : ", currentDate2);
-				var timeLeft2 = yourDateToGo2 - currentDate2;
-// 				console.log("tD : ", timeLeft2); 
-				var days2 = Math.floor(timeLeft2 / (1000 * 60 * 60 * 24));
-				if (days2 < 10) days2 = "0" + days2;
-				
-				var hours2 = Math.floor((timeLeft2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-				if (hours2 < 10) hours2 = "0" + hours2;
-				
-				var minutes2 = Math.floor((timeLeft2 % (1000 * 60 * 60)) / (1000 * 60));
-				if (minutes2 < 10) minutes2 = "0" + minutes2;
-				
-				var seconds2 = Math.floor((timeLeft2 % (1000 * 60)) / 1000);
-				if (seconds2 < 10) seconds2 = "0" + seconds2; 
-				 
-// 				document.getElementById("countdown"+ i +"").innerHTML = days2 + "일 " + hours2 + "시 " + minutes2 + "분 "  + seconds2;
- 
-				if (seconds2 <= 0) { 
-					clearInterval(timing2); 	
-// 					 document.getElementById("countdown" + i + "").innerHTML = "경매 종료";
+			var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+// 			if (days < 10) days = "0" + days; 
+			
+			var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			if (hours < 10) hours = "0" + hours;
+			
+			var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+			if (minutes < 10) minutes = "0" + minutes;
+			
+			var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+			if (seconds < 10) seconds = "0" + seconds;
+// 			if (days < 1) {} else {}
+			c_tag.html(days + '일' + hours + '시' + minutes + '분' + seconds + '초');
+			if (timeLeft <= 0) {
+				clearInterval(timer);
+				c_tag.html('경매 종료');
+				return;
 			}
-	}, 1000);
+		}    
+		timer = setInterval(showRemaining, 1000);  
+	}
 	
-</script> 
+	$("div.start").each(function(index) {
+		var that = $(this); 
+		var endDate = that.attr("data-until"); 
+		var dateObj = new Date(endDate); 
+		countDownTimer(that, dateObj);
+	});
+});	
+</script>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>

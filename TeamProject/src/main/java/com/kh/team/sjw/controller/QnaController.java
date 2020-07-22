@@ -29,9 +29,10 @@ public class QnaController {
 	// QnA 입력 처리
 	@RequestMapping(value = "/qnaForm", method = RequestMethod.POST)
 	public String qnaRegisterPost(QnaVo qnaVo, RedirectAttributes rttr) throws Exception {
+		System.out.println("qnaVo" + qnaVo);
 		qnaService.insertQna(qnaVo);
 		rttr.addFlashAttribute("msg", "success");
-		return "redirect:/sjw/auction/faqList";
+		return "redirect:/sjw/member/myQna";
 	}
 	
 	/*

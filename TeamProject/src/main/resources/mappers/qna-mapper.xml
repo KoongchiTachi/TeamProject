@@ -10,10 +10,25 @@
 		select seq_qno.nextval from dual
 	</select>
 	
-	<!-- QnA 목록 -->
+	<!-- QnA 목록 - 회원 -->
+	<select id="myQna" resultType="QnaVo">
+		select m.m_id, q.qno, q.q_kind, q.q_title, q.q_content, q.q_date, q.q_answer
+		from tbl_qna q, tbl_member m
+		where m.m_id = q.m_id and m.m_id = #{m_id}
+		order by qno desc
+	</select>
+	
+	<!-- QnA 전체 목록 - 관리자 -->
 	<select id="qnaList" resultType="QnaVo">
 		select * from tbl_qna
 		order by qno desc
+	</select>
+	
+	<!-- QnA 답변목록 -->
+	<select id="qReplyList" resultType="QreplyVo">
+		select * from tbl_qreply
+		where qno = #{qno}
+		order by qrno desc
 	</select>
 	
 	<!-- QnA 내용보기 -->

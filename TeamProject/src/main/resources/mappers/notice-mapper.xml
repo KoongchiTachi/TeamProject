@@ -34,7 +34,7 @@
 	</select>
 	
 	<!-- 공지사항 수정 -->
-	<update id="updateNotice">
+	<update id="noticeUpdate">
 		update tbl_notice set
 			n_title = #{n_title},
 			n_content = #{n_content}
@@ -42,7 +42,7 @@
 	</update>
 	
 	<!-- 공지사항 삭제 -->
-	<delete id="deleteNotice">
+	<delete id="noticeDelete">
 		delete from tbl_notice
 		where nno = #{nno}
 	</delete>

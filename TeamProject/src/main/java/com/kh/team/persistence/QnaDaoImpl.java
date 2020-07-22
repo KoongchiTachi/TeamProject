@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.kh.team.domain.QnaVo;
+import com.kh.team.domain.QreplyVo;
 
 @Repository
 public class QnaDaoImpl implements QnaDao {
@@ -19,12 +20,24 @@ public class QnaDaoImpl implements QnaDao {
 	@Override
 	public int getNextVal() throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "getNextVal");
+	} 
+	
+	// QnA 질문 목록 - 회원
+	@Override
+	public List<QnaVo> myQna(String m_id) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "myQna", m_id);
 	}
-
-	// QnA 목록
+	
+	// QnA 전체 질문 목록 - 관리자
 	@Override
 	public List<QnaVo> qnaList() throws Exception {
 		return sqlSession.selectList(NAMESPACE + "qnaList");
+	}
+	
+	// QnA 답변 목록
+	@Override
+	public List<QreplyVo> qReplyList(int qno) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "qReplyList", qno);
 	}
 
 	// QnA 내용보기

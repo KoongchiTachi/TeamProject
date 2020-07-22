@@ -147,6 +147,7 @@ $(function () {
 			"processData" : false,
 			"contentType" : false,
 			"type" : "post",
+			"enctype" : "multipart/form-data"
 			"url" : url,
 			"data" : formData,
 			"success" : function(rData) {
@@ -197,15 +198,15 @@ $(function () {
 		var upDiv = $("#uploadedList > div");
 		upDiv.each(function(index) {
 			var filename = $(this).attr("data-filename");
-			console.log("filename: " + filename);
 			var hiddenInput = "<input type='hidden' name='files["+index+"]' value='"+filename+"'/>";
 			$("#contact-form").prepend(hiddenInput);
 		});
+		//return false;
  	});
  });
 
 </script>
-  
+
     <!-- Contact Section Begin -->
     <section class="contact-section spad">
         <div class="contact-container">
@@ -221,7 +222,7 @@ $(function () {
             
             <div class="row">
                 <div class="col-lg-8">
-                    <form action="/sjw/auction/qnaForm" class="contact-form" id="contact-form" method="post">
+                    <form action="/sjw/contact/qnaForm" role="form" class="contact-form" id="contact-form" enctype="multipart/form-data" method="post">
                         <div class="row">
                             <div class="col-lg-12">
                                 <input type="text" name="m_id" placeholder="회원아이디" value="${m_id}" readonly>
@@ -240,7 +241,7 @@ $(function () {
 										</div>
 							<input type="text" class="subject" name="q_title" placeholder="제목을 입력해 주세요." required>
                             <textarea placeholder="내용을 입력해 주세요." name="q_content" required style="height: auto;"></textarea>
-                            <input type="hidden" name="q_answer" value="x">
+                            <input type="hidden" name="q_answer" value="q1001">
 							
 							<div class="row">
 									<div class="col-md-12">
@@ -249,6 +250,7 @@ $(function () {
 											<div class="col-md-4" style="padding: 25px">
 												<span class="badge badge-default">파일첨부</span>
 												<p class="help-block">※ 10MB 미만의 이미지 파일 4개까지<br/> 첨부 가능합니다.</p>
+												<input type="hidden" name="file_name">
 											</div>
 											
 											<div class="col-md-8">

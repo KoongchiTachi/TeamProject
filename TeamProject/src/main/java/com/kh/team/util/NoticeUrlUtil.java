@@ -2,7 +2,7 @@ package com.kh.team.util;
 
 import com.kh.team.domain.NoticePagingDto;
 
-public class QnaUrlUtil {
+public class NoticeUrlUtil {
 	public static String makePagingUrl(String url, NoticePagingDto noticePagingDto, int nno) {
 		url += "?";
 		url += "nno=" + nno;

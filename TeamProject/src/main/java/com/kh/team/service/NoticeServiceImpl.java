@@ -38,20 +38,20 @@ public class NoticeServiceImpl implements NoticeService {
 
 	// 공지사항 입력
 	@Override
-	public void insertNotice(NoticeVo noticeVo) throws Exception {
-		noticeDao.insertNotice(noticeVo);
+	public void noticeInsert(NoticeVo noticeVo) throws Exception {
+		noticeDao.noticeInsert(noticeVo);
 	}
 
 	// 공지사항 수정
 	@Override
-	public void updateNotice(NoticeVo noticeVo) throws Exception {
-		noticeDao.updateNotice(noticeVo);
+	public void noticeUpdate(NoticeVo noticeVo) throws Exception {
+		noticeDao.noticeUpdate(noticeVo);
 	}
 
 	// 공지사항 삭제
 	@Override
-	public void deleteNotice(int nno) throws Exception {
-		noticeDao.deleteNotice(nno);
+	public void noticeDelete(int nno) throws Exception {
+		noticeDao.noticeDelete(nno);
  	}
 
 }

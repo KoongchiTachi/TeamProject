@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.team.domain.NoticePagingDto;
 import com.kh.team.domain.NoticeVo;
 import com.kh.team.service.NoticeService;
+import com.kh.team.util.NoticeUrlUtil;
 
 @Controller
 @RequestMapping("/sjw/about")
@@ -40,9 +41,6 @@ public class NoticeController {
 		model.addAttribute("noticeVo", noticeVo);
 	}
 	
-	
-	////////////////////////////////////////////////////////////관리자 페이지에서...
-	
 	/*
 	// 공지사항 입력 폼 - 관리자 페이지
 	// noticeRegister 만들어야 함 ... 아직 관리자 페이지는 X
@@ -57,30 +55,30 @@ public class NoticeController {
 		rttr.addFlashAttribute("msg", "success");
 		return "redirect:/sjw/auction/noticeList";
 	}
+	*/
 	
-	// 공지사항 수정 폼 - 관리자 페이지
-	@RequestMapping(value = "#", method = RequestMethod.GET)
-	public void updateNoticeGet(int nno, NoticePagingDto noticePagingDto, Model model) throws Exception {
-		NoticeVo noticeVo = noticeService.notice(nno);
+	// 공지사항 수정 폼 - 관리자
+	@RequestMapping(value = "/noticeUpdate", method = RequestMethod.GET)
+	public void noticeUpdateGet(int nno, NoticePagingDto noticePagingDto, Model model) throws Exception {
+		NoticeVo noticeVo = noticeService.noticeRead(nno);
 		model.addAttribute("noticeVo", noticeVo);
 	}
 	
-	// 공지사항 수정 처리 - 관리자 페이지
-	@RequestMapping(value = "#", method = RequestMethod.POST)
-	public String updateNoticePost(NoticeVo noticeVo, NoticePagingDto noticePagingDto) throws Exception {
-		noticeService.updateNotice(noticeVo);
-		String url = QnaUrlUtil.makePagingUrl("/sjw/auction/notice", noticePagingDto, noticeVo.getNno());
+	// 공지사항 수정 처리 - 관리자
+	@RequestMapping(value = "/noticeUpdate", method = RequestMethod.POST)
+	public String noticeUpdatePost(NoticeVo noticeVo, NoticePagingDto noticePagingDto) throws Exception {
+		noticeService.noticeUpdate(noticeVo);
+		String url = NoticeUrlUtil.makePagingUrl("/sjw/about/noticeRead", noticePagingDto, noticeVo.getNno());
 		return "redirect:" + url;
 	} 
 	
-	// 공지사항 삭제 - 관리자 페이지
-	@RequestMapping(value = "#", method = RequestMethod.GET)
+	// 공지사항 삭제 - 관리자
+	@RequestMapping(value = "noticeDelete", method = RequestMethod.GET)
 	public String deleteNotice(int nno, NoticePagingDto noticePagingDto)throws Exception {
-		noticeService.deleteNotice(nno);
-		String url = QnaUrlUtil.makePagingUrl("/sjw/auction/notice", noticePagingDto);
+		noticeService.noticeDelete(nno);
+		String url = NoticeUrlUtil.makePagingUrl("/sjw/about/noticeList", noticePagingDto);
 		return "redirect:" + url;
 	}
-	*/
 	
 	
 	

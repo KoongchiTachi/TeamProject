@@ -16,12 +16,12 @@ public interface NoticeService {
 	public NoticeVo noticeRead(int nno) throws Exception;
 	
 	// 공지사항 입력
-	public void insertNotice(NoticeVo noticeVo) throws Exception;
+	public void noticeInsert(NoticeVo noticeVo) throws Exception;
 	
 	// 공지사항 수정
-	public void updateNotice(NoticeVo noticeVo) throws Exception;
+	public void noticeUpdate(NoticeVo noticeVo) throws Exception;
 	
 	// 공지사항 삭제
-	public void deleteNotice(int nno) throws Exception;  
+	public void noticeDelete(int nno) throws Exception;  
 
 }

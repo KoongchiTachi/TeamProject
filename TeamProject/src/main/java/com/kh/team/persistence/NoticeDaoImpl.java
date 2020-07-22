@@ -39,20 +39,20 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	// 공지사항 입력
 	@Override
-	public void insertNotice(NoticeVo noticeVo) throws Exception {
-		sqlSession.insert(NAMESPACE + "insertNotice", noticeVo);
+	public void noticeInsert(NoticeVo noticeVo) throws Exception {
+		sqlSession.insert(NAMESPACE + "noticeInsert", noticeVo);
 	}
 
 	// 공지사항 수정
 	@Override
-	public void updateNotice(NoticeVo noticeVo) throws Exception {
-		sqlSession.update(NAMESPACE + "updateNotice", noticeVo);
+	public void noticeUpdate(NoticeVo noticeVo) throws Exception {
+		sqlSession.update(NAMESPACE + "noticeUpdate", noticeVo);
 	}
 
 	// 공지사항 삭제
 	@Override
-	public void deleteNotice(int nno) throws Exception {
-		sqlSession.delete(NAMESPACE + "deleteNotice", nno);
+	public void noticeDelete(int nno) throws Exception {
+		sqlSession.delete(NAMESPACE + "noticeDelete", nno);
 	}
 	
 	// 공지사항 조회수 증가

@@ -13,12 +13,17 @@
 	<select id="wishList" resultType="WishlistVo">
 		select w.wno, m.m_id, p.pno, p.p_img, p.p_info, p.p_price
 		from tbl_wish w, tbl_product p, tbl_member m
-		where w.pno = p.pno and m.m_id = #{m_id}
+		where m.m_id = w.m_id and w.pno = p.pno and m.m_id = #{m_id}
 	</select>
 	
 	<delete id="deleteWishlist">
 		delete from tbl_wish
 		where wno = #{wno}
+	</delete>
+	
+	<delete id="deleteWishMulti">
+		delete from tbl_wish
+		where wno = ${wno}
 	</delete>
 
 </mapper>

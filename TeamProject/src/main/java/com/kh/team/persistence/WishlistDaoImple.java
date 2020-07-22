@@ -1,6 +1,8 @@
 package com.kh.team.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -30,6 +32,11 @@ public class WishlistDaoImple implements WishlistDao {
 	@Override
 	public void deleteWishlist(int wno) throws Exception {
 		sqlSession.delete(NAMESPACE + "deleteWishlist", wno);
+	}
+
+	@Override
+	public void deleteWishMulti(WishlistVo wnos) {
+		sqlSession.delete(NAMESPACE + "deleteWishMulti", wnos);
 	}
 
 

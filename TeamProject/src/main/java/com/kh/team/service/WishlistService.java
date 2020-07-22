@@ -15,4 +15,7 @@ public interface WishlistService {
 	// 위시리스트 삭제
 	public void deleteWishlist(int wno) throws Exception;
 	
+	// 다중선택된 위시리스트 삭제
+	public void deleteWishMulti(WishlistVo wnos) throws Exception;
+	
 }

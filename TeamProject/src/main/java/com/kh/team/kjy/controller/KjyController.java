@@ -33,8 +33,6 @@ public class KjyController {
 	private MemberService memberService;
 	@Autowired
 	private JavaMailSender mailSender;
-	@Inject
-	private WishlistService wishlistSertvice;
 	
 	// 이메일 인증
 	@ResponseBody
@@ -93,13 +91,4 @@ public class KjyController {
 		return "redirect:/";
 	}
 	
-	// 위시리스트 목록
-	@RequestMapping(value = "/wishList", method = RequestMethod.GET)
-	public void wishList(HttpServletRequest request, Model model) throws Exception {
-		HttpSession session = request.getSession();
-		String m_id = (String)session.getAttribute("m_id");
-		List<WishlistVo> list = wishlistSertvice.wishList(m_id);
-//		System.out.println("list:" + list);
-		model.addAttribute("list", list);
-	}
 }

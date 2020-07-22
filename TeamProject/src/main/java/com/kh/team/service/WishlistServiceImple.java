@@ -30,5 +30,10 @@ public class WishlistServiceImple implements WishlistService {
 		wishlistDao.deleteWishlist(wno);
 	}
 
+	@Override
+	public void deleteWishMulti(WishlistVo wnos) throws Exception {
+		wishlistDao.deleteWishMulti(wnos);
+	}
+
 
 }

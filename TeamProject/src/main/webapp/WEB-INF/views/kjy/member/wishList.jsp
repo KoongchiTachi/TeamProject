@@ -6,34 +6,103 @@
 
 <style>
 .wishList {
-	min-height: 70vh;
+	min-height: 100vh;
 }
 
 .titleArea {
 	margin-top: 200px;
 	margin-bottom: 100px;
 }
-.btn_consign {
+.btnConsign {
 	border : none;
 	color : #ffffff;
 	background-color: #f9ad81;
 }
-.btn_consign:hover {
+.btnConsign:hover {
 	color : #000000;
 	background-color: #ffffff;
 }
-.btn_wish_del {
+.btnDeleteWish {
 	width : 72px;
 	height : 29px;
 	margin-top : 10px;
 	border: 1px solid #55504c;
 }
-.btn_wish_del:hover {
+.btnDeleteWish:hover {
 	background-color: #f9ad81;
 } 
+#btnCheckWish {
+	
+}
+#btnCheckWish:hover {
+	background-color: #f9ad81;
+}
 </style>
 
-<div class="wishList">
+<script>
+$(function() {
+	// chkAll
+	$("#chkAll").click(function() {
+		var chk = $(this).prop("checked");
+		if (chk) {
+			$(".chkWish").prop("checked", true);
+		} else {
+			$(".chkWish").prop("checked", false);
+		}
+	});
+	$(".chkWish").click(function() {
+		$("#chkAll").prop("checked", false);
+	});
+	
+	// 체크된 상품 삭제
+	$("#btnCheckWish").click(function() {
+		var checkArr = new Array();
+		$(".chkWish:checked").each(function() {			
+			checkArr.push($(this).attr("data-wno"));
+		});
+		
+		var url = "/kjy/member/deleteWishMulti";
+		$.ajax({
+			"type" : "post",
+			"url" : url,
+			"data" : { chbox : checkArr },
+			"success" : function(result) {
+				alert("선택하신 상품을 삭제하였습니다.");
+				$(".chkWish:checked").parent().parent().hide();
+			},
+			"error" : function(data) {
+				alert("에러가 발생했습니다.");
+				return false;
+			}
+		});
+	});
+	
+	// 상품 삭제
+	$("#btnDeleteWishlist").click(function() {
+		var that = $(this);
+		var wno = that.attr("data-wno");
+		var sendData = {
+			"wno" : wno
+		};
+		var url = "/kjy/member/deleteWishlist";
+		$.ajax({
+			"type" : "post",
+			"url" : url,
+			"data" : sendData,
+			"success" : function(result) {
+				alert("선택하신 상품을 삭제하였습니다.");
+				that.parent().parent().parent().hide();
+			},
+			"error" : function(data) {
+				alert("에러가 발생했습니다.");
+				return false;
+			}
+		});
+	});
+});
+</script>
+
+<div class="wishList" style="margin-bottom : 200px;">
 	<div class="titleArea">
 		<div class="row">
 			<div class="col-md-2"></div>
@@ -48,50 +117,49 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<table class="table">
+				<table class="table" style="text-align: center;">
 					<thead>
 						<tr>
-							<th scope="col"><input type="checkbox"
-								onclick="NewWishlist.checkAll(this);"></th>
-							<th colspan="3">이미지</th>
-							<th colspan="3">상품정보</th>
-							<th colspan="1">현재가</th>
-							<th colspan="1">선택</th>
+							<th scope="col"><input type="checkbox" id="chkAll"></th>
+							<th scope="col" style="width : 200px;">이미지</th>
+							<th scope="col" style="width : 500px;">상품정보</th>
+							<th scope="col" style="width : 200px;">현재가</th>
+							<th scope="col" style="width : 200px;">선택</th>
 						</tr>
 					</thead>
 					<tbody>
-<%-- 					<c:choose> --%>
-<%-- 						<c:when test="${wishListVo.pno == 0}"> --%>
-<!-- 							<td colspan="5"> -->
-<!-- 								<p class="text_font" style="text-align : center;">리스트에 담긴 상품이 없습니다.</p> -->
-<!-- 							</td> -->
-<%-- 						</c:when> --%>
-					<c:forEach items="${list}" var="wishlistVo">
-						<tr>
-							<td><input name="wish_idx[]" id="wish_idx_0"
-								enable-order="1" reserve-order="N" enable-purchase="1" class=""
-								is-set-product="F" value="881321" type="checkbox"></td>
-							<td class="thumb" colspan="3">
-								<a href="">
-									<img src="/resources/img/bag/${wishlistVo.p_img}" alt="${wishlistVo.p_img}" style="width : 120px; height : 120px;">
-								</a>
+					<c:choose>
+						<c:when test="${listSize == 0}">
+							<td colspan="5">
+								<p class="text_font" style="text-align : center;">리스트에 담긴 상품이 없습니다.</p>
 							</td>
-							<td class="left" colspan="3"><a href="">${wishlistVo.p_info}</a></td>
-							<td class="price" colspan="1"><strong class="">${wishlistVo.p_price}</strong><br>
-							<td class="button" colspan="1">
-								<div> 
-								<a href="#none" onclick="NewWishlist.actionOrder('order', 0)" class="btn btn-sm btn-outline-dark btn_consign">응찰하기</a>  
-								</div>
-								<div>
-								<a href="#none" class="btn btn-sm btn-outline-dark btn_wish_del" rel="10474||000B||">&nbsp;X 삭제&nbsp;</a>
-								</div>  
-							</td>
-						</tr>
-					</c:forEach>
-						
-<%-- 					</c:choose> --%>
+						</c:when>
+						<c:when test="${listSize != 0}">
+							<c:forEach items="${list}" var="wishlistVo">
+								<tr>
+									<td><input type="checkbox" class="chkWish" data-wno="${wishlistVo.wno}"></td>
+									<td class="thumb" style="width : 200px; vertical-align: middle;">
+										<a href="">
+											<img src="/resources/img/bag/${wishlistVo.p_img}" alt="${wishlistVo.p_img}" style="width : 120px; height : 120px;">
+										</a>
+									</td>
+									<td class="left" style="width : 500px; vertical-align : middle;"><a href="">${wishlistVo.p_info}</a></td>
+									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${wishlistVo.p_price}원</strong><br>
+									<td class="button" style="width : 200px; vertical-align : middle;">
+										<div> 
+											<a href="#none" onclick="NewWishlist.actionOrder('order', 0)" class="btn btn-sm btn-outline-dark btnConsign">응찰하기</a>  
+										</div>
+										<div>
+											<button type="button" class="btn btn-sm btn-outline-dark btnDeleteWish" rel="10474||000B||" id="btnDeleteWishlist" data-wno="${wishlistVo.wno}">&nbsp;X 삭제&nbsp;</button>
+										</div>  
+									</td>
+								</tr>
+							</c:forEach>
+						</c:when>
+					</c:choose>
 					</tbody>
 				</table>
+				<button type="button" class="btn btn-sm btn-outline-dark" id="btnCheckWish">선택한 상품 삭제</button>
 			</div>
 			<div class="col-md-2"></div>
 		</div>

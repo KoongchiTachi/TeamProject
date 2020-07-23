@@ -11,9 +11,12 @@
 	</insert>
 
 	<select id="wishList" resultType="WishlistVo">
-		select w.wno, m.m_id, p.pno, p.p_img, p.p_info, p.p_price
-		from tbl_wish w, tbl_product p, tbl_member m
-		where m.m_id = w.m_id and w.pno = p.pno and m.m_id = #{m_id}
+		select * 
+		from (select rownum rnum, a.*
+			  from (select w.wno, m.m_id, p.pno, p.p_img, p.p_info, p.p_price
+			 		from tbl_wish w, tbl_product p, tbl_member m
+			  		where m.m_id = w.m_id and w.pno = p.pno and m.m_id = #{m_id}) a)
+		where rnum between #{startRow} and #{endRow}
 	</select>
 	
 	<delete id="deleteWishlist">
@@ -25,5 +28,17 @@
 		delete from tbl_wish
 		where wno = ${wno}
 	</delete>
+	
+	<select id="listPage" resultType="WishlistPagingDto">
+<!-- 		select *  -->
+<!-- 		from (select rownum rnum, a* -->
+<!-- 			  from (select * from tbl_wish -->
+<!--            			order by wno desc) a) -->
+<!-- 		where rnum between #{startRow} and #{endRow} -->
+	</select>
+	
+	<select id="getCount" resultType="int">
+		select count(*) from tbl_wish
+	</select>
 
 </mapper>

@@ -21,7 +21,16 @@
                     </div>
                 </div>
             </div>
-   
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact-title">
+                        <div class="section-title">
+                            <h3>Why Luxtion</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
     <div id="content">
 	<div id="howto">
 		<div class="guidance">

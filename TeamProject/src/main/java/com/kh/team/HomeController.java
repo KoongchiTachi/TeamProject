@@ -50,7 +50,7 @@ public class HomeController/* implements Runnable*/ {
 								if (p_until < now) {
 									productDao.updateP_state("s02");
 									p_untilList = productDao.selectP_until();
-//									System.out.println("p_until 변경됨 : p_untilList:" + p_untilList);
+									System.out.println("p_until Changed : p_untilList:" + p_untilList);
 									break;
 								}
 							}

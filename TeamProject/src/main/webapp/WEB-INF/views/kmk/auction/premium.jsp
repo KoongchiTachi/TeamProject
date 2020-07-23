@@ -56,6 +56,7 @@
 	.banner-img {
 		position: relative;
 		z-index: 1;
+		text-align: center;
 	}
 } 
 </style>
@@ -68,9 +69,7 @@
 
 <script>
 $(function() {
-	$("#mymodal").click(function() {
-		
-	});
+	
 });
 </script>
 
@@ -90,9 +89,9 @@ $(function() {
             <div class="col-md-12"> 
             	<div class="row">
                     <div class="col-md-4">
-                        <img class="img-fluid" alt="Invoce Template" src="/resources/img/bag/molemole.jpg" />
+                        <img class="img-fluid" alt="Invoce Template" src="/resources/img/bag/g_01.jpg" />
                     </div>
-                    <div class="col-md-8 text-xs-right"> 
+                    <div class="col-md-8 text-xs-right">  
                         <h4 style="color: #F81D2D;"><strong>GUCCI</strong></h4>
                         <p>핸드백</p>
                     </div>
@@ -119,20 +118,10 @@ $(function() {
                                 <td colspan="2" class="col-md-3"><i class="fa fa-usd" aria-hidden="true"></i> 1일 </td>
                                 <td class="col-md-3"><i class="fa fa-usd" aria-hidden="true"></i> 12,000,000 </td>
                             </tr>
-                            <tr>
-                                <td class="col-md-3">KMK</td>
-                                <td colspan="2" class="col-md-3"><i class="fa fa-usd" aria-hidden="true"></i> 1일 </td>
-                                <td class="col-md-3"><i class="fa fa-usd" aria-hidden="true"></i> 11,000,000 </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-3">SJW</td>
-                                <td colspan="2" class="col-md-3"><i class="fa fa-usd" aria-hidden="true"></i> 1일 </td>
-                                <td class="col-md-3"><i class="fa fa-usd" aria-hidden="true"></i> 10,000,000 </td>
-                            </tr>
-                            <tr style="color: #F81D2D;">
-                                <td class="text-xs-right"><h4><strong>Total: </strong></h4></td>
-                                <td class="text-xs-left"><h4><strong><i class="fa fa-usd" aria-hidden="true"> 2365,00</i></strong></h4></td>
-                            </tr>
+<!--                             <tr style="color: #F81D2D;"> -->
+<!--                                 <td class="text-xs-right"><h4><strong>Total: </strong></h4></td> -->
+<!--                                 <td class="text-xs-left"><h4><strong><i class="fa fa-usd" aria-hidden="true"> 2365,00</i></strong></h4></td> -->
+<!--                             </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -173,10 +162,10 @@ $(function() {
 			<c:forEach items="${list}" var="premium"> 
 			<div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch">
 				<!-- Card -->
-				<div class="tile align-items-center">
+				<div class="tile align-items-center" data-pno="${premium.pno}" id="tile">
 					<!-- Card image -->
 					<div class="wrapper">
-					<div class="title">${premium.b_name}</div>
+					<div class="title" >${premium.b_name}</div>
 					<div class="p_logo"><%-- ${premium.pno} --%><img alt="premium" src="/resources/img/logo/premium_icon.png"></div> 
 					<div class="banner-img"> 
 						<img src="/resources/img/bag/${premium.p_img}" alt="Image 1"> 
@@ -206,8 +195,9 @@ $(function() {
 						</div>
 					</div>
 					<div class="footer">
-						<a href="#myModal" id="mymodal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal">상세보기</a>
-						<a href="/kmk/auction/bids" class="Cbtn Cbtn-primary">응찰하기</a>
+						<a href="#myModal" id="mymodal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal" data-pno="${premium.pno}">상세보기</a>
+<!-- 						<button class="Cbtn Cbtn-danger Cbtn-cs p_detail">상세보기</button> -->
+						<a href="/kmk/auction/bids" class="Cbtn Cbtn-primary">응찰하기</a> 
 					</div>
 				</div>
 					<!-- Card content -->
@@ -263,6 +253,33 @@ $(function() {
 		var dateObj = new Date(endDate); 
 		countDownTimer(that, dateObj);
 	});
+	
+	$("a.Cbtn-danger").each(function(index) {
+		var that = $(this);
+		var pno = that.attr("data-pno");		
+		that.click(function() {
+			console.log("클릭");
+			console.log(pno);
+		});
+	});
+	
+// 	$.each($("#tile"), function(index) {
+// 		$(this).on("click", ".p_detail", function() {
+// 			console.log("클릭");
+// 		});
+// 	});
+	
+// 	$("#tile").on("click", ".p_detail", function() {
+// 		console.log("클릭");
+// 		var cno = $(this).attr("data-cno");
+// 		var td = $(this).parent().parent().find("td");
+// 		var content = td.eq(0).text();
+// 		var writer = td.eq(1).text();
+// 		$("#modal_content").val(content);
+// 		$("#modal_writer").val(writer);
+// 		$("#btnModifyModal").attr("data-cno", cno);
+// 		$("#modal-219158").trigger("click");
+// 	}); 
 });	
 </script>
 

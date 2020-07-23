@@ -37,11 +37,6 @@ public class WishlistServiceImple implements WishlistService {
 	}
 
 	@Override
-	public List<WishlistVo> listPage(WishlistPagingDto wishlistPagingDto) throws Exception {
-		return wishlistDao.listPage(wishlistPagingDto);
-	}
-
-	@Override
 	public int getCount(WishlistPagingDto wishlistPagingDto) throws Exception {
 		return wishlistDao.getCount(wishlistPagingDto);
 	}

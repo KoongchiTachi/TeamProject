@@ -45,11 +45,6 @@ public class WishlistDaoImple implements WishlistDao {
 	}
 
 	@Override
-	public List<WishlistVo> listPage(WishlistPagingDto wishlistPagingDto) throws Exception {
-		return sqlSession.selectList(NAMESPACE + "listPage", wishlistPagingDto);
-	}
-
-	@Override
 	public int getCount(WishlistPagingDto wishlistPagingDto) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "getCount", wishlistPagingDto);
 	}

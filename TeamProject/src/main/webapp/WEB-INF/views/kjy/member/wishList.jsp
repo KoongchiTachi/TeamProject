@@ -8,7 +8,6 @@
 .wishList {
 	min-height: 100vh;
 }
-
 .titleArea {
 	margin-top: 200px;
 	margin-bottom: 100px;
@@ -31,20 +30,16 @@
 .btnDeleteWish:hover {
 	background-color: #f9ad81;
 } 
-#btnCheckWish {
-	
-}
 #btnCheckWish:hover {
 	background-color: #f9ad81;
 }
-.pagination > li > a
-{
+.pagination > li > a {
     background-color: white;
     color: black;
 }
-.pagination li.page-item active {
-	background-color: #f9ad81;
-  	color: white;
+.pagination > .page-item.active > .page-link {
+  	background-color: #f9ad81;
+  	border : solid 1px #f9ad81;
 }
 </style>
 
@@ -120,7 +115,7 @@ $(function() {
 	$("a.page-link").each(function () {
 		var page = $(this).attr("href");
 		if (page == "${wishlistPagingDto.page}") {
-			$(this).parent().addClass("active").css("background-color", "#f9ad81");
+			$(this).parent().addClass("active");
 			return;
 		}
 	});
@@ -131,13 +126,13 @@ $(function() {
 	<input type="hidden" name="page" value="${wishlistPagingDto.page}"/>
 	<input type="hidden" name="perPage" value="${wishlistPagingDto.perPage}"/>
 </form>
-aa
+
 <div class="wishList" style="margin-bottom : 200px;">
 	<div class="titleArea">
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h2>WISH LISTaaa</h2>
+				<h2>WISH LIST</h2>
 			</div>
 			<div class="col-md-2"></div>
 		</div>
@@ -194,36 +189,40 @@ aa
 			<div class="col-md-2"></div>
 		</div>
 		
-		<div class="row">
-			<div class="col-md-4">
+		<c:choose>
+			<c:when test="${listSize != 0}">
+			<div class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<nav>
+						<ul class="pagination" style="justify-content: center;">
+							<!-- 이전 -->
+							<c:if test="${wishlistPagingDto.startPage != 1}">
+							<li class="page-item">
+								<a class="page-link" href="${wishlistPagingDto.startPage - 1}">&laquo;</a>
+							</li>
+							</c:if>
+							<!-- 페이지 넘버링 -->
+							<c:forEach begin="${wishlistPagingDto.startPage}" end="${wishlistPagingDto.endPage}" var="v">
+							<li class="page-item">
+								<a class="page-link" href="${v}">${v}</a>
+							</li>
+							</c:forEach>
+							<!-- 다음 -->
+							<c:if test="${wishlistPagingDto.endPage < wishlistPagingDto.totalPage}">
+							<li class="page-item">
+								<a class="page-link" href="${wishlistPagingDto.endPage + 1}">&raquo;</a>
+							</li>
+							</c:if>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-md-4">
+				</div>
 			</div>
-			<div class="col-md-4">
-				<nav>
-					<ul class="pagination" style="justify-content: center;">
-						<!-- 이전 -->
-						<c:if test="${wishlistPagingDto.startPage != 1}">
-						<li class="page-item">
-							<a class="page-link" href="${wishlistPagingDto.startPage - 1}">&laquo;</a>
-						</li>
-						</c:if>
-						<!-- 페이지 넘버링 -->
-						<c:forEach begin="${wishlistPagingDto.startPage}" end="${wishlistPagingDto.endPage}" var="v">
-						<li class="page-item">
-							<a class="page-link" href="${v}">${v}</a>
-						</li>
-						</c:forEach>
-						<!-- 다음 -->
-						<c:if test="${wishlistPagingDto.endPage < wishlistPagingDto.totalPage}">
-						<li class="page-item">
-							<a class="page-link" href="${wishlistPagingDto.endPage + 1}">&raquo;</a>
-						</li>
-						</c:if>
-					</ul>
-				</nav>
-			</div>
-			<div class="col-md-4">
-			</div>
-		</div>
+			</c:when>
+		</c:choose>
 
 	</div>
 </div>

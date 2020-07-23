@@ -31,14 +31,12 @@ public class WishlistController {
 	public void wishList(HttpServletRequest request, WishlistPagingDto wishlistPagingDto, Model model) throws Exception {
 		wishlistPagingDto.setPageInfo();
 		int totalCount = wishlistSertvice.getCount(wishlistPagingDto);
-		System.out.println("totalCount:" + totalCount);
 		wishlistPagingDto.setTotalCount(totalCount);
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
 		int startRow = wishlistPagingDto.getStartRow();
 		int endRow = wishlistPagingDto.getEndRow();
 		List<WishlistVo> list = wishlistSertvice.wishList(m_id, startRow, endRow);
-		System.out.println("list:" + list);
 		model.addAttribute("list", list);
 		model.addAttribute("listSize", list.size());
 		model.addAttribute("wishlistPagingDto", wishlistPagingDto);
@@ -68,6 +66,5 @@ public class WishlistController {
 		}
 		return "success";
 	}
-	
 	
 }

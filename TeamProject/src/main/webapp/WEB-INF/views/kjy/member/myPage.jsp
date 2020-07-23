@@ -182,7 +182,7 @@ $(function() {
             <div class="col-md-4">
                 <div class="profile-work">
                     <p>ACUTION LIST</p>
-                    <a href=""> 응찰 </a><br/> 
+                    <a href="/kjy/member/myBidList"> 응찰 </a><br/> 
                     <a href=""> 낙찰 </a><br/>
                     <p><a href="/kjy/member/wishList">WISH LIST</a></p>
                     <p><a href="/sjw/member/myQna">1 : 1 문의 내역</a></p>

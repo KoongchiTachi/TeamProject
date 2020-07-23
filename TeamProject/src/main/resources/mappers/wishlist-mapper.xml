@@ -29,14 +29,6 @@
 		where wno = ${wno}
 	</delete>
 	
-	<select id="listPage" resultType="WishlistPagingDto">
-<!-- 		select *  -->
-<!-- 		from (select rownum rnum, a* -->
-<!-- 			  from (select * from tbl_wish -->
-<!--            			order by wno desc) a) -->
-<!-- 		where rnum between #{startRow} and #{endRow} -->
-	</select>
-	
 	<select id="getCount" resultType="int">
 		select count(*) from tbl_wish
 	</select>

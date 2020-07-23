@@ -19,9 +19,6 @@ public interface WishlistService {
 	// 다중선택된 위시리스트 삭제
 	public void deleteWishMulti(WishlistVo wnos) throws Exception;
 	
-	// 위시리스트 페이징
-	public List<WishlistVo> listPage(WishlistPagingDto wishlistPagingDto) throws Exception;
-	
 	// 게시글 수
 	public int getCount(WishlistPagingDto wishlistPagingDto) throws Exception;
 }

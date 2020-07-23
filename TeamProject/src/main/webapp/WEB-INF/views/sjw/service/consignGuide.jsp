@@ -3,6 +3,9 @@
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <link href="/resources/css/content.css" rel="stylesheet" type="text/css">
 <style>
+ul{
+   list-style:none;
+   }
 </style>
 <script>
 </script>
@@ -25,27 +28,27 @@
                     <div class="contact-title">
                         <div class="section-title">
                             <h3><strong>Why Luxtion</strong></h3><br/><br/>
-                             <h3><span style="font-size: 18px;">다양한 경매 플랫폼과 홍보 활동</span></h3><hr>
+                             <h3><span style="font-size: 18px; color: #585858">다양한 경매 플랫폼과 홍보 활동</span></h3><hr>
                             <ul>
 							<li>
 								<dl>
-									<dt> · 2가지 경매 플랫폼</dt>
+									<dt style="font-weight: normal;"> · 2가지 경매 플랫폼</dt>
 									<dd><p>&nbsp;&nbsp;프리미엄 경매, 일반 경매</p></dd>
 								</dl>
 							</li>
 							<li>
 								<dl>
-									<dt> · 다양한 홍보 마케팅 및 SNS</dt>
+									<dt style="font-weight: normal;"> · 다양한 홍보 마케팅 및 SNS</dt>
 									<dd><p>&nbsp;&nbsp;자선경매 등 사회공헌활동 및 페이스북, 인스타그램, 카카오톡, 블로그 등
 										활발한 SNS</p></dd>
 								</dl><br/>
 							</li>
 						</ul>
-						<h3><span style="font-size: 18px;">서비스 차별화</span></h3><hr>
+						<h3><span style="font-size: 18px; color: #585858">서비스 차별화</span></h3><hr>
 						<ul>
-							<li><strong> · 럭션의 노하우로 엄선된 상품</strong></li>
-							<li><strong> · 안전 거래 시스템 구축</strong></li>
-                    		<li><strong> · 신속하고 친절한 배송</strong></li> 
+							<li> · 럭션의 노하우로 엄선된 상품</li>
+							<li> · 안전 거래 시스템 구축</li>
+                    		<li> · 신속하고 친절한 배송</li> 
 						</ul>
 					</div>
                     </div>
@@ -61,7 +64,7 @@
 					<ul>
 						<li class="app last">
 							<p class="tit">홈페이지 접수</p>
-							<p class="txt">
+							<p class="txt" style="font-size: 17px;">
 								로그인 후 [Service] > [위탁신청]을 통해<br/> 편리하게 위탁을 신청하실 수 있습니다.
 							</p>
 							<div class="appbtn">
@@ -94,7 +97,7 @@
 
 				<p class="hTxt">
 					1) 럭션을 통해 위탁하신 물품이 낙찰되면 위탁자에게 개별적으로 통보합니다.<br/>
-					&nbsp;&nbsp;&nbsp;(자세한 내역은 마이페이지 낙찰내역에서 확인 가능)<br/>
+					&nbsp;&nbsp;&nbsp;(자세한 내용은 [MyPage] > [낙찰내역]에서 확인 가능)<br/>
 					2) 낙찰자를 통해 낙찰 대금이 완납되면 위탁 수수료를 제한 위탁 대금이 지급됩니다.
 				</p>
 				<div class="infoBox">

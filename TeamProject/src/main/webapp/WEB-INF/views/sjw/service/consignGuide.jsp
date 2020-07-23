@@ -45,7 +45,7 @@
 						<ul>
 							<li><strong> · 럭션의 노하우로 엄선된 상품</strong></li>
 							<li><strong> · 안전 거래 시스템 구축</strong></li>
-                    		<li><strong> · 신속하고 친절한 배송</strong></li>
+                    		<li><strong> · 신속하고 친절한 배송</strong></li> 
 						</ul>
 					</div>
                     </div>

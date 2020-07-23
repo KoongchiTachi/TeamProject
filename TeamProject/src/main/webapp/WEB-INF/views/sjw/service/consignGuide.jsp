@@ -5,7 +5,6 @@
 <style>
 </style>
 <script>
-
 </script>
 
 <%@ include file="/WEB-INF/views/include/sjw/frmPage.jsp" %>
@@ -25,8 +24,30 @@
                 <div class="col-lg-12">
                     <div class="contact-title">
                         <div class="section-title">
-                            <h3>Why Luxtion</h3>
-                        </div>
+                            <h3><strong>Why Luxtion</strong></h3><br/><br/>
+                             <h3><span style="font-size: 18px;">다양한 경매 플랫폼과 홍보 활동</span></h3><hr>
+                            <ul>
+							<li>
+								<dl>
+									<dt> · 2가지 경매 플랫폼</dt>
+									<dd><p>&nbsp;&nbsp;프리미엄 경매, 일반 경매</p></dd>
+								</dl>
+							</li>
+							<li>
+								<dl>
+									<dt> · 다양한 홍보 마케팅 및 SNS</dt>
+									<dd><p>&nbsp;&nbsp;자선경매 등 사회공헌활동 및 페이스북, 인스타그램, 카카오톡, 블로그 등
+										활발한 SNS</p></dd>
+								</dl><br/>
+							</li>
+						</ul>
+						<h3><span style="font-size: 18px;">서비스 차별화</span></h3><hr>
+						<ul>
+							<li><strong> · 럭션의 노하우로 엄선된 상품</strong></li>
+							<li><strong> · 안전 거래 시스템 구축</strong></li>
+                    		<li><strong> · 신속하고 친절한 배송</strong></li>
+						</ul>
+					</div>
                     </div>
                 </div>
             </div>
@@ -54,7 +75,7 @@
 			<div class="inbox">
 				<h3><strong>02</strong> 감정 및 <br/>상품등록 안내</h3>
 				<p class="hTxt">
-				<strong>
+				<strong style="font-size: 17px;">
 				럭션은 진품만을 취급합니다. 자체 검증 시스템을 통과한 상품에 한해 상품 등록이 진행됩니다.<br/>
 				제품의 연식, 컨디션 등 판매가 어려울 수 있을 경우 위탁이 거절될 수 있습니다.<br/></strong>
 				

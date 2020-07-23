@@ -37,6 +37,14 @@
 #btnCheckWish:hover {
 	background-color: #f9ad81;
 }
+.pagination {
+/* 	background: #f9ad81; */
+/*   	color: white; */
+/*  	color: #f9ad81; */
+/*     background-color: #f9ad81; */
+/*     border-color: #f9ad81; */
+ color: #6c58bF;
+}
 </style>
 
 <script>
@@ -99,8 +107,29 @@ $(function() {
 			}
 		});
 	});
+	
+	// 페이징
+	$("a.page-link").click(function(e) {
+		e.preventDefault();
+		var page = $(this).attr("href").trim();
+		$("#frmPage > input[name=page]").val(page);
+		$("#frmPage").submit();
+	});
+	
+	$("a.page-link").each(function () {
+		var page = $(this).attr("href");
+		if (page == "${wishlistPagingDto.page}") {
+			$(this).parent().addClass("active");
+			return;
+		}
+	});
 });
 </script>
+
+<form id="frmPage" action="/kjy/member/wishList" method="get">
+	<input type="hidden" name="page" value="${wishlistPagingDto.page}"/>
+	<input type="hidden" name="perPage" value="${wishlistPagingDto.perPage}"/>
+</form>
 
 <div class="wishList" style="margin-bottom : 200px;">
 	<div class="titleArea">
@@ -163,6 +192,38 @@ $(function() {
 			</div>
 			<div class="col-md-2"></div>
 		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+			</div>
+			<div class="col-md-4">
+				<nav>
+					<ul class="pagination" style="justify-content: center;">
+						<!-- 이전 -->
+						<c:if test="${wishlistPagingDto.startPage != 1}">
+						<li class="page-item">
+							<a class="page-link" href="${wishlistPagingDto.startPage - 1}">&laquo;</a>
+						</li>
+						</c:if>
+						<!-- 페이지 넘버링 -->
+						<c:forEach begin="${wishlistPagingDto.startPage}" end="${wishlistPagingDto.endPage}" var="v">
+						<li class="page-item">
+							<a class="page-link" href="${v}">${v}</a>
+						</li>
+						</c:forEach>
+						<!-- 다음 -->
+						<c:if test="${wishlistPagingDto.endPage < wishlistPagingDto.totalPage}">
+						<li class="page-item">
+							<a class="page-link" href="${wishlistPagingDto.endPage + 1}">&raquo;</a>
+						</li>
+						</c:if>
+					</ul>
+				</nav>
+			</div>
+			<div class="col-md-4">
+			</div>
+		</div>
+
 	</div>
 </div>
 

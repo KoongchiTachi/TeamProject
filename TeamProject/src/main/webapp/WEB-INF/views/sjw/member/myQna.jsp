@@ -65,12 +65,19 @@ $(function() {
 					</tr>
 				</thead>
 				<tbody>
+<%-- 				<c:choose> --%>
+<%-- 						<c:when test="${listSize == 0}"> --%>
+<!-- 							<td colspan="5"> -->
+<!-- 								<p>1:1문의 내역이 없습니다.</p> -->
+<!-- 							</td> -->
+<%-- 						</c:when> --%>
+<%-- 						<c:when test="${listSize != 0}"> --%>
 				<c:forEach items="${list}" var="qnaVo">
 					<tr>
 						<td>${qnaVo.q_kind}</td>
 						<td>${qnaVo.q_title}</td>
 						<td>${qnaVo.q_date}</td>
-						<td>${qnaVo.q_answer}</td>
+						<td>${qnaVo.q_name}</td>
 						<td></td>
 					</tr>
 					<tr>
@@ -82,6 +89,8 @@ $(function() {
 						</td>
 					</tr>
 					</c:forEach>
+<%-- 					</c:when> --%>
+<%-- 					</c:choose> --%>
 				</tbody>
 			</table>
 		</div>

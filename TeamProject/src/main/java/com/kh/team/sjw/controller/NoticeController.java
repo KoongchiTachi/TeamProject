@@ -91,4 +91,5 @@ public class NoticeController {
 	@RequestMapping("/info")
 	public void info() throws Exception {
 	}
+	
 }

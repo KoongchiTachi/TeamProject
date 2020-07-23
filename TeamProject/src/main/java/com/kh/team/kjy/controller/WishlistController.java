@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kh.team.domain.WishlistPagingDto;
 import com.kh.team.domain.WishlistVo;
 import com.kh.team.service.WishlistService;
 
@@ -25,15 +26,22 @@ public class WishlistController {
 	
 	// 위시리스트 추가
 	
-	// 위시리스트 목록
+	// 위시리스트 목록(페이징)
 	@RequestMapping(value = "/wishList", method = RequestMethod.GET)
-	public void wishList(HttpServletRequest request, Model model) throws Exception {
+	public void wishList(HttpServletRequest request, WishlistPagingDto wishlistPagingDto, Model model) throws Exception {
+		wishlistPagingDto.setPageInfo();
+		int totalCount = wishlistSertvice.getCount(wishlistPagingDto);
+		System.out.println("totalCount:" + totalCount);
+		wishlistPagingDto.setTotalCount(totalCount);
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
-		List<WishlistVo> list = wishlistSertvice.wishList(m_id);
+		int startRow = wishlistPagingDto.getStartRow();
+		int endRow = wishlistPagingDto.getEndRow();
+		List<WishlistVo> list = wishlistSertvice.wishList(m_id, startRow, endRow);
 		System.out.println("list:" + list);
 		model.addAttribute("list", list);
 		model.addAttribute("listSize", list.size());
+		model.addAttribute("wishlistPagingDto", wishlistPagingDto);
 	}
 	
 	// 동일한 상품 체크
@@ -60,5 +68,6 @@ public class WishlistController {
 		}
 		return "success";
 	}
+	
 	
 }

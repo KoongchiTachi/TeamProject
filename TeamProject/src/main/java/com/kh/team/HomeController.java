@@ -33,7 +33,7 @@ public class HomeController/* implements Runnable*/ {
 		logger.info("정상 작동됨.", locale);
 		if (isCheckP_until == false) {
 			p_untilList = productDao.selectP_until();
-			System.out.println("p_untilList"+ p_untilList);
+//			System.out.println("p_untilList"+ p_untilList);
 			Thread th = new Thread(new Runnable() {
 				
 				@Override
@@ -44,13 +44,13 @@ public class HomeController/* implements Runnable*/ {
 							for (Timestamp t : p_untilList) {
 								long p_until = t.getTime();
 								long now = new Date().getTime();
-								System.out.println("p_until:" + p_until);
-								System.out.println("now:" + now);
-								System.out.println("-------------------");
+//								System.out.println("p_until:" + p_until);
+//								System.out.println("now:" + now);
+//								System.out.println("-------------------");
 								if (p_until < now) {
 									productDao.updateP_state("s02");
 									p_untilList = productDao.selectP_until();
-									System.out.println("p_until 변경됨 : p_untilList:" + p_untilList);
+//									System.out.println("p_until 변경됨 : p_untilList:" + p_untilList);
 									break;
 								}
 							}

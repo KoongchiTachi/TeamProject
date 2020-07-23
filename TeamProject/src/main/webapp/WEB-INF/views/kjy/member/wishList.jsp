@@ -37,13 +37,14 @@
 #btnCheckWish:hover {
 	background-color: #f9ad81;
 }
-.pagination {
-/* 	background: #f9ad81; */
-/*   	color: white; */
-/*  	color: #f9ad81; */
-/*     background-color: #f9ad81; */
-/*     border-color: #f9ad81; */
- color: #6c58bF;
+.pagination > li > a
+{
+    background-color: white;
+    color: black;
+}
+.pagination li.page-item active {
+	background-color: #f9ad81;
+  	color: white;
 }
 </style>
 
@@ -119,7 +120,7 @@ $(function() {
 	$("a.page-link").each(function () {
 		var page = $(this).attr("href");
 		if (page == "${wishlistPagingDto.page}") {
-			$(this).parent().addClass("active");
+			$(this).parent().addClass("active").css("background-color", "#f9ad81");
 			return;
 		}
 	});
@@ -130,13 +131,13 @@ $(function() {
 	<input type="hidden" name="page" value="${wishlistPagingDto.page}"/>
 	<input type="hidden" name="perPage" value="${wishlistPagingDto.perPage}"/>
 </form>
-
+aa
 <div class="wishList" style="margin-bottom : 200px;">
 	<div class="titleArea">
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h2>WISH LIST</h2>
+				<h2>WISH LISTaaa</h2>
 			</div>
 			<div class="col-md-2"></div>
 		</div>

@@ -15,5 +15,8 @@ public interface BidDao {
 	
 	// 게시글 수
 	public int getCount(BidListPagingDto bidListPagingDto) throws Exception;
+	
+	// 낙찰 내역
+	public List<BidVo> successBidList(String m_id) throws Exception;
 		
 }

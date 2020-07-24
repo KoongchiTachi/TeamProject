@@ -49,4 +49,14 @@ public class BidController {
 		model.addAttribute("m_name", m_name);
 	}
 	
+	// 낙찰 내역
+	@RequestMapping(value = "/successBidList", method = RequestMethod.GET)
+	public void successBidList(HttpServletRequest request, Model model) throws Exception {
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
+		List<BidVo> list = bidService.successBidList(m_id);
+		System.out.println("list:" + list);
+		model.addAttribute("list", list);
+	}
+	
 }

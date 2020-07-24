@@ -22,5 +22,12 @@
 	<select id="getCount" resultType="int">
 		select count(*) from tbl_bid
 	</select>
+	
+	<select id="successBidList" resultType="BidVo">
+		select m.m_id, p.pno, b.bno, p.p_img, p.p_info, b.b_price, b.b_date, c.p_name
+		from tbl_bid b, tbl_product p, tbl_member m, code_progress c
+		where b.pno = p.pno and m.m_id = b.m_id and m.m_id = #{m_id} and p.p_progress = 'p06' and c.p_name = '낙찰'
+	</select>
+
 
 </mapper>

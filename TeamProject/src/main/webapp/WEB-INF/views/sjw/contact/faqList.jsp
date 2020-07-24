@@ -122,8 +122,10 @@ $(function() {
 });
 </script>
 <form id="frmPage" action="/sjw/contact/faqList" method="get">
+	<input type="hidden" name="fno" value="${faqVo.fno}"/>
 	<input type="hidden" name="page" value="${faqPagingDto.page}"/>
 	<input type="hidden" name="perPage" value="${faqPagingDto.perPage}"/>
+	<input type="hidden" name="keyword" value="${faqPagingDto.keyword}"/>
 </form> 
 <section class="contact-section spad">
 	<div class="container faq">

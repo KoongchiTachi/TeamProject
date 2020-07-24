@@ -22,7 +22,7 @@
 	</select>
 	
 	<!-- 공지사항 입력 (관리자) -->
-	<insert id="insertNotice">
+	<insert id="noticeInsert">
 		insert into tbl_notice (nno, n_title, n_content)
 		values (seq_nno.nextval, #{n_title}, #{n_content})	
 	</insert>

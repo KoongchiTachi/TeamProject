@@ -11,12 +11,12 @@ public class NoticePagingDto {
 	private int startPage; // 페이지 블럭에서 시작 페이지
 	private int endPage; // 페이지 블럭에서 끝 페이지
 	private final int PAGE_BLOCK = 10; // 페이지 블럭 수
-	
+
 	public void setPageInfo() {
 		this.endRow = page * perPage;
 		this.startRow = this.endRow - this.perPage + 1;
-		
-		this.endPage = (int) (Math.ceil((double)page / PAGE_BLOCK) * PAGE_BLOCK);
+
+		this.endPage = (int) (Math.ceil((double) page / PAGE_BLOCK) * PAGE_BLOCK);
 		this.startPage = this.endPage - PAGE_BLOCK + 1;
 	}
 
@@ -26,7 +26,7 @@ public class NoticePagingDto {
 
 	public void setPage(int page) {
 		this.page = page;
-		
+
 	}
 
 	public int getStartRow() {
@@ -67,9 +67,9 @@ public class NoticePagingDto {
 
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
-		this.totalPage = (int) Math.ceil((double)totalCount / perPage);
-		
-		if(endPage > totalPage) {
+		this.totalPage = (int) Math.ceil((double) totalCount / perPage);
+
+		if (endPage > totalPage) {
 			endPage = totalPage;
 		}
 	}
@@ -97,12 +97,12 @@ public class NoticePagingDto {
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "PagingDto [page=" + page + ", perPage=" + perPage + ", startRow=" + startRow + ", endRow=" + endRow
-				+ ", keyword=" + keyword + ", totalCount=" + totalCount + ", totalPage="
-				+ totalPage + ", startPage=" + startPage + ", endPage=" + endPage + "]";
+				+ ", keyword=" + keyword + ", totalCount=" + totalCount + ", totalPage=" + totalPage + ", startPage="
+				+ startPage + ", endPage=" + endPage + "]";
 	}
 
 }

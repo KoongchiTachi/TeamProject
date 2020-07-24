@@ -65,20 +65,20 @@ public class FaqServiceImpl implements FaqService {
 
 	// faq 입력
 	@Override
-	public void insertFaq(FaqVo faqVo) throws Exception {
-		faqDao.insertFaq(faqVo);
+	public void faqInsert(FaqVo faqVo) throws Exception {
+		faqDao.faqInsert(faqVo);
 	}
 
 	// faq 수정
 	@Override
-	public void updateFaq(FaqVo faqVo) throws Exception {
-		faqDao.updateFaq(faqVo);
+	public void faqUpdate(FaqVo faqVo) throws Exception {
+		faqDao.faqUpdate(faqVo);
 	}
 
 	// faq 삭제
 	@Override
-	public void deleteFaq(int fno) throws Exception {
-		faqDao.deleteFaq(fno);
+	public void faqDelete(int fno) throws Exception {
+		faqDao.faqDelete(fno);
 	}
 
 }

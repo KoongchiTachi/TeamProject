@@ -26,11 +26,11 @@ public interface FaqService {
 	public FaqVo faqRead(int fno) throws Exception;
 	
 	// faq 입력
-	public void insertFaq(FaqVo faqVo) throws Exception;
+	public void faqInsert(FaqVo faqVo) throws Exception;
 	
 	// faq 수정
-	public void updateFaq(FaqVo faqVo) throws Exception;
+	public void faqUpdate(FaqVo faqVo) throws Exception;
 	
 	// faq 삭제
-	public void deleteFaq(int fno) throws Exception;
+	public void faqDelete(int fno) throws Exception;
 }

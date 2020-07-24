@@ -48,9 +48,7 @@ $(function() {
 				<div class="contact-title">
 					<div class="section-title">
 						<h2>1:1문의 내역</h2>
-						<c:forEach items="${list}" var="name">
-						<h5>${name.m_name} 님의 문의 내역입니다.</h5>
-						</c:forEach>
+						<h5>${m_id} 님의 문의 내역입니다.</h5>
 					</div>
 				</div>
 			</div>

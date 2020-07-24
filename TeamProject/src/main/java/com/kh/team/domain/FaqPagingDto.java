@@ -5,17 +5,18 @@ public class FaqPagingDto {
 	private int perPage = 10;
 	private int startRow = 1;
 	private int endRow = 10;
+	private String keyword;
 	private int totalCount; // 전체 게시글 수
 	private int totalPage; // 전체 페이지 수
 	private int startPage; // 페이지 블럭에서 시작 페이지
 	private int endPage; // 페이지 블럭에서 끝 페이지
 	private final int PAGE_BLOCK = 10; // 페이지 블럭 수
-	
+
 	public void setPageInfo() {
 		this.endRow = page * perPage;
 		this.startRow = this.endRow - this.perPage + 1;
-		
-		this.endPage = (int) (Math.ceil((double)page / PAGE_BLOCK) * PAGE_BLOCK);
+
+		this.endPage = (int) (Math.ceil((double) page / PAGE_BLOCK) * PAGE_BLOCK);
 		this.startPage = this.endPage - PAGE_BLOCK + 1;
 	}
 
@@ -25,7 +26,7 @@ public class FaqPagingDto {
 
 	public void setPage(int page) {
 		this.page = page;
-		
+
 	}
 
 	public int getStartRow() {
@@ -52,15 +53,23 @@ public class FaqPagingDto {
 		this.perPage = perPage;
 	}
 
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
 	public int getTotalCount() {
 		return totalCount;
 	}
 
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
-		this.totalPage = (int) Math.ceil((double)totalCount / perPage);
-		
-		if(endPage > totalPage) {
+		this.totalPage = (int) Math.ceil((double) totalCount / perPage);
+
+		if (endPage > totalPage) {
 			endPage = totalPage;
 		}
 	}
@@ -91,9 +100,9 @@ public class FaqPagingDto {
 
 	@Override
 	public String toString() {
-		return "FaqPagingDto [page=" + page + ", perPage=" + perPage + ", startRow=" + startRow + ", endRow=" + endRow
-				+ ", totalCount=" + totalCount + ", totalPage=" + totalPage + ", startPage=" + startPage + ", endPage="
-				+ endPage + ", PAGE_BLOCK=" + PAGE_BLOCK + "]";
+		return "PagingDto [page=" + page + ", perPage=" + perPage + ", startRow=" + startRow + ", endRow=" + endRow
+				+ ", keyword=" + keyword + ", totalCount=" + totalCount + ", totalPage=" + totalPage + ", startPage="
+				+ startPage + ", endPage=" + endPage + "]";
 	}
 
 }

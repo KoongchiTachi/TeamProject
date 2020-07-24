@@ -62,20 +62,20 @@ public class FaqDaoImpl implements FaqDao {
 
 	// faq 입력
 	@Override
-	public void insertFaq(FaqVo faqVo) throws Exception {
-		sqlSession.insert(NAMESPACE + "insertFaq", faqVo);
+	public void faqInsert(FaqVo faqVo) throws Exception {
+		sqlSession.insert(NAMESPACE + "faqInsert", faqVo);
 	}
 
 	// faq 수정
 	@Override
-	public void updateFaq(FaqVo faqVo) throws Exception {
-		sqlSession.update(NAMESPACE + "updateFaq", faqVo);
+	public void faqUpdate(FaqVo faqVo) throws Exception {
+		sqlSession.update(NAMESPACE + "faqUpdate", faqVo);
 	}
 
 	// faq 삭제
 	@Override
-	public void deleteFaq(int fno) throws Exception {
-		sqlSession.delete(NAMESPACE + "deleteFaq", fno);
+	public void faqDelete(int fno) throws Exception {
+		sqlSession.delete(NAMESPACE + "faqDelete", fno);
 	}
 
 }

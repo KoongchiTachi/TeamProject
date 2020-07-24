@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <script src="/resources/js/sjw_script.js"></script>
-
+<link rel="stylesheet" href="/resources/css/bids.css" type="text/css">
 <style>
 .contact-form #file_name {
 	padding: 25px;
@@ -33,42 +33,20 @@
 	clear : both;
 	margin-top : 0;
 }
-.contact-form textarea {
-	color: black;
-	resize : vertical;
-	font-size: 17px;
-	min-height : 80px;
-	margin-bottom: 30px;
-}
-.contact-form textarea::placeholder {
-	color: #A4A4A4;
-	font-size: 17px;
-	font-weight: 600;
-	letter-spacing: 0.4px;
-}
-.contact-form input {
-	color: black;
-	font-size: 17px;
-	margin-bottom: -30px;
-}
-.contact-form input::placeholder {
-	color: #A4A4A4;
-	font-size: 17px;
-	font-weight: 600;
-	letter-spacing: 0.4px;
-}
-.contact-form button { 
+#btnCancel { 
+ 	color: #ffffff; 
+ 	background: #bfbfbf; 
  	font-size: 17px; 
  	letter-spacing: 0.5px; 
  	font-weight: 600; 
  	border: none; 
- 	padding: 20px 100px;
+ 	padding: 20px 100px; 
  	display: inline-block; 
  	cursor: pointer; 
  }
-.contact-form #btnCancel { 
- 	color: #ffffff; 
- 	background: #bfbfbf; 
+ #btnSubmit {
+  	color: #ffffff; 
+ 	background: #F9AD81; 
  	font-size: 17px; 
  	letter-spacing: 0.5px; 
  	font-weight: 600; 
@@ -80,42 +58,58 @@
 .contact-container {
 	margin-left : 25%;
 }
-.check-form {
-	padding-left: 28px;
-	margin-bottom: 17px;
-}
-.check-form:after {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 0%;
-	height: 0%;
-	background: #000000;
-	content: "";
-	opacity: 0;
-	z-index: 0;
-}
-.suit-select {
-	width : 90%;
-	font-size : 17px;
- 	position: absolute;
-}
-.check-form .room-selector .nice-select span {
-	font-size: 17px;
-}
 .fileName {
 	font-size: 10px;
 }
-.contact-form input.subject {
-	border-bottom: 1px solid #000000;
-	margin-bottom: 50px;
+form {
+/*   	margin-left: 10px; */
+ 	max-width : 80%; 
+ 	padding-left: 80px;
+}
+.controls button {
+  padding: 0px;
+  font-size: 0px;
+  border: 0px;
+  width: 0;
+  margin-bottom: 0;
+  color: #888;
+  font-family: cursive;
+  font-size: 0px;
+  font-weight: 0;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  -moz-transition: 0;
+  -o-transition: 0;
+  -webkit-transition: 0;
+  transition: 0;
+  float: none;
 }
 
 </style>
-
+<script type="text/javascript"> 
+$(function($) {
+	function floatLabel(inputType) { 
+		$(inputType).each(function() {
+			var $this = $(this);
+			// on focus add cladd active to label
+			$this.focus(function() {
+				$this.next().addClass("active");
+			});
+			//on blur check field and remove class if needed
+			$this.blur(function() {
+				if ($this.val() === "" || $this.val() === "blank") {
+					$this.next().removeClass(); 
+				}
+			});
+		});
+	} 
+	floatLabel(".floatLabel");
+});
+</script>
 <script>
-$(function () {
-	
+$(function() {
+
 	$("#file_name").on("change", function(e) {
 		var maxSize = 10485760;
 		var maxFile = 4;
@@ -186,13 +180,6 @@ $(function () {
 		});
 	});
 	
-	$("#btnSubmit").click(function() {
-		if($("#q_kind > option:selected").val()==""){
-			alert("문의 유형을 선택해 주세요.");
-			return false;
-		}
-	});
-	
 	$("#contact-form").submit(function() {
 		var upDiv = $("#uploadedList > div");
 		upDiv.each(function(index) {
@@ -205,75 +192,88 @@ $(function () {
  });
 
 </script>
-
     <!-- Contact Section Begin -->
-    <section class="contact-section spad">
-        <div class="contact-container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="contact-title">
-                        <div class="section-title">
-                            <h2>1:1 문의</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-8">
-                    <form action="/sjw/contact/qnaForm" role="form" class="contact-form" id="contact-form" enctype="multipart/form-data" method="post">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <input type="text" name="m_id" placeholder="회원아이디" value="${m_id}" readonly>
-                                	<div class="check-form">
-										<div class="room-selector">
-												<select class="suit-select" name="q_kind" id="q_kind" required>
-													<option value="" selected disabled>문의유형을 선택해 주세요.</option>
-													<option value="주문">주문</option>
-													<option value="배송">배송</option>
-									 				<option value="상품">상품</option>
-													<option value="경매">경매</option>
-													<option value="위탁">위탁</option>
-													<option value="낙찰">낙찰</option>
-												</select>
-											</div>
-										</div>
-							<input type="text" class="subject" name="q_title" placeholder="제목을 입력해 주세요." required>
-                            <textarea placeholder="내용을 입력해 주세요." name="q_content" required style="height: auto;"></textarea>
-                            <input type="hidden" name="q_answer" value="q1001">
-							
-							<div class="row">
-									<div class="col-md-12">
-										<div class="row">
-										
-											<div class="col-md-4" style="padding: 25px">
-												<span class="badge badge-default">파일첨부</span>
-												<p class="help-block">※ 10MB 미만의 이미지 파일 4개까지<br/> 첨부 가능합니다.</p>
-												<input type="hidden" name="file_name">
-											</div>
-											
-											<div class="col-md-8">
-												<input type="file" class="form-control-file" name="file_name" id="file_name" accept=".jpg, .jpeg, .png, .gif"/>
-												<div id="fileDrop">
-												<div id="uploadedList"></div>
-												</div>
-												
-											</div>
-											
+<section class="contact-section spad">
+	<div class="contact-container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="contact-title">
+					<div class="section-title">
+						<h2>1:1 문의</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<form action="/sjw/contact/qnaForm" role="form" class="contact-form" id="contact-form" enctype="multipart/form-data" method="post" style="margin: -70px;">
+					<div class="form-group">
+						<div class="controls">
+							<input type="text" class="floatLabel" name="m_id" value="아이디 : ${m_id}" style="color: black; width: auto; text-align: center; font-weight: bold;" readonly>
+						</div>
+						<div class="grid">
+							<div class="col-1-3 col-1-3-sm">
+								<div class="controls">
+									<i class="fa fa-sort"></i> <select class="floatLabel"
+										style="width: 320px;" name="q_kind" id="q_kind"
+										required="required">
+										<option value="blank"></option>
+										<option value="주문" selected>주문</option>
+										<option value="배송" selected>배송</option>
+										<option value="상품" selected>상품</option>
+										<option value="경매" selected>경매</option>
+										<option value="위탁" selected>위탁</option>
+										<option value="낙찰" selected>낙찰</option>
+									</select> <label for="q_kind" style="width: 220px;">문의유형을 선택해
+										주세요.</label>
+								</div>
+							</div>
+						</div>
+						<div class="grid">
+							<div class="form-group">
+								<div class="controls">
+									<input type="text" id="q_title" class="floatLabel"
+										name="q_title" required> <label for="q_title">제목</label>
+								</div>
+							</div>
+							<div class="controls">
+								<textarea name="q_content" class="floatLabel" id="q_content"
+									required></textarea>
+								<label for="q_content">문의 내용</label>
+							</div>
+							<input type="hidden" name="q_answer" value="q1001">
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+
+									<div class="col-md-4" style="padding: 25px">
+										<span class="badge badge-default">파일첨부</span>
+										<p class="help-block">
+											<br />※ 10MB 미만의 이미지 파일<br /> 4개까지 첨부 가능합니다.
+										</p>
+										<input type="hidden" name="file_name">
+									</div>
+									<div class="col-md-8">
+										<input type="file" class="form-control-file" name="file_name"
+											id="file_name" accept=".jpg, .jpeg, .png, .gif" />
+										<div id="fileDrop">
+											<div id="uploadedList"></div>
 										</div>
 									</div>
 								</div>
-								<div id="btnDiv" style="text-align:center;">
-									<button type="submit" class="primary-btn" id="btnSubmit" style="margin: 20px">등록</button>
-                               		<a href="/sjw/contact/faqList" class="submit-btn" id="btnCancel" style="margin: 20px">취소</a>
-                               	</div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-              </div>
-             </div>
-    </section>
-    <!-- Contact Section End -->
+							</div>
+						</div>
+						<div id="btnDiv" align="right" style="text-align: center;">
+							<button type="submit" id="btnSubmit">등록</button>
+							<a href="/sjw/contact/faqList" class="submit-btn" id="btnCancel"
+								style="margin: 20px">취소</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
    
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>

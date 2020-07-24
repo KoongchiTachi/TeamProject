@@ -10,6 +10,7 @@
 		select *
 			from (select rownum rnum, a.* 
       			from (select * from tbl_faq
+      			<include refid="search"></include>
         		order by fno asc) a)
 		where rnum between #{startRow} and #{endRow}
 	</select>
@@ -17,6 +18,7 @@
 	<!-- 게시글수 -->
 	<select id="getCount" resultType="int">
 		select count(*) from tbl_faq
+		<include refid="search"></include>
 	</select>
 	
 	<!-- faq f_cate = f1001 회원 관련 목록 -->
@@ -50,7 +52,7 @@
 	</select>
 	
 	<!-- faq 입력 -->
-	<insert id="insertFaq">
+	<insert id="faqInsert">
 		insert into tbl_faq (fno, f_title, f_content, f_cate)
 		values (seq_fno.nextval, #{f_title}, #{f_content}, #{f_cate})	
 	</insert>
@@ -62,46 +64,25 @@
 	</select>
 	
 	<!-- faq 수정 -->
-	<update id="updateFaq">
+	<update id="faqUpdate">
 		update tbl_faq set
 			f_title = #{f_title},
-			f_content = #{f_content}
+			f_content = #{f_content},
 			f_cate = #{f_cate}
 		where fno = #{fno}
 	</update>
 	
 	<!-- faq 삭제 -->
-	<delete id="deleteFaq">
+	<delete id="faqDelete">
 		delete from tbl_faq
 		where fno = #{fno}
 	</delete>
 	
- 	<!-- 검색 -->
-<!-- 	<sql id="search"> -->
-<!-- 		<if test="searchType != null"> -->
-<!-- 			<choose> -->
-<!-- 				<when test='searchType == "f1001"'> -->
-<!-- 					where f_title like '%' || #{keyword} || '%' -->
-<!-- 					or f_content like '%' || #{keyword} || '%' -->
-<!-- 				</when> -->
-<!-- 				<when test='searchType == "f1002"'> -->
-<!-- 					where f_title like '%' || #{keyword} || '%' -->
-<!-- 					or f_content like '%' || #{keyword} || '%' -->
-<!-- 				</when> -->
-<!-- 				<when test='searchType == "f1003"'> -->
-<!-- 					where f_title like '%' || #{keyword} || '%' -->
-<!-- 					or f_content like '%' || #{keyword} || '%' -->
-<!-- 				</when> -->
-<!-- 				<when test='searchType == "f1004"'> -->
-<!-- 					where f_title like '%' || #{keyword} || '%' -->
-<!-- 					or f_content like '%' || #{keyword} || '%' -->
-<!-- 				</when> -->
-<!-- 				<when test='searchType == "f1005"'> -->
-<!-- 					where f_title like '%' || #{keyword} || '%' -->
-<!-- 					or f_content like '%' || #{keyword} || '%' -->
-<!-- 				</when> -->
-<!-- 			</choose> -->
-<!-- 		</if> -->
-<!-- 	</sql> -->
+	<!-- 검색 -->
+	<sql id="search">
+		<if test="keyword != null">
+			where f_title like '%' || #{keyword} || '%'
+		</if>
+	</sql>
 	
 </mapper>

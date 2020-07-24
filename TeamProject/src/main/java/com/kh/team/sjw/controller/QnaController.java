@@ -35,6 +35,12 @@ public class QnaController {
 		return "redirect:/sjw/member/myQna";
 	}
 	
+	// QnA 입력 폼 수정 중
+	@RequestMapping(value = "/qnaForm2")
+	public void qnaForm() throws Exception {
+		
+	}
+	
 	/*
 	// QnA 목록
 	@RequestMapping(value = "/qnaList", method = RequestMethod.GET)

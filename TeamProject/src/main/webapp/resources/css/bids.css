@@ -109,7 +109,7 @@ h2.heading {
 .controls input[type="date"],
 .controls input[type="tel"],
 .controls textarea,
-.controls button,
+/* .controls button, */ /* 0724 버튼 주석처리 */
 .controls select {
   padding: 12px;
   font-size: 14px;

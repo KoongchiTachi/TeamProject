@@ -1,12 +1,15 @@
 package com.kh.team.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.kh.team.domain.BidListPagingDto;
 import com.kh.team.domain.BidVo;
 
 @Repository
@@ -23,8 +26,17 @@ public class BidDaoImple implements BidDao {
 	}
 
 	@Override
-	public List<BidVo> bidList(String m_id) throws Exception {
-		return sqlSession.selectList(NAMESPACE + "bidList", m_id);
+	public List<BidVo> bidList(String m_id, int startRow, int endRow) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		param.put("m_id", m_id);
+		param.put("startRow", startRow);
+		param.put("endRow", endRow);
+		return sqlSession.selectList(NAMESPACE + "bidList", param);
+	}
+
+	@Override
+	public int getCount(BidListPagingDto bidListPagingDto) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getCount", bidListPagingDto);
 	}
 
 }

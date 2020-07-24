@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.kh.team.domain.BidListPagingDto;
 import com.kh.team.domain.BidVo;
 import com.kh.team.persistence.BidDao;
 
@@ -21,8 +22,13 @@ public class BidServiceImple implements BidService {
 	}
 
 	@Override
-	public List<BidVo> bidList(String m_id) throws Exception {
-		return bidDao.bidList(m_id);
+	public List<BidVo> bidList(String m_id, int startRow, int endRow) throws Exception {
+		return bidDao.bidList(m_id, startRow, endRow);
+	}
+
+	@Override
+	public int getCount(BidListPagingDto bidListPagingDto) throws Exception {
+		return bidDao.getCount(bidListPagingDto);
 	}
 
 }

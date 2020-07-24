@@ -46,10 +46,6 @@
 </style>
 <script>
 $(function() {
-	var msg = "${msg}";
-	if (msg == "success") {
-		alert("공지사항 등록 성공");
-	}
 	
 	// 검색
 	$("#btnSearch").click(function () {
@@ -128,7 +124,6 @@ $(function() {
 									</c:forEach>
 									</div>
 								</div>
-								
 								<div class="col-md-5">
 									<div class="blog-right">
 										<div class="blog-search">

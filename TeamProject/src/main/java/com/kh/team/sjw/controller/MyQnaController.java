@@ -28,6 +28,7 @@ public class MyQnaController {
 		List<QnaVo> list = qnaService.myQna(m_id);
 		System.out.println("list" + list);
 		model.addAttribute("list", list);
+		model.addAttribute("listSize", list.size());
 	}
 	
 	// 1:1문의 답변

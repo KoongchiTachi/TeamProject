@@ -93,6 +93,14 @@ p {
 	min-width: 90%;
 	padding-left: 250px;
 }
+.pagination > li > a {
+	background-color : white;
+	color : black; 
+}
+.pagination > .page-item.active > .page-link {
+	background-color: #f9ad81;
+	border: solid 1px #f9ad81;
+}
 </style>
 <script>
 $(function() {
@@ -176,19 +184,16 @@ $(function() {
 					<div class="pagination">
 						<c:forEach begin="${faqPagingDto.startPage}"
 							end="${faqPagingDto.endPage}" var="v">
-
-						<li class="page-item"
- 						<c:choose>
+							<li class="page-item"
+								<c:choose>
  							<c:when test="${faqPagingDto.page == v}">
  								class="page-item active"
  							</c:when>
  							<c:otherwise>
  						 		class="page-item"
 							</c:otherwise>
- 						</c:choose>
-						>
-							
-							<a class="page-link" href="${v}">${v}</a>
+ 						</c:choose>>
+								<a class="page-link" href="${v}">${v}</a>
 						</c:forEach>
 					</div>
 				</div>

@@ -50,6 +50,8 @@ ul{
 							<li> · 안전 거래 시스템 구축</li>
                     		<li> · 신속하고 친절한 배송</li> 
 						</ul>
+						<br/><br/><br/>
+						<span style="font-size: 21px; color: #585858">소장하신 물품을 럭션에 위탁하시려면 다음의 절차에 따라 신청해주세요.</span>
 					</div>
                     </div>
                 </div>
@@ -59,7 +61,8 @@ ul{
 	<div id="howto">
 		<div class="guidance">
 			<div class="inbox">
-				<h3><strong>01</strong> 위탁 접수</h3>
+				<h3><img src="/resources/img/위탁접수.jpg" alt=""><br/>
+				<strong>01</strong> 위탁 접수</h3>
 				<div class="infoBox">
 					<ul>
 						<li class="app last">
@@ -76,25 +79,24 @@ ul{
 			</div>
 
 			<div class="inbox">
-				<h3><strong>02</strong> 감정 및 <br/>상품등록 안내</h3>
+				<h3><img src="/resources/img/위탁감정.jpg" alt=""><br/>
+				<strong>02</strong>감정 및 <br/>상품등록 안내</h3>
 				<p class="hTxt">
 				<strong style="font-size: 17px;">
-				럭션은 진품만을 취급합니다. 자체 검증 시스템을 통과한 상품에 한해 상품 등록이 진행됩니다.<br/>
-				제품의 연식, 컨디션 등 판매가 어려울 수 있을 경우 위탁이 거절될 수 있습니다.<br/></strong>
+				럭션은 엄선된 진품만을 취급합니다. 자체 검증 시스템을 통과한 상품에 한해 상품 등록이 진행됩니다.<br/>
+				제품의 연식, 컨디션 등 판매가 어려울 경우 위탁이 거절될 수 있습니다.<br/></strong>
 				
 				-위탁불가 상품 및 위탁기간 경과 상품은 위탁자의 동의 없이 택배(착불)로 회수를 진행할 수 있습니다.<br/>
 				- 회수 통보 후 30일 이내 회수되지 않은 상품은 위탁자의 회원정보에 기재된 주소로 택배(착불) 발송되며,<br/>
 				주소지 불분명, 연락 두절 등의 사유로 인해 반송되는 제품은 회사에서 폐기처분되오니 유의해 주시기 바랍니다.
 				<br/><br/><br/>
-				※ 모든 브랜드는 높은 수준의 진품 기준이 있습니다.<br/> 
-				럭션 역시 이에 부합하도록 업계 최고 수준의 감정 기술을 통해 모든 상품의 진품 여부를 판단 후 고객님들께 선보입니다.<br/>
 				※ 위조된 상품을 위탁판매 시도할 경우 럭션은 위탁인에 대해 민/형사적 법적 조치를 취하고 영구 탈퇴 처리합니다.<br/>
 				</p>
 			</div>
 
 			<div class="inbox last">
-				<h3><strong>03</strong> 위탁 대금 안내</h3>
-
+				<h3><img src="/resources/img/위탁대금.jpg" alt=""><br/>
+				<strong>03</strong> 위탁 대금 안내</h3>
 				<p class="hTxt">
 					1) 럭션을 통해 위탁하신 물품이 낙찰되면 위탁자에게 개별적으로 통보합니다.<br/>
 					&nbsp;&nbsp;&nbsp;(자세한 내용은 [MyPage] > [낙찰내역]에서 확인 가능)<br/>
@@ -113,15 +115,6 @@ ul{
 			</div>
 		</div>
 	</div>
-
-<script type="text/javascript">
-$(document).ready(function() {
-
-	$('.stepBox ul li .inner').matchHeight();
-
-});
-</script>
-
 </div>
         </div>
     </section>

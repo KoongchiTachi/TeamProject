@@ -21,7 +21,7 @@
 		<include refid="search"></include>
 	</select>
 	
-	<!-- 공지사항 입력 -->
+	<!-- 공지사항 입력 (관리자) -->
 	<insert id="insertNotice">
 		insert into tbl_notice (nno, n_title, n_content)
 		values (seq_nno.nextval, #{n_title}, #{n_content})	
@@ -33,7 +33,7 @@
 		where nno = #{nno}
 	</select>
 	
-	<!-- 공지사항 수정 -->
+	<!-- 공지사항 수정 (관리자) -->
 	<update id="noticeUpdate">
 		update tbl_notice set
 			n_title = #{n_title},
@@ -41,7 +41,7 @@
 		where nno = #{nno}
 	</update>
 	
-	<!-- 공지사항 삭제 -->
+	<!-- 공지사항 삭제 (관리자) -->
 	<delete id="noticeDelete">
 		delete from tbl_notice
 		where nno = #{nno}

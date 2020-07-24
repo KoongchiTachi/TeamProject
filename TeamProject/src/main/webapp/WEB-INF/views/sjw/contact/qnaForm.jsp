@@ -15,7 +15,6 @@
 }
 .contact-form span {
 	font-size: 18px;
-	color: #5E5E5E; 
 }
 #fileDrop { 
  	width : 95%;
@@ -42,7 +41,7 @@
 	margin-bottom: 30px;
 }
 .contact-form textarea::placeholder {
-	color: #BDBDBD;
+	color: #A4A4A4;
 	font-size: 17px;
 	font-weight: 600;
 	letter-spacing: 0.4px;
@@ -53,7 +52,7 @@
 	margin-bottom: -30px;
 }
 .contact-form input::placeholder {
-	color: #BDBDBD;
+	color: #A4A4A4;
 	font-size: 17px;
 	font-weight: 600;
 	letter-spacing: 0.4px;
@@ -83,7 +82,7 @@
 }
 .check-form {
 	padding-left: 28px;
-	margin-bottom: 23px;
+	margin-bottom: 17px;
 }
 .check-form:after {
 	position: absolute;
@@ -103,13 +102,13 @@
 }
 .check-form .room-selector .nice-select span {
 	font-size: 17px;
-/*  	color: black; */
 }
 .fileName {
 	font-size: 10px;
 }
-contact-form .subject {
-	margin-bottom: -100px;
+.contact-form input.subject {
+	border-bottom: 1px solid #000000;
+	margin-bottom: 50px;
 }
 
 </style>

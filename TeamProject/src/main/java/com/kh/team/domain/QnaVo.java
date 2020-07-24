@@ -13,13 +13,14 @@ public class QnaVo {
 	private String q_answer;
 	private String q_name;
 	private String[] files;
+	private String m_name;
 
 	public QnaVo() {
 		super();
 	}
 
 	public QnaVo(int qno, String m_id, String q_kind, String q_title, String q_content, Timestamp q_date,
-			String q_answer, String q_name, String[] files) {
+			String q_answer, String q_name, String[] files, String m_name) {
 		super();
 		this.qno = qno;
 		this.m_id = m_id;
@@ -30,6 +31,7 @@ public class QnaVo {
 		this.q_answer = q_answer;
 		this.q_name = q_name;
 		this.files = files;
+		this.m_name = m_name;
 	}
 
 	public int getQno() {
@@ -104,11 +106,19 @@ public class QnaVo {
 		this.files = files;
 	}
 
+	public String getM_name() {
+		return m_name;
+	}
+
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
+	}
+
 	@Override
 	public String toString() {
 		return "QnaVo [qno=" + qno + ", m_id=" + m_id + ", q_kind=" + q_kind + ", q_title=" + q_title + ", q_content="
 				+ q_content + ", q_date=" + q_date + ", q_answer=" + q_answer + ", q_name=" + q_name + ", files="
-				+ Arrays.toString(files) + "]";
+				+ Arrays.toString(files) + ", m_name=" + m_name + "]";
 	}
 
 }

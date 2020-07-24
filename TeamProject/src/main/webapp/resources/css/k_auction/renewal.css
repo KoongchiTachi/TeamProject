@@ -1,0 +1,419 @@
+@charset "UTF-8";
+
+@charset 'utf-8';
+
+/* list */
+/* tile */
+/*.renewalTile { width: auto; margin-right: -10px; padding-top: 9px; }*/
+/*.renewalTile > li { width: 210px; border: 1px solid #e2e2e2; background: #fcfcfc; padding: 10px; margin: 0 10px 9px 0; float: left; transition: box-shadow .3s; }*/
+.renewalTile { width: auto; margin: 0 auto; padding-top: 9px; }
+.renewalTile > li { width: 208px; border: 1px solid #e2e2e2; background: #fcfcfc; padding: 10px; margin: 0 5px 9px 5px; float: left; transition: box-shadow .3s; }
+.renewalTile > li.snoopy { width: 210px; border: 1px solid #e2e2e2; background: #fff; padding: 10px; margin: 0 10px 9px 0; float: left; transition: box-shadow .3s; }
+.renewalTile li.many:hover { box-shadow: 2px 2px 0 #eee; }
+.renewalTile a { display: block; }
+.renewalTile figure { width: 210px; height: 210px; line-height: 210px; text-align: center; }
+.renewalTile figure img { max-width: 100%; max-height: 100%; vertical-align: middle; }
+.renewalTile p,
+.renewalTile dt{ overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.renewalTile dd { white-space: nowrap; }
+.renewalTile .information .main { padding: 3px 0; }
+.renewalTile .information .main p { color: #333; line-height: 30px; min-height: 30px; }
+.renewalTile .information article + article { border-top: 1px solid #e1e1e1; }
+.renewalTile .lotNum { font-size: 22px; font-weight: 600; }
+.renewalTile .artist { font-size: 26px; font-weight: 600; }
+.renewalTile .subject { font-size: 18px; }
+.renewalTile .information .sub { padding: 7px 0; min-height: 40px; }
+.renewalTile .information .sub p { color: #666; font-size: 14px; line-height: 20px; }
+.renewalTile .sub .wrap { clear: both; }
+.renewalTile .sub .year { float: left; }
+.renewalTile .sub .year + p:before { content: '|'; color: #ccc; margin: 0 5px; }
+.renewalTile .price { border-top: 1px solid #898989; }
+.renewalTile .price dl + dl { border-top: 1px solid #e1e1e1; }
+.renewalTile .price dt,
+.renewalTile .price dd { color: #666; font-size: 14px; line-height: 15px; padding: 7px 0 7px;}
+.renewalTile .price dt { float: left; width: 78px; padding-left: 2px; }
+.renewalTile .price dd { overflow: hidden; text-align: right; }
+.renewalTile .price .unit { font-size: 12px; }
+.renewalTile .price .estimate { padding: 3px 0 4px; }
+.renewalTile .price .estimate dd { font-size: 12px; line-height: 14px; padding: 0; }
+.renewalTile .price .estimate li + li { margin-top: 5px; }
+.renewalTile .price .estimate span { display: block; }
+.renewalTile .price .estimate span.unit { display: inline; }
+.renewalTile .price .copyright { padding: 10px 0 4px; }
+.renewalTile .price .copyright dd { font-size: 9px; line-height: 14px; padding: 0; }
+.renewalTile .price .copyright li + li { margin-top: 5px; }
+.renewalTile .price .copyright span { display: block; }
+.renewalTile .price .copyright span.unit { display: inline; }
+.renewalTile .price .current dt,
+.renewalTile .price .current dd { color: #e5410e; }
+.renewalTile .price .current dd { font-weight: 600; }
+.renewalTile .bidding { padding-top: 5px;padding-bottom: 5px; border-top: 1px solid #898989; }
+.renewalTile .bidding:after { content: ''; display: block; clear: both; }
+.renewalTile .bidding dt,
+.renewalTile .bidding dd { float: left; line-height: 34px; font-weight: 600; color: #333; margin-right: 3px; }
+.renewalTile .bidding a { display: block; width: 80px; height: 34px; text-align: center; background: #e5410e; color: #fff; font-size: 15px; line-height: 34px; font-weight: 600; float: right; }
+        /* closed */
+.renewalTile .closed figure { width: 110px; height: 110px; padding: 50px; background: #fff; line-height: 110px; }
+.renewalTile .closed .information .main p,
+.renewalTile .closed .information .sub p,
+.renewalTile .closed .price dt,
+.renewalTile .closed .price dd,
+.renewalTile .closed .bidding dt,
+.renewalTile .closed .bidding dd { color: #999; }
+.renewalTile .closed .price,
+.renewalTile .closed .bidding { border-color: #ccc; }
+.renewalTile .closed .price .current dt,
+.renewalTile .closed .price .current dd { color: #666; }
+.renewalTile .closed .bidding a { background: #ccc; }
+
+.renewalTile .many dt { float: none; }
+.renewalTile .many .price { padding-bottom: 8px; }
+.renewalTile .many .price dd { text-align: left; padding-left: 2px; }
+.renewalTile .many .price .estimate span.unit { display: inline-block; width: 28px; }
+
+		/* english */
+.renewalTile.en dt { float: none; }
+.renewalTile.en .price { padding-bottom: 8px; }
+.renewalTile.en .price dd { text-align: left; padding-left: 2px; }
+.renewalTile.en .price .estimate span.unit { display: inline-block; width: 28px; }
+.renewalTile.en .bidding a { width: 100%; }
+
+@media all and (max-width: 522px) {
+    /*.renewalTile > li { float: none; margin: 0 auto 10px; }*/
+}
+
+    /* row */
+.renewalRow li { position: relative; padding: 20px 0; border-bottom: 1px solid #d6d6d6; }
+.renewalRow li:after { content: ''; display: block; clear: both; }
+.renewalRow a { display: block; float: left; }
+.renewalRow figure { float: left; width: 260px; height: 260px; line-height: 260px; text-align: center; margin-right: 20px; }
+.renewalRow figure img { max-width: 100%; max-height: 100%; vertical-align: middle; }
+.renewalRow .p,
+.renewalRow .dt,
+.renewalRow .dd { overflow: hidden; text-overflow: ellipsis; white-space: normal; }
+.renewalRow .information { overflow: hidden; width: 450px; margin-right: 20px; }
+.renewalRow .information .main p { color: #333; }
+.renewalRow .lotNum { font-size: 30px; line-height: 34px; font-weight: 600; margin-bottom: 20px; }
+.renewalRow .artist { font-size: 36px; line-height: 46px; font-weight: 800; }
+.renewalRow .main .year { color: #666; font-size: 18px; font-weight: 400; display: inline-block; }
+.renewalRow .subject { font-size: 31px; line-height: 46px; font-weight: 400; }
+.renewalRow .information .sub { margin-top: 18px; }
+.renewalRow .information .sub p { color: #666; font-size: 18px; line-height: 32px; }
+.renewalRow .price,
+.renewalRow .bidding { overflow: hidden; }
+.renewalRow .price { padding-bottom: 19px; margin-bottom: 70px; }
+.renewalRow .price dl + dl { margin-top: 10px; }
+.renewalRow .price dl:after { content: ''; display: block; clear: both; }
+.renewalRow .price dt { width: 103px; height: 24px; border: 1px solid #ccc; background: #fcfcfc; color: #666; font-size: 14px; font-weight: 600; line-height: 24px; text-align: center; float: left; margin-right: 20px; }
+.renewalRow .price dd { overflow: hidden; font-size: 18px; line-height: 26px; color: #666; }
+.renewalRow .price dd li { border: 0 none; padding: 0; font-size: 18px; line-height: 26px; }
+.renewalRow .price .unit { display: inline-block; min-width: 40px; font-size: 16px; }
+.renewalRow .estimate span { display: inline-block; font-size: 18px; line-height: 26px; }
+.renewalRow .current dt,
+.renewalRow .current dd { color: #e5410e; font-weight: 600; }
+.renewalRow .bidding { position: absolute; right: 0; bottom: 20px; padding-top: 20px; left: 750px; height: 50px; border-top: 1px solid #e1e1e1; }
+.renewalRow .bidding a { display: block; float: right; width: 325px; height: 50px; line-height: 50px; font-weight: 800; color: #fff; background: #e5410e; text-align: center; font-size: 22px; }
+        /* exception */
+.renewalTile figure.isu, .renewalRow figure.isu { position: relative; }
+.renewalTile figure.isu div.watermark, .renewalRow figure.isu div.watermark { position: absolute; width:210px; height:210px; top:0; left:0; background: url('../images/img/logo_isu.png') no-repeat top left; }
+
+        /* closed */
+
+.renewalRow .closed figure { padding: 65px; width: 130px; height: 130px; line-height: 130px; background: #fcfcfc; }
+.renewalRow .closed figure img { max-width: 100%; max-height: 100%; }
+.renewalRow .closed .information .main p,
+.renewalRow .closed .information .artist .year,
+.renewalRow .closed .information .sub p,
+.renewalRow .closed .price dt,
+.renewalRow .closed .price dd { color: #999; }
+.renewalRow .closed .current dt,
+.renewalRow .closed .current dd { color: #666; }
+.renewalRow .closed .bidding a { background: #ccc; }
+        /* english */
+.renewalRow.en .lotNum { margin-bottom: 10px; }
+.renewalRow.en .artist { font-size: 28px; line-height: 40px; }
+.renewalRow.en .main .year { margin-top: 2px; }
+.renewalRow.en .subject { font-size: 24px; line-height: 40px; margin-top: 10px; }
+.renewalRow.en .sub { margin-top: 10px; }
+.renewalRow.en .sub p { font-size: 16px; line-height: 24px; }
+
+@media all and (max-width: 1200px) {
+    .renewalRow dt { float: none !important; }
+    .renewalRow .bidding a { width: 100%; }
+}
+@media all and (max-width: 1030px) {
+    .renewalRow a { float: none; width: 100%; }
+    .renewalRow dt { float: left !important; }
+    .renewalRow .information { width: auto; }
+    .renewalRow .price { margin-left: 280px; margin-top: 10px; border-top: 1px solid #e1e1e1; padding-top: 20px; }
+    .renewalRow .bidding { left: 280px; }
+    .renewalRow .bidding a { float: left; max-width: 300px; }
+}
+@media all and (max-width: 700px) {
+    .renewalRow figure { float: none; }
+    .renewalRow .lotNum { margin-top: 20px; }
+    .renewalRow .price { margin-left: 0; }
+    .renewalRow .bidding { left: 0; }
+}
+@media all and (max-width: 500px) {
+    .renewalRow figure { width: 100%; }
+    .renewalRow .closed figure { width: auto; }
+    .renewalRow .lotNum { margin-top: 10px; font-size: 18px; line-height: 23px; margin-bottom: 10px; }
+    .renewalRow .artist { font-size: 22px; line-height: 25px; }
+    .renewalRow .main .year { font-size: 12px; }
+    .renewalRow .subject { font-size: 15px; line-height: 23px; }
+    .renewalRow .information .sub { margin-top: 10px; }
+    .renewalRow .information .sub p { font-size: 12px; line-height: 16px; }
+    .renewalRow .price { padding: 10px 0; margin-bottom: 51px; }
+    .renewalRow .price dl + dl { margin-top: 5px; }
+    .renewalRow .price dt { width: 60px; height: 14px; font-size: 11px; line-height: 14px; margin-right: 10px; }
+    .renewalRow .price dd { font-size: 12px; line-height: 14px; }
+    .renewalRow .price dd li { font-size: 9px; line-height: 13px; }
+    .renewalRow .price .unit { min-width: 29px; font-size: 12px; }
+    .renewalRow .estimate span { font-size: 12px; line-height: 14px; }
+    .renewalRow .bidding { padding-top: 10px; height: 40px; }
+    .renewalRow .bidding a { height: 40px; line-height: 40px; font-size: 18px; max-width: 100%; font-weight: 800; }
+}
+
+/* bidding */
+.renewalBidding .biddingWrap { position: relative; border: solid #d6d6d6; border-width: 1px 0 1px; }
+.renewalBidding .biddingWrap:after { content: ''; display: block; clear: both ; }
+.renewalBidding .commPrice { float: left; width: 780px; border-right: 1px solid #d6d6d6; }
+.renewalBidding .commPrice dl { clear: both; }
+.renewalBidding .commPrice dl + dl { margin-top: 4px; }
+.renewalBidding .commPrice dt { float: left; width: 120px; height: 20px; line-height: 20px; padding: 2px 0; text-align: center; border: 1px solid #ccc; background: #fcfcfc; color: #666; font-size: 14px; font-weight: 600; margin-right: 9px; }
+.renewalBidding .commPrice dd { overflow: hidden; min-height: 20px; line-height: 19px; padding: 3px 0; font-size: 16px; color: #666; }
+.renewalBidding .mainWrap { float: left; width: 780px; border-right: 1px solid #d6d6d6; }
+.renewalBidding .mainWrap dl { clear: both; }
+.renewalBidding .mainWrap dl + dl { margin-top: 4px; }
+.renewalBidding .mainWrap dt { float: left; width: 103px; height: 20px; line-height: 20px; padding: 2px 0; text-align: center; border: 1px solid #ccc; background: #fcfcfc; color: #666; font-size: 14px; font-weight: 600; margin-right: 9px; }
+.renewalBidding .mainWrap dd { overflow: hidden; min-height: 20px; line-height: 19px; padding: 3px 0; font-size: 16px; color: #666; }
+.renewalBidding .artwork { position: relative; padding: 10px 0; }
+.renewalBidding .artwork:after { content: ''; display: block; clear: both; }
+.renewalBidding figure { width: 350px; height: 350px; padding-right: 10px; margin-right: 30px; line-height: 350px; float: left; }
+.renewalBidding figure img { max-width: 100%; max-height: 100%; vertical-align: middle; }
+.renewalBidding .artwork article { margin-left: 390px; width: 369px; padding-right: 20px; }
+.renewalBidding .information { margin-bottom: 120px; }
+.renewalBidding .information p { color: #666; font-size: 16px; line-height: 20px; padding: 2px 0; }
+.renewalBidding .information .lotNum { color: #333; font-size: 26px; line-height: 34px; font-weight: 600; }
+.renewalBidding .information .artist { color: #333; font-size: 32px; line-height: 30px; font-weight: 800; padding: 6px 0; }
+.renewalBidding .information .year { display: inline-block; color: #666; font-size: 18px; font-weight: 400; }
+.renewalBidding .information .subject { color: #333; font-size: 26px; line-height: 29px; padding: 3px 0; font-weight: 400; margin-bottom: 8px; }
+.renewalBidding .price { position: absolute; bottom: 10px; left: 0; width: 369px; }
+.renewalBidding .biddingWrap .unit,
+.renewalBidding .price .range { display: inline-block; font-size: 1em; min-width: 38px; line-height: inherit; }
+.renewalBidding .price .range { text-align: right; }
+.renewalBidding .estimate dt { height: 40px; line-height: 40px; }
+.renewalBidding .estimate dd { height: 40px; }
+.renewalBidding .current dd { position: relative; font-weight: 600; }
+.renewalBidding .current a { position: absolute; right: 0; bottom: 0; width: 81px; height: 24px; background: #f2f2f2; border: 1px solid #ccc; font-size: 13px; line-height: 23px; }
+.renewalBidding .auction { clear: both; border-top: 1px solid #d6d6d6; background: #fafafa; padding: 10px 20px; position: relative; }
+.renewalBidding .auction:after { content: ''; display: block; clear: both; }
+.renewalBidding .auction dt { background: #fff; }
+.renewalBidding .auction dd { max-width: 216px; }
+.renewalBidding .bidding { position: absolute; left: 390px; top: 10px; width: 369px; }
+.renewalBidding .bidding dt,
+.renewalBidding .bidding dd { color: #e5410e; font-weight: 600; max-width: none; }
+.renewalBidding .bidding dd { padding: 0; height: 26px; line-height: 25px; }
+.renewalBidding .bidding dd input { width: 209px; margin-left: -3px; height: 21px; line-height: 21px; padding: 1px 2px 2px; color: inherit; font-size: 1em; border: 1px solid #ccc; background: #fff; font-family: "Nanum Gothic","나눔고딕", sans-serif, "Dotum", "Gulim", "Arial", sans-serif; font-weight: 600; vertical-align: baseline; }
+.renewalBidding .bidding dd input[readonly] { background: #fafafa; border-color: #fafafa; }
+.renewalBidding .bidding a { display: block; width: 175px; border: 2px solid #333; color: #333; background: #fafafa; font-size: 16px; font-weight: 600; padding: 0; text-align: center; float: left; height: 46px; line-height: 46px; }
+.renewalBidding .bidding .btnWrap { margin-top: 10px; }
+.renewalBidding .bidding .btnWrap:after { content: ''; display: block; clear: both; }
+.renewalBidding .bidding strong a { border-color: #e5410e; background: #e5410e; font-weight: 800; color: #fff; font-size: 22px; margin-right: 10px; }
+.renewalBidding .bidding strong a.reserve { width: 364px; margin: 0; max-width: 100%; }
+.renewalBidding #restTime { position: static; color: inherit; }
+.renewalBidding .notice { overflow: hidden; padding: 45px 0 10px 20px; color: #666; }
+.renewalBidding .notice em { font-size: 24px; font-weight: 800; color: #333; line-height: 30px; }
+.renewalBidding .notice em strong { font-weight: 800; }
+.renewalBidding .notice strong { color: #e5410e; font-size: 1em; font-weight: 600; }
+.renewalBidding .notice ul { margin-top: 14px; }
+.renewalBidding .notice li,
+.renewalBidding .notice p { font-size: 14px; line-height: 20px; padding-left: 15px; background: url('../images/renewal/bullet.gif') 5px 9px no-repeat; }
+.renewalBidding .notice li span { display: inline-block; font-size: 1em; line-height: inherit; }
+.renewalBidding .notice li + li { margin-top: 5px; }
+.renewalBidding .notice .bid { margin-bottom: 79px; }
+.renewalBidding .notice .reserve { position: absolute; left: 800px; bottom: 10px; height: 42px; padding: 4px 0; }
+.renewalBidding .notice .reserve span { font-size: 1em; display: inline-block; }
+.renewalBidding .notice .reserve a { display: block; height: 42px; line-height: 42px; color: #666; font-weight: 600; padding: 0 15px; font-size: 13px; }
+.renewalBidding .notice .reserve a span { border-bottom: 1px solid #666; padding: 1px 0; }
+.renewalBidding .bidState { clear: both; }
+.renewalBidding .bidState h3 { margin-top: 57px !important; font-size: 25px !important; height: 29px; line-height: 29px; }
+.renewalBidding .bidState h3:after { content: ''; position: absolute; display: block; height: 1px; left: 110px; right: 0px; top: 15px; background: #bcbcbc; }
+.renewalBidding .bidState .stateTable th { border-top: 1px solid #d6d6d6; }
+.renewalBidding .bidState ul { padding: 10px 0; }
+.renewalBidding .bidState .alert li { font-size: 14px; line-height: 20px; padding-left: 20px; background: url('../images/renewal/bullet.gif') 10px 9px no-repeat; }
+.renewalBidding .bidState .alert li strong { font-size: 1em; }
+.renewalBidding .bidState .alert li + li { margin-top: 5px; }
+.renewalBidding .monthWork { margin-top: 50px; }
+.renewalBidding .monthWork .minbox { background: #fff url('../images/img/img_minbox.gif') right center no-repeat; padding-right: 20px; }
+.renewalBidding .monthWork .minbox li { background: url('../images/renewal/bullet.gif') left 8px no-repeat; }
+.renewalBidding .function { margin-top: 20px; }
+.renewalBidding .function:after { content: ''; display: block; clear: both; }
+.renewalBidding .function .left { float: left; }
+.renewalBidding .function .right { float: right; }
+.renewalBidding .function a { display: block; float: left; min-width: 200px; height: 30px; padding: 9px; line-height: 29px; border: 1px solid #ccc; background: #f2f2f2; text-align: center; font-size: 16px; color: #666; }
+.renewalBidding .function a + a { margin-left: 10px; }
+
+.modal-text-left { text-align: left !important; font-size: 12px !important; line-height: 120% !important; margin: 0 20px !important; }
+.modal-text-left p {font-size: 12px; font-weight: bold; line-height: 140% !important;}
+.modal-text-left dl dt { font-weight: bold; margin-top: 20px; margin-bottom: 5px; }
+.modal-text-left dl dd ul li { list-style-type: square; margin-left: 10px; line-height: 140% !important }
+
+@media all and (max-width: 1200px) {
+    .renewalBidding .mainWrap { float: none; width: 100%; border-right: 0 none; }
+    .renewalBidding .artwork .information { width: auto; }
+    .renewalBidding .notice { position: relative; border-top: 1px solid #d6d6d6; padding: 20px; }
+    .renewalBidding .notice .bid { margin-bottom: 0; }
+    .renewalBidding .notice .bid li span { display: inline-block; }
+    .renewalBidding .notice .reserve { position: static; height: auto; }
+}
+@media all and (max-width: 920px) {
+    .renewalBidding .monthWork .minbox { background: #fff; }
+    .renewalBidding .bidding strong a.reserve { margin-bottom: 10px; }
+    .renewalBidding .monthWork .minbox dl { padding-bottom: 0; }
+    .renewalBidding .monthWork .minbox dl + dl { margin-top: 10px; }
+}
+@media all and (max-width: 880px) {
+    .renewalBidding .artwork figure { float: none; }
+    .renewalBidding .artwork article { position: static; margin: 0; padding: 0 20px; }
+    .renewalBidding .artwork article + article { margin-top: 10px; }
+    .renewalBidding .bidding { position: static; width: auto; }
+    .renewalBidding .bidding a { margin-bottom: 10px; }
+    .renewalBidding .function a { min-width: 150px;  }
+}
+@media all and (max-width: 700px) {
+    .renewalBidding figure { max-width: 100%; }
+    .renewalBidding .mainWrap dt { font-size: 12px; height: 18px; line-height: 18px; }
+    .renewalBidding .mainWrap dd { font-size: 12px; min-height: 18px; line-height: 18px; }
+    .renewalBidding .estimate dt { height: 36px; line-height: 35px; }
+    .renewalBidding .estimate dd { height: 36px; }
+    .renewalBidding .mainWrap .unit,
+    .renewalBidding .mainWrap .range { min-width: 30px; }
+    .renewalBidding .artwork article { width: auto; }
+    .renewalBidding .current { line-height: 16px; }
+    .renewalBidding .current a { position: static; font-size: 11px; width: 50px; height: 16px; line-height: 16px; vertical-align: top; }
+    .renewalBidding .information p { font-size: 14px; }
+    .renewalBidding .information .lotNum { font-size: 22px; line-height: 26px; }
+    .renewalBidding .information .artist { font-size: 28px; line-height: 32px; }
+    .renewalBidding .information .subject { font-size: 22px; line-height: 26px; }
+    .renewalBidding .bidding dd input { width: 85px; height: 18px; line-height: 18px; }
+    .renewalBidding .bidding strong a,
+    .renewalBidding .bidding a { font-size: 18px; height: 40px; line-height: 40px; }
+    .renewalBidding .bidding strong a.reserve { width: 282px; }
+    .renewalBidding .notice em { font-size: 20px; line-height: 26px; }
+    .renewalBidding .notice ul { margin-top: 10px; }
+    .renewalBidding .notice li,
+    .renewalBidding .notice p,
+    .renewalBidding .bidState .alert li { font-size: 12px; line-height: 17px; background-position: 10px 7px; }
+    .renewalBidding .notice .reserve span { display: inline; }
+    .renewalBidding .bidState h3 { font-size: 20px !important;  }
+    .renewalBidding .bidState h3 span { top: 1px !important; }
+    .renewalBidding .bidState h3:after { left: 90px; right: 70px; top: 14px; }
+    .renewalBidding .function { margin-top: 10px; }
+    .renewalBidding .function a { padding: 0 10px; font-size: 12px; min-width: 0px; }
+}
+@media all and (max-width: 500px) {
+    .renewalBidding .monthWork .minbox { padding: 15px 10px; }
+    .renewalBidding .monthWork .minbox dl + dl { margin-top: 15px; }
+    .renewalBidding .monthWork .minbox dt { position: static; margin-bottom: 8px; }
+    .renewalBidding .monthWork .minbox dd { padding-left: 0; }
+}
+@media all and (max-width: 380px) {
+    .renewalBidding .bidding strong a,
+    .renewalBidding .bidding a { float: none; width: auto; margin-right: 0; }
+}
+
+/* detail */
+.renewalDetail { margin-top: 48px; }
+.renewalDetail .artwork:after { content: ''; display: block; clear: both; }
+.renewalDetail figure { float: left; width: 700px; height: 700px; line-height: 700px; text-align: center; margin-right: 50px; }
+.renewalDetail figure img { max-width: 100%; max-height: 100%; vertical-align: middle; }
+.renewalDetail .information { overflow: hidden; min-height: 512px; margin-left: 750px; }
+.renewalDetail.onlineAuction .information { min-height: 451px; }
+.renewalDetail .information p { font-size: 18px; line-height: 24px; color: #666; padding: 4px 0; }
+.renewalDetail .information .lotNum { font-size: 29px; line-height: 22px; color: #333; font-weight: 600; }
+.renewalDetail .information .artist { font-size: 36px; line-height: 40px; color: #333; font-weight: 800; padding-top: 18px; }
+.renewalDetail .information .artist .year { font-size: 21px; font-weight: 200; color: #666; }
+.renewalDetail .information .subject { font-size: 31px; line-height: 34px; color: #333; padding-top: 8px; margin-bottom: 15px; }
+.renewalDetail .thumb { margin: 25px -10px 20px 0; width: auto; height: auto; }
+.renewalDetail .thumb:after { content: ''; display: block; clear: both; }
+.renewalDetail .thumb li { float: left; width: 85px; height: 85px; padding: 9px; border: 1px solid #fff; margin-right: 10px; text-align: center; line-height: 83px; transition: border .5s, background .5s; cursor: pointer; }
+.renewalDetail .thumb li.on { border: 1px solid #cdcdcd; background: #fcfcfc; }
+.renewalDetail .thumb img { max-width: 100%; max-height: 100%; vertical-align: middle; }
+.renewalDetail .price { padding-bottom: 20px; margin-bottom: 10px; border-bottom: 1px solid #e1e1e1; margin-left: 750px; }
+.renewalDetail .price dl + dl { margin-top: 10px; }
+.renewalDetail .price dt { float: left; height: 24px; line-height: 23px; border: 1px solid #ccc; background: #fcfcfc; color: #666; font-size: 15px; font-weight: 600; width: 103px; text-align: center; margin-right: 20px; }
+.renewalDetail .price dd { overflow: hidden; min-height: 26px; line-height: 25px; font-size: 18px; color: #666; }
+.renewalDetail .price .unit { display: inline-block; min-width: 38px; font-size: 16px; color: #666; }
+.renewalDetail .estimate .wrap { display: inline-block; font-size: 1em; line-height: inherit; }
+.renewalDetail .current dt,
+.renewalDetail .current dd { color: #e5410e; font-weight: 600; }
+.renewalDetail.ended .current { display: none; }
+.renewalDetail .final { display: none; }
+.renewalDetail.ended .final { display: block; }
+.renewalDetail .final dt,
+.renewalDetail .final dd { color: #333; font-weight: 600; }
+.renewalDetail .artwork .function { position:relative; margin-right: -10px; overflow: visible; margin-left: 750px; }
+.renewalDetail .artwork .function:after { content: ''; display: block; clear: both; }
+.renewalDetail .artwork .function li { width: 50%; float: left; }
+.renewalDetail .artwork .function li.bid,
+.renewalDetail .artwork .function li.bidReserve,
+.renewalDetail .artwork .function li.ended { display: none; }
+.renewalDetail.onlineAuction .artwork .function li.bid,
+.renewalDetail.onlineAuction .artwork .function li.bidReserve { display: block; }
+.renewalDetail.onlineAuction.ended .artwork .function li.bid,
+.renewalDetail.onlineAuction.ended .artwork .function li.bidReserve { display: none; }
+.renewalDetail .artwork .function li.full { width: 100%; }
+.renewalDetail.onlineAuction.ended .artwork .function li.ended { display: block; }
+.renewalDetail .artwork .function a { display: block; margin-top: 10px; margin-right: 10px;  border: 1px solid #ccc; background: #f2f2f2; height: 48px; line-height: 48px; font-size: 16px; color: #666; font-weight: 600; text-align: center; }
+.renewalDetail .artwork .function strong a { color: #fff; background: #e5410e; border-color: #e5410e; font-weight: 800; font-size: 22px; }
+.renewalDetail .artwork .function li.ended strong a { font-weight: 600; background: #999; border-color: #999; }
+.renewalDetail h3 { margin-top: 70px !important; position: relative; }
+.renewalDetail h3:after { content: ''; display: block; height: 1px; background: #d6d6d6; position: absolute; right: 0; top: 13px; }
+.renewalDetail .description h3:after { left: 105px; }
+.renewalDetail .description p { font-size: 18px; line-height: 34px; color: #666; font-weight: 200; }
+.renewalDetail .related h3:after { left: 220px; }
+.renewalDetail .related ul { margin-right: -20px; }
+.renewalDetail .related ul:after { content: ''; display: block; clear: both; }
+.renewalDetail .related li { margin: 0 20px 20px 0; height: 204px; line-height: 204px; float: left; }
+.renewalDetail .related img { max-width: 224px; max-height: 100%; vertical-align: middle; }
+
+@media all and (max-width: 1200px) {
+    .renewalDetail figure { float: none; height: 400px; line-height: 400px; margin: 0 0 40px 0; width: 100%; }
+    .renewalDetail .information { min-height: 0; }
+    .renewalDetail .information,
+    .renewalDetail .price,
+    .renewalDetail .artwork .function { margin-left: 0; }
+    .renewalDetail .thumb { margin-bottom: 40px; }
+}
+@media all and (max-width: 1200px) and (min-width: 600px) {
+    .renewalDetail .artwork .function { margin-right: -10px; height: 50px; }
+    .renewalDetail .artwork .function li { position: static; float: left; width: 25%; }
+	.renewalDetail .artwork .function li.full { width: 50%; }
+    .renewalDetail .artwork .function a { margin-right: 10px; }
+}
+@media all and ( max-width: 700px) {
+    .renewalDetail figure { height: 300px; line-height: 300px; }
+    .renewalDetail .information p { font-size: 14px; line-height: 16px; }
+    .renewalDetail .information .lotNum { font-size: 22px; line-height: 26px; }
+    .renewalDetail .information .artist { font-size: 28px; line-height: 32px; }
+    .renewalDetail .information .subject { font-size: 22px; line-height: 26px; margin-bottom: 5px; }
+    .renewalDetail .price dl + dl { margin-top: 10px; }
+    .renewalDetail .price dt { width: 60px; height: 14px; font-size: 11px; line-height: 14px; margin-right: 10px; }
+    .renewalDetail .price dd { font-size: 12px; line-height: 14px; min-height: 14px; }
+    .renewalDetail .price dd li { font-size: 9px; line-height: 13px; }
+    .renewalDetail .price .unit { min-width: 29px; font-size: 12px; }
+    .renewalDetail .thumb { margin-top: 10px; margin-bottom: 20px; }
+	.renewalDetail .thumb li { width: 48px; height: 48px; margin-right: 5px; line-height: 46px; }
+    .renewalDetail .artwork .function { height: 90px; }
+    .renewalDetail .artwork .function a { height: 38px; line-height: 38px; font-size: 14px; }
+    .renewalDetail .artwork .function strong a { font-size: 18px; }
+    .renewalDetail h3:after { top: 10px; }
+    .renewalDetail .description h3:after { left: 90px; }
+    .renewalDetail .description p { font-size: 12px; line-height: 20px; }
+    .renewalDetail .related h3:after { left: 155px; }
+    .renewalDetail .related ul { margin-right: -10px; }
+    .renewalDetail .related li { height: 100px; line-height: 100px; margin: 0 10px 10px 0; }
+    .renewalDetail .related li img { max-width: 150px; }
+}

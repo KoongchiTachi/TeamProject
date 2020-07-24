@@ -58,6 +58,10 @@
 		z-index: 1;
 		text-align: center;
 	}
+	
+	.table td, .table th {
+		vertical-align: middle; 
+	}
 } 
 </style>
 
@@ -92,36 +96,32 @@ $(function() {
                         <img class="img-fluid" alt="Invoce Template" src="/resources/img/bag/g_01.jpg" />
                     </div>
                     <div class="col-md-8 text-xs-right">  
-                        <h4 style="color: #F81D2D;"><strong>GUCCI</strong></h4>
-                        <p>핸드백</p>
+                        <h4 style="color: #F81D2D;"><strong id="b_name"></strong></h4>
+                        <p id="p_kind"></p>
                     </div>
                 </div>
                 <br />
                 <div class="row">
                     <div class="col-md-12 text-xs-center">
-                        <h2 style="font-size:24px;">응찰현황</h2> 
+                        <h2 style="font-size:20px; margin-left: 10px">응찰현황</h2> 
                     </div>
                 </div>
                 <br />
-                <div>
-                    <table class="table">
-                        <thead class="text-center">
+                <div class="text-center">
+                    <table class="table text-center">
+                        <thead>
                             <tr>
-                                <th><h5>ID</h5></th>
-                                <th colspan="2"><h5>DATE</h5></th>
-                                <th><h5>Price</h5></th> 
+                                <th class="cell1"><h5>회원 ID</h5></th>
+                                <th class="cell2"><h5>일시</h5></th>
+                                <th class="cell3"><h5>응찰가</h5></th> 
                             </tr> 
-                        </thead>
-                        <tbody>
+                        </thead> 
+                        <tbody id="modal_table" style="vertical-align: middle;">
                             <tr>
-                                <td class="col-md-3">KJY</td>
-                                <td colspan="2" class="col-md-3"><i class="fa fa-usd" aria-hidden="true"></i> 1일 </td>
-                                <td class="col-md-3"><i class="fa fa-usd" aria-hidden="true"></i> 12,000,000 </td>
+                                <td class="col-md-3 cell1"></td>  
+                                <td class="col-md-3 cell2"></td> 
+                                <td class="col-md-3 cell3"></td>
                             </tr>
-<!--                             <tr style="color: #F81D2D;"> -->
-<!--                                 <td class="text-xs-right"><h4><strong>Total: </strong></h4></td> -->
-<!--                                 <td class="text-xs-left"><h4><strong><i class="fa fa-usd" aria-hidden="true"> 2365,00</i></strong></h4></td> -->
-<!--                             </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -145,7 +145,6 @@ $(function() {
 </div>
 
 <div class="container mt-5" style="max-width: 1440px;">  
-
   
 	<!--Section: Content-->
 	<section class="dark-grey-text text-xs-center">
@@ -166,10 +165,10 @@ $(function() {
 					<!-- Card image -->
 					<div class="wrapper">
 					<div class="title" >${premium.b_name}</div>
-					<div class="p_logo"><%-- ${premium.pno} --%><img alt="premium" src="/resources/img/logo/premium_icon.png"></div> 
+					<div class="p_logo"><img alt="premium" src="/resources/img/logo/premium_icon.png"></div> 
 					<div class="banner-img"> 
-						<img src="/resources/img/bag/${premium.p_img}" alt="Image 1"> 
-					</div>
+						<img style="width: 85%;" src="/resources/img/bag/${premium.p_img}" alt="Image 1"> 
+					</div> 
 					<div class="dates"> 
 						<div class="start" id="countdown" data-until="${premium.p_until}"></div> 
 					</div>
@@ -195,8 +194,8 @@ $(function() {
 						</div>
 					</div>
 					<div class="footer">
-						<a href="#myModal" id="mymodal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal" data-pno="${premium.pno}">상세보기</a>
-<!-- 						<button class="Cbtn Cbtn-danger Cbtn-cs p_detail">상세보기</button> -->
+<%-- 						<a href="#myModal" id="mymodal" role="button" class="Cbtn Cbtn-danger Cbtn-cs" data-toggle="modal" data-pno="${premium.pno}">상세보기</a> --%>
+						<button class="Cbtn Cbtn-danger Cbtn-cs" role="button" data-target="#myModal" data-toggle="modal" data-pno="${premium.pno}">상세보기</button>
 						<a href="/kmk/auction/bids" class="Cbtn Cbtn-primary">응찰하기</a> 
 					</div>
 				</div>
@@ -215,7 +214,6 @@ $(function() {
 </div>
 
 <script>
-
 // product timecount
 $(function() { 
 	const countDownTimer = function (c_tag, date) {
@@ -226,7 +224,7 @@ $(function() {
 			var timeLeft = untilDate - currentDate;
 	
 			var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-// 			if (days < 10) days = "0" + days; 
+ 			//if (days < 10) days = "0" + days; 
 			
 			var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			if (hours < 10) hours = "0" + hours;
@@ -236,7 +234,7 @@ $(function() {
 			
 			var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 			if (seconds < 10) seconds = "0" + seconds;
-// 			if (days < 1) {} else {}
+ 			//if (days < 1) {} else {}
 			c_tag.html(days + '일' + hours + '시' + minutes + '분' + seconds + '초');
 			if (timeLeft <= 0) {
 				clearInterval(timer);
@@ -247,39 +245,44 @@ $(function() {
 		timer = setInterval(showRemaining, 1000);  
 	}
 	
+	// product apply timer
 	$("div.start").each(function(index) {
-		var that = $(this); 
+		var that = $(this);
 		var endDate = that.attr("data-until"); 
 		var dateObj = new Date(endDate); 
 		countDownTimer(that, dateObj);
 	});
 	
-	$("a.Cbtn-danger").each(function(index) {
+	// 상품 모달
+	$("button.Cbtn-danger").each(function(index) {
 		var that = $(this);
 		var pno = that.attr("data-pno");		
 		that.click(function() {
-			console.log("클릭");
-			console.log(pno);
+			$.ajax({
+				"type" : "post",
+				"url" : "/kmk/auction/bidList/" + pno,
+				"success" : function(rData) {
+					$("#modal_table tr.cl_tr").remove();
+					if (rData != null) {
+						$.each(rData, function(index) {
+							var tr = $("#modal_table tr:eq(0)").clone();;
+							console.log(tr);
+							tr.addClass("cl_tr"); 
+							console.log(tr); 
+							var td = tr.find("td");
+							td.eq(0).text(this.m_id);
+							td.eq(1).text(this.b_date); 
+							td.eq(2).text(this.b_price);
+							$("table tbody").append(tr);
+						});
+					}
+				},
+				"error" : function(request,status,error) {
+			    	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			    } 
+			});
 		});
 	});
-	
-// 	$.each($("#tile"), function(index) {
-// 		$(this).on("click", ".p_detail", function() {
-// 			console.log("클릭");
-// 		});
-// 	});
-	
-// 	$("#tile").on("click", ".p_detail", function() {
-// 		console.log("클릭");
-// 		var cno = $(this).attr("data-cno");
-// 		var td = $(this).parent().parent().find("td");
-// 		var content = td.eq(0).text();
-// 		var writer = td.eq(1).text();
-// 		$("#modal_content").val(content);
-// 		$("#modal_writer").val(writer);
-// 		$("#btnModifyModal").attr("data-cno", cno);
-// 		$("#modal-219158").trigger("click");
-// 	}); 
 });	
 </script>
 

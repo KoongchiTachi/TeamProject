@@ -2,11 +2,15 @@ package com.kh.team.domain;
 
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+
 public class BidVo {
 	private int bno;
 	private String m_id;
 	private int b_price;
-	private Timestamp b_date;
+	@JsonFormat(shape = Shape.STRING, pattern = "YY.MM.dd HH:mm:ss", timezone = "GMT+9")
+	private Timestamp b_date; 
 	private String b_note;
 	private String pno;
 	private String p_img;

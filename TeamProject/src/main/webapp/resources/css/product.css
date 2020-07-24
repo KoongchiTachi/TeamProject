@@ -31,11 +31,11 @@ body {
 } 
 
 .banner-img {
-	padding: 5px 5px 0;
+	padding: 5px 20px 0; 
 }
 
 .banner-img img {
-	width: 100%;
+	width: 90%;
 	border-radius: 5px;
 	position:relative;
 }
@@ -97,14 +97,15 @@ div.footer {
 	margin: 20px 5px; 
 }
 
-div.footer a.Cbtn{
+div.footer a.Cbtn,
+div.footer button.Cbtn{ 
 	padding: 10px 15px; 
 	background-color: #DADADA;
 	color: #666;
 	margin: 10px 2px;
 	text-transform: uppercase;
 	font-weight: bold;
-	text-decoration: none;
+	text-decoration: none; 
 	border-radius: 3px;
 } 
 
@@ -117,11 +118,12 @@ div.footer a.Cbtn-primary:hover{
 	background-color: #7dbef5;
 }
 
-div.footer a.Cbtn-danger{
-	background-color: #fc5a5a;
+div.footer button.Cbtn-danger{
+	/* background-color: #fc5a5a; */
+	background-color: #F9AD81;
 	color: #FFF;
 }
 
-div.footer a.Cbtn-danger:hover{
+div.footer button.Cbtn-danger:hover{
 	background-color: #fd7676;
 }

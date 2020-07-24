@@ -8,8 +8,10 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.team.domain.BidVo;
 import com.kh.team.domain.ProductVo;
@@ -44,8 +46,13 @@ public class AuctionController {
 	}
 	
 	// 상품 응찰 내역
-	@RequestMapping(value="/bidList", method = RequestMethod.GET)
-	public List<BidVo> bidList(String pno) throws Exception {
+	@ResponseBody
+	@RequestMapping(value="/bidList/{pno}", method = RequestMethod.POST)
+	public List<BidVo> bidList(@PathVariable("pno") String pno, Model model) throws Exception {
+		System.out.println("pno" + pno);
+//		List<BidVo> bidList = productService.bidList(pno);
+//		model.addAttribute("bidList", bidList);
+//		System.out.println(bidList);
 		return productService.bidList(pno);
 	}
 	

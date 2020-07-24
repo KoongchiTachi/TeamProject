@@ -25,9 +25,9 @@
 	</select>
 	
 	<!-- 응찰내역 -->
-	<select id="bidList" resultType="BidVo">
+	<select id="bidList" resultType="BidVo"> 
 		select b.bno, b.m_id, b.b_price, b.b_date, c.b_name from tbl_bid b,tbl_product p, code_brand c
-		where b.pno = p.pno and c.b_code = p.p_brand and b.pno = #{pno};
+		where b.pno = p.pno and c.b_code = p.p_brand and b.pno = #{pno}
 	</select>
 	
 	<!-- 최근 등록 상품 -->

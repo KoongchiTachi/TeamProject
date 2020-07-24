@@ -10,13 +10,14 @@ public class BidVo {
 	private String m_id;
 	private int b_price;
 	@JsonFormat(shape = Shape.STRING, pattern = "YY.MM.dd HH:mm:ss", timezone = "GMT+9")
-	private Timestamp b_date; 
+	private Timestamp b_date;
 	private String b_note;
 	private String pno;
 	private String p_img;
 	private String p_info;
 	private int p_price;
 	private String s_name;
+	private String p_name;
 
 	public int getBno() {
 		return bno;
@@ -98,11 +99,19 @@ public class BidVo {
 		this.s_name = s_name;
 	}
 
+	public String getP_name() {
+		return p_name;
+	}
+
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+
 	@Override
 	public String toString() {
 		return "BidVo [bno=" + bno + ", m_id=" + m_id + ", b_price=" + b_price + ", b_date=" + b_date + ", b_note="
 				+ b_note + ", pno=" + pno + ", p_img=" + p_img + ", p_info=" + p_info + ", p_price=" + p_price
-				+ ", s_name=" + s_name + "]";
+				+ ", s_name=" + s_name + ", p_name=" + p_name + "]";
 	}
 
 }

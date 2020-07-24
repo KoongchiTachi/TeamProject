@@ -139,15 +139,27 @@ div p {
 .profile-head {
 	margin-top : 50px;
 }
+#auctionList {
+	cursor: pointer;
+}
+#auctionA {
+	display: none;
+}
 </style>
 
 <script>
 $(function() {
+	// 휴대전화 정보 가져오기
 	var m_phone = "${memberVo.m_phone}";
 	var phone1 = m_phone.substring(0, 3);
 	var phone2 = m_phone.substring(3,7);
 	var phone3 = m_phone.substring(7);
 	$("#phone").text(phone1 + "-" + phone2 + "-" + phone3);
+	
+	// actionList toggle
+	$("#auctionList").click(function() {
+		$("#auctionA").toggle("slow").show();
+	});
 });
 </script>
 
@@ -181,9 +193,11 @@ $(function() {
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-work">
-                    <p>ACUTION LIST</p>
-                    <a href="/kjy/member/myBidList"> 응찰 </a><br/> 
-                    <a href=""> 낙찰 </a><br/>
+                    <p id="auctionList">AUCTION LIST</p>
+                    <div id="auctionA">
+	                    <a href="/kjy/member/myBidList"> 응찰 </a><br/> 
+	                    <a href="/kjy/member/successBidList"> 낙찰 </a><br/>
+                    </div>
                     <p><a href="/kjy/member/wishList">WISH LIST</a></p>
                     <p><a href="/sjw/member/myQna">1 : 1 문의 내역</a></p>
                     <p><a href="/kjy/member/deleteMemberForm">회원 탈퇴</a></p>

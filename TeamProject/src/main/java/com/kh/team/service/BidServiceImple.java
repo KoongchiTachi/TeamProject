@@ -31,4 +31,9 @@ public class BidServiceImple implements BidService {
 		return bidDao.getCount(bidListPagingDto);
 	}
 
+	@Override
+	public List<BidVo> successBidList(String m_id) throws Exception {
+		return bidDao.successBidList(m_id);
+	}
+
 }

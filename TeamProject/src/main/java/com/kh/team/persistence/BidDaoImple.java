@@ -39,4 +39,13 @@ public class BidDaoImple implements BidDao {
 		return sqlSession.selectOne(NAMESPACE + "getCount", bidListPagingDto);
 	}
 
+	@Override
+	public List<BidVo> successBidList(String m_id) throws Exception {
+		System.out.println("m_id:" + m_id);
+//		return sqlSession.selectList(NAMESPACE + "successBidList", m_id);
+		List<BidVo> list = sqlSession.selectList(NAMESPACE + "successBidList", m_id);
+		System.out.println("list:" + list);
+		return null;
+	}
+
 }

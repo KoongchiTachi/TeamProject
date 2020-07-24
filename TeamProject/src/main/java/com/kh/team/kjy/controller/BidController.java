@@ -19,7 +19,7 @@ import com.kh.team.service.MemberService;
 
 @Controller
 @RequestMapping("/kjy/member")
-public class MyBidListController {
+public class BidController {
 
 	@Inject
 	private BidService bidService;

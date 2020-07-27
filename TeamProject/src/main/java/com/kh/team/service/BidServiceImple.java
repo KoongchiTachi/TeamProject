@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.team.domain.BidListPagingDto;
 import com.kh.team.domain.BidVo;
+import com.kh.team.domain.SuccessBidPagingDto;
 import com.kh.team.persistence.BidDao;
 
 @Service
@@ -27,13 +28,18 @@ public class BidServiceImple implements BidService {
 	}
 
 	@Override
-	public int getCount(BidListPagingDto bidListPagingDto) throws Exception {
-		return bidDao.getCount(bidListPagingDto);
+	public int getCount(BidListPagingDto bidListPagingDto, String m_id) throws Exception {
+		return bidDao.getCount(bidListPagingDto, m_id);
 	}
 
 	@Override
-	public List<BidVo> successBidList(String m_id) throws Exception {
-		return bidDao.successBidList(m_id);
+	public List<BidVo> successBidList(String m_id, int startRow, int endRow) throws Exception {
+		return bidDao.successBidList(m_id, startRow, endRow);
+	}
+
+	@Override
+	public int successBidCount(SuccessBidPagingDto successBidPagingDto, String m_id) throws Exception {
+		return bidDao.successBidCount(successBidPagingDto, m_id);
 	}
 
 }

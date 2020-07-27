@@ -20,6 +20,6 @@ public interface WishlistDao {
 	public void deleteWishMulti(WishlistVo wnos) throws Exception;
 	
 	// 게시글 수
-	public int getCount(WishlistPagingDto wishlistPagingDto) throws Exception;
+	public int getCount(WishlistPagingDto wishlistPagingDto, String m_id) throws Exception;
 	
 }

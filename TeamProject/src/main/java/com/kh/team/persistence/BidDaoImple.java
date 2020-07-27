@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.team.domain.BidListPagingDto;
 import com.kh.team.domain.BidVo;
+import com.kh.team.domain.SuccessBidPagingDto;
 
 @Repository
 public class BidDaoImple implements BidDao {
@@ -35,17 +36,28 @@ public class BidDaoImple implements BidDao {
 	}
 
 	@Override
-	public int getCount(BidListPagingDto bidListPagingDto) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + "getCount", bidListPagingDto);
+	public int getCount(BidListPagingDto bidListPagingDto, String m_id) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		param.put("bidListPagingDto", bidListPagingDto);
+		param.put("m_id", m_id);
+		return sqlSession.selectOne(NAMESPACE + "getCount", param);
 	}
 
 	@Override
-	public List<BidVo> successBidList(String m_id) throws Exception {
-		System.out.println("m_id:" + m_id);
-//		return sqlSession.selectList(NAMESPACE + "successBidList", m_id);
-		List<BidVo> list = sqlSession.selectList(NAMESPACE + "successBidList", m_id);
-		System.out.println("list:" + list);
-		return null;
+	public List<BidVo> successBidList(String m_id, int startRow, int endRow) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		param.put("m_id", m_id);
+		param.put("startRow", startRow);
+		param.put("endRow", endRow);
+		return sqlSession.selectList(NAMESPACE + "successBidList", param);
+	}
+
+	@Override
+	public int successBidCount(SuccessBidPagingDto successBidPagingDto, String m_id) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		param.put("successBidPagingDto", successBidPagingDto);
+		param.put("m_id", m_id);
+		return sqlSession.selectOne(NAMESPACE + "successBidCount", param);
 	}
 
 }

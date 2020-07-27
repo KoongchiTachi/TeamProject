@@ -45,8 +45,11 @@ public class WishlistDaoImple implements WishlistDao {
 	}
 
 	@Override
-	public int getCount(WishlistPagingDto wishlistPagingDto) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + "getCount", wishlistPagingDto);
+	public int getCount(WishlistPagingDto wishlistPagingDto, String m_id) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		param.put("wishlistPagingDto", wishlistPagingDto);
+		param.put("m_id", m_id);
+		return sqlSession.selectOne(NAMESPACE + "getCount", param);
 	}
 
 

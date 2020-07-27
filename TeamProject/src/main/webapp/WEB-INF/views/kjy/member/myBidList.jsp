@@ -86,7 +86,7 @@ $(function() {
 					<tbody>
 					<c:choose>
 						<c:when test="${listSize == 0}">
-							<td colspan="5">
+							<td colspan="6">
 								<p class="text_font" style="text-align : center;">응찰중인 상품이 없습니다.</p>
 							</td>
 						</c:when>

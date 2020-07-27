@@ -29,11 +29,11 @@ public class WishlistController {
 	// 위시리스트 목록(페이징)
 	@RequestMapping(value = "/wishList", method = RequestMethod.GET)
 	public void wishList(HttpServletRequest request, WishlistPagingDto wishlistPagingDto, Model model) throws Exception {
-		wishlistPagingDto.setPageInfo();
-		int totalCount = wishlistSertvice.getCount(wishlistPagingDto);
-		wishlistPagingDto.setTotalCount(totalCount);
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
+		wishlistPagingDto.setPageInfo();
+		int totalCount = wishlistSertvice.getCount(wishlistPagingDto, m_id);
+		wishlistPagingDto.setTotalCount(totalCount);
 		int startRow = wishlistPagingDto.getStartRow();
 		int endRow = wishlistPagingDto.getEndRow();
 		List<WishlistVo> list = wishlistSertvice.wishList(m_id, startRow, endRow);

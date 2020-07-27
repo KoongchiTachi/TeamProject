@@ -37,8 +37,8 @@ public class WishlistServiceImple implements WishlistService {
 	}
 
 	@Override
-	public int getCount(WishlistPagingDto wishlistPagingDto) throws Exception {
-		return wishlistDao.getCount(wishlistPagingDto);
+	public int getCount(WishlistPagingDto wishlistPagingDto, String m_id) throws Exception {
+		return wishlistDao.getCount(wishlistPagingDto, m_id);
 	}
 
 

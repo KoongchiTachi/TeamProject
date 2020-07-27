@@ -25,6 +25,7 @@ public class MemberServcieImple implements MemberService {
 		return false;
 	}
 
+	// 전체 멤버 목록
 	@Override
 	public List<MemberVo> memberList() throws Exception {
 		return memberDao.memberList();

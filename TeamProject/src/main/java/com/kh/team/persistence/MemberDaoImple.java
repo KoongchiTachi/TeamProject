@@ -28,6 +28,7 @@ public class MemberDaoImple implements MemberDao {
 		return sqlSession.selectOne(NAMESPACE + "selectMemberByIdAndPw", paramMap); 
 	}
 	
+	// 전체 멤버 목록
 	@Override
 	public List<MemberVo> memberList() throws Exception {
 		return sqlSession.selectList(NAMESPACE + "memberList");

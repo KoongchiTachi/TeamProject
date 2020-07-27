@@ -538,7 +538,7 @@ pre code {
 
 @media ( min-width :768px) {
 	.container {
-		max-width: 720px
+		max-width: 1080px /* 720 -> 1080 ( 07.24 KMK ) */
 	}
 }
 

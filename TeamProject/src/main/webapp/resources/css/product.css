@@ -94,36 +94,41 @@ body {
 div.footer {
 	text-align: center; 
 	position: relative;
-	margin: 20px 5px; 
+	margin: 15px 5px; 
 }
 
 div.footer a.Cbtn,
-div.footer button.Cbtn{ 
+div.footer a.Cbtn{  
 	padding: 10px 15px; 
 	background-color: #DADADA;
 	color: #666;
 	margin: 10px 2px;
-	text-transform: uppercase;
+	text-transform: uppercase; 
 	font-weight: bold;
 	text-decoration: none; 
-	border-radius: 3px;
+	border-radius: 5px; 
+	cursor: pointer; 
+	border-width: 0px;
+	
 } 
 
 div.footer a.Cbtn-primary{
-	background-color: #5AADF2;
-	color: #FFF;
-}
-
-div.footer a.Cbtn-primary:hover{
-	background-color: #7dbef5;
-}
-
-div.footer button.Cbtn-danger{
-	/* background-color: #fc5a5a; */
 	background-color: #F9AD81;
 	color: #FFF;
 }
 
-div.footer button.Cbtn-danger:hover{
+div.footer a.Cbtn-primary:hover{
 	background-color: #fd7676;
+	color: #FFF; 
+}
+
+div.footer a.Cbtn-danger{
+/* 	background-color: #fc5a5a; */
+	background-color: #F9AD81; 
+	color: #FFF;
+}
+
+div.footer a.Cbtn-danger:hover{
+	background-color: #fd7676;
+	color: #FFF; 
 }

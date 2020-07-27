@@ -34,16 +34,18 @@ public class AuctionController {
 	}
 	
 	// 일반 상품 페이지
-	@RequestMapping(value="/latest", method = RequestMethod.GET) 
+	@RequestMapping(value="/normal", method = RequestMethod.GET) 
 	public String latestAuction() throws Exception {
-		return "/kmk/auction/latest";
+		return "/kmk/auction/normal";
 	} 
 	 
 	// 상품 응찰 페이지
-	@RequestMapping(value="/bids", method = RequestMethod.GET)
-	public String bidPage() throws Exception {
-		return "/kmk/auction/bids";
-	}
+	@RequestMapping(value="/bid", method = RequestMethod.GET)
+	public void bidPage(String pno, Model model) throws Exception {
+		ProductVo productVo = productService.selectByPno(pno);
+		System.out.println("pno : " + pno);
+		model.addAttribute(productVo);
+	} 
 	
 	// 상품 응찰 내역
 	@ResponseBody

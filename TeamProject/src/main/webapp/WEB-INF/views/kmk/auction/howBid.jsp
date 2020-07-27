@@ -295,7 +295,7 @@
 					<div class="division">
 						<div class="subject">
 							<h3>
-								<span>06.</span><u class="textresize">작품 픽업, 배송, 설치 및 보관</u>
+								<span>06.</span><u class="textresize">작품 픽업 및 배송</u>
 							</h3>
 							<img src="/resources/img/howbid/bid_how06.gif" alt="보험 및 배송" class="o6" />
 						</div>

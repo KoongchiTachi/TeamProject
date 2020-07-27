@@ -11,7 +11,7 @@
         margin-top: 30px;
         margin-bottom: 30px;
         padding: 40px 30px !important;
-        position: relative;
+        position: relative; 
         box-shadow: 0 1px 21px #808080;
         font-size:10px;
     }

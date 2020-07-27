@@ -229,9 +229,9 @@
 .renewalBidding .notice strong { color: #e5410e; font-size: 1em; font-weight: 600; }
 .renewalBidding .notice ul { margin-top: 14px; }
 .renewalBidding .notice li,
-.renewalBidding .notice p { font-size: 14px; line-height: 20px; padding-left: 15px; background: url('../images/renewal/bullet.gif') 5px 9px no-repeat; }
+.renewalBidding .notice p { font-size: 14px; line-height: 20px; padding-left: 15px; background: 5px 9px no-repeat; }
 .renewalBidding .notice li span { display: inline-block; font-size: 1em; line-height: inherit; }
-.renewalBidding .notice li + li { margin-top: 5px; }
+.renewalBidding .notice li + li { margin-top: 5px; } 
 .renewalBidding .notice .bid { margin-bottom: 79px; }
 .renewalBidding .notice .reserve { position: absolute; left: 800px; bottom: 10px; height: 42px; padding: 4px 0; }
 .renewalBidding .notice .reserve span { font-size: 1em; display: inline-block; }
@@ -242,12 +242,12 @@
 .renewalBidding .bidState h3:after { content: ''; position: absolute; display: block; height: 1px; left: 110px; right: 0px; top: 15px; background: #bcbcbc; }
 .renewalBidding .bidState .stateTable th { border-top: 1px solid #d6d6d6; }
 .renewalBidding .bidState ul { padding: 10px 0; }
-.renewalBidding .bidState .alert li { font-size: 14px; line-height: 20px; padding-left: 20px; background: url('../images/renewal/bullet.gif') 10px 9px no-repeat; }
+.renewalBidding .bidState .alert li { font-size: 14px; line-height: 20px; padding-left: 20px; background: 10px 9px no-repeat; }
 .renewalBidding .bidState .alert li strong { font-size: 1em; }
 .renewalBidding .bidState .alert li + li { margin-top: 5px; }
 .renewalBidding .monthWork { margin-top: 50px; }
 .renewalBidding .monthWork .minbox { background: #fff url('../images/img/img_minbox.gif') right center no-repeat; padding-right: 20px; }
-.renewalBidding .monthWork .minbox li { background: url('../images/renewal/bullet.gif') left 8px no-repeat; }
+.renewalBidding .monthWork .minbox li { background: left 8px no-repeat; }
 .renewalBidding .function { margin-top: 20px; }
 .renewalBidding .function:after { content: ''; display: block; clear: both; }
 .renewalBidding .function .left { float: left; }

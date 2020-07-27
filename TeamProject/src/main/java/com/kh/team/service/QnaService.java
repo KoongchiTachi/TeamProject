@@ -15,9 +15,6 @@ public interface QnaService {
 	// 답변 목록
 	public List<QreplyVo> qReplyList(int qno) throws Exception;
 	
-	// 답변 갯수
-	public int countReply(int qno) throws Exception;
-		
 	// QnA 내용보기 - 관리자
 	public QnaVo qnaRead(int qno) throws Exception;
 		

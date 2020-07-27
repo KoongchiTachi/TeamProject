@@ -73,10 +73,4 @@ public class QnaDaoImpl implements QnaDao {
 		sqlSession.insert(NAMESPACE + "insertQUpload", paramMap);
 	}
 
-	// 답변 갯수
-	@Override
-	public int countReply(int qno) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + "countReply", qno);
-	}
-
 }

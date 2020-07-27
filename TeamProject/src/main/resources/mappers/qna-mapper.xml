@@ -24,11 +24,6 @@
 		order by qno desc
 	</select>
 	
-	<!-- 답변 갯수 -->
-<!-- 	<select id="countReply" resultType="int"> -->
-<!-- 		select count(*) from tbl_qreply where qno = #{qno} -->
-<!-- 	</select> -->
-	
 	<!-- QnA 답변목록 -->
 	<select id="qReplyList" resultType="QreplyVo">
 		select * from tbl_qreply

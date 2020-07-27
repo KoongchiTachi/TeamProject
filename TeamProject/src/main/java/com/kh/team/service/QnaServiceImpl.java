@@ -70,10 +70,4 @@ public class QnaServiceImpl implements QnaService {
 		qnaDao.qnaDelete(qno);
 	}
 
-	// 답변 갯수
-	@Override
-	public int countReply(int qno) throws Exception {
-		return qnaDao.countReply(qno);
-	}
-
 }

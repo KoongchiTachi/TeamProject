@@ -9,7 +9,7 @@
 	width: 50%;
 	height: 56px;
 	border: none;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 600;
 	margin-bottom: 20px;
 }
@@ -66,24 +66,11 @@ form {
  	max-width : 80%; 
  	padding-left: 80px;
 }
-.controls button {
-  padding: 0px;
-  font-size: 0px;
-  border: 0px;
-  width: 0;
-  margin-bottom: 0;
-  color: #888;
-  font-family: cursive;
-  font-size: 0px;
-  font-weight: 0;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-  border-radius: 0px;
-  -moz-transition: 0;
-  -o-transition: 0;
-  -webkit-transition: 0;
-  transition: 0;
-  float: none;
+button { 
+	float: none;
+} 
+a {
+	text-align: left;
 }
 
 </style>
@@ -96,12 +83,6 @@ $(function($) {
 			$this.focus(function() {
 				$this.next().addClass("active");
 			});
-			//on blur check field and remove class if needed
-			$this.blur(function() {
-				if ($this.val() === "" || $this.val() === "blank") {
-					$this.next().removeClass(); 
-				}
-			});
 		});
 	} 
 	floatLabel(".floatLabel");
@@ -109,7 +90,7 @@ $(function($) {
 </script>
 <script>
 $(function() {
-
+	
 	$("#file_name").on("change", function(e) {
 		var maxSize = 10485760;
 		var maxFile = 4;
@@ -140,7 +121,6 @@ $(function() {
 			"processData" : false,
 			"contentType" : false,
 			"type" : "post",
-			"enctype" : "multipart/form-data"
 			"url" : url,
 			"data" : formData,
 			"success" : function(rData) {
@@ -166,6 +146,7 @@ $(function() {
 			}
 		});
  	});
+	
 	$("#uploadedList").on("click", ".file-del", function(e) {
 		e.preventDefault();
 		var that = $(this);
@@ -206,10 +187,11 @@ $(function() {
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<form action="/sjw/contact/qnaForm" role="form" class="contact-form" id="contact-form" enctype="multipart/form-data" method="post" style="margin: -70px;">
+				<form action="/sjw/contact/qnaForm" role="form" class="contact-form" id="contact-form" method="post" style="margin: -70px;">
 					<div class="form-group">
-						<div class="controls">
-							<input type="text" class="floatLabel" name="m_id" value="아이디 : ${m_id}" style="color: black; width: auto; text-align: center; font-weight: bold;" readonly>
+						<div class="row" align="left">
+							<input type="text" name="m_id" value="아이디   :   ${m_id}" 
+								style="color: #424242; width: auto; text-align: center; font-size: 18px; margin-left: 18px; margin-bottom: 40px;" readonly>
 						</div>
 						<div class="grid">
 							<div class="col-1-3 col-1-3-sm">
@@ -217,13 +199,14 @@ $(function() {
 									<i class="fa fa-sort"></i> <select class="floatLabel"
 										style="width: 320px;" name="q_kind" id="q_kind"
 										required="required">
-										<option value="blank"></option>
-										<option value="주문" selected>주문</option>
-										<option value="배송" selected>배송</option>
-										<option value="상품" selected>상품</option>
-										<option value="경매" selected>경매</option>
-										<option value="위탁" selected>위탁</option>
-										<option value="낙찰" selected>낙찰</option>
+<!-- 										<option value="blank" disabled></option> -->
+										<option value="" disabled selected></option>
+										<option value="주문">주문</option>
+										<option value="배송">배송</option>
+										<option value="상품">상품</option>
+										<option value="경매">경매</option>
+										<option value="위탁">위탁</option>
+										<option value="낙찰">낙찰</option>
 									</select> <label for="q_kind" style="width: 220px;">문의유형을 선택해
 										주세요.</label>
 								</div>
@@ -233,11 +216,11 @@ $(function() {
 							<div class="form-group">
 								<div class="controls">
 									<input type="text" id="q_title" class="floatLabel"
-										name="q_title" required> <label for="q_title">제목</label>
+										name="q_title" style="font-size: 18px;" required> <label for="q_title">제목</label>
 								</div>
 							</div>
 							<div class="controls">
-								<textarea name="q_content" class="floatLabel" id="q_content"
+								<textarea name="q_content" class="floatLabel" id="q_content" style="font-size: 18px;"
 									required></textarea>
 								<label for="q_content">문의 내용</label>
 							</div>
@@ -246,8 +229,8 @@ $(function() {
 						<div class="row">
 							<div class="col-md-12">
 								<div class="row">
-
 									<div class="col-md-4" style="padding: 25px">
+										<br/><br/><br/><br/>
 										<span class="badge badge-default">파일첨부</span>
 										<p class="help-block">
 											<br />※ 10MB 미만의 이미지 파일<br /> 4개까지 첨부 가능합니다.
@@ -264,7 +247,7 @@ $(function() {
 								</div>
 							</div>
 						</div>
-						<div id="btnDiv" align="right" style="text-align: center;">
+						<div id="btnDiv" align="right" style="text-align: center; margin-top: 70px;">
 							<button type="submit" id="btnSubmit">등록</button>
 							<a href="/sjw/contact/faqList" class="submit-btn" id="btnCancel"
 								style="margin: 20px">취소</a>

@@ -82,6 +82,7 @@
 	<sql id="search">
 		<if test="keyword != null">
 			where f_title like '%' || #{keyword} || '%'
+			or f_content like '%' || #{keyword} || '%'
 		</if>
 	</sql>
 	

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 목록</title>
+<title>faq 목록</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">									
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">									
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>									
@@ -14,44 +14,44 @@
 </head>
 <script>
 $(function() {
-		
-		var msg = "${msg}";
-		if (msg == "insertSuccess") {
-			alert("공지사항 등록 성공");
-		}
-		if (msg == "deleteSuccess") {
-			alert("공지사항 삭제 성공");
-		}
+	
+	var msg = "${msg}";
+	if (msg == "insertSuccess") {
+		alert("faq 등록 성공");
+	}
+	if (msg == "deleteSuccess") {
+		alert("faq 삭제 성공");
+	}
 	
 	// 검색
 	$("#btnSearch").click(function () {
 		var keyword = $("#keyword").val();
 		console.log("keyword: " + keyword);
-		$("#adminFrmPageN > input[name=keyword]").val(keyword);
-		$("#adminFrmPageN").submit();
+		$("#adminFrmPageF > input[name=keyword]").val(keyword);
+		$("#adminFrmPageF").submit();
 	});
 	
-	// 제목 클릭 -> 공지내용보기
-	$("a.n_title").click(function(e) {
+	// 제목 클릭 -> faq내용보기
+	$("a.f_title").click(function(e) {
 		e.preventDefault();
-		var nno = $(this).attr("data-nno");
-		$("#adminFrmPageN > input[name=nno]").val(nno);
-		$("#adminFrmPageN").attr("action", $(this).attr("href"));
-		$("#adminFrmPageN").submit();
+		var fno = $(this).attr("data-fno");
+		$("#adminFrmPageF > input[name=fno]").val(fno);
+		$("#adminFrmPageF").attr("action", $(this).attr("href"));
+		$("#adminFrmPageF").submit();
 	});
 	
 	// 페이지 번호
 	$("a.page-link").click(function(e) {
 		e.preventDefault();
 		var page = $(this).attr("href").trim();
-		$("#adminFrmPageN > input[name=page]").val(page);
-		$("#adminFrmPageN").submit();
+		$("#adminFrmPageF > input[name=page]").val(page);
+		$("#adminFrmPageF").submit();
 	});
 	
 	// 현재 페이지 액티브
 	$("a.page-link").each(function () {
 		var page = $(this).attr("href");
-		if (page == "${noticePagingDto.page}") {
+		if (page == "${faqPagingDto.page}") {
 			$(this).parent().addClass("active");
 			return;
 		}
@@ -66,44 +66,68 @@ $(function() {
 	<div class="row">
 		<div class="col-md-12">
 			<div class="jumbotron">
-				<h2>공지사항 목록</h2>
-					<p><a class="btn btn-primary btn-large" href="/sjw/admin/admin_noticeForm">공지사항 입력</a></p>
+				<h2>
+					faq 목록
+				</h2>
+				<p>
+					<a class="btn btn-primary btn-large" href="/sjw/admin/admin_faqForm">faq 입력</a>
+				</p>
 			</div>
 			<div class="row">
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-8">
+					<div class="tabbable" id="tabs-900">
+						<ul class="nav nav-tabs">
+							<li class="nav-item">
+								<a class="nav-link active" href="#tab1" data-toggle="tab">전체</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#tab2" data-toggle="tab">회원</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane active" id="panel-146431">
+								<p>
+									
+								</p>
+							</div>
+							<div class="tab-pane" id="tab2">
+								<p>
+									
+								</p>
+							</div>
+						</div>
+					</div>
 					<table class="table">
 							<thead>
 								<tr>
 									<th>글번호</th>
 									<th>제목</th>
-									<th>작성일</th>
 								</tr>
 							</thead>
 							<tbody>
-							<c:forEach items="${list}" var="noticeVo">
+							<c:forEach items="${list}" var="faqVo">
 								<tr>
-									<td>${noticeVo.nno}</td>
-									<td><a href="/sjw/admin/admin_noticeRead" class="n_title" style="color: #525252;" data-nno="${noticeVo.nno}">${noticeVo.n_title}</a></td>
-									<td>${noticeVo.n_date}</td>
+									<td>${faqVo.fno}</td>
+									<td><a href="/sjw/admin/admin_faqRead" class="f_title" data-fno="${faqVo.fno}">${faqVo.f_title}</a></td>
 								</tr>
 							</c:forEach>
 							</tbody>
 						</table>
-					<nav>
+						<nav>
 				<ul class="pagination">
 				<!-- 이전 -->
-					<c:if test="${noticePagingDto.startPage != 1}">
+					<c:if test="${faqPagingDto.startPage != 1}">
 					<li class="page-item">
-						<a class="page-link" href="${noticePagingDto.startPage - 1}">&laquo;</a>
+						<a class="page-link" href="${faqPagingDto.startPage - 1}">&laquo;</a>
 					</li>
 					</c:if>
 					<!-- 페이지 넘버링 -->
-					<c:forEach begin="${noticePagingDto.startPage}" end="${noticePagingDto.endPage}" var="v">
+					<c:forEach begin="${faqPagingDto.startPage}" end="${faqPagingDto.endPage}" var="v">
 						<li class="page-item"
  						<c:choose>
- 							<c:when test="${noticePagingDto.page == v}">
+ 							<c:when test="${faqPagingDto.page == v}">
  								class="page-item active"
  							</c:when>
  							<c:otherwise>
@@ -115,17 +139,17 @@ $(function() {
 						</li>
 					</c:forEach>
 					<!-- 다음 -->
-					<c:if test="${noticePagingDto.endPage < noticePagingDto.totalPage}">
+					<c:if test="${faqPagingDto.endPage < faqPagingDto.totalPage}">
 					<li class="page-item">
-						<a class="page-link" href="${noticePagingDto.endPage + 1}">&raquo;</a>
+						<a class="page-link" href="${faqPagingDto.endPage + 1}">&raquo;</a>
 					</li>
 					</c:if>
 				</ul>
 			</nav>
-					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<form class="form-inline" >
-								<input class="form-control mr-sm-2" type="text" id="keyword" name="keyword" value="${noticePagingDto.keyword}"/> 
+								<input class="form-control mr-sm-2" type="text" id="keyword" name="keyword" value="${faqPagingDto.keyword}"/> 
 								<button class="btn btn-primary my-2 my-sm-0" type="submit">
 									검색
 								</button>
@@ -139,6 +163,7 @@ $(function() {
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 </body>
 </html>

@@ -66,12 +66,13 @@ ul{
 				<div class="infoBox">
 					<ul>
 						<li class="app last">
+							<br/>
 							<p class="tit">홈페이지 접수</p>
 							<p class="txt" style="font-size: 17px;">
 								로그인 후 [Service] > [위탁신청]을 통해<br/> 편리하게 위탁을 신청하실 수 있습니다.
 							</p>
 							<div class="appbtn">
-								<a id="form" href="/kmk/consign/consign_form"><span>위탁신청 바로가기</span></a>
+								<a id="form" href="/kmk/consign/consign_form" style="margin-top: 15px; padding-top: 2px;"><span>위탁신청 바로가기</span></a>
 							</div>
 						</li>
 					</ul>
@@ -107,6 +108,7 @@ ul{
 						<li class="fees">
 							<p class="tit">위탁수수료</p>
 							<p class="txt">
+								<br/>
 								위탁수수료는 낙찰가 3백만원 이하의 경우에는 낙찰가의 15%(부가가치세 별도)를 적용하고, 3백만원을 초과하는 경우에는 그 초과하는 금액에 대하여 10%(부가가치세 별도)로 적용하여 합산합니다. 자세한 사항은 럭션 약관을 참조하시길 바랍니다.
 							</p>
 						</li>

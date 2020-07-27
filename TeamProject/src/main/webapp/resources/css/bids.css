@@ -109,7 +109,7 @@ h2.heading {
 .controls input[type="date"],
 .controls input[type="tel"],
 .controls textarea,
-/* .controls button, */ /* 0724 버튼 주석처리 */
+.controls button,
 .controls select {
   padding: 12px;
   font-size: 14px;
@@ -203,14 +203,14 @@ h2.heading {
   height: 200px;
 }
 
-button {
-  cursor: pointer;
-  background-color: #F9AD81; 
-  border: none;
-  color: #fff;
-  padding: 12px 0;
-  float: right; 
-} 
+ button { 
+   cursor: pointer; 
+   background-color: #F9AD81;  
+   border: none; 
+   color: #fff; 
+   padding: 12px 0; 
+   float: right;  
+ }  
 button:hover {
   background-color: #9b3d07;
 }

@@ -28,7 +28,7 @@
 							</div>
 							<div class="form-group">
 								<label for="n_content">내용</label>
-								<textarea class="form-control" id="n_content" name="n_content"></textarea>
+								<textarea class="form-control" id="n_content" name="n_content" style="height: 200px;"></textarea>
 							</div>
 							<button type="submit" class="btn btn-success">등록</button>
 							<a href="/sjw/admin/admin_noticeList"><button type="button" class="btn btn-primary">목록</button></a>

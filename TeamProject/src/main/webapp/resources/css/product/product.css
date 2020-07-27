@@ -32,6 +32,7 @@ a:hover {
 
 .top-border {
 	border-top: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d5d5d5;
 }
 
 .bottom-border {
@@ -875,7 +876,7 @@ to {
 	height: auto;
 	position: relative;
 	margin: 20px auto;
-	border-bottom: 1px solid #d5d5d5;
+	/* 이동 (KMK 07.27)*/
 	*zoom: 1;
 }
 
@@ -1078,7 +1079,7 @@ to {
 }
 
 .detail-right {
-	
+	width: auto; 
 }
 
 .detail-right .goods-info {

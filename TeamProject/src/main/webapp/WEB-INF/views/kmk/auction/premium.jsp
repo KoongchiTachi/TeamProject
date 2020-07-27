@@ -73,7 +73,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="/resources/css/product.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/product_list.css" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
 
 <script>
@@ -236,8 +236,8 @@
 						</div>
 					</div>
 					<div class="footer"> 
-						<a href="/kmk/auction/bid" class="Cbtn Cbtn-primary" data-pno="${premium.pno}">응찰하기</a> 
-					</div>
+						<a href="/kmk/auction/product" class="Cbtn Cbtn-primary" data-pno="${premium.pno}">응찰하기</a> 
+					</div> 
 				</div>
 					<!-- Card content -->
 				</div>

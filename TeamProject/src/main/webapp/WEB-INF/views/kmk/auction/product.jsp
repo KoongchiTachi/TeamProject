@@ -5,8 +5,8 @@
 
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
-<link rel="stylesheet" href="/resources/css/bid/bid.css" type="text/css">
-<link rel="stylesheet" href="/resources/css/bid/concept.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/product/product.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/product/concept.css" type="text/css">
 <link href="/resources/js/photo-layer/bxslider.css" rel="stylesheet">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/resources/js/photo-layer/bxslider.js"></script> 
@@ -118,7 +118,7 @@
 				</div>
 				<div class="col-lg-5 col-xs-12">
 					<div class="row">
-						<div class="detail-right">
+						<div class="detail-right" style="width: 100%;">
 							<div class="goods-info">
 								<h2>1</h2>
 								<p class="artist">
@@ -179,10 +179,10 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-7   col-xs-12 pull-right">
+									<div class="col-lg-7 col-xs-12 pull-right"> 
 										<div class="row bt-are">
 											<div class="col-lg-6 col-xs-6 ">
-												<button style="width: 100%; display: block"
+												<button style="width: 100%; display: block" 
 													class="btn-white-border mobile-bbt "
 													onclick="location.href='online-auction-pay.php?owcode=OW2007250001&oacode=O2007001&page=1'"
 													type="button" id="bid_pay">예약응찰</button> 

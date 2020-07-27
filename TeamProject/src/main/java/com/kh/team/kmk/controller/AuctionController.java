@@ -24,7 +24,7 @@ public class AuctionController {
 	@Inject
 	private ProductService productService;
 	
-	// 프리미엄 상품 페이지
+	// 프리미엄 상품 목록
 	@RequestMapping(value = "/premium", method = RequestMethod.GET)
 	public String premiumAuction(Model model) throws Exception {
 		int p_value = 700000;
@@ -33,14 +33,14 @@ public class AuctionController {
 		return "/kmk/auction/premium";  
 	}
 	
-	// 일반 상품 페이지
+	// 일반 상품 목록
 	@RequestMapping(value="/normal", method = RequestMethod.GET) 
 	public String latestAuction() throws Exception {
 		return "/kmk/auction/normal";
 	} 
 	 
-	// 상품 응찰 페이지
-	@RequestMapping(value="/bid", method = RequestMethod.GET)
+	// 상품 상세 페이지
+	@RequestMapping(value="/product", method = RequestMethod.GET)
 	public void bidPage(String pno, Model model) throws Exception {
 		ProductVo productVo = productService.selectByPno(pno);
 		System.out.println("pno : " + pno);

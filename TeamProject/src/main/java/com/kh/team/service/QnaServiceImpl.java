@@ -44,13 +44,13 @@ public class QnaServiceImpl implements QnaService {
 	// QnA 입력
 	@Transactional
 	@Override
-	public void insertQna(QnaVo qnaVo) throws Exception {
+	public void qnaInsert(QnaVo qnaVo) throws Exception {
 		int qno = qnaDao.getNextVal();
 		qnaVo.setQno(qno);
 		
 		String[] files = qnaVo.getFiles();
 		if (files == null) {
-			qnaDao.insertQna(qnaVo);
+			qnaDao.qnaInsert(qnaVo);
 			return;
 		}
 		for (String file_name : files) {
@@ -60,14 +60,20 @@ public class QnaServiceImpl implements QnaService {
 
 	// QnA 수정 - 관리자
 	@Override
-	public void updateQna(QnaVo qnaVo) throws Exception {
-		qnaDao.updateQna(qnaVo);
+	public void qnaUpdate(QnaVo qnaVo) throws Exception {
+		qnaDao.qnaUpdate(qnaVo);
 	}
 
-	// QnA 삭제 - 관리자
+	// QnA 삭제 - 회원
 	@Override
-	public void deleteQna(int qno) throws Exception {
-		qnaDao.deleteQna(qno);
+	public void qnaDelete(int qno) throws Exception {
+		qnaDao.qnaDelete(qno);
+	}
+
+	// 답변 갯수
+	@Override
+	public int countReply(int qno) throws Exception {
+		return qnaDao.countReply(qno);
 	}
 
 }

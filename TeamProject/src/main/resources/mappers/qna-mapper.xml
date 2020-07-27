@@ -24,6 +24,11 @@
 		order by qno desc
 	</select>
 	
+	<!-- 답변 갯수 -->
+<!-- 	<select id="countReply" resultType="int"> -->
+<!-- 		select count(*) from tbl_qreply where qno = #{qno} -->
+<!-- 	</select> -->
+	
 	<!-- QnA 답변목록 -->
 	<select id="qReplyList" resultType="QreplyVo">
 		select * from tbl_qreply
@@ -38,13 +43,13 @@
 	</select>
 	
 	<!-- QnA 입력 -->
-	<insert id="insertQna">
+	<insert id="qnaInsert">
 		insert into tbl_qna (qno, m_id, q_kind, q_title, q_content, q_answer)
 		values (#{qno}, #{m_id}, #{q_kind}, #{q_title}, #{q_content}, #{q_answer})	
 	</insert>
 	
 	<!-- QnA 수정 -->
-	<update id="updateQna">
+	<update id="qnaUpdate">
 		update tbl_qna set
 			m_id = #{m_id},
 			q_kind = #{q_kind},
@@ -55,7 +60,7 @@
 	</update>
 	
 	<!-- QnA 삭제 -->
-	<delete id="deleteQna">
+	<delete id="qnaDelete">
 		delete from tbl_qna
 		where qno = #{qno}
 	</delete>

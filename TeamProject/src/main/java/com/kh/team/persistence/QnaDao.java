@@ -14,6 +14,9 @@ public interface QnaDao {
 	
 	// 답변 목록
 	public List<QreplyVo> qReplyList(int qno) throws Exception;
+	
+	// 답변 갯수
+	public int countReply(int qno) throws Exception;
 
 	// QnA 목록 - 관리자
 	public List<QnaVo> qnaList() throws Exception;
@@ -22,13 +25,13 @@ public interface QnaDao {
 	public QnaVo qnaRead(int qno) throws Exception;
 		
 	// QnA 입력
-	public void insertQna(QnaVo qnaVo) throws Exception;
+	public void qnaInsert(QnaVo qnaVo) throws Exception;
 		
 	// QnA 수정
-	public void updateQna(QnaVo qnaVo) throws Exception;
+	public void qnaUpdate(QnaVo qnaVo) throws Exception;
 		
 	// QnA 삭제
-	public void deleteQna(int qno) throws Exception;
+	public void qnaDelete(int qno) throws Exception;
 	
 	// 첨부파일 추가
 	public void insertQUpload(String file_name, int qno) throws Exception;

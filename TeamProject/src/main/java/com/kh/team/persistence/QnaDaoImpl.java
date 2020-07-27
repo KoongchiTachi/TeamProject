@@ -48,20 +48,20 @@ public class QnaDaoImpl implements QnaDao {
 
 	// QnA 입력
 	@Override
-	public void insertQna(QnaVo qnaVo) throws Exception {
-		sqlSession.insert(NAMESPACE + "insertQna", qnaVo);
+	public void qnaInsert(QnaVo qnaVo) throws Exception {
+		sqlSession.insert(NAMESPACE + "qnaInsert", qnaVo);
 	}
 
 	// QnA 수정
 	@Override
-	public void updateQna(QnaVo qnaVo) throws Exception {
-		sqlSession.update(NAMESPACE + "updateQna", qnaVo);
+	public void qnaUpdate(QnaVo qnaVo) throws Exception {
+		sqlSession.update(NAMESPACE + "qnaUpdate", qnaVo);
 	}
 
 	// QnA 삭제
 	@Override
-	public void deleteQna(int qno) throws Exception {
-		sqlSession.delete(NAMESPACE + "deleteQna", qno);
+	public void qnaDelete(int qno) throws Exception {
+		sqlSession.delete(NAMESPACE + "qnaDelete", qno);
 	}
 
 	// QnA 첨부파일 추가
@@ -71,6 +71,12 @@ public class QnaDaoImpl implements QnaDao {
 		paramMap.put("file_name", file_name);
 		paramMap.put("qno", qno);
 		sqlSession.insert(NAMESPACE + "insertQUpload", paramMap);
+	}
+
+	// 답변 갯수
+	@Override
+	public int countReply(int qno) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "countReply", qno);
 	}
 
 }

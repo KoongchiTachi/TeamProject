@@ -30,15 +30,9 @@ public class QnaController {
 	@RequestMapping(value = "/qnaForm", method = RequestMethod.POST)
 	public String qnaRegisterPost(QnaVo qnaVo, RedirectAttributes rttr) throws Exception {
 		System.out.println("qnaVo" + qnaVo);
-		qnaService.insertQna(qnaVo);
-		rttr.addFlashAttribute("msg", "success");
+		qnaService.qnaInsert(qnaVo);
+		rttr.addFlashAttribute("msg", "insertSuccess");
 		return "redirect:/sjw/member/myQna";
-	}
-	
-	// QnA 입력 폼 수정 중
-	@RequestMapping(value = "/qnaForm2")
-	public void qnaForm() throws Exception {
-		
 	}
 	
 	/*

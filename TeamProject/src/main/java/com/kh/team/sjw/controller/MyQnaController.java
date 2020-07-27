@@ -9,10 +9,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.kh.team.domain.QnaVo;
 import com.kh.team.domain.QreplyVo;
 import com.kh.team.service.QnaService;
-
+ 
 @Controller
 @RequestMapping("/sjw/member")
 public class MyQnaController {
@@ -29,6 +31,15 @@ public class MyQnaController {
 		System.out.println("list" + list);
 		model.addAttribute("list", list);
 		model.addAttribute("listSize", list.size());
+	}
+	
+	// 1:1문의(qna) 삭제 - 회원
+	@ResponseBody
+	@RequestMapping(value = "/qnaDelete", method = RequestMethod.POST)
+	public String qnaDelete(int qno)throws Exception {
+		System.out.println("qno:" + qno);
+		qnaService.qnaDelete(qno);
+		return "success";
 	}
 	
 	// 1:1문의 답변

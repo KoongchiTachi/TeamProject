@@ -190,7 +190,7 @@ $(function() {
 				<form action="/sjw/contact/qnaForm" role="form" class="contact-form" id="contact-form" method="post" style="margin: -70px;">
 					<div class="form-group">
 						<div class="row" align="left">
-							<input type="text" name="m_id" value="아이디   :   ${m_id}" 
+							<input type="text" name="m_id" value="${m_id}"
 								style="color: #424242; width: auto; text-align: center; font-size: 18px; margin-left: 18px; margin-bottom: 40px;" readonly>
 						</div>
 						<div class="grid">

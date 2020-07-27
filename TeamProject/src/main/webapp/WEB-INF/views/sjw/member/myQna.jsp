@@ -26,7 +26,6 @@ table.table-expandable.table-hover > tbody > tr:nth-child(even):hover td {
 table.table-expandable > tbody > tr div.table-expandable-arrow {
     background:transparent url(/resources/img/arrows.png) no-repeat scroll 0px -16px; width:16px; height:16px; display:block;
 }
-
 table.table-expandable > tbody > tr div.table-expandable-arrow.up {
     background-position:0px 0px;
 }
@@ -36,11 +35,39 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
 $(function() {
 	
 	var msg = "${msg}";
-	if (msg == "success") {
+	if (msg == "insertSuccess") {
 		alert("1:1문의 등록 성공");
 	}
+	
+	
+	$(".btnDelete").click(function() { 
+		//console.log("클릭");
+		var that = $(this);
+		var qno = that.attr("data-qno");
+		var sendData = {
+			"qno" : qno
+		};
+		var url = "/sjw/member/qnaDelete";
+		$.ajax({
+			"type" : "post",
+			"url" : url,
+			"data" : sendData,
+			"success" : function(result) {
+			if (confirm("문의글을 삭제하시겠습니까?")) {
+					alert("삭제되었습니다.");
+ 					that.parent().parent().parent().prev().hide(500);
+ 					that.parent().parent().parent().hide(500);
+				}
+			},
+			"error" : function(data) {
+				alert("답변이 있는 게시물은 삭제할 수 없습니다.");
+				return false;
+			}
+		});
+	});
 });	
 </script>
+
 <section class="contact-section spad">
 	<div class="container myQnaList">
 		<div class="row">
@@ -81,9 +108,12 @@ $(function() {
 						<td></td>
 					</tr>
 					<tr>
-						<td colspan="5"><h6 style="font-weight: bold;">질문</h6><br/>
+						<td colspan="5"><br/><h6 style="font-weight: bold;">질문</h6><br/>
 							<p>${qnaVo.q_content}</p>
-							<hr>
+							<div class="row">
+								<button type="button" class="btn btn-danger btn-sm btnDelete" style="margin-left: 15px; margin-top: 25px;" data-qno="${qnaVo.qno}">삭제</button>
+							</div>
+							<hr style="width: 108%;"><br/>
 							<h6 style="font-weight: bold;">답변</h6><p>답변작성시간</p><br/>
 							<p>답변내용넣을것</p>
 						</td>

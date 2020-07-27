@@ -9,12 +9,15 @@
 }
 .contact-form textarea {
 	font-size: 20px;
-  	min-height: 60%;
+	padding-top: 60px;
+	padding-bottom: 40px;
  	color: #5E5E5E;
  }
-.contact-form input.subject {
+.contact-form input.title {
+	margin-bottom: 0px;
+	border-top: 1px solid #000000;
 	border-bottom: 1px solid #000000;
-	margin-bottom: 100px;
+	background-color : #EEEEEE;
 	font-size: 20px;
 	color: #5E5E5E;
 }
@@ -41,31 +44,23 @@
                 <div class="col-lg-8">
                     <form action="#" class="contact-form">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <input type="text" class="subject" value="${noticeVo.n_title}" readonly/>
-                                <textarea style="height: auto;" readonly>${noticeVo.n_content}</textarea>
-<%--                                 <c:if test="${noticeVo.prevNum ne 0}"> --%>
-                                <p>이전글 : <a href="sjw/about/noticeRead?nno=${noticeVo.nno}&page=${noticePagingDto.page}&perPage=${noticePagingDto.perPage}&keyword=${noticePagingDto.keyword}"></a></p>
-<%--                                  </c:if> --%>
-                                <hr>
-<%--                                 <c:if test="${noticeVo.nextNum ne 0}"> --%>
-                                <p>다음글 : <a href="/noticeRead?nno=${noticeVo.nno}&page=${noticePagingDto.page}&perPage=${noticePagingDto.perPage}&keyword=${noticePagingDto.keyword}"></a></p>
-<%--                             	</c:if> --%>
+                            <div class="col-lg-12" style="margin-bottom: 0px;">
+                                <input type="text" class="title" value="${noticeVo.n_title}" readonly/>
+                                <input type="text" style="margin-bottom: 0px;" value="${noticeVo.n_date}" readonly/>
+                                <textarea style="height: auto; min-height: 400px;" readonly>${noticeVo.n_content}</textarea>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-	</div>
-	
-	<div class="row">
+		</div>
+		<div class="row">
 			<div class="col-md-8">
 			</div>
 			<div class="col-md-2">
-			<a href="/sjw/about/noticeList" class="primary-btn" id="btnList">목록으로</a>
+				<a href="/sjw/about/noticeList" class="primary-btn" id="btnList">목록으로</a>
 			</div>
 			<div class="col-md-2">
-				
 			</div>
 		</div>
 </section>

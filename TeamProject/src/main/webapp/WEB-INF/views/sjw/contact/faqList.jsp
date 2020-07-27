@@ -86,6 +86,11 @@
 <script>
 $(function() {
 	
+// 	$(".tab_menu li a").on("click", function() {
+// 		//alert("클릭");
+ 		
+//  	});
+	
 	$("#btnSearch").click(function () {
 		var keyword = $("#keyword").val();
 		$("#frmPage > input[name=keyword]").val(keyword);

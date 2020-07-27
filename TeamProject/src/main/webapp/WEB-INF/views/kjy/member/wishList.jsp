@@ -26,6 +26,7 @@
 	height : 29px;
 	margin-top : 10px;
 	border: 1px solid #55504c;
+	cursor : pointer;
 }
 .btnDeleteWish:hover {
 	background-color: #f9ad81;
@@ -82,7 +83,7 @@ $(function() {
 	});
 	
 	// 상품 삭제
-	$("#btnDeleteWishlist").click(function() {
+	$(".btnDeleteWish").click(function() {
 		var that = $(this);
 		var wno = that.attr("data-wno");
 		var sendData = {
@@ -175,7 +176,7 @@ $(function() {
 											<a href="#none" onclick="NewWishlist.actionOrder('order', 0)" class="btn btn-sm btn-outline-dark btnConsign">응찰하기</a>  
 										</div>
 										<div>
-											<button type="button" class="btn btn-sm btn-outline-dark btnDeleteWish" rel="10474||000B||" id="btnDeleteWishlist" data-wno="${wishlistVo.wno}">&nbsp;X 삭제&nbsp;</button>
+											<button type="button" class="btn btn-sm btn-outline-dark btnDeleteWish" rel="10474||000B||" data-wno="${wishlistVo.wno}">&nbsp;X 삭제&nbsp;</button>
 										</div>  
 									</td>
 								</tr>

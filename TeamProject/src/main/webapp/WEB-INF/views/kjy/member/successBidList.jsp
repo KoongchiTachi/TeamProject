@@ -61,7 +61,7 @@ $(function() {
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h2>BID LIST</h2>
+				<h2>SUCCESSFUL BID LIST</h2>
 				<h5>&emsp;${m_name}님의 낙찰 내역입니다.</h5>
 			</div>
 			<div class="col-md-2"></div>

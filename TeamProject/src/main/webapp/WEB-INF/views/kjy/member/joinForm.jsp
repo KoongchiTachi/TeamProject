@@ -14,6 +14,11 @@
 #btnJoinDupId:hover {
 	color: #000000;
 }
+#spanPwLength {
+	position: relative;
+	margin-top: 10px;
+  	left: -110px; 
+}
 #spanPw {
 	position: relative;
 	margin-top: 10px;
@@ -96,6 +101,37 @@ select {
 </style>
 
 <script>
+// 이름 영어, 한글 유효성 
+function chkword(obj, maxByte) {
+	var strValue = obj.value;
+	var strLen = strValue.length;
+	var totalByte = 0;
+	var oneChar = "";
+	var str2 = "";
+	
+	for (var i = 0; i < strLen; i++) {
+		oneChar = strValue.charAt(i);
+		if (escape(oneChar).length > 8) {
+			totalByte += 2;
+		} else {
+			totalByte++;
+		}
+
+		// 입력한 문자 길이보다 넘치면 잘라내기 위해서 저장
+		if (totalByte <= maxByte) {
+			len = i + 1;
+		}
+	}
+	// 넘어가는 글자 자르기
+	if (totalByte > maxByte) {
+		alert("이름은 " + maxByte + "자를 초과하여 입력할 수 없습니다.");
+		str2 = strValue.substr(0, len);
+		obj.value = str2;
+		chkword(obj, 4000);
+	}
+
+}
+
 $(function() {
 	// 아이디 중복 확인
 	$("#btnJoinDupId").click(function() {
@@ -137,7 +173,21 @@ $(function() {
 		});
 	}); // 아이디 중복 확인
 	
-	// 비밀번호 확인
+	// 비밀번호 길이 확인
+	$("#m_pw").blur(function() {
+		var pw_length = $(this).val().length;
+		if (pw_length <= 7) {
+			$("#spanPwLength").text("비밀번호는 8~16자 입니다.").css("color", "red");
+			return;
+		} else if (pw_length >= 17) {
+			$("#spanPwLength").text("비밀번호는 8~16자 입니다.").css("color", "red");
+			return;
+		} else {
+			$("#spanPwLength").text("");
+		}
+	});
+	
+	// 비밀번호 일치 확인
 	$("#m_pw2").blur(function() {
 		var m_pw = $("#m_pw").val();
 		var m_pw2 = $("#m_pw2").val();
@@ -149,21 +199,16 @@ $(function() {
 		} else {
 			$("#spanPw").text("");
 		}
-	}); // 비밀번호 확인
+	});
 	
 	// 이름 길이 확인
 	$("#m_name").blur(function() {
 		var m_name = $(this).val();
 		if (m_name == "") {
-			$("#spanName").text("이름을 입력해 주십시오.").css("color", "orange");
+			$("#spanName").text("이름을 입력해 주십시오.").css("color", "red");
 			return;
 		} else {
 			$("#spanName").text("");
-		}
-		if (m_name.length > 12) {
-			$("#spanName").text("이름은 한글4자, 영문15까지 입력가능합니다.").css("color", "orange");
-			$("#m_name").val("");
-			return;
 		}
 	});
 	
@@ -307,6 +352,7 @@ $(function() {
                                 <div class="input-group-desc">
                                     <input class="input--style-5" type="password" id="m_pw" name="m_pw" maxlength="30">
                                 </div>
+                                <span id="spanPwLength"></span>
                             </div> 
                         </div>
                     </div>
@@ -326,7 +372,7 @@ $(function() {
                         <div class="value">
                             <div class="row row-space">
                                 <div class="input-group-desc">
-                                    <input class="input--style-5" type="text" id="m_name" name="m_name" maxlength="15">
+                                    <input class="input--style-5" type="text" id="m_name" name="m_name" maxlength="15" onkeyup="chkword(this, 4)">
                                 </div>
                                 <span id="spanName"></span>
                             </div>

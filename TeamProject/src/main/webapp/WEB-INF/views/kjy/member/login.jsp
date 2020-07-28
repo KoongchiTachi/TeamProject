@@ -28,12 +28,6 @@ $(function() {
 					<span class="focus-input100"></span>
 				</div>
 				<div class="flex-sb-m w-full p-t-3 p-b-24">
-<!-- 					<div class="contact100-form-checkbox"> -->
-<!-- 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"> -->
-<!-- 						<label class="label-checkbox100" for="ckb1"> -->
-<!-- 							로그인 상태 유지 -->
-<!-- 						</label> -->
-<!-- 					</div> -->
 					<div>
 						<a href="/kjy/member/idPwFind" class="txt1" style="position : relative; left : 230px;">아이디/비밀번호 찾기</a> 
 					</div>

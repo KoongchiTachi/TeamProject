@@ -26,10 +26,7 @@ public class LoginController {
 	// 로그인 처리
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPost(String m_id, String m_pw, HttpSession session, RedirectAttributes rttr) throws Exception {
-		System.out.println("m_id:" + m_id);
-		System.out.println("m_pw:" + m_pw);
 		boolean result = memberService.login(m_id, m_pw);
-		System.out.println("result:" + result);
 		if (result == true) {
 			// 로그인 성공 시 세션에 저장
 			session.setAttribute("m_id", m_id);

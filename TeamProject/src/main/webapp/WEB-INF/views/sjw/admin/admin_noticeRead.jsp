@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
-<style>
-#admin { 
-	margin-top : 150px;
- 	min-height : 90vh;
- }
-</style>
+<%@ include file="/WEB-INF/views/include/sidebarHeader.jsp"%>
+
 <script>
 $(function() {
 	
@@ -41,9 +36,9 @@ $(function() {
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12" id="admin">
+			<div class="col-md-12">
 				<h3 class="text-center">
-					공지사항 내용보기 (관리자)
+					공지사항 내용보기
 				</h3>
 				<div class="row">
 					<div class="col-md-2"></div>
@@ -71,4 +66,4 @@ $(function() {
 		</div>
 	</div>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+<%@ include file="/WEB-INF/views/include/sidebarFooter.jsp"%>

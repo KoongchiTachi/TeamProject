@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/WEB-INF/views/include/sidebarHeader.jsp"%>
-
 <script>
 $(function() {
 		
@@ -54,28 +53,24 @@ $(function() {
 <%@ include file="/WEB-INF/views/include/sjw/admin_frmPage.jsp" %>
 
 
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: 100px;">
 	<div class="row">
 		<div class="col-md-12">
 			<h3 class="text-center">
-				공지사항 목록 (관리자)
+				공지사항 목록
 			</h3>
 			<div class="row">
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-8">
-				<nav class="navbar navbar-expand-lg navbar-light bg-light" style="float: right;">
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color: white;">
-							<form class="form-inline">
-								<input class="form-control mr-sm-2" type="text" id="keyword" name="keyword" value="${noticePagingDto.keyword}"/> 
-								<button class="btn btn-primary my-2 my-sm-0" type="submit">
-									검색
-								</button>
+							<form class="form-inline md-form mr-auto mb-4" style="float: right;">
+								<input class="form-control mr-sm-2" type="text"
+									placeholder="Search" aria-label="Search" id="keyword"
+									name="keyword" value="${noticePagingDto.keyword}">
+								<button class="btn btn-elegant btn-rounded my-0"
+									type="submit" id="btnSearch" style="background-color: #979494; color: #fff;">검색</button>
 							</form>
-							
-						</div>
-					</nav>
-					<table class="table table-hover">
+					<table class="table table-hover" style="border-top: 3px solid #979697; border-bottom: 3px solid #979697;" >
 						<thead>
 							<tr>
 								<th>글번호</th>
@@ -129,7 +124,7 @@ $(function() {
 						</div>
 						<div class="col-md-1">
 							<p>
-								<a class="btn btn-success" href="/sjw/admin/admin_noticeForm">글쓰기</a>
+								<a class="btn btn-secondary" href="/sjw/admin/admin_noticeForm">글쓰기</a>
 							</p>
 						</div>
 					</div>

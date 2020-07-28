@@ -1,18 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
-<style>
-#admin { 
-	margin-top : 150px;
- 	min-height : 90vh;
- }
-</style>
+<%@ include file="/WEB-INF/views/include/sidebarHeader.jsp"%>
 
-	<div class="container-fluid">
+	<div class="container-fluid" style="margin-top: 100px;">
 		<div class="row">
-			<div class="col-md-12" id="admin">
+			<div class="col-md-12">
 				<h3 class="text-center">
-				공지사항 입력 (관리자)
+				공지사항 입력
 				</h3>
 				<div class="row">
 					<div class="col-md-2"></div>
@@ -20,14 +14,14 @@
 						<form role="form" action="/sjw/admin/admin_noticeForm" method="post">
 							<div class="form-group">
 								<label for="n_title">제목</label> <input type="text"
-									class="form-control" id="n_title" name="n_title" />
+									class="form-control" id="n_title" name="n_title" required/>
 							</div>
 							<div class="form-group">
 								<label for="n_content">내용</label>
-								<textarea class="form-control" id="n_content" name="n_content" style="height: 200px;"></textarea>
+								<textarea class="form-control" id="n_content" name="n_content" style="height: 300px;" required></textarea>
 							</div>
-							<button type="submit" class="btn btn-success">등록</button>
-							<a href="/sjw/admin/admin_noticeList"><button type="button" class="btn btn-primary">목록</button></a>
+							<button type="submit" class="btn btn-secondary">등록</button>
+							<a href="/sjw/admin/admin_noticeList" class="btn" style="background-color: #979494; color: #fff;">취소</a>
 						</form>
 					</div>
 					<div class="col-md-2"></div>
@@ -36,4 +30,4 @@
 		</div>
 	</div>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+<%@ include file="/WEB-INF/views/include/sidebarFooter.jsp"%>

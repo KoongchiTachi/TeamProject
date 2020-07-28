@@ -242,16 +242,12 @@ a.article, a.article:hover {
 				</li>
 				<li class="active"><a href="#noticeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">공지사항</a>
 					<ul class="collapse list-unstyled" id="noticeSubmenu">
-						<li><a href="#">Home 1</a></li>
-						<li><a href="#">Home 2</a></li>
-						<li><a href="#">Home 3</a></li>
+						<li><a href="/sjw/admin/admin_noticeList">공지사항 목록</a></li>
 					</ul>
 				</li>
 				<li><a href="#faqSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">FAQ</a>
 					<ul class="collapse list-unstyled" id="faqSubmenu">
-						<li><a href="#">Page 1</a></li>
-						<li><a href="#">Page 2</a></li>
-						<li><a href="#">Page 3</a></li>
+						<li><a href="/sjw/admin/admin_faqList">FAQ 목록</a></li>
 					</ul>
 				</li>
 				<li class="active"><a href="#qnaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">QnA</a>

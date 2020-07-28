@@ -168,15 +168,16 @@ li {
 }
 
 .btn-repage {
-	background: #6c00e6;
+	background: #F9AD81;
 	color: #fff;
 	outline: 0;
 	border: 0;
 	font-weight: 700;
 	font-size: 13px;
-	padding: 6px 10px;
-	border: 1px solid #6c00e6;
+	padding: 6px 10px; 
+	border: 1px solid #F9AD81;
 	border-radius: 0 !important;
+	cursor: pointer; 
 }
 
 .btn-repage2 {
@@ -3271,7 +3272,7 @@ span.round-tab i {
 		vertical-align: middle;
 		max-width: 600px;
 		position: absolute !important;
-		left: 50% !important;
+/* 		left: 50% !important; */
 		top: 50% !important;
 		transform: translate(-50%, -50%) !important;
 		width: 100% !important;
@@ -3499,7 +3500,7 @@ opacity
 }
 
 .detail-check .aaa {
-	display: none;
+	display: none;  
 }
 
 .detail-check:hover .aaa::after {

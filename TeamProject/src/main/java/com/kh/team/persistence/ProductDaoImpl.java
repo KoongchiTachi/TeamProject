@@ -74,4 +74,9 @@ public class ProductDaoImpl implements ProductDao {
 		return sqlSession.selectList(NAMESPACE + "selectP_until");
 	}
 
+	@Override
+	public int bidCountByPno(String pno) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "bidCountByPno", pno);
+	}
+
 }

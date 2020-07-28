@@ -15,6 +15,8 @@ public interface ProductDao {
 	public void deleteProduct() throws Exception;
 	// 상품 내용
 	public ProductVo selectByPno(String pno) throws Exception;
+	// 상품 응찰 카운트
+	public int bidCountByPno(String pno) throws Exception;
 	// 상품 목록 ( 경매 종료 )
 	public List<ProductVo> endProduct(String p_state) throws Exception; 
 	// 상품 목록 ( 프리미엄 )
@@ -25,6 +27,6 @@ public interface ProductDao {
 	public List<BidVo> bidList(String pno) throws Exception;
 	// 경매상태 변경
 	public void updateP_state(String p_state) throws Exception;
-	
+	// 실시간 날짜 업데이트
 	public List<Timestamp> selectP_until() throws Exception;
 }

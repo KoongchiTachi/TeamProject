@@ -67,6 +67,32 @@
 		overflow-y:auto; 
 		overflow-x:hidden; 
 	}
+
+	/*only for centering on the page*/
+	.btn {
+	  margin: 0 auto;
+	  display: block;
+	}
+	/*removes ugly bootstrap border button*/
+	*.btn:active,
+	.btn:focus,
+	.btn:active:focus,
+	.btn:focus {
+	  outline: none !important;
+	}
+	
+	button > span {
+	  color: red;
+	  font-size:20px;
+	}
+	
+	.btn:active {
+	  box-shadow: none;
+	}
+	
+	.btn:active, .btn:hover, .btn:focus {
+	  background-color:white;
+	}
 } 
 </style>
 
@@ -174,6 +200,7 @@
         </div>
     </div>
 </div>
+
 <div class="container-fluid" style="margin-top: 120;">
 	<div class="row">
 		<div class="col-md-12">
@@ -200,14 +227,17 @@
 		<div class="row">
 
 			<!-- Grid column -->
-			<c:forEach items="${list}" var="premium"> 
+			<c:forEach items="${list}" var="premium">
 			<div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch">
 				<!-- Card -->
 				<div class="tile align-items-center" data-pno="${premium.pno}" id="tile">
 					<!-- Card image -->
 					<div class="wrapper">
 					<div class="title" >${premium.b_name}</div>
-					<div class="p_logo"><img alt="premium" src="/resources/img/logo/premium_icon.png"></div> 
+					<div class="p_logo">
+						<img alt="premium" src="/resources/img/logo/premium_icon.png">
+						<button id="swapHeart" class="btn btn-secondary swap"><span class="glyphicon glyphicon-heart-empty"></span></button>
+					</div>
 					<div class="banner-img"> 
 						<img style="width: 85%;" src="/resources/img/bag/${premium.p_img}" alt="Image 1"> 
 					</div> 
@@ -250,7 +280,7 @@
 
 	</section>
 	<!--Section: Content-->
-
+	<!-- onclick="location.href='online-auction-bid.php?owcode=OW2007250001&oacode=O2007001&page=1'" -->
 </div>
 
 <script>
@@ -305,7 +335,7 @@ $(function() {
 					$("#modal_table tr.cl_tr").remove();
 					if (rData != null) {
 						$.each(rData, function(index) {
-							var tr = $("#modal_table tr:eq(0)").clone();;
+							var tr = $("#modal_table tr:eq(0)").clone();; 
 							console.log(tr);
 							tr.addClass("cl_tr"); 
 							console.log(tr); 
@@ -324,7 +354,7 @@ $(function() {
 		});
 	}); */
 	
-// 	// 상품 응찰 페이지
+ 	// 상품 응찰 페이지
 	$("a.Cbtn-primary").click(function(e) {
 		e.preventDefault(); 
 		var pno = $(this).attr("data-pno"); 
@@ -332,6 +362,7 @@ $(function() {
 		$("#hideForm").attr("action", $(this).attr("href")); 
 		$("#hideForm").submit(); 
 	});
+	
 });
 
 

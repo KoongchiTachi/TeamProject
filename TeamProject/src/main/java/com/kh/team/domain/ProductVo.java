@@ -20,6 +20,7 @@ public class ProductVo {
 	private String p_progress;
 	private String p_state;
 	private String b_name;
+	private int bid_cnt;
 
 	public String getPno() {
 		return pno;
@@ -117,11 +118,20 @@ public class ProductVo {
 		this.b_name = b_name;
 	}
 
+	public int getBid_cnt() {
+		return bid_cnt;
+	}
+
+	public void setBid_cnt(int bid_cnt) {
+		this.bid_cnt = bid_cnt;
+	}
+
 	@Override
 	public String toString() {
 		return "ProductVo [pno=" + pno + ", m_id=" + m_id + ", p_name=" + p_name + ", p_img=" + p_img + ", s_price="
 				+ s_price + ", p_price=" + p_price + ", p_info=" + p_info + ", p_brand=" + p_brand + ", p_until="
-				+ p_until + ", p_progress=" + p_progress + ", p_state=" + p_state + ", b_name=" + b_name + "]";
+				+ p_until + ", p_progress=" + p_progress + ", p_state=" + p_state + ", b_name=" + b_name + ", bid_cnt="
+				+ bid_cnt + "]";
 	}
 
 }

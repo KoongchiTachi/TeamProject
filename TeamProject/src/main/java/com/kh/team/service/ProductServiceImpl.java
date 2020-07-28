@@ -59,4 +59,9 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.selectByPno(pno);
 	}
 
+	@Override
+	public int bidCountByPno(String pno) throws Exception {
+		return productDao.bidCountByPno(pno);
+	}
+
 }

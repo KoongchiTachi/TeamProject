@@ -7,6 +7,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,8 +44,9 @@ public class AuctionController {
 	@RequestMapping(value="/product", method = RequestMethod.GET)
 	public void bidPage(String pno, Model model) throws Exception {
 		ProductVo productVo = productService.selectByPno(pno);
-		System.out.println("pno : " + pno);
-		model.addAttribute(productVo);
+		int cnt = productService.bidCountByPno(pno);
+		model.addAttribute("cnt", cnt); 
+		model.addAttribute(productVo); 
 	} 
 	
 	// 상품 응찰 내역
@@ -52,10 +54,10 @@ public class AuctionController {
 	@RequestMapping(value="/bidList/{pno}", method = RequestMethod.POST)
 	public List<BidVo> bidList(@PathVariable("pno") String pno, Model model) throws Exception {
 		System.out.println("pno" + pno);
-//		List<BidVo> bidList = productService.bidList(pno);
+		List<BidVo> bidList = productService.bidList(pno);
 //		model.addAttribute("bidList", bidList);
-//		System.out.println(bidList);
-		return productService.bidList(pno);
+		System.out.println(bidList);
+		return bidList;
 	}
 	
 	// 경매 종료 상품 페이지

@@ -39,7 +39,7 @@
 	 
 	<!-- 인터셉터 빈 -->
 <!-- 	<beans:bean id="sampleInterceptor" class="com.kh.sample01.interceptor.SampleInterceptor"/> -->
-<!-- 	<beans:bean id="authInterceptor" class="com.kh.sample01.interceptor.AuthInterceptor"/> -->
+<!-- 	<beans:bean id="authInterceptor" class="com.kh.team.interceptor.AuthInterceptor"/> -->
 <!-- 	<interceptors> -->
 <!-- 		<interceptor> -->
 <!-- 			<mapping path="/doA"/> -->

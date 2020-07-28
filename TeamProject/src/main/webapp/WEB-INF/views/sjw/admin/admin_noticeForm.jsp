@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/sidebarHeader.jsp"%>
 
-	<div class="container-fluid" style="margin-top: 100px;">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
 				<h3 class="text-center">

@@ -250,9 +250,7 @@ a.article, a.article:hover {
 				</li>
 				<li class="active"><a href="#qnaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">QnA</a>
 					<ul class="collapse list-unstyled" id="qnaSubmenu">
-						<li><a href="#">Home 1</a></li>
-						<li><a href="#">Home 2</a></li>
-						<li><a href="#">Home 3</a></li>
+						<li><a href="#">1:1문의 목록</a></li>
 					</ul>
 				</li>
 				<li><a href="#bannerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">배너</a>

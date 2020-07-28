@@ -52,8 +52,7 @@ $(function() {
 </script>
 <%@ include file="/WEB-INF/views/include/sjw/admin_frmPage.jsp" %>
 
-
-<div class="container-fluid" style="margin-top: 100px;">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
 			<h3 class="text-center">

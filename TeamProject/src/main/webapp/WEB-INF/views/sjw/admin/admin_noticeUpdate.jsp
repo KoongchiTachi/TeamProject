@@ -5,12 +5,14 @@
 <script>
 $(function() {
 	
+	// 취소 버튼
 	$("#btnCancel").click(function(e) {
 		e.preventDefault();
 		$("#adminFrmPageN").attr("action", $(this).attr("href"))
         .submit();
 	});
 	
+	// 수정 완료 버튼
 	$("#noticeUpdate").submit(function() {
 		$("#adminFrmPageN > input").prependTo("#noticeUpdate");
 		$("#noticeUpdate").submit();

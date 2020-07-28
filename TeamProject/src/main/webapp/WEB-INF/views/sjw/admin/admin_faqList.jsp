@@ -1,22 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
-<style>
-#admin { 
-	margin-top : 150px;
- 	min-height : 90vh;
- }
-</style>
+<%@ include file="/WEB-INF/views/include/sidebarHeader.jsp"%>
 <script>
 $(function() {
 	
 	var msg = "${msg}";
 	if (msg == "insertSuccess") {
-		alert("faq 등록 성공");
+		alert("FAQ 등록 성공");
 	}
 	if (msg == "deleteSuccess") {
-		alert("faq 삭제 성공");
+		alert("FAQ 삭제 성공");
 	}
 	
 	// 검색
@@ -60,36 +54,33 @@ $(function() {
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12" id="admin">
+		<div class="col-md-12">
 			<h3 class="text-center">
-				FAQ 목록 (관리자)
+				FAQ 목록
 			</h3>
 			<div class="row">
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-8">
-				<nav class="navbar navbar-expand-lg navbar-light bg-light" style="float: right;">
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color: white;">
-							<form class="form-inline">
-								<input class="form-control mr-sm-2" type="text" id="keyword" name="keyword" value="${faqPagingDto.keyword}"/> 
-								<button class="btn btn-primary my-2 my-sm-0" type="submit">
-									검색
-								</button>
-							</form>
-							
-						</div>
-					</nav>
-					<table class="table table-hover">
+					<form class="form-inline md-form mr-auto mb-4" style="float: right;">
+						<input class="form-control mr-sm-2" type="text"
+							placeholder="Search" aria-label="Search" id="keyword"
+							name="keyword" value="${faqPagingDto.keyword}">
+						<button class="btn btn-elegant btn-rounded my-0"
+							type="submit" id="btnSearch" style="background-color: #979494; color: #fff;">검색</button>
+					</form>
+					<table class="table table-hover" style="border-top: 3px solid #979697; border-bottom: 3px solid #979697;">
 						<thead>
 							<tr>
-								<th>카테고리</th>
 								<th>글번호</th>
+								<th>카테고리</th>
 								<th>제목</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach items="${list}" var="faqVo">
 								<tr>
+									<td>${faqVo.fno}</td>
 									<c:choose>
 										<c:when test="${faqVo.f_cate == 'f1001'}">
 											<td>회원</td>
@@ -107,7 +98,6 @@ $(function() {
 											<td>기타</td>
 										</c:otherwise>
 									</c:choose>
-									<td>${faqVo.fno}</td>
 									<td><a href="/sjw/admin/admin_faqRead" class="f_title" data-fno="${faqVo.fno}">${faqVo.f_title}</a></td>
 								</tr>
 							</c:forEach>
@@ -148,7 +138,7 @@ $(function() {
 						</div>
 						<div class="col-md-1">
 							<p>
-								<a class="btn btn-success" href="/sjw/admin/admin_faqForm">글쓰기</a>
+								<a class="btn btn-secondary" href="/sjw/admin/admin_faqForm">글쓰기</a>
 							</p>
 						</div>
 					</div>
@@ -160,4 +150,4 @@ $(function() {
 	</div>
 </div>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+<%@ include file="/WEB-INF/views/include/sidebarFooter.jsp"%>

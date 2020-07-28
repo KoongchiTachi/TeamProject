@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
-<style>
-#admin { 
-	margin-top : 150px;
- 	min-height : 90vh;
- }
-</style>
+<%@ include file="/WEB-INF/views/include/sidebarHeader.jsp"%>
+
 <script>
 $(function() {
 		
@@ -58,9 +53,10 @@ $(function() {
 </script>
 <%@ include file="/WEB-INF/views/include/sjw/admin_frmPage.jsp" %>
 
+
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12" id="admin">
+		<div class="col-md-12">
 			<h3 class="text-center">
 				공지사항 목록 (관리자)
 			</h3>
@@ -145,4 +141,4 @@ $(function() {
 	</div>
 </div>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+<%@ include file="/WEB-INF/views/include/sidebarFooter.jsp"%>

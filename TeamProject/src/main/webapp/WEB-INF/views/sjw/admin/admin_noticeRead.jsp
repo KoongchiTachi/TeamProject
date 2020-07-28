@@ -1,16 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>공지사항 읽기</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">									
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">									
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>									
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>									
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>	
-</head>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<style>
+#admin { 
+	margin-top : 150px;
+ 	min-height : 90vh;
+ }
+</style>
 <script>
 $(function() {
 	
@@ -34,19 +30,21 @@ $(function() {
 	// 삭제
 	$("#btnDelete").click(function(e) {
 		e.preventDefault();
-		$("#adminFrmPageN").attr("action", $(this).attr("href")).submit();
+		if (confirm("삭제하시겠습니까?")) {
+			$("#adminFrmPageN").attr("action", $(this).attr("href")).submit();
+		}
 	});
 	
 });	
 </script>
 <%@ include file="/WEB-INF/views/include/sjw/admin_frmPage.jsp"%>
-<body>
+
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="jumbotron">
-					<h2>공지사항 내용보기</h2>
-				</div>
+			<div class="col-md-12" id="admin">
+				<h3 class="text-center">
+					공지사항 내용보기 (관리자)
+				</h3>
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-8">
@@ -59,7 +57,7 @@ $(function() {
 
 							<div class="form-group">
 								<label for="n_content"> 내용 </label>
-								<textarea id="n_content" name="n_content" class="form-control"
+								<textarea id="n_content" name="n_content" class="form-control" style="height:auto; min-height: 300px;"
 									readonly>${noticeVo.n_content}</textarea>
 							</div>
 
@@ -72,5 +70,5 @@ $(function() {
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>

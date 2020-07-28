@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>공지사항 목록</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">									
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">									
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>									
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>									
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>									
-</head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<style>
+#admin { 
+	margin-top : 150px;
+ 	min-height : 90vh;
+ }
+</style>
 <script>
 $(function() {
 		
@@ -61,70 +57,20 @@ $(function() {
 });
 </script>
 <%@ include file="/WEB-INF/views/include/sjw/admin_frmPage.jsp" %>
-<body>
+
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="jumbotron">
-				<h2>공지사항 목록</h2>
-					<p><a class="btn btn-primary btn-large" href="/sjw/admin/admin_noticeForm">공지사항 입력</a></p>
-			</div>
+		<div class="col-md-12" id="admin">
+			<h3 class="text-center">
+				공지사항 목록 (관리자)
+			</h3>
 			<div class="row">
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-8">
-					<table class="table">
-							<thead>
-								<tr>
-									<th>글번호</th>
-									<th>제목</th>
-									<th>작성일</th>
-								</tr>
-							</thead>
-							<tbody>
-							<c:forEach items="${list}" var="noticeVo">
-								<tr>
-									<td>${noticeVo.nno}</td>
-									<td><a href="/sjw/admin/admin_noticeRead" class="n_title" style="color: #525252;" data-nno="${noticeVo.nno}">${noticeVo.n_title}</a></td>
-									<td>${noticeVo.n_date}</td>
-								</tr>
-							</c:forEach>
-							</tbody>
-						</table>
-					<nav>
-				<ul class="pagination">
-				<!-- 이전 -->
-					<c:if test="${noticePagingDto.startPage != 1}">
-					<li class="page-item">
-						<a class="page-link" href="${noticePagingDto.startPage - 1}">&laquo;</a>
-					</li>
-					</c:if>
-					<!-- 페이지 넘버링 -->
-					<c:forEach begin="${noticePagingDto.startPage}" end="${noticePagingDto.endPage}" var="v">
-						<li class="page-item"
- 						<c:choose>
- 							<c:when test="${noticePagingDto.page == v}">
- 								class="page-item active"
- 							</c:when>
- 							<c:otherwise>
- 						 		class="page-item"
-							</c:otherwise>
- 						</c:choose>
-						>
-							<a class="page-link" href="${v}">${v}</a>
-						</li>
-					</c:forEach>
-					<!-- 다음 -->
-					<c:if test="${noticePagingDto.endPage < noticePagingDto.totalPage}">
-					<li class="page-item">
-						<a class="page-link" href="${noticePagingDto.endPage + 1}">&raquo;</a>
-					</li>
-					</c:if>
-				</ul>
-			</nav>
-					<nav class="navbar navbar-expand-lg navbar-light bg-light">
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<form class="form-inline" >
+				<nav class="navbar navbar-expand-lg navbar-light bg-light" style="float: right;">
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="background-color: white;">
+							<form class="form-inline">
 								<input class="form-control mr-sm-2" type="text" id="keyword" name="keyword" value="${noticePagingDto.keyword}"/> 
 								<button class="btn btn-primary my-2 my-sm-0" type="submit">
 									검색
@@ -133,6 +79,64 @@ $(function() {
 							
 						</div>
 					</nav>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>글번호</th>
+								<th>제목</th>
+								<th>작성일</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${list}" var="noticeVo">
+								<tr>
+									<td>${noticeVo.nno}</td>
+									<td><a href="/sjw/admin/admin_noticeRead" class="n_title" style="color: #525252;" data-nno="${noticeVo.nno}">${noticeVo.n_title}</a></td>
+									<td>${noticeVo.n_date}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+					<div class="row">
+						<div class="col-md-11">
+							<nav>
+								<ul class="pagination">
+									<!-- 이전 -->
+									<c:if test="${noticePagingDto.startPage != 1}">
+										<li class="page-item"><a class="page-link"
+											href="${noticePagingDto.startPage - 1}">&laquo;</a></li>
+									</c:if>
+									<!-- 페이지 넘버링 -->
+									<c:forEach begin="${noticePagingDto.startPage}"
+										end="${noticePagingDto.endPage}" var="v">
+									<li class="page-item"
+										<c:choose>
+ 											<c:when test="${noticePagingDto.page == v}">
+ 												class="page-item active"
+ 											</c:when>
+ 											<c:otherwise>
+ 						 						class="page-item"
+											</c:otherwise>
+ 										</c:choose>
+ 									>
+										<a class="page-link" href="${v}">${v}</a>
+									</li>
+									</c:forEach>
+									<!-- 다음 -->
+									<c:if
+										test="${noticePagingDto.endPage < noticePagingDto.totalPage}">
+										<li class="page-item"><a class="page-link"
+											href="${noticePagingDto.endPage + 1}">&raquo;</a></li>
+									</c:if>
+								</ul>
+							</nav>
+						</div>
+						<div class="col-md-1">
+							<p>
+								<a class="btn btn-success" href="/sjw/admin/admin_noticeForm">글쓰기</a>
+							</p>
+						</div>
+					</div>
 				</div>
 				<div class="col-md-2">
 				</div>
@@ -140,5 +144,5 @@ $(function() {
 		</div>
 	</div>
 </div>
-</body>
-</html>
+
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>

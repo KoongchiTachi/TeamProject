@@ -1,18 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>공지사항 수정</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">									
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">									
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>									
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>									
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>	
-</head>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<style>
+#admin { 
+	margin-top : 150px;
+ 	min-height : 90vh;
+ }
+</style>
 <script>
 $(function() {
+	
+	$("#btnCancel").click(function(e) {
+		e.preventDefault();
+		$("#adminFrmPageN").attr("action", $(this).attr("href"))
+        .submit();
+	});
 	
 	$("#noticeUpdate").submit(function() {
 		$("#adminFrmPageN > input").prependTo("#noticeUpdate");
@@ -24,25 +26,34 @@ $(function() {
 
 <%@ include file="/WEB-INF/views/include/sjw/admin_frmPage.jsp" %>
 
-<body>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<form id="noticeUpdate" role="form" action="/sjw/admin/admin_noticeUpdate" method="post">
-				<div class="form-group">
-					<label for="n_title">제목</label>
-					<input type="text" class="form-control" id="n_title" name="n_title"
-						value="${noticeVo.n_title}" required/>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12" id="admin">
+				<h3 class="text-center">
+					공지사항 수정 (관리자)
+				</h3>
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<form id="noticeUpdate" role="form" action="/sjw/admin/admin_noticeUpdate" method="post">
+							<div class="form-group">
+								<label for="n_title"> 제목 </label> <input type="text"
+									class="form-control" id="n_title" name="n_title"
+									value="${noticeVo.n_title}" required />
+							</div>
+
+							<div class="form-group">
+								<label for="n_content"> 내용 </label>
+								<textarea id="n_content" name="n_content" class="form-control" style="height:auto; min-height: 300px;"
+									required>${noticeVo.n_content}</textarea>
+							</div>
+							<button type="submit" class="btn btn-primary">수정완료</button>
+							<a href="/sjw/admin/admin_noticeRead" class="btn btn-warning" id="btnCancel">취소</a> 
+						</form>
+					</div>
 				</div>
-				<div class="form-group">
-					<label for="n_content">내용</label>
-					<textarea id="n_content" name="n_content" 
-					 class="form-control" required>${noticeVo.n_content}</textarea>
-				</div>
-				<button type="submit" class="btn btn-primary">수정완료</button>
-			</form>
+			</div>
 		</div>
 	</div>
-</div>
-</body>
-</html>
+
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>

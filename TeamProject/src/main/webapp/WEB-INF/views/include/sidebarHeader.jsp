@@ -216,6 +216,8 @@ a.article, a.article:hover {
 	window.parent.postMessage("resize", "*");
 }
 </script>
+<script>
+</script>
 </head>
 <body translate="no">
 	<div class="wrapper">
@@ -238,29 +240,29 @@ a.article, a.article:hover {
 						<li><a href="#">Page 3</a></li>
 					</ul>
 				</li>
-				<li class="active"><a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">공지사항</a>
-					<ul class="collapse list-unstyled" id="homeSubmenu">
+				<li class="active"><a href="#noticeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">공지사항</a>
+					<ul class="collapse list-unstyled" id="noticeSubmenu">
 						<li><a href="#">Home 1</a></li>
 						<li><a href="#">Home 2</a></li>
 						<li><a href="#">Home 3</a></li>
 					</ul>
 				</li>
-				<li><a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">FAQ</a>
-					<ul class="collapse list-unstyled" id="pageSubmenu">
+				<li><a href="#faqSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">FAQ</a>
+					<ul class="collapse list-unstyled" id="faqSubmenu">
 						<li><a href="#">Page 1</a></li>
 						<li><a href="#">Page 2</a></li>
 						<li><a href="#">Page 3</a></li>
 					</ul>
 				</li>
-				<li class="active"><a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">QnA</a>
-					<ul class="collapse list-unstyled" id="homeSubmenu">
+				<li class="active"><a href="#qnaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">QnA</a>
+					<ul class="collapse list-unstyled" id="qnaSubmenu">
 						<li><a href="#">Home 1</a></li>
 						<li><a href="#">Home 2</a></li>
 						<li><a href="#">Home 3</a></li>
 					</ul>
 				</li>
-				<li><a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">배너</a>
-					<ul class="collapse list-unstyled" id="pageSubmenu">
+				<li><a href="#bannerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">배너</a>
+					<ul class="collapse list-unstyled" id="bannerSubmenu">
 						<li><a href="#">Page 1</a></li>
 						<li><a href="#">Page 2</a></li>
 						<li><a href="#">Page 3</a></li>

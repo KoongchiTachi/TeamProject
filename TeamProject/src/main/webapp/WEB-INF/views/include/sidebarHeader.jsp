@@ -228,9 +228,7 @@ a.article, a.article:hover {
 			<ul class="list-unstyled components">
 				<li class="active"><a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">회원</a>
 					<ul class="collapse list-unstyled" id="homeSubmenu">
-						<li><a href="#">Home 1</a></li>
-						<li><a href="#">Home 2</a></li>
-						<li><a href="#">Home 3</a></li>
+						<li><a href="/kjy/admin/adminMemberList">회원 목록</a></li>
 					</ul>
 				</li>
 				<li><a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">상품</a>

@@ -275,4 +275,8 @@ a.article, a.article:hover {
 			</ul>
 		</nav>
 		<div id="content">
-				
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container-fluid">
+				<h1>관리자 페이지</h1>
+				</div> 
+			</nav>

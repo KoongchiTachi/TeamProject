@@ -38,20 +38,19 @@
 	
 	 
 	<!-- 인터셉터 빈 -->
-<!-- 	<beans:bean id="sampleInterceptor" class="com.kh.sample01.interceptor.SampleInterceptor"/> -->
-<!-- 	<beans:bean id="authInterceptor" class="com.kh.team.interceptor.AuthInterceptor"/> -->
-<!-- 	<interceptors> -->
-<!-- 		<interceptor> -->
-<!-- 			<mapping path="/doA"/> -->
-<!-- 			<mapping path="/doB"/> -->
-<!-- 			<beans:ref bean="sampleInterceptor"/> -->
-<!-- 		</interceptor> -->
-<!-- 		<interceptor> -->
-<!-- 			<mapping path="/board/**/*"/>  --> 
-<!-- 			<exclude-mapping path="/board/listPage"/>  -->
-<!-- 			<beans:ref bean="authInterceptor"/> -->
-<!-- 		</interceptor> -->
-<!-- 	</interceptors> -->
+	<beans:bean id="authInterceptor" class="com.kh.team.interceptor.AuthInterceptor"/>
+	<interceptors>
+		<interceptor>
+			<mapping path="/kjy/member/**/*"/>
+			<mapping path="/sjw/member/myQna"/>
+			<mapping path="/sjw/contact/qnaForm"/>
+			<mapping path="/kmk/consign/consign_form"/>
+			<exclude-mapping path="/kjy/member/joinForm"/> 
+			<exclude-mapping path="/kjy/member/login"/> 
+			<exclude-mapping path="/kjy/member/idPwFind"/> 
+			<beans:ref bean="authInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 	<context:component-scan base-package="com.kh.team" />
 	

@@ -155,15 +155,27 @@ div p {
 	-webkit-border-radius: 10px;
   	-moz-border-radius: 10px;
  	border-radius: 10px;
-  	font-weight: 10; 
+  	font-weight: 10;
+  	font-size: 20px;
 }
 #m_pw2::placeholder {
 	font-size : 15px;
+}
+#auctionList {
+	cursor: pointer;
+}
+#auctionA {
+	display: none;
 }
 </style>
 
 <script>
 $(function() {
+	// actionList toggle
+	$("#auctionList").click(function() {
+		$("#auctionA").toggle("slow").show();
+	});
+	
 	// 불러오기 
 	// 휴대전화
 	var m_phone = "${memberVo.m_phone}";
@@ -171,7 +183,6 @@ $(function() {
 	var phone2 = m_phone.substring(7);
 	$("#m_phone2").val(phone1);
 	$("#m_phone3").val(phone2);
-	
 	
 	// 전송하기
 	// 비밀번호 확인
@@ -268,9 +279,9 @@ $(function() {
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">MY INFO</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">MY GRADE</a>
-                        </li>
+<!--                         <li class="nav-item"> -->
+<!--                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">MY GRADE</a> -->
+<!--                         </li> -->
                     </ul>
                 </div>
             </div>
@@ -281,11 +292,14 @@ $(function() {
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-work">
-                    <p>ACUTION LIST</p>
-                    <a href=""> 응찰 </a><br/> 
-                    <a href=""> 낙찰 </a><br/>
+                    <p id="auctionList">AUCTION LIST</p>
+                    <div id="auctionA">
+	                    <a href="/kjy/member/myBidList"> 응찰 </a><br/> 
+	                    <a href="/kjy/member/successBidList"> 낙찰 </a><br/>
+                    </div>
                     <p><a href="/kjy/member/wishList">WISH LIST</a></p>
                     <p><a href="">1 : 1 문의 내역</a></p>
+                    <p><a href="/kjy/member/deleteMemberForm">회원 탈퇴</a></p>
                 </div>
             </div>
             <div class="col-md-8">
@@ -341,8 +355,8 @@ $(function() {
                                     <div class="col-md-8">
                                         <input type="text" name="m_zip" style="width:120px; height:40px;" value="${memberVo.m_zip}">
 									<button type="button" class="btn-sm btn-primary" id="btnHomecode">우편번호</button><br>  
-									<input type="text" id="m_address" name="m_address" style="width:70%; height:40px; margin-top:10px; font-size: 20px;" value="${memberVo.m_address}" readonly/>&nbsp;&nbsp;<span style="font-size: 15px;">기본주소</span><br>
-									<input type="text" id="m_address2" name="m_address2" style="width:70%; height:40px; margin-top:10px; font-size: 20px;" value="${memberVo.m_address2}"/>&nbsp;&nbsp;<span style="font-size: 15px;">상세주소</span> 
+									<input type="text" id="m_address" name="m_address" style="width:70%; height:40px; margin-top:10px;" value="${memberVo.m_address}" readonly/>&nbsp;&nbsp;<span style="font-size: 15px;">기본주소</span><br>
+									<input type="text" id="m_address2" name="m_address2" style="width:70%; height:40px; margin-top:10px;" value="${memberVo.m_address2}"/>&nbsp;&nbsp;<span style="font-size: 15px;">상세주소</span> 
                                     </div>
                                 </div>
                                 <div class="row">
@@ -358,37 +372,37 @@ $(function() {
                                         <label>은행 계좌번호</label>
                                     </div>
                                     <div class="col-md-8">
-                                        <input type="text" id="m_bank" name="m_bank" style="width: 30%; font-size: 20px;" value="${memberVo.m_bank}">
+                                        <input type="text" id="m_bank" name="m_bank" style="width: 30%;" value="${memberVo.m_bank}">
                                         <input type="text" id="m_account" name="m_account" style="width: 65%;" value="${memberVo.m_account}">
                                     </div>
                                 </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>등급</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p>${memberVo.g_name}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>거래 횟수</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p>${memberVo.m_trade}</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>수수료율</label>
-                            </div>
-                            <div class="col-md-8">
-                                <p>${memberVo.g_discount}%</p>  
-                            </div>
-                        </div>
-                    </div>
+<!--                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> -->
+<!--                         <div class="row"> -->
+<!--                             <div class="col-md-4"> -->
+<!--                                 <label>등급</label> -->
+<!--                             </div> -->
+<!--                             <div class="col-md-8"> -->
+<%--                                 <p>${memberVo.g_name}</p> --%>
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                         <div class="row"> -->
+<!--                             <div class="col-md-4"> -->
+<!--                                 <label>거래 횟수</label> -->
+<!--                             </div> -->
+<!--                             <div class="col-md-8"> -->
+<%--                                 <p>${memberVo.m_trade}</p> --%>
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                         <div class="row"> -->
+<!--                             <div class="col-md-4"> -->
+<!--                                 <label>수수료율</label> -->
+<!--                             </div> -->
+<!--                             <div class="col-md-8"> -->
+<%--                                 <p>${memberVo.g_discount}%</p>   --%>
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
                 </div>
             </div>
         </div>

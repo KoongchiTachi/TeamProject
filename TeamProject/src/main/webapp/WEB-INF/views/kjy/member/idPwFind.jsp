@@ -13,6 +13,12 @@
 .col-md-12 {
 	min-height: 50vh; 
 }
+.col-md-3 input {
+	border: 1px solid #55504c;
+	-webkit-border-radius: 10px;
+ 	-moz-border-radius: 10px;
+ 	border-radius: 10px;
+}
 #btnIdFind {
 	background : #f9ad81;
 	position:relative;

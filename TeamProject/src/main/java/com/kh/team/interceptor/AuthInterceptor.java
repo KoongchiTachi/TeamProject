@@ -13,20 +13,22 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		String user_id = (String)session.getAttribute("user_id");
-		System.out.println("login_id: " + user_id);
+		String m_id = (String)session.getAttribute("m_id");
+		System.out.println("m_id: " + m_id);
 		
 		// 로그인 되어 있지 않다면
-		if (user_id == null || user_id.equals("")) {
-			String uri = request.getRequestURI(); // /board/selectBybno
-			String queryString = request.getQueryString(); // bno=1&page=1&perPage=10
-			String targetLocation = uri;
-			if (!queryString.equals("")) {
-				targetLocation += "?" + queryString;
+		if (m_id == null || m_id.equals("")) {
+			String requestURI = request.getRequestURI(); // 클라이언트 요청 주소
+			String contextPath = request.getContextPath(); // 현재 프로젝트 경로
+			String uri = requestURI.substring(contextPath.length() + 1);
+			String query = request.getQueryString(); // 주소 뒤 파라미터
+			if (query == null || query.equals("")) {
+				query = "";
+			} else {
+				query = "?" + query;
 			}
-			// 사용자가 요청했던 경로 정보
-			session.setAttribute("targetLocation", targetLocation);
-			response.sendRedirect("/member/login"); // 로그인 폼으로 이동
+			session.setAttribute("targetLocation", uri + query); // 세션에 주소 저장하기
+			response.sendRedirect("/kjy/member/login"); // 로그인 폼으로 이동
 			return false; // 요청을 계속 진행하지 않음
 		}
 		

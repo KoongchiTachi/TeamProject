@@ -31,9 +31,15 @@ public class LoginController {
 		boolean result = memberService.login(m_id, m_pw);
 		System.out.println("result:" + result);
 		if (result == true) {
+			// 로그인 성공 시 세션에 저장
 			session.setAttribute("m_id", m_id);
-			// TODO 로그인 안하면 다른 페이지 접근 불가능은 나중에
-			return "redirect:/";
+			// 요청 주소 가져오기
+			Object targetLocation = session.getAttribute("targetLocation");
+			if (targetLocation == null || targetLocation.equals("")) {
+				return "redirect:/";
+			} else {
+				return "redirect:/" + targetLocation.toString();
+			}
 		}
 		rttr.addFlashAttribute("msg", "fail");
 		return "redirect:/kjy/member/login";

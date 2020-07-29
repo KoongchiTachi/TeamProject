@@ -203,7 +203,7 @@ $(function() {
 		var m_phone = phone1.concat(phone2, phone3);
 		$("#m_phone").val(m_phone);
 		console.log("m_phone:" + m_phone);
-	}); // 비밀번호 확인
+	});
 	
 	// 휴대전화
 	$("#m_phone2").blur(function() {
@@ -279,9 +279,6 @@ $(function() {
                         <li class="nav-item">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">MY INFO</a>
                         </li>
-<!--                         <li class="nav-item"> -->
-<!--                             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">MY GRADE</a> -->
-<!--                         </li> -->
                     </ul>
                 </div>
             </div>
@@ -305,120 +302,82 @@ $(function() {
             <div class="col-md-8">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>아이디</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <p>${memberVo.m_id}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>이름</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <p style="font-size: 20px;">${memberVo.m_name}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>비밀번호</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                      	<input type="password" id="m_pw" name="m_pw" style="width : 40%;" maxlength="30"/>
-                                      	<input type="password" id="m_pw2" style="width : 40%;" maxlength="30" placeholder="비밀번호 확인"/><br/>
-                                      	<span id="spanPw"></span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>휴대전화</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <select id="m_phone1" style="font-size: 20px;">
-	                               	   		<option value="010">010</option>
-	                               	   		<option value="011">011</option>
-	                               	   		<option value="016">016</option>
-	                               	   		<option value="017">017</option>
-	                               	   		<option value="018">018</option>
-	                               	   		<option value="019">019</option>
-	                               	   </select> - 
-	                                   <input type="tel" id="m_phone2" maxlength="4" style="width : 23%;"> - 
-	                                   <input type="tel" id="m_phone3" maxlength="4" style="width : 23%;">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>주소</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <input type="text" name="m_zip" style="width:120px; height:40px;" value="${memberVo.m_zip}">
-									<button type="button" class="btn-sm btn-primary" id="btnHomecode">우편번호</button><br>  
-									<input type="text" id="m_address" name="m_address" style="width:70%; height:40px; margin-top:10px;" value="${memberVo.m_address}" readonly/>&nbsp;&nbsp;<span style="font-size: 15px;">기본주소</span><br>
-									<input type="text" id="m_address2" name="m_address2" style="width:70%; height:40px; margin-top:10px;" value="${memberVo.m_address2}"/>&nbsp;&nbsp;<span style="font-size: 15px;">상세주소</span> 
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>이메일</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                       	<input type="email" id="m_email" name="m_email" value="${memberVo.m_email}">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label>은행 계좌번호</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <input type="text" id="m_bank" name="m_bank" style="width: 30%;" value="${memberVo.m_bank}">
-                                        <input type="text" id="m_account" name="m_account" style="width: 65%;" value="${memberVo.m_account}">
-                                    </div>
-                                </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <label>아이디</label>
+                              </div>
+                              <div class="col-md-8">
+                                  <p>${memberVo.m_id}</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <label>이름</label>
+                              </div>
+                              <div class="col-md-8">
+                                  <p style="font-size: 20px;">${memberVo.m_name}</p>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <label>비밀번호</label>
+                              </div>
+                              <div class="col-md-8">
+                                	<input type="password" id="m_pw" name="m_pw" style="width : 40%;" maxlength="30"/>
+                                	<input type="password" id="m_pw2" style="width : 40%;" maxlength="30" placeholder="비밀번호 확인"/><br/>
+                                	<span id="spanPw"></span>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <label>휴대전화</label>
+                              </div>
+                              <div class="col-md-8">
+                                  <select id="m_phone1" style="font-size: 20px;">
+                          	   		<option value="010">010</option>
+                          	   		<option value="011">011</option>
+                          	   		<option value="016">016</option>
+                          	   		<option value="017">017</option>
+                          	   		<option value="018">018</option>
+                          	   		<option value="019">019</option>
+                          	   </select> - 
+                              <input type="tel" id="m_phone2" maxlength="4" style="width : 23%;"> - 
+                              <input type="tel" id="m_phone3" maxlength="4" style="width : 23%;">
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <label>주소</label>
+                              </div>
+                              <div class="col-md-8">
+                                  <input type="text" name="m_zip" style="width:120px; height:40px;" value="${memberVo.m_zip}">
+								  <button type="button" class="btn-sm btn-primary" id="btnHomecode">우편번호</button><br>  
+								  <input type="text" id="m_address" name="m_address" style="width:70%; height:40px; margin-top:10px;" value="${memberVo.m_address}" readonly/>&nbsp;&nbsp;<span style="font-size: 15px;">기본주소</span><br>
+								  <input type="text" id="m_address2" name="m_address2" style="width:70%; height:40px; margin-top:10px;" value="${memberVo.m_address2}"/>&nbsp;&nbsp;<span style="font-size: 15px;">상세주소</span> 
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <label>이메일</label>
+                              </div>
+                              <div class="col-md-8">
+                                 	<input type="email" id="m_email" name="m_email" value="${memberVo.m_email}">
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-4">
+                                  <label>은행 계좌번호</label>
+                              </div>
+                              <div class="col-md-8">
+                                  <input type="text" id="m_bank" name="m_bank" style="width: 30%;" value="${memberVo.m_bank}">
+                                  <input type="text" id="m_account" name="m_account" style="width: 65%;" value="${memberVo.m_account}">
+                              </div>
+                          </div>
                     </div>
-<!--                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> -->
-<!--                         <div class="row"> -->
-<!--                             <div class="col-md-4"> -->
-<!--                                 <label>등급</label> -->
-<!--                             </div> -->
-<!--                             <div class="col-md-8"> -->
-<%--                                 <p>${memberVo.g_name}</p> --%>
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                         <div class="row"> -->
-<!--                             <div class="col-md-4"> -->
-<!--                                 <label>거래 횟수</label> -->
-<!--                             </div> -->
-<!--                             <div class="col-md-8"> -->
-<%--                                 <p>${memberVo.m_trade}</p> --%>
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                         <div class="row"> -->
-<!--                             <div class="col-md-4"> -->
-<!--                                 <label>수수료율</label> -->
-<!--                             </div> -->
-<!--                             <div class="col-md-8"> -->
-<%--                                 <p>${memberVo.g_discount}%</p>   --%>
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
                 </div>
             </div>
         </div>
     </form>           
 </div>
 
-<script>
-$(function() {
-	// 불러오기 
-	// 휴대전화
-// 	var m_phone = "${memberVo.m_phone}";
-// 	var phone1 = m_phone.substring(3,7);
-// 	var phone2 = m_phone.substring(7);
-// 	$("#m_phone2").val(phone1);
-// 	$("#m_phone3").val(phone2);
-// 	console.log(phone1);
-});
-</script>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

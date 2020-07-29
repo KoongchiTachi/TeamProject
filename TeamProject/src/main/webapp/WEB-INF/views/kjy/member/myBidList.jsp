@@ -76,6 +76,7 @@ $(function() {
 					<thead>
 						<tr>
 							<th scope="col" style="width : 200px;">이미지</th>
+							<th scope="col" style="width : 200px;">상품명</th>
 							<th scope="col" style="width : 400px;">상품정보</th>
 							<th scope="col" style="width : 200px;">응찰가격</th>
 							<th scope="col" style="width : 200px;">응찰일시</th>
@@ -98,6 +99,7 @@ $(function() {
 											<img src="/resources/img/bag/${bidVo.p_img1}" alt="${bidVo.p_img1}" style="width : 120px; height : 120px;">
 										</a>
 									</td>
+									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.p_name}</strong><br>
 									<td class="left" style="width : 400px; vertical-align : middle;"><a href="">${bidVo.p_info}</a></td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.b_price}원</strong><br>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.b_date}</strong><br>

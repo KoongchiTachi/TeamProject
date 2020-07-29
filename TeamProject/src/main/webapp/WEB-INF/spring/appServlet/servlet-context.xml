@@ -37,8 +37,10 @@
 	
 	
 	 
-	<!-- 인터셉터 빈 -->
+	<!-- 인터셉터 빈 / 관리자용 인터셉터 빈 -->
 	<beans:bean id="authInterceptor" class="com.kh.team.interceptor.AuthInterceptor"/>
+	<beans:bean id="adminInterceptor" class="com.kh.team.interceptor.AdminInterceptor"/>
+	
 	<interceptors>
 		<interceptor>
 			<mapping path="/kjy/member/**/*"/>
@@ -49,6 +51,11 @@
 			<exclude-mapping path="/kjy/member/login"/> 
 			<exclude-mapping path="/kjy/member/idPwFind"/> 
 			<beans:ref bean="authInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/kjy/admin/**/*"/>
+			<mapping path="/sjw/admin/**/*"/>
+			<beans:ref bean="adminInterceptor"/>
 		</interceptor>
 	</interceptors>
 	

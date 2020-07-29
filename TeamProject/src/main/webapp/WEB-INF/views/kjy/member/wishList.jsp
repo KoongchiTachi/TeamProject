@@ -148,6 +148,7 @@ $(function() {
 						<tr>
 							<th scope="col"><input type="checkbox" id="chkAll"></th>
 							<th scope="col" style="width : 200px;">이미지</th>
+							<th scope="col" style="width : 200px;">상품명</th>
 							<th scope="col" style="width : 500px;">상품정보</th>
 							<th scope="col" style="width : 200px;">현재가</th>
 							<th scope="col" style="width : 200px;">선택</th>
@@ -169,6 +170,7 @@ $(function() {
 											<img src="/resources/img/bag/${wishlistVo.p_img1}" alt="${wishlistVo.p_img1}" style="width : 120px; height : 120px;">
 										</a>
 									</td>
+									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${wishlistVo.p_name}</strong><br>
 									<td class="left" style="width : 500px; vertical-align : middle;"><a href="">${wishlistVo.p_info}</a></td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${wishlistVo.p_price}원</strong><br>
 									<td class="button" style="width : 200px; vertical-align : middle;">

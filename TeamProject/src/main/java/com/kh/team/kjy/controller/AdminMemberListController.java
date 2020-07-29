@@ -19,6 +19,7 @@ public class AdminMemberListController {
 	@Inject
 	private MemberService memberService;
 	
+	// 관리자 - 회원 리스트
 	@RequestMapping(value = "/adminMemberList", method = RequestMethod.GET)
 	public void adminMemberList(Model model) throws Exception {
 		List<MemberVo> list = memberService.memberList();

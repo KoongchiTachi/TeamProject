@@ -133,7 +133,7 @@ function chkword(obj, maxByte) {
 }
 
 $(function() {
-	// 아이디 중복 확인
+	// 아이디 유효성, 중복 확인
 	$("#btnJoinDupId").click(function() {
 		var m_id = $("#m_id").val();
 		
@@ -171,7 +171,7 @@ $(function() {
 				$("#spanDup").text("이미 사용중인 아이디 입니다.").css("color", "red");
 			}
 		});
-	}); // 아이디 중복 확인
+	}); // 아이디 유효성, 중복 확인
 	
 	// 비밀번호 길이 확인
 	$("#m_pw").blur(function() {

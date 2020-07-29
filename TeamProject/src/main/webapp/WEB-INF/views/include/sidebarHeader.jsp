@@ -265,7 +265,7 @@ a.article, a.article:hover {
 				<li><a href="#">Contact</a></li>
 			</ul>
 			<ul class="list-unstyled CTAs">
-				<li><a href="" class="download">Logout</a></li>
+				<li><a href="/admin/logout" class="download">Logout</a></li>
 			</ul>
 		</nav>
 		<div id="content">

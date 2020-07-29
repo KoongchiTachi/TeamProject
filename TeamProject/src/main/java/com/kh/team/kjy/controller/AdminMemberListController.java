@@ -26,4 +26,10 @@ public class AdminMemberListController {
 		model.addAttribute("list", list);
 	}
 	
+	// 관리자 - 회원 삭제
+	@RequestMapping(value = "/deleteMember", method = RequestMethod.GET)
+	public void deleteMember(String m_id) throws Exception {
+		memberService.deleteMember(m_id);
+	}
+	
 }

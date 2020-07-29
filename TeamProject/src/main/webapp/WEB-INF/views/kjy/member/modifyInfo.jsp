@@ -185,7 +185,21 @@ $(function() {
 	$("#m_phone3").val(phone2);
 	
 	// 전송하기
-	// 비밀번호 확인
+	// 비밀번호 길이 확인
+	$("#m_pw").blur(function() {
+		var pw_length = $(this).val().length;
+		if (pw_length <= 7) {
+			$("#spanPwLength").text("비밀번호는 8~16자 입니다.").css("color", "red");
+			return;
+		} else if (pw_length >= 17) {
+			$("#spanPwLength").text("비밀번호는 8~16자 입니다.").css("color", "red");
+			return;
+		} else {
+			$("#spanPwLength").text("");
+		}
+	});
+	
+	// 비밀번호 일치 확인
 	$("#m_pw2").blur(function() {
 		var m_pw = $("#m_pw").val();
 		var m_pw2 = $("#m_pw2").val();
@@ -202,7 +216,6 @@ $(function() {
 		var phone3 = $("#m_phone3").val();
 		var m_phone = phone1.concat(phone2, phone3);
 		$("#m_phone").val(m_phone);
-		console.log("m_phone:" + m_phone);
 	});
 	
 	// 휴대전화
@@ -212,7 +225,6 @@ $(function() {
 		var phone3 = $("#m_phone3").val();
 		var m_phone = phone1.concat(phone2, phone3);
 		$("#m_phone").val(m_phone);
-		console.log("m_phone:" + m_phone);
 	});
 	$("#m_phone3").blur(function() {
 		var phone1 = $("#m_phone1").val();
@@ -220,7 +232,6 @@ $(function() {
 		var phone3 = $("#m_phone3").val();
 		var m_phone = phone1.concat(phone2, phone3);
 		$("#m_phone").val(m_phone);
-		console.log("m_phone:" + m_phone);
 	});
 	
 	// 주소

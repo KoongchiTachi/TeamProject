@@ -28,7 +28,7 @@ public class MemberDaoImple implements MemberDao {
 		return sqlSession.selectOne(NAMESPACE + "selectMemberByIdAndPw", paramMap); 
 	}
 	
-	// 전체 멤버 목록
+	// 관리자 - 전체 멤버 목록
 	@Override
 	public List<MemberVo> memberList() throws Exception {
 		return sqlSession.selectList(NAMESPACE + "memberList");
@@ -51,12 +51,19 @@ public class MemberDaoImple implements MemberDao {
 		sqlSession.update(NAMESPACE + "updateMember", memberVo);
 	}
 
+	// 회원 탈퇴
 	@Override
 	public void deleteMember(String m_id, String m_pw) throws Exception {
 		Map<String, String> param = new HashMap<>();
 		param.put("m_id", m_id);
 		param.put("m_pw", m_pw);
 		sqlSession.delete(NAMESPACE + "deleteMember", param);
+	}
+
+	// 관리자 - 회원 삭제
+	@Override
+	public void deleteMember(String m_id) throws Exception {
+		sqlSession.delete(NAMESPACE + "adminDeleteMember", m_id);
 	}
 
 }

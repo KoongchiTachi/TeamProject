@@ -146,7 +146,7 @@ public class MemberVo {
 	}
 
 	public void setM_warn(int m_warn) {
-		this.m_warn = m_warn;
+		this.m_warn = m_warn; 
 	}
 
 	@Override

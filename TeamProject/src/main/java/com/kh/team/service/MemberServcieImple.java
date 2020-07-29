@@ -25,7 +25,7 @@ public class MemberServcieImple implements MemberService {
 		return false;
 	}
 
-	// 전체 멤버 목록
+	// 관리자 - 전체 멤버 목록
 	@Override
 	public List<MemberVo> memberList() throws Exception {
 		return memberDao.memberList();
@@ -48,9 +48,16 @@ public class MemberServcieImple implements MemberService {
 		memberDao.updateMember(memberVo);
 	}
 
+	// 회원 탈퇴
 	@Override
 	public void deleteMember(String m_id, String m_pw) throws Exception {
 		memberDao.deleteMember(m_id, m_pw); 
+	}
+
+	// 관리자 - 회원 삭제
+	@Override
+	public void deleteMember(String m_id) throws Exception {
+		memberDao.deleteMember(m_id);
 	}
 
 }

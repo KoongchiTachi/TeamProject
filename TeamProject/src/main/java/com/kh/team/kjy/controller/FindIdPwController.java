@@ -45,10 +45,10 @@ public class FindIdPwController {
 	@RequestMapping(value = "/findPw", method = RequestMethod.POST)
 	public String findPw(String m_id, String m_email) throws Exception {
 		int ran = new Random().nextInt(900000) + 100000;
-		String newPw = String.valueOf(ran);
+		String newPw = String.valueOf(ran); 
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("[임시 비밀번호 안내]");
-		sendMail.setText(new StringBuffer().append("<h1>이메일인증</h1><br/>")
+		sendMail.setText(new StringBuffer().append("<h1>임시 비밀번호</h1><br/>")
 				.append("안녕하세요.Luxtion입니다. 회원님의 임시 비밀번호는 " + newPw + " 입니다.<br/>임시 비밀번호로 로그인 후 비밀번호를 변경해주세요.").toString());
 		sendMail.setFrom("whitebritz@gmail.com", "Luxtion");
 		sendMail.setTo(m_email);

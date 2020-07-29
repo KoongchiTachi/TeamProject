@@ -14,6 +14,14 @@ h2 {
 }
 </style>
 
+<script>
+$(function() {
+	$("#btnDeleteMember").click(function() {
+		console.log("클릭");
+	});
+});
+</script>
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -22,7 +30,7 @@ h2 {
 				</div>
 				<div class="col-md-10">
 				<h2>전체 회원 목록</h2>
-				<table class="table">
+				<table class="table table-hover">
 				<thead>
 					<tr>
 						<th>아이디</th>
@@ -37,21 +45,21 @@ h2 {
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${list}" var="memberVo">
+					<c:forEach items="${list}" var="memberVo" varStatus="vs" begin="1"> 
 						<tr>
-							<td>${memberVo.m_id}</td> 
-							<td>${memberVo.m_name}</td>
-							<td>${memberVo.m_phone}</td>
-							<td>${memberVo.m_address} ${memberVo.m_address2}</td>
-							<td>${memberVo.m_email}</td>
+							<td>${list[vs.index].m_id}</td> 
+							<td>${list[vs.index].m_name}</td>
+							<td>${list[vs.index].m_phone}</td>
+							<td>${list[vs.index].m_address} ${list[vs.index].m_address2}</td>
+							<td>${list[vs.index].m_email}</td>
 							<c:choose>
-								<c:when test="${memberVo.m_grade == 'g1001'}"><td>prime</td></c:when>
-								<c:when test="${memberVo.m_grade == 'g1002'}"><td>vip</td></c:when>
+								<c:when test="${list[vs.index].m_grade == 'g1001'}"><td>prime</td></c:when>
+								<c:when test="${list[vs.index].m_grade == 'g1002'}"><td>vip</td></c:when>
 								<c:otherwise><td>vvip</td></c:otherwise>
 							</c:choose>
-							<td>${memberVo.m_trade}</td>
-							<td>${memberVo.m_warn}</td>
-							<td><button type="button" class="btn btn-sm btn-danger">회원 삭제</button></td>
+							<td>${list[vs.index].m_trade}</td>
+							<td>${list[vs.index].m_warn}</td>
+							<td><button type="button" class="btn btn-sm btn-danger" id="btnDeleteMember">회원 삭제</button></td>
 						</tr>
 					</c:forEach>
 				</tbody>

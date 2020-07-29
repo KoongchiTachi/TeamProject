@@ -12,7 +12,7 @@
 	
 	<select id="memberList" resultType="MemberVo">
 		select * from tbl_member
-		order by join_date desc
+		order by m_warn desc, join_date desc
 	</select>
 	
 	<insert id="insertMember">
@@ -26,7 +26,7 @@
 		where m.m_grade = g.g_code
 		and m.m_id = #{m_id}
 	</select>
-	
+
 	<update id="updateMember">
 		update tbl_member set
 			m_pw = #{m_pw},
@@ -49,5 +49,10 @@
 		select * from tbl_member
 		where m_id = #{m_id}
 	</select>
+	
+	<delete id="adminDeleteMember">
+		delete from tbl_member
+		where m_id = #{m_id}
+	</delete>
 
 </mapper>

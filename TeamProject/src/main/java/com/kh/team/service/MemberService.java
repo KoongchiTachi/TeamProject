@@ -9,7 +9,7 @@ public interface MemberService {
 	// 로그인
 	public boolean login(String m_id, String m_pw) throws Exception;
 	
-	// 멤버 목록
+	// 관리자 - 멤버 목록
 	public List<MemberVo> memberList() throws Exception;
 	
 	// 멤버 등록
@@ -23,5 +23,8 @@ public interface MemberService {
 	
 	// 멤버 삭제
 	public void deleteMember(String m_id, String m_pw) throws Exception;
+	
+	// 관리자 - 멤버 삭제
+	public void deleteMember(String m_id) throws Exception;
 	
 }

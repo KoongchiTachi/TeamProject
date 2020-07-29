@@ -43,13 +43,16 @@
 	
 	<interceptors>
 		<interceptor>
-			<mapping path="/kjy/member/**/*"/>
+			<mapping path="/kjy/member/**"/>
 			<mapping path="/sjw/member/myQna"/>
 			<mapping path="/sjw/contact/qnaForm"/>
 			<mapping path="/kmk/consign/consign_form"/>
 			<exclude-mapping path="/kjy/member/joinForm"/> 
 			<exclude-mapping path="/kjy/member/login"/> 
 			<exclude-mapping path="/kjy/member/idPwFind"/> 
+			<exclude-mapping path="/kjy/member/checkDupId"/> 
+			<exclude-mapping path="/kjy/member/emailAuth"/> 
+			<exclude-mapping path="/kjy/member/joinRun"/> 
 			<beans:ref bean="authInterceptor"/>
 		</interceptor>
 		<interceptor>

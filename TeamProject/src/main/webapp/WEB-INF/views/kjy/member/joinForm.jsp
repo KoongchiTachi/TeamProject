@@ -101,7 +101,7 @@ select {
 </style>
 
 <script>
-// 이름 영어, 한글 유효성 
+//이름 영어, 한글 유효성 
 function chkword(obj, maxByte) {
 	var strValue = obj.value;
 	var strLen = strValue.length;
@@ -129,13 +129,13 @@ function chkword(obj, maxByte) {
 		obj.value = str2;
 		chkword(obj, 4000);
 	}
-
 }
 
 $(function() {
 	// 아이디 유효성, 중복 확인
 	$("#btnJoinDupId").click(function() {
 		var m_id = $("#m_id").val();
+		console.log("m_id:" + m_id);
 		
 		for (var v = 0; v < m_id.length; v++) {
 			var ch = m_id.charCodeAt(v);
@@ -149,7 +149,7 @@ $(function() {
 				$("#spanDup").text("유효하지 않은 문자가 포함되어 있습니다. (영문소문자/숫자, 4~16자)").css("color", "red");
 				return;
 			}
-		}
+		} 
 		
 		if (m_id.length <= 3) {
 			$("#spanDup").text("아이디는 영문소문자/숫자, 4~16자 입니다.").css("color", "red");
@@ -164,7 +164,6 @@ $(function() {
 			"m_id" : m_id
 		};
 		$.get(url, sendData, function(rData) {
-			console.log(rData);
 			if (rData == "available") {
 				$("#spanDup").text("사용 가능한 아이디입니다.").css("color", "blue");
 			} else {
@@ -219,7 +218,6 @@ $(function() {
 		var phone3 = $("#m_phone3").val();
 		var m_phone = phone1.concat(phone2, phone3);
 		$("#m_phone").val(m_phone);
-		console.log("m_phone:" + m_phone);
 	});
 	$("#m_phone3").blur(function() {
 		var phone1 = $("#m_phone1").val();
@@ -227,7 +225,6 @@ $(function() {
 		var phone3 = $("#m_phone3").val();
 		var m_phone = phone1.concat(phone2, phone3);
 		$("#m_phone").val(m_phone);
-		console.log("m_phone:" + m_phone);
 	});
 	
 	// 주소

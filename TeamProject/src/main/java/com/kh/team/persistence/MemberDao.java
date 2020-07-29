@@ -9,7 +9,7 @@ public interface MemberDao {
 	// 로그인 확인 
 	public MemberVo selectMemberByIdAndPw(String user_id, String user_pw) throws Exception;
 	
-	// 멤버 목록
+	// 관리자 - 멤버 목록
 	public List<MemberVo> memberList() throws Exception;
 	
 	// 멤버 등록
@@ -23,5 +23,8 @@ public interface MemberDao {
 	
 	// 멤버 삭제
 	public void deleteMember(String m_id, String m_pw) throws Exception;
+	
+	// 관리자 - 멤버 삭제
+	public void deleteMember(String m_id) throws Exception;
 	
 }

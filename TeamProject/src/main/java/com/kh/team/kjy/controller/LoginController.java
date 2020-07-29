@@ -4,10 +4,12 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kh.team.domain.MemberVo;
 import com.kh.team.service.MemberService;
 
 @Controller
@@ -25,7 +27,7 @@ public class LoginController {
 	
 	// 로그인 처리
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginPost(String m_id, String m_pw, HttpSession session, RedirectAttributes rttr) throws Exception {
+	public String loginPost(String m_id, String m_pw, HttpSession session, RedirectAttributes rttr, Model model) throws Exception {
 		boolean result = memberService.login(m_id, m_pw);
 		if (result == true) {
 			// 로그인 성공 시 세션에 저장

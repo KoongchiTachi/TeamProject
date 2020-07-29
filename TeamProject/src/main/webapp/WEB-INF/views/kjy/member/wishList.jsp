@@ -166,7 +166,7 @@ $(function() {
 									<td><input type="checkbox" class="chkWish" data-wno="${wishlistVo.wno}"></td>
 									<td class="thumb" style="width : 200px; vertical-align: middle;">
 										<a href="">
-											<img src="/resources/img/bag/${wishlistVo.p_img}" alt="${wishlistVo.p_img}" style="width : 120px; height : 120px;">
+											<img src="/resources/img/bag/${wishlistVo.p_img1}" alt="${wishlistVo.p_img1}" style="width : 120px; height : 120px;">
 										</a>
 									</td>
 									<td class="left" style="width : 500px; vertical-align : middle;"><a href="">${wishlistVo.p_info}</a></td>

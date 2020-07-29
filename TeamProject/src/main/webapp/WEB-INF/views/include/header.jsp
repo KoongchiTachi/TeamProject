@@ -62,6 +62,9 @@
                 </div>
                 <div class="nav-right">
                 <c:choose>
+                	<c:when test="${sessionScope.m_id == 'admin'}">
+                		<a href="/admin" class="primary-btn">관리자 페이지</a> 
+                	</c:when>
                 	<c:when test="${not empty sessionScope.m_id}">
 	                	<a href="/kjy/member/myPage" class="primary-btn" id="#btnMyPage">My Page</a>
 	                	<a href="/kjy/member/logout" class="primary-btn" style="background-color : #9b3d07;">Logout</a>

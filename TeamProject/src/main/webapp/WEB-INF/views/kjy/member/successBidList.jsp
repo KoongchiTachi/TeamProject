@@ -93,7 +93,7 @@ $(function() {
 								<tr>
 									<td class="thumb" style="width : 200px; vertical-align: middle;">
 										<a href="">
-											<img src="/resources/img/bag/${bidVo.p_img}" alt="${bidVo.p_img}" style="width : 120px; height : 120px;">
+											<img src="/resources/img/bag/${bidVo.p_img1}" alt="${bidVo.p_img1}" style="width : 120px; height : 120px;">
 										</a>
 									</td>
 									<td class="left" style="width : 400px; vertical-align : middle;"><a href="">${bidVo.p_info}</a></td>

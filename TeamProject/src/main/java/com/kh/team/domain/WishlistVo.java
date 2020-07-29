@@ -5,7 +5,7 @@ public class WishlistVo {
 	private String pno;
 	private String m_id;
 	private int wno;
-	private String p_img;
+	private String p_img1;
 	private String p_info;
 	private int p_price;
 
@@ -33,14 +33,6 @@ public class WishlistVo {
 		this.wno = wno;
 	}
 
-	public String getP_img() {
-		return p_img;
-	}
-
-	public void setP_img(String p_img) {
-		this.p_img = p_img;
-	}
-
 	public String getP_info() {
 		return p_info;
 	}
@@ -57,10 +49,18 @@ public class WishlistVo {
 		this.p_price = p_price;
 	}
 
+	public String getP_img1() {
+		return p_img1;
+	}
+
+	public void setP_img1(String p_img1) {
+		this.p_img1 = p_img1;
+	}
+
 	@Override
 	public String toString() {
-		return "WishlistVo [pno=" + pno + ", m_id=" + m_id + ", wno=" + wno + ", p_img=" + p_img + ", p_info=" + p_info
-				+ ", p_price=" + p_price + "]";
+		return "WishlistVo [pno=" + pno + ", m_id=" + m_id + ", wno=" + wno + ", p_img1=" + p_img1 + ", p_info="
+				+ p_info + ", p_price=" + p_price + "]";
 	}
 
 }

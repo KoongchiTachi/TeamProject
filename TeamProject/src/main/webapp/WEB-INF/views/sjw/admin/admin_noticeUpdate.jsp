@@ -44,8 +44,8 @@ $(function() {
 								<textarea id="n_content" name="n_content" class="form-control" style="height:auto; min-height: 300px;"
 									required>${noticeVo.n_content}</textarea>
 							</div>
-							<button type="submit" class="btn btn-primary">수정완료</button>
-							<a href="/sjw/admin/admin_noticeRead" class="btn btn-warning" id="btnCancel">취소</a> 
+							<button type="submit" class="btn btn-secondary">수정완료</button>
+							<a href="/sjw/admin/admin_noticeRead" class="btn btn-secondary" id="btnCancel">취소</a> 
 						</form>
 					</div>
 				</div>

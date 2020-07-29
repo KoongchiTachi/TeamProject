@@ -2,6 +2,16 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/WEB-INF/views/include/sidebarHeader.jsp"%>
+<style>
+.pagination > li > a {
+	background-color : white;
+	color : black; 
+}
+.pagination > .page-item.active > .page-link {
+	background-color: #979494;
+	border: solid 1px #979494;
+}
+</style>
 <script>
 $(function() {
 		
@@ -15,8 +25,9 @@ $(function() {
 	
 	// 검색
 	$("#btnSearch").click(function () {
+		var searchType = $("select[name=searchType]").val();
 		var keyword = $("#keyword").val();
-		console.log("keyword: " + keyword);
+		$("#adminFrmPageN > input[name=searchType]").val(searchType);
 		$("#adminFrmPageN > input[name=keyword]").val(keyword);
 		$("#adminFrmPageN").submit();
 	});
@@ -63,6 +74,17 @@ $(function() {
 				</div>
 				<div class="col-md-8">
 							<form class="form-inline md-form mr-auto mb-4" style="float: right;">
+								<select class="mdb-select md-form colorful-select dropdown-primary" name="searchType" style="width: 100px; height: 38px; border: 1px solid #cfcfcf; border-radius: 5px 5px 5px 5px;">
+									<option value="tc"
+										<c:if test="${noticePagingDto.searchType == 'tc'}">selected</c:if>
+									>전체</option>
+									<option value="t"
+										<c:if test="${noticePagingDto.searchType == 't'}">selected</c:if>
+									>제목</option>
+									<option value="c"
+										<c:if test="${noticePagingDto.searchType == 'c'}">selected</c:if>
+									>내용</option>
+								</select>&nbsp;&nbsp;
 								<input class="form-control mr-sm-2" type="text"
 									placeholder="Search" aria-label="Search" id="keyword"
 									name="keyword" value="${noticePagingDto.keyword}">

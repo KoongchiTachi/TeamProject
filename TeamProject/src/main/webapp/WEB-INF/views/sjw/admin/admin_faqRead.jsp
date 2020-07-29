@@ -35,7 +35,7 @@ $(function() {
 		<div class="row">
 			<div class="col-md-12">
 				<h3 class="text-center">
-						FAQ 내용보기
+						FAQ 조회
 				</h3>
 				<div class="row">
 					<div class="col-md-2"></div>
@@ -69,9 +69,9 @@ $(function() {
 								<label for="f_content">내용</label>
 								<textarea class="form-control" id="f_content" name="f_content" rows="3" style="height: auto; min-height: 300px;" readonly>${faqVo.f_content}</textarea>
 							</div>
-							<a href="/sjw/admin/admin_faqList" class="btn btn-primary" id="btnList">목록</a> 
-							<a href="/sjw/admin/admin_faqUpdate" class="btn btn-warning" id="btnUpdate">수정</a> 
-							<a href="/sjw/admin/admin_faqDelete" class="btn btn-danger" id="btnDelete">삭제</a>
+							<a href="/sjw/admin/admin_faqList" class="btn btn-secondary" id="btnList">목록</a> 
+							<a href="/sjw/admin/admin_faqUpdate" class="btn btn-secondary" id="btnUpdate">수정</a> 
+							<a href="/sjw/admin/admin_faqDelete" class="btn btn-secondary" id="btnDelete">삭제</a>
 						</form>
 					</div>
 					<div class="col-md-2"></div>

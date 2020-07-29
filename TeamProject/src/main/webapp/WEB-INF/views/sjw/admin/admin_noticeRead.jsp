@@ -38,7 +38,7 @@ $(function() {
 		<div class="row">
 			<div class="col-md-12">
 				<h3 class="text-center">
-					공지사항 내용보기
+					공지사항 조회
 				</h3>
 				<div class="row">
 					<div class="col-md-2"></div>
@@ -56,9 +56,9 @@ $(function() {
 									readonly>${noticeVo.n_content}</textarea>
 							</div>
 
-							<a href="/sjw/admin/admin_noticeList" class="btn btn-primary" id="btnList">목록</a> 
-							<a href="/sjw/admin/admin_noticeUpdate" class="btn btn-warning" id="btnUpdate">수정</a> 
-							<a href="/sjw/admin/admin_noticeDelete" class="btn btn-danger" id="btnDelete">삭제</a>
+							<a href="/sjw/admin/admin_noticeList" class="btn btn-secondary" id="btnList">목록</a> 
+							<a href="/sjw/admin/admin_noticeUpdate" class="btn btn-secondary" id="btnUpdate">수정</a> 
+							<a href="/sjw/admin/admin_noticeDelete" class="btn btn-secondary" id="btnDelete">삭제</a>
 						</form>
 					</div>
 				</div>

@@ -79,11 +79,29 @@
 	</delete>
 	
 	<!-- 검색 -->
+<!-- 	<sql id="search"> -->
+<!-- 		<if test="keyword != null"> -->
+<!-- 			where f_title like '%' || #{keyword} || '%' -->
+<!-- 			or f_content like '%' || #{keyword} || '%' -->
+<!-- 		</if> -->
+<!-- 	</sql> -->
+	
 	<sql id="search">
-		<if test="keyword != null">
-			where f_title like '%' || #{keyword} || '%'
-			or f_content like '%' || #{keyword} || '%'
+		<if test="searchType != null">
+			<choose>
+				<when test='searchType == "t"'>
+					where f_title like '%' || #{keyword} || '%'
+				</when>
+				<when test='searchType == "c"'>
+					where f_content like '%' || #{keyword} || '%'
+				</when>
+				<when test='searchType == "tc"'>
+					where f_title like '%' || #{keyword} || '%'
+					or f_content like '%' || #{keyword} || '%'
+				</when>
+			</choose>
 		</if>
 	</sql>
+
 	
 </mapper>

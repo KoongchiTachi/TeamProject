@@ -240,17 +240,19 @@ a.article, a.article:hover {
 				</li>
 				<li class="active"><a href="#noticeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">공지사항</a>
 					<ul class="collapse list-unstyled" id="noticeSubmenu">
-						<li><a href="/sjw/admin/admin_noticeList">공지사항 목록</a></li>
+						<li><a href="/sjw/admin/admin_noticeForm">공지사항 입력</a></li>
+						<li><a href="/sjw/admin/admin_noticeList">공지사항 관리</a></li>
 					</ul>
 				</li>
 				<li><a href="#faqSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">FAQ</a>
 					<ul class="collapse list-unstyled" id="faqSubmenu">
-						<li><a href="/sjw/admin/admin_faqList">FAQ 목록</a></li>
+						<li><a href="/sjw/admin/admin_faqForm">FAQ 입력</a></li>
+						<li><a href="/sjw/admin/admin_faqList">FAQ 관리</a></li>
 					</ul>
 				</li>
 				<li class="active"><a href="#qnaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">QnA</a>
 					<ul class="collapse list-unstyled" id="qnaSubmenu">
-						<li><a href="#">1:1문의 목록</a></li>
+						<li><a href="#">1:1문의 관리</a></li>
 					</ul>
 				</li>
 				<li><a href="#bannerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">배너</a>

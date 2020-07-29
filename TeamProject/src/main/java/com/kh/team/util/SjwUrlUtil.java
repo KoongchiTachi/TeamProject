@@ -9,6 +9,7 @@ public class SjwUrlUtil {
 		url += "nno=" + nno;
 		url += "&page=" + noticePagingDto.getPage();
 		url += "&perPage=" + noticePagingDto.getPerPage();
+		url += "&searchType=" + noticePagingDto.getSearchType();
 		url += "&keyword=" + noticePagingDto.getKeyword();
 		return url;
 	}
@@ -17,6 +18,7 @@ public class SjwUrlUtil {
 		url += "?";
 		url += "page=" + noticePagingDto.getPage();
 		url += "&perPage=" + noticePagingDto.getPerPage();
+		url += "&searchType=" + noticePagingDto.getSearchType();
 		url += "&keyword=" + noticePagingDto.getKeyword();
 		return url;
 	}
@@ -26,6 +28,7 @@ public class SjwUrlUtil {
 		url += "fno=" + fno;
 		url += "&page=" + faqPagingDto.getPage();
 		url += "&perPage=" + faqPagingDto.getPerPage();
+		url += "&searchType=" + faqPagingDto.getSearchType();
 		url += "&keyword=" + faqPagingDto.getKeyword();
 		return url;
 	}
@@ -34,6 +37,7 @@ public class SjwUrlUtil {
 		url += "?";
 		url += "page=" + faqPagingDto.getPage();
 		url += "&perPage=" + faqPagingDto.getPerPage();
+		url += "&searchType=" + faqPagingDto.getSearchType();
 		url += "&keyword=" + faqPagingDto.getKeyword();
 		return url;
 	}

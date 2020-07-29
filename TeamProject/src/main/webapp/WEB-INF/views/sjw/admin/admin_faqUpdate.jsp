@@ -58,8 +58,8 @@ $(function() {
 								<label for="f_content">내용</label>
 								<textarea class="form-control" id="f_content" name="f_content" rows="3" style="height: auto; min-height: 300px;" required>${faqVo.f_content}</textarea>
 							</div>
-							<button type="submit" class="btn btn-primary">수정완료</button>
-							<a href="/sjw/admin/admin_faqRead" class="btn btn-warning" id="btnCancel">취소</a> 
+							<button type="submit" class="btn btn-secondary">수정완료</button>
+							<a href="/sjw/admin/admin_faqRead" class="btn btn-secondary" id="btnCancel">취소</a> 
 						</form>
 					</div>
 					<div class="col-md-2"></div>

@@ -6,6 +6,7 @@ public class FaqPagingDto {
 	private int startRow = 1;
 	private int endRow = 10;
 	private String keyword;
+	private String searchType;
 	private int totalCount; // 전체 게시글 수
 	private int totalPage; // 전체 페이지 수
 	private int startPage; // 페이지 블럭에서 시작 페이지
@@ -97,12 +98,20 @@ public class FaqPagingDto {
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
+	
+	public String getSearchType() {
+		return searchType;
+	}
+
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
 
 	@Override
 	public String toString() {
-		return "PagingDto [page=" + page + ", perPage=" + perPage + ", startRow=" + startRow + ", endRow=" + endRow
-				+ ", keyword=" + keyword + ", totalCount=" + totalCount + ", totalPage=" + totalPage + ", startPage="
-				+ startPage + ", endPage=" + endPage + "]";
+		return "FaqPagingDto [page=" + page + ", perPage=" + perPage + ", startRow=" + startRow + ", endRow=" + endRow
+				+ ", keyword=" + keyword + ", searchType=" + searchType + ", totalCount=" + totalCount + ", totalPage="
+				+ totalPage + ", startPage=" + startPage + ", endPage=" + endPage + ", PAGE_BLOCK=" + PAGE_BLOCK + "]";
 	}
 
 }

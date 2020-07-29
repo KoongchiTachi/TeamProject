@@ -55,10 +55,27 @@
 	</update>
 	
 	<!-- 검색 -->
-	<sql id="search">
-		<if test="keyword != null">
-			where n_title like '%' || #{keyword} || '%'
-			or n_content like '%' || #{keyword} || '%'
+<!-- 	<sql id="search"> -->
+<!-- 		<if test="keyword != null"> -->
+<!-- 			where n_title like '%' || #{keyword} || '%' -->
+<!-- 			or n_content like '%' || #{keyword} || '%' -->
+<!-- 		</if> -->
+<!-- 	</sql> -->
+	
+		<sql id="search">
+		<if test="searchType != null">
+			<choose>
+				<when test='searchType == "t"'>
+					where n_title like '%' || #{keyword} || '%'
+				</when>
+				<when test='searchType == "c"'>
+					where n_content like '%' || #{keyword} || '%'
+				</when>
+				<when test='searchType == "tc"'>
+					where n_title like '%' || #{keyword} || '%'
+					or n_content like '%' || #{keyword} || '%'
+				</when>
+			</choose>
 		</if>
 	</sql>
 	

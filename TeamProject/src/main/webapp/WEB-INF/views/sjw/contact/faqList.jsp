@@ -86,11 +86,6 @@
 <script>
 $(function() {
 	
-// 	$(".tab_menu li a").on("click", function() {
-// 		//alert("클릭");
- 		
-//  	});
-	
 	$("#btnSearch").click(function () {
 		var keyword = $("#keyword").val();
 		$("#frmPage > input[name=keyword]").val(keyword);
@@ -150,7 +145,7 @@ $(function() {
 						<input class="ac-input" id="ac-1" name="accordion-1" type="radio" />
 						<label class="ac-label" for="ac-1">${faqVo.f_title}<i></i></label>
 						<div class="article ac-content">
-							<p class="text-justify" style="color: #5E5E5E;">${faqVo.f_content}</p>
+							<p class="text-justify" style="color: #5E5E5E; font-size: 15px;">${faqVo.f_content}</p>
 						</div>
 					</div>
 				</c:forEach>

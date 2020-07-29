@@ -21,7 +21,7 @@
 								<textarea class="form-control" id="n_content" name="n_content" style="height: 300px;" required></textarea>
 							</div>
 							<button type="submit" class="btn btn-secondary">등록</button>
-							<a href="/sjw/admin/admin_noticeList" class="btn" style="background-color: #979494; color: #fff;">취소</a>
+							<a href="/sjw/admin/admin_noticeList" class="btn btn-secondary">취소</a>
 						</form>
 					</div>
 					<div class="col-md-2"></div>

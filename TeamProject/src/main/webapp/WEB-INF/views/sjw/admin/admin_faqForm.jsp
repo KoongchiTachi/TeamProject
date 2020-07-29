@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h3 class="text-center">
-						FAQ 입력 폼
+						FAQ 입력
 					</h3>
 				<div class="row">
 					<div class="col-md-2"></div>
@@ -34,8 +34,8 @@
 								<textarea class="form-control" id="f_content" name="f_content"
 									rows="3" placeholder="내용을 입력해 주세요." style="height: auto; min-height: 300px;" required></textarea>
 							</div>
-							<button type="submit" class="btn btn-success">등록</button>
-							<a href="/sjw/admin/admin_faqList"><button type="button" class="btn btn-primary">취소</button></a>
+							<button type="submit" class="btn btn-secondary">등록</button>
+							<a href="/sjw/admin/admin_faqList"><button type="button" class="btn btn-secondary">취소</button></a>
 						</form>
 					</div>
 					<div class="col-md-2"></div>

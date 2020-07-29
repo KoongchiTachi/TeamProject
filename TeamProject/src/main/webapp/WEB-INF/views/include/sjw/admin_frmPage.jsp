@@ -5,6 +5,7 @@
 	<input type="hidden" name="nno" value="${noticeVo.nno}"/>
 	<input type="hidden" name="page" value="${noticePagingDto.page}"/>
 	<input type="hidden" name="perPage" value="${noticePagingDto.perPage}"/>
+	<input type="hidden" name="searchType" value="${noticePagingDto.searchType}"/>
 	<input type="hidden" name="keyword" value="${noticePagingDto.keyword}"/>
 </form>
 
@@ -12,5 +13,6 @@
 	<input type="hidden" name="fno" value="${faqVo.fno}"/>
 	<input type="hidden" name="page" value="${faqPagingDto.page}"/>
 	<input type="hidden" name="perPage" value="${faqPagingDto.perPage}"/>
+	<input type="hidden" name="searchType" value="${faqPagingDto.searchType}"/>
 	<input type="hidden" name="keyword" value="${faqPagingDto.keyword}"/>
 </form> 

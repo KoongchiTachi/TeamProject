@@ -11,7 +11,7 @@
 <link href="/resources/js/photo-layer/bxslider.css" rel="stylesheet">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/resources/js/photo-layer/bxslider.js"></script>
-<script src="/resources/js/bid_list.js"></script> 
+<script src="/resources/js/bid_list.js"></script>
   
 <style> 
 .col-lg-offset-1 {
@@ -90,15 +90,15 @@
 									<a class=" text-center moreview btn-example" id="target_lightgallery" 
 									style="width: 100%; display: table-cell; vertical-align: middle;">
 										<ul class="th-list lightgallery">
-											<li class="plpl" data-responsive="/resources/img/bag/${productVo.p_img}"
-												data-src="/resources/img/bag/${productVo.p_img}" alt="1"><img class=""
-												src="/resources/img/bag/${productVo.p_img}"/></li>
-											<li class="plpl" data-responsive="/_img/data/2007/001 2.jpg"
-												data-src="/_img/data/2007/001 2.jpg " alt="2"><img class=""
-												src="/_img/data/2007/001 2.jpg" /></li>
-											<li class="plpl" data-responsive="/_img/data/2007/001 3.jpg"
-												data-src="/_img/data/2007/001 3.jpg" alt="3"><img class=""
-												src="/_img/data/2007/001 3.jpg" /></li>
+											<li class="plpl" data-responsive="/resources/img/bag/${productVo.p_img1}"
+												data-src="/resources/img/bag/${productVo.p_img1}" alt="1"><img class=""
+												src="/resources/img/bag/${productVo.p_img1}"/></li>
+											<li class="plpl" data-responsive="/resources/img/bag/${productVo.p_img2}"
+												data-src="/resources/img/bag/${productVo.p_img2}" alt="2"><img class=""
+												src="/resources/img/bag/${productVo.p_img2}"/></li>
+											<li class="plpl" data-responsive="/resources/img/bag/${productVo.p_img3}"
+												data-src="/resources/img/bag/${productVo.p_img3}" alt="3"><img class=""
+												src="/resources/img/bag/${productVo.p_img3}" /></li>
 										</ul>
 									</a>
 								</div>
@@ -107,24 +107,25 @@
 						<div class="col-lg-2 col-xs-12 ">
 							<div class="row">
 								<div class="th-body" id="thr">
-									<a data-slide-index="0" class="image"> <span class="trick">
-										<img class="img" src="/resources/img/bag/${productVo.p_img}" alt="1" />
+									<a data-slide-index="0" class="image"><span class="trick">
+										<img class="img" src="/resources/img/bag/${productVo.p_img1}" alt="1" />
 									</span>
-									</a> <a data-slide-index="1" class="image"> <span class="trick">
-										<img class="img" src="/_img/data/2007/T/001 2.jpg" alt="2" />
+									</a><a data-slide-index="1" class="image"><span class="trick">
+										<img class="img" src="/resources/img/bag/${productVo.p_img2}" alt="2" />
 									</span>
-									</a> <a data-slide-index="2" class="image"> <span class="trick">
-										<img class="img" src="/_img/data/2007/T/001 3.jpg" alt="3" />
+									</a> <a data-slide-index="2" class="image"><span class="trick">
+										<img class="img" src="/resources/img/bag/${productVo.p_img3}" alt="3" />
 									</span>
 									</a>
-								</div>
+								</div> 
 							</div>
 						</div>
 					</div>
 <style type="text/css">
 </style>
 <script type="text/javascript">
-	$('.th-list').bxSlider({
+	// Image slider 
+	$('.th-list').bxSlider({ 
 	  pagerCustom: '#thr',
 	  adaptiveHeight:false, 
 	  controls:false,
@@ -143,9 +144,7 @@
 								</p>
 								<p class="product"><strong><!-- <span>No.2007250001</span>--></strong></p>
 								<dl class="product-info">
-									<dd>26.5×43.5cm</dd>
-									<dd>천에 작가 서명</dd>
-									<dd>2019</dd>
+									<dd>${productVo.p_info}</dd>
 								</dl>
 								<!-- <div class="detail-check">
 									<label>

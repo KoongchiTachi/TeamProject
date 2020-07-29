@@ -10,7 +10,10 @@ public class ProductVo {
 	private String pno;
 	private String m_id;
 	private String p_name;
-	private String p_img;
+	private String p_img1;
+	private String p_img2;
+	private String p_img3;
+	private String p_img4;
 	private int s_price;
 	private int p_price;
 	private String p_info;
@@ -46,12 +49,36 @@ public class ProductVo {
 		this.p_name = p_name;
 	}
 
-	public String getP_img() {
-		return p_img;
+	public String getP_img1() {
+		return p_img1;
 	}
 
-	public void setP_img(String p_img) {
-		this.p_img = p_img;
+	public void setP_img1(String p_img1) {
+		this.p_img1 = p_img1;
+	}
+
+	public String getP_img2() {
+		return p_img2;
+	}
+
+	public void setP_img2(String p_img2) {
+		this.p_img2 = p_img2;
+	}
+
+	public String getP_img3() {
+		return p_img3;
+	}
+
+	public void setP_img3(String p_img3) {
+		this.p_img3 = p_img3;
+	}
+
+	public String getP_img4() {
+		return p_img4;
+	}
+
+	public void setP_img4(String p_img4) {
+		this.p_img4 = p_img4;
 	}
 
 	public int getS_price() {
@@ -128,10 +155,10 @@ public class ProductVo {
 
 	@Override
 	public String toString() {
-		return "ProductVo [pno=" + pno + ", m_id=" + m_id + ", p_name=" + p_name + ", p_img=" + p_img + ", s_price="
-				+ s_price + ", p_price=" + p_price + ", p_info=" + p_info + ", p_brand=" + p_brand + ", p_until="
-				+ p_until + ", p_progress=" + p_progress + ", p_state=" + p_state + ", b_name=" + b_name + ", bid_cnt="
-				+ bid_cnt + "]";
+		return "ProductVo [pno=" + pno + ", m_id=" + m_id + ", p_name=" + p_name + ", p_img1=" + p_img1 + ", p_img2="
+				+ p_img2 + ", p_img3=" + p_img3 + ", p_img4=" + p_img4 + ", s_price=" + s_price + ", p_price=" + p_price
+				+ ", p_info=" + p_info + ", p_brand=" + p_brand + ", p_until=" + p_until + ", p_progress=" + p_progress
+				+ ", p_state=" + p_state + ", b_name=" + b_name + ", bid_cnt=" + bid_cnt + "]";
 	}
 
 }

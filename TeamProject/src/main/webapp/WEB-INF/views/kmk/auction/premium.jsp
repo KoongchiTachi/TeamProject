@@ -236,12 +236,12 @@
 					<div class="title" >${premium.b_name}</div>
 					<div class="p_logo">
 						<img alt="premium" src="/resources/img/logo/premium_icon.png">
-						<button id="swapHeart" class="btn btn-secondary swap"><span class="glyphicon glyphicon-heart-empty"></span></button>
-					</div>
-					<div class="banner-img"> 
-						<img style="width: 85%;" src="/resources/img/bag/${premium.p_img}" alt="Image 1"> 
+						<!-- <button id="swapHeart" class="btn btn-secondary swap"><span class="glyphicon glyphicon-heart-empty"></span></button> -->
 					</div> 
-					<div class="dates"> 
+					<div class="banner-img"> 
+						<img style="width: 85%;" src="/resources/img/bag/${premium.p_img1}" alt="Image 1"> 
+					</div>  
+					<div class="dates">    
 						<div class="start" id="countdown" data-until="${premium.p_until}"></div> 
 					</div>
 					<div class="stats s_price"> 

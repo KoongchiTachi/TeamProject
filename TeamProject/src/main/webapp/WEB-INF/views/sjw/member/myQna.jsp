@@ -39,9 +39,12 @@ $(function() {
 		alert("1:1문의 등록 성공");
 	}
 	
-	
 	$(".btnDelete").click(function() { 
 		//console.log("클릭");
+		var r = confirm("삭제하시겠습니까?");
+		if (r == false) {
+			return;
+		}
 		var that = $(this);
 		var qno = that.attr("data-qno");
 		var sendData = {
@@ -53,11 +56,9 @@ $(function() {
 			"url" : url,
 			"data" : sendData,
 			"success" : function(result) {
-			if (confirm("문의글을 삭제하시겠습니까?")) {
-					alert("삭제되었습니다.");
- 					that.parent().parent().parent().prev().hide(500);
- 					that.parent().parent().parent().hide(500);
-				}
+				alert("삭제되었습니다.");
+ 				that.parent().parent().parent().prev().hide(500);
+ 				that.parent().parent().parent().hide(500);
 			},
 			"error" : function(data) {
 				alert("답변이 있는 게시물은 삭제할 수 없습니다.");

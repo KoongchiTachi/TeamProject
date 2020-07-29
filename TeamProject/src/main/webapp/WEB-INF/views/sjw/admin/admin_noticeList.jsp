@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/WEB-INF/views/include/sidebarHeader.jsp"%>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 <style>
 .pagination > li > a {
 	background-color : white;
@@ -17,11 +18,52 @@ $(function() {
 		
 		var msg = "${msg}";
 		if (msg == "insertSuccess") {
-			alert("공지사항 등록 성공");
+			alert("등록되었습니다.");
 		}
 		if (msg == "deleteSuccess") {
-			alert("공지사항 삭제 성공");
+			alert("삭제되었습니다.");
 		}
+		
+		$("#chkAll").click(function() {
+			var chk = $(this).prop("checked");
+			if (chk) {
+				$(".chkNotice").prop("checked", true);
+			} else {
+				$(".chkNotice").prop("checked", false);
+			}
+		});
+		$(".chkNotice").click(function() {
+			$("#chkAll").prop("checked", false);
+		});
+		
+		$("#btnCheck").click(function() {
+			var checkArr = new Array();
+			$(".chkNotice:checked").each(function() {			
+				checkArr.push($(this).attr("data-nno"));
+			});
+			if (checkArr == null || checkArr == "") {
+				alert("선택된 글이 없습니다.");
+				return;
+			}
+			var r = confirm("삭제하시겠습니까?");
+			if (r == false) {
+				return;
+			}
+			var url = "/sjw/admin/admin_noticeDeleteChk";
+			$.ajax({
+				"type" : "post",
+				"url" : url,
+				"data" : { chbox : checkArr },
+				"success" : function(result) {
+					alert("삭제되었습니다.");
+					$(".chkNotice:checked").parent().parent().hide();
+				},
+				"error" : function(data) {
+					alert("에러가 발생했습니다.");
+					return false;
+				}
+			});
+		});
 	
 	// 검색
 	$("#btnSearch").click(function () {
@@ -93,15 +135,17 @@ $(function() {
 							</form>
 					<table class="table table-hover" style="border-top: 3px solid #979697; border-bottom: 3px solid #979697;" >
 						<thead>
-							<tr>
-								<th>글번호</th>
+							<tr style="text-align: center;">
+								<th style="width: 100px;"><input type="checkbox" id="chkAll"></th>
+								<th style="width: 100px;">글번호</th>
 								<th>제목</th>
 								<th>작성일</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach items="${list}" var="noticeVo">
-								<tr>
+								<tr style="text-align: center;">
+									<td><input type="checkbox" class="chkNotice" data-nno="${noticeVo.nno}"></td>
 									<td>${noticeVo.nno}</td>
 									<td><a href="/sjw/admin/admin_noticeRead" class="n_title" style="color: #525252;" data-nno="${noticeVo.nno}">${noticeVo.n_title}</a></td>
 									<td>${noticeVo.n_date}</td>
@@ -110,7 +154,7 @@ $(function() {
 						</tbody>
 					</table>
 					<div class="row">
-						<div class="col-md-11">
+						<div class="col-md-10">
 							<nav>
 								<ul class="pagination">
 									<!-- 이전 -->
@@ -143,10 +187,9 @@ $(function() {
 								</ul>
 							</nav>
 						</div>
-						<div class="col-md-1">
-							<p>
-								<a class="btn btn-secondary" href="/sjw/admin/admin_noticeForm">글쓰기</a>
-							</p>
+						<div class="col-md-2">
+							<button type="button" class="btn btn-secondary" id="btnCheck">삭제</button>
+							<a class="btn btn-secondary" href="/sjw/admin/admin_noticeForm">글쓰기</a>
 						</div>
 					</div>
 				</div>

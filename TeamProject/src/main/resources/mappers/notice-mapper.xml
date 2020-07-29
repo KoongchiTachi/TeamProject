@@ -5,7 +5,7 @@
 
 <mapper namespace="mappers.notice-mapper">
 	
-	<!-- 공지사항 목록 페이징 -->
+	<!-- 공지사항 목록 (페이징) -->
 	<select id="noticeList" resultType="NoticeVo">
 		select *
 			from (select rownum rnum, a.* 
@@ -15,17 +15,11 @@
 		where rnum between #{startRow} and #{endRow}
 	</select>
 	
-	<!-- 게시글 갯수 -->
+	<!-- 게시글 수 -->
 	<select id="getCount" resultType="int">
 		select count(*) from tbl_notice
 		<include refid="search"></include>
 	</select>
-	
-	<!-- 공지사항 입력 (관리자) -->
-	<insert id="noticeInsert">
-		insert into tbl_notice (nno, n_title, n_content)
-		values (seq_nno.nextval, #{n_title}, #{n_content})	
-	</insert>
 	
 	<!-- 공지사항 내용보기 -->
 	<select id="noticeRead" resultType="NoticeVo">
@@ -33,7 +27,13 @@
 		where nno = #{nno}
 	</select>
 	
-	<!-- 공지사항 수정 (관리자) -->
+	<!-- 공지사항 입력 - 관리자 -->
+	<insert id="noticeInsert">
+		insert into tbl_notice (nno, n_title, n_content)
+		values (seq_nno.nextval, #{n_title}, #{n_content})	
+	</insert>
+	
+	<!-- 공지사항 수정 - 관리자 -->
 	<update id="noticeUpdate">
 		update tbl_notice set
 			n_title = #{n_title},
@@ -41,8 +41,14 @@
 		where nno = #{nno}
 	</update>
 	
-	<!-- 공지사항 삭제 (관리자) -->
+	<!-- 공지사항 삭제 - 관리자 -->
 	<delete id="noticeDelete">
+		delete from tbl_notice
+		where nno = #{nno}
+	</delete>
+	
+	<!-- 공지사항 삭제 (체크박스) - 관리자 -->
+	<delete id="noticeDeleteChk">
 		delete from tbl_notice
 		where nno = #{nno}
 	</delete>
@@ -55,13 +61,6 @@
 	</update>
 	
 	<!-- 검색 -->
-<!-- 	<sql id="search"> -->
-<!-- 		<if test="keyword != null"> -->
-<!-- 			where n_title like '%' || #{keyword} || '%' -->
-<!-- 			or n_content like '%' || #{keyword} || '%' -->
-<!-- 		</if> -->
-<!-- 	</sql> -->
-	
 		<sql id="search">
 		<if test="searchType != null">
 			<choose>

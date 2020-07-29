@@ -12,7 +12,6 @@ $(function() {
         .submit();
 	});
 	
-	// 수정 완료 버튼
 	$("#noticeUpdate").submit(function() {
 		$("#adminFrmPageN > input").prependTo("#noticeUpdate");
 		$("#noticeUpdate").submit();

@@ -6,8 +6,9 @@ import com.kh.team.domain.FaqVo;
 
 public interface FaqDao {
 	
-	// faq 목록 - 페이징
+	// faq 목록 (페이징)
 	public List<FaqVo> faqList(FaqPagingDto faqPagingDto) throws Exception;
+	
 	// 게시글 수
 	public int getCount(FaqPagingDto faqPagingDto) throws Exception;
 	
@@ -25,13 +26,16 @@ public interface FaqDao {
 	// faq 내용보기
 	public FaqVo faqRead(int fno) throws Exception;
 	
-	// faq 입력
+	// faq 입력 - 관리자
 	public void faqInsert(FaqVo faqVo) throws Exception;
 	
-	// faq 수정
+	// faq 수정 - 관리자
 	public void faqUpdate(FaqVo faqVo) throws Exception;
 	
-	// faq 삭제
+	// faq 삭제 - 관리자
 	public void faqDelete(int fno) throws Exception;
+	
+	// faq 삭제 (체크박스) - 관리자
+	public void faqDeleteChk(FaqVo fnos) throws Exception;
 
 }

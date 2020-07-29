@@ -6,6 +6,7 @@
 <script>
 $(function() {
 	
+	// 취소 버튼
 	$("#btnCancel").click(function(e) {
 		e.preventDefault();
 		$("#adminFrmPageF").attr("action", $(this).attr("href"))

@@ -7,7 +7,7 @@ $(function() {
 	
 	var msg = "${msg}";
 	if (msg == "updateSuccess") {
-		alert("FAQ 수정 성공");
+		alert("수정되었습니다.");
 	}
 	
 	// 목록
@@ -25,7 +25,9 @@ $(function() {
 	// 삭제
 	$("#btnDelete").click(function(e) {
 		e.preventDefault();
+		if (confirm("삭제하시겠습니까?")) {
 		$("#adminFrmPageF").attr("action", $(this).attr("href")).submit();
+		}
 	});
 	
 });	

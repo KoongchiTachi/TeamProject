@@ -16,7 +16,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Inject
 	private NoticeDao noticeDao;
 	
-	// 공지사항 목록
+	// 공지사항 목록 (페이징)
 	@Override
 	public List<NoticeVo> noticeList(NoticePagingDto noticePagingDto) throws Exception {
 		return noticeDao.noticeList(noticePagingDto);
@@ -36,22 +36,28 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeVo;
 	}
 
-	// 공지사항 입력
+	// 공지사항 입력 - 관리자
 	@Override
 	public void noticeInsert(NoticeVo noticeVo) throws Exception {
 		noticeDao.noticeInsert(noticeVo);
 	}
 
-	// 공지사항 수정
+	// 공지사항 수정 - 관리자
 	@Override
 	public void noticeUpdate(NoticeVo noticeVo) throws Exception {
 		noticeDao.noticeUpdate(noticeVo);
 	}
 
-	// 공지사항 삭제
+	// 공지사항 삭제 - 관리자
 	@Override
 	public void noticeDelete(int nno) throws Exception {
 		noticeDao.noticeDelete(nno);
  	}
+
+	// 공지사항 삭제 (체크박스) - 관리자
+	@Override
+	public void noticeDeleteChk(NoticeVo nnos) throws Exception {
+		noticeDao.noticeDeleteChk(nnos);
+	}
 
 }

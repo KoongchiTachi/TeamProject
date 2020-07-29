@@ -7,7 +7,7 @@ $(function() {
 	
 	var msg = "${msg}";
 	if (msg == "updateSuccess") {
-		alert("공지사항 수정 성공");
+		alert("수정되었습니다.");
 	}
 	
 	// 목록

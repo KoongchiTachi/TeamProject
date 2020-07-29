@@ -5,7 +5,7 @@
 
 <mapper namespace="mappers.faq-mapper">
 	
-	<!-- faq 목록 페이징 -->
+	<!-- faq 목록 (페이징) -->
 	<select id="faqList" resultType="FaqVo">
 		select *
 			from (select rownum rnum, a.* 
@@ -15,7 +15,7 @@
 		where rnum between #{startRow} and #{endRow}
 	</select>
 	
-	<!-- 게시글수 -->
+	<!-- 게시글 수 -->
 	<select id="getCount" resultType="int">
 		select count(*) from tbl_faq
 		<include refid="search"></include>
@@ -51,19 +51,19 @@
 		where f_cate = 'f1005'
 	</select>
 	
-	<!-- faq 입력 -->
-	<insert id="faqInsert">
-		insert into tbl_faq (fno, f_title, f_content, f_cate)
-		values (seq_fno.nextval, #{f_title}, #{f_content}, #{f_cate})	
-	</insert>
-	
 	<!-- faq 내용보기 -->
 	<select id="faqRead" resultType="FaqVo">
 		select * from tbl_faq
 		where fno = #{fno}
 	</select>
 	
-	<!-- faq 수정 -->
+	<!-- faq 입력 - 관리자 -->
+	<insert id="faqInsert">
+		insert into tbl_faq (fno, f_title, f_content, f_cate)
+		values (seq_fno.nextval, #{f_title}, #{f_content}, #{f_cate})	
+	</insert>
+	
+	<!-- faq 수정 - 관리자 -->
 	<update id="faqUpdate">
 		update tbl_faq set
 			f_title = #{f_title},
@@ -72,20 +72,19 @@
 		where fno = #{fno}
 	</update>
 	
-	<!-- faq 삭제 -->
+	<!-- faq 삭제 - 관리자 -->
 	<delete id="faqDelete">
 		delete from tbl_faq
 		where fno = #{fno}
 	</delete>
 	
-	<!-- 검색 -->
-<!-- 	<sql id="search"> -->
-<!-- 		<if test="keyword != null"> -->
-<!-- 			where f_title like '%' || #{keyword} || '%' -->
-<!-- 			or f_content like '%' || #{keyword} || '%' -->
-<!-- 		</if> -->
-<!-- 	</sql> -->
+	<!-- faq 삭제 (체크박스) - 관리자 -->
+	<delete id="faqDeleteChk">
+		delete from tbl_faq
+		where fno = #{fno}
+	</delete>
 	
+	<!-- 검색 -->
 	<sql id="search">
 		<if test="searchType != null">
 			<choose>

@@ -14,11 +14,12 @@ public class FaqServiceImpl implements FaqService {
 	@Inject
 	private FaqDao faqDao;
 
-	// faq 목록 - 페이징
+	// faq 목록 (페이징)
 	@Override
 	public List<FaqVo> faqList(FaqPagingDto faqPagingDto) throws Exception {
 		return faqDao.faqList(faqPagingDto);
 	}
+	
 	// 게시글 수
 	@Override
 	public int getCount(FaqPagingDto faqPagingDto) throws Exception {
@@ -63,22 +64,28 @@ public class FaqServiceImpl implements FaqService {
 		return faqVo;
 	}
 
-	// faq 입력
+	// faq 입력 - 관리자
 	@Override
 	public void faqInsert(FaqVo faqVo) throws Exception {
 		faqDao.faqInsert(faqVo);
 	}
 
-	// faq 수정
+	// faq 수정 - 관리자
 	@Override
 	public void faqUpdate(FaqVo faqVo) throws Exception {
 		faqDao.faqUpdate(faqVo);
 	}
 
-	// faq 삭제
+	// faq 삭제 - 관리자
 	@Override
 	public void faqDelete(int fno) throws Exception {
 		faqDao.faqDelete(fno);
+	}
+	
+	// faq 삭제 (체크박스) - 관리자
+	@Override
+	public void faqDeleteChk(FaqVo fnos) throws Exception {
+		faqDao.faqDeleteChk(fnos);
 	}
 
 }

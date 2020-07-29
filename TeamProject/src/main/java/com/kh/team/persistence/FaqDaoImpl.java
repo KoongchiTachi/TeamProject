@@ -16,12 +16,13 @@ public class FaqDaoImpl implements FaqDao {
 	@Inject
 	private SqlSession sqlSession;
 	
-	// faq 목록 - 페이징
+	// faq 목록 (페이징)
 	@Override
 	public List<FaqVo> faqList(FaqPagingDto faqPagingDto) throws Exception {
 		List<FaqVo> list = sqlSession.selectList(NAMESPACE + "faqList", faqPagingDto);
 		return list;
 	}
+	
 	// 게시글 수
 	@Override
 	public int getCount(FaqPagingDto faqPagingDto) throws Exception {
@@ -60,22 +61,28 @@ public class FaqDaoImpl implements FaqDao {
 		return sqlSession.selectOne(NAMESPACE + "faqRead", fno);
 	}
 
-	// faq 입력
+	// faq 입력 - 관리자
 	@Override
 	public void faqInsert(FaqVo faqVo) throws Exception {
 		sqlSession.insert(NAMESPACE + "faqInsert", faqVo);
 	}
 
-	// faq 수정
+	// faq 수정 - 관리자
 	@Override
 	public void faqUpdate(FaqVo faqVo) throws Exception {
 		sqlSession.update(NAMESPACE + "faqUpdate", faqVo);
 	}
 
-	// faq 삭제
+	// faq 삭제 - 관리자
 	@Override
 	public void faqDelete(int fno) throws Exception {
 		sqlSession.delete(NAMESPACE + "faqDelete", fno);
+	}
+	
+	// faq 삭제 (체크박스) - 관리자
+	@Override
+	public void faqDeleteChk(FaqVo fnos) throws Exception {
+		sqlSession.delete(NAMESPACE + "faqDeleteChk", fnos);
 	}
 
 }

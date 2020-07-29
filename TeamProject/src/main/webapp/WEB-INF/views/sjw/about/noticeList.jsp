@@ -49,8 +49,9 @@ $(function() {
 	
 	// 검색
 	$("#btnSearch").click(function () {
+		var searchType = $("select[name=searchType]").val();
 		var keyword = $("#keyword").val();
-		console.log("keyword: " + keyword);
+		$("#frmPage > input[name=searchType]").val(searchType);
 		$("#frmPage > input[name=keyword]").val(keyword);
 		$("#frmPage").submit();
 	});
@@ -127,6 +128,17 @@ $(function() {
 								<div class="col-md-5">
 									<div class="blog-right">
 										<div class="blog-search">
+											<select class="mdb-select md-form colorful-select dropdown-primary" name="searchType" style="width: 100px; height: 42px; border: none; border-bottom: 1px solid gray;">
+												<option value="tc"
+													<c:if test="${noticePagingDto.searchType == 'tc'}">selected</c:if>
+												>전체</option>
+												<option value="t"
+													<c:if test="${noticePagingDto.searchType == 't'}">selected</c:if>
+												>제목</option>
+												<option value="c"
+													<c:if test="${noticePagingDto.searchType == 'c'}">selected</c:if>
+												>내용</option>
+											</select>&nbsp;
 											<input type="text" id="keyword" name="keyword" placeholder="제목/내용 입력" value="${noticePagingDto.keyword}">
 											<button type="button" id="btnSearch">검색</button>
 										</div>

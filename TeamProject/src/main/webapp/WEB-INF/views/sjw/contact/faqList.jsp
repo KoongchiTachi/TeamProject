@@ -87,7 +87,9 @@
 $(function() {
 	
 	$("#btnSearch").click(function () {
+		var searchType = $("select[name=searchType]").val();
 		var keyword = $("#keyword").val();
+		$("#frmPage > input[name=searchType]").val(searchType);
 		$("#frmPage > input[name=keyword]").val(keyword);
 		$("#frmPage").submit();
 	});
@@ -112,6 +114,7 @@ $(function() {
 	<input type="hidden" name="fno" value="${faqVo.fno}"/>
 	<input type="hidden" name="page" value="${faqPagingDto.page}"/>
 	<input type="hidden" name="perPage" value="${faqPagingDto.perPage}"/>
+	<input type="hidden" name="searchType" value="${faqPagingDto.searchType}"/>
 	<input type="hidden" name="keyword" value="${faqPagingDto.keyword}"/>
 </form> 
 <section class="contact-section spad">
@@ -172,6 +175,17 @@ $(function() {
 				<div class="col-md-5">
 					<div class="blog-right">
 						<div class="blog-search">
+							<select class="mdb-select md-form colorful-select dropdown-primary" name="searchType" style="width: 100px; height: 42px; border: none; border-bottom: 1px solid gray;">
+								<option value="tc"
+									<c:if test="${faqPagingDto.searchType == 'tc'}">selected</c:if>
+								>전체</option>
+								<option value="t"
+									<c:if test="${faqPagingDto.searchType == 't'}">selected</c:if>
+								>제목</option>
+								<option value="c"
+									<c:if test="${faqPagingDto.searchType == 'c'}">selected</c:if>
+								>내용</option>
+							</select>&nbsp;
 							<input type="text" id="keyword" name="keyword"
 								placeholder="제목/내용 입력" value="${faqPagingDto.keyword}">
 							<button type="button" id="btnSearch">검색</button>

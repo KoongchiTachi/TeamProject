@@ -30,6 +30,8 @@ h2 {
 						<th>휴대전화</th>
 						<th>주소</th>
 						<th>이메일</th>
+						<th>등급</th>
+						<th>거래횟수</th>
 						<th>경고누적수</th>
 						<th>삭제</th>
 					</tr>
@@ -42,7 +44,13 @@ h2 {
 							<td>${memberVo.m_phone}</td>
 							<td>${memberVo.m_address} ${memberVo.m_address2}</td>
 							<td>${memberVo.m_email}</td>
-							<td>컬럼 하나 파기</td>
+							<c:choose>
+								<c:when test="${memberVo.m_grade == 'g1001'}"><td>prime</td></c:when>
+								<c:when test="${memberVo.m_grade == 'g1002'}"><td>vip</td></c:when>
+								<c:otherwise><td>vvip</td></c:otherwise>
+							</c:choose>
+							<td>${memberVo.m_trade}</td>
+							<td>${memberVo.m_warn}</td>
 							<td><button type="button" class="btn btn-sm btn-danger">회원 삭제</button></td>
 						</tr>
 					</c:forEach>

@@ -65,6 +65,10 @@ $(function() {
 		$(".chkWish:checked").each(function() {			
 			checkArr.push($(this).attr("data-wno"));
 		});
+		if (checkArr == null || checkArr == "") {
+			alert("상품을 선택해주십시오.");
+			return;
+		}
 		
 		var url = "/kjy/member/deleteWishMulti";
 		$.ajax({

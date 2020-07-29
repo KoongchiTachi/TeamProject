@@ -53,6 +53,7 @@
 			<beans:ref bean="authInterceptor"/>
 		</interceptor>
 		<interceptor>
+			<mapping path="/admin"/>
 			<mapping path="/kjy/admin/**/*"/>
 			<mapping path="/sjw/admin/**/*"/>
 			<beans:ref bean="adminInterceptor"/>

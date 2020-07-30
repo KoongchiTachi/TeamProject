@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.kh.team.domain.AdminMemberListPagingDto;
 import com.kh.team.domain.MemberVo;
 
 @Repository
@@ -30,8 +31,8 @@ public class MemberDaoImple implements MemberDao {
 	
 	// 관리자 - 전체 멤버 목록
 	@Override
-	public List<MemberVo> memberList() throws Exception {
-		return sqlSession.selectList(NAMESPACE + "memberList");
+	public List<MemberVo> memberList(AdminMemberListPagingDto adminMemberListPagingDto) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "memberList", adminMemberListPagingDto);
 	}
 
 	@Override
@@ -64,6 +65,12 @@ public class MemberDaoImple implements MemberDao {
 	@Override
 	public void deleteMember(String m_id) throws Exception {
 		sqlSession.delete(NAMESPACE + "adminDeleteMember", m_id);
+	}
+
+	// 관리자 - 전체 멤버 수
+	@Override
+	public int getCount(AdminMemberListPagingDto adminMemberListPagingDto) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getCount", adminMemberListPagingDto);
 	}
 
 }

@@ -11,8 +11,12 @@
 	</select>
 	
 	<select id="memberList" resultType="MemberVo">
-		select * from tbl_member
-		order by m_warn desc, join_date desc
+		select * 
+		from (select rownum rnum, a.*
+			  from (select * from tbl_member m
+			  		<include refid="search"></include>
+                    order by m_warn asc, join_date desc) a)
+		where rnum between #{startRow} and #{endRow}
 	</select>
 	
 	<insert id="insertMember">
@@ -54,5 +58,51 @@
 		delete from tbl_member
 		where m_id = #{m_id}
 	</delete>
+	
+	<select id="getCount" resultType="int">
+		select count(*) from tbl_member
+		<include refid="count"></include>
+	</select>
+	
+	<!-- 페이징 검색 -->
+	<sql id="search">
+		<if test="searchType != null">
+			<choose>
+				<when test='searchType == "g"'>
+				</when>
+				<when test='searchType == "g1001"'>
+					, code_grade c
+					where c.g_code = m.m_grade and m.m_grade like '%' || #{searchType} || '%'
+				</when>
+				<when test='searchType == "g1002"'>
+					, code_grade c
+					where c.g_code = m.m_grade and m.m_grade like '%' || #{searchType} || '%'
+				</when>
+				<when test='searchType == "g1003"'>
+					, code_grade c
+					where c.g_code = m.m_grade and m.m_grade like '%' || #{searchType} || '%'
+				</when>
+			</choose>
+		</if>
+	</sql>
+	
+	<!-- 페이징 카운트 -->
+	<sql id="count">
+		<if test="searchType != null">
+			<choose>
+				<when test='searchType == "g"'>
+				</when>
+				<when test='searchType == "g1001"'>
+					where m_grade = #{searchType}
+				</when>
+				<when test='searchType == "g1002"'>
+					where m_grade = #{searchType}
+				</when>
+				<when test='searchType == "g1003"'>
+					where m_grade = #{searchType}
+				</when>
+			</choose>
+		</if>
+	</sql>
 
 </mapper>

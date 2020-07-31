@@ -28,7 +28,6 @@ public class AdminMemberListController {
 		adminMemberListPagingDto.setPageInfo();
 		int totalCount = memberService.getCount(adminMemberListPagingDto);
 		adminMemberListPagingDto.setTotalCount(totalCount);
-		System.out.println("adminMemberListPagingDto:" + adminMemberListPagingDto);
 		List<MemberVo> list = memberService.memberList(adminMemberListPagingDto);
 		model.addAttribute("list", list);
 		model.addAttribute("adminMemberListPagingDto", adminMemberListPagingDto);

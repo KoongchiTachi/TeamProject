@@ -35,20 +35,31 @@ function changeSelect() {
 
 <script>
 $(function() {
-	// 회원 삭제
+	// 회원 삭제 모달창
 	$(".btnDel").click(function() {
 		var that = $(this);
-		var m_id = that.attr("data-id");
-		var sendData = {
-			"m_id" : m_id	
-		};
-		var url = "/kjy/admin/deleteMember";
-		$.get(url, sendData, function(rData) {
-			if (rData == "success") {
-				alert("회원을 삭제하였습니다.");
-				that.parent().parent().hide();
-			}
+		var m_id = $(this).attr("data-id");
+		var td = that.parent().parent().find("td");
+		var grade = td.eq(5).text();
+		var trade = td.eq(6).text();
+		$("#modal_id").val(m_id);
+		$("#modal_grade").val(grade);
+		$("#modal_trade").val(trade);
+	
+		$("#btnModal").click(function() {
+			var m_id = $("#modal_id").val();
+			var sendData = { 
+				"m_id" : m_id
+			};
+			var url = "/kjy/admin/deleteMember";
+			$.get(url, sendData, function(rData) {
+				if (rData == "success") {
+					that.parent().parent().hide("slow");
+					$("#btnCancelModal").trigger("click");
+				}
+			});
 		});
+	
 	});
 	
 	// 등급으로 검색
@@ -118,7 +129,6 @@ $(function() {
 						<th>이메일</th>
 						<th>등급</th>
 						<th>거래횟수</th>
-						<th>경고누적수</th>
 						<th>삭제</th>
 					</tr>
 				</thead>
@@ -136,8 +146,8 @@ $(function() {
 								<c:otherwise><td>vvip</td></c:otherwise>
 							</c:choose>
 							<td>${memberVo.m_trade}</td>
-							<td>${memberVo.m_warn}</td>
-							<td><button type="button" class="btn btn-sm btn-secondary btnDel" data-id="${memberVo.m_id}">회원 삭제</button></td>
+							<td><a id="modal-42884" href="#modal-container-42884" role="button" class="btn btn-sm btn-secondary btnDel" data-toggle="modal" data-id="${memberVo.m_id}">회원 삭제</a></td>
+<%-- 							<button type="button" class="btn btn-sm btn-secondary btnDel" data-id="${memberVo.m_id}" data-toggle="modal" data-target="#modal-42884">회원 삭제</button> --%>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -187,11 +197,11 @@ $(function() {
 	
 	<!-- 회원 삭제 모달 창 -->
 	<div class="row">
-		<div class="col-md-12">
-			<a id="modal-42884" href="#modal-container-42884" role="button" class="btn" data-toggle="modal" style="visibility: hidden;">Launch demo modal</a>
+		<div class="col-md-12" style="min-height: 5vh;">
+			<!-- <a id="modal-42884" href="#modal-container-42884" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
 			<div class="modal fade" id="modal-container-42884" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
-					<div class="modal-content">
+					<div class="modal-content del">
 						<div class="modal-header">
 							<h5 class="modal-title" id="myModalLabel">
 								회원 삭제
@@ -201,15 +211,23 @@ $(function() {
 							</button>
 						</div>
 						<div class="modal-body">
-							정말 삭제 하시겠습니까?
+							<label for="modal_id" style="width : 30%; float: left; margin-top : 7px;">아이디</label>
+							<input type="text" value="" id="modal_id" class="form-control" style="width : 60%;"/><br/>
+							<label for="modal_grade" style="width : 30%; float: left; margin-top : 7px;">등급</label>
+							<input type="text" value="" id="modal_grade" class="form-control" style="width : 60%;"/><br/>
+							<label for="modal_trade" style="width : 30%; float: left; margin-top : 7px;">거래횟수</label>
+							<input type="text" value="" id="modal_trade" class="form-control" style="width : 60%;"/>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-primary">
-								확인
-							</button> 
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">
-								취소
-							</button>
+							<a class="col-sm-6 text-left">회원을 삭제하시겠습니까?</a>
+							<div class="col-sm-6 text-right">
+								<button type="button" class="btn btn-primary" id="btnModal">
+									확인
+								</button> 
+								<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelModal">
+									취소
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -231,39 +231,6 @@ $(function() {
 			</c:when>
 		</c:choose>
 
-	<!-- 회원 삭제 모달 창 -->
-	<div class="row">
-		<div class="col-md-12">
-			<a id="modal-42884" href="#modal-container-42884" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
-			<div class="modal fade" id="modal-container-42884" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="myModalLabel">
-								회원 삭제
-							</h5> 
-							<button type="button" class="close" data-dismiss="modal">
-								<span aria-hidden="true">×</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							정말 삭제 하시겠습니까?
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-primary">
-								확인
-							</button> 
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">
-								취소
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 회원 삭제 모달 창 -->
-
 	</div>
 </div>
 

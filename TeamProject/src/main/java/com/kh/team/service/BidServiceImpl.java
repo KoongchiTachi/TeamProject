@@ -10,16 +10,21 @@ import com.kh.team.domain.BidListPagingDto;
 import com.kh.team.domain.BidVo;
 import com.kh.team.domain.SuccessBidPagingDto;
 import com.kh.team.persistence.BidDao;
+import com.kh.team.persistence.ProductDao;
 
 @Service
-public class BidServiceImple implements BidService {
+public class BidServiceImpl implements BidService {
 
 	@Inject
 	private BidDao bidDao;
 	
+	@Inject
+	private ProductDao productDao;
+	
 	@Override
-	public void insertBid(BidVo bidVo) throws Exception {
+	public void insertBid(BidVo bidVo, String pno) throws Exception {
 		bidDao.insertBid(bidVo);
+		productDao.updateP_price(pno);
 	}
 
 	@Override

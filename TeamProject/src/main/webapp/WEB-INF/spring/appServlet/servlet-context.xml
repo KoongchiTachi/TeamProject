@@ -30,7 +30,6 @@
 	<!-- 업로드 경로 -->
 	<!-- String uploadPath = new String("D:/upload") -->
 	<beans:bean id="uploadPath" class="java.lang.String">
-	
 <!-- 		<beans:constructor-arg value="D:\Team"/>  -->
 		<beans:constructor-arg value="//192.168.0.225/Team"/>
 	</beans:bean>

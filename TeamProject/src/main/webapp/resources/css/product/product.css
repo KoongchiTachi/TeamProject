@@ -64,8 +64,8 @@ li {
 	font-weight: 900;
 }
 
-.pd-b10 {
-	padding-bottom: 10px;
+.pd-b12 {
+/* 	padding-bottom: 10px; */
 	display: block;
 }
 
@@ -97,8 +97,8 @@ li {
 }
 
 .bid-number {
-	height: 34px;
-	width: 34px;
+	height: 40px;
+	width: 40px; 
 	background: #fff;
 	color: #000;
 	border: 1px solid #d9d9d9 !important;
@@ -277,7 +277,7 @@ li {
 	max-width: 600px;
 	position: absolute !important; /* */
 	left: 50% !important;
-	top: 50% !important;
+	top: 40% !important;  
 	transform: translate(-50%, -50%) !important;
 	width: 45% !important;
 	height: 58% !important;
@@ -1185,6 +1185,7 @@ to {
 	padding: 10px 12px;
 	margin: 0px 0px 0 -1px;
 	height: 37px;
+	cursor: pointer;
 	line-height: 15px
 }
 
@@ -1302,7 +1303,7 @@ to {
 	color: #fff; 
 	border: 1px solid #F9AD81;
 	font-weight: 900;
-	font-size: 14px;
+	font-size: 13px;
 	padding: 8px 0 7px 0 !important;
 }
 
@@ -1471,8 +1472,7 @@ to {
 
 .bidding-box2 {
 	border: 1px solid #d6d6d6;
-	padding: 0px 20px;
-	margin-bottom: 50px;
+	padding: 0px 20px; 
 }
 
 .bidding-box2 h3 {

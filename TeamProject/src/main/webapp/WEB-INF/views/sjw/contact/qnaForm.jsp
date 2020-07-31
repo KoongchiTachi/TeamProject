@@ -233,7 +233,7 @@ $(function() {
 										<br/><br/><br/><br/>
 										<span class="badge badge-default">파일첨부</span>
 										<p class="help-block">
-											<br />※ 10MB 미만의 이미지 파일<br /> 4개까지 첨부 가능합니다.
+											<br/>※ 10MB 미만의 이미지 파일<br /> 4개까지 첨부 가능합니다.
 										</p>
 										<input type="hidden" name="file_name">
 									</div>

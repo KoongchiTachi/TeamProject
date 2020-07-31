@@ -14,7 +14,7 @@ import com.kh.team.domain.BidVo;
 import com.kh.team.domain.SuccessBidPagingDto;
 
 @Repository
-public class BidDaoImple implements BidDao {
+public class BidDaoImpl implements BidDao {
 
 	private static final String NAMESPACE = "mappers.bid-mapper.";
 	

@@ -5,15 +5,18 @@
 <!DOCTYPE html>
 
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/kmk/hideForm.jsp" %>
 
 <link rel="stylesheet" href="/resources/css/product/product.css" type="text/css">
 <link rel="stylesheet" href="/resources/css/product/concept.css" type="text/css">
-<link href="/resources/js/photo-layer/bxslider.css" rel="stylesheet">
+<link href="/resources/js/product/bxslider.css" rel="stylesheet">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/resources/js/photo-layer/bxslider.js"></script>
-<script src="/resources/js/bid_list.js"></script>
-  
-<style> 
+<script src="/resources/js/product/bxslider.js"></script>
+<script src="/resources/js/product/bid_list.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css">
+
+
+<style>  
 .col-lg-offset-1 {
     margin-left: 8.33333333%;
 }
@@ -44,12 +47,6 @@
 
 .btn-artday3 {
 	cursor: pointer;
-}
-
-.cl_th{
-	background-color: #FFF;
-	border-bottom: 1px solid #eee;
-	color: #7d7d7d; 
 }
 
 </style>
@@ -91,31 +88,36 @@
 									style="width: 100%; display: table-cell; vertical-align: middle;">
 										<ul class="th-list lightgallery">
 											<li class="plpl" data-responsive="/resources/img/bag/${productVo.p_img1}"
-												data-src="/resources/img/bag/${productVo.p_img1}" alt="1"><img class=""
-												src="/resources/img/bag/${productVo.p_img1}"/></li>
+												data-src="/resources/img/bag/${productVo.p_img1}" alt="1">
+												<img class="" src="/resources/img/bag/${productVo.p_img1}"/></li>
 											<li class="plpl" data-responsive="/resources/img/bag/${productVo.p_img2}"
-												data-src="/resources/img/bag/${productVo.p_img2}" alt="2"><img class=""
-												src="/resources/img/bag/${productVo.p_img2}"/></li>
+												data-src="/resources/img/bag/${productVo.p_img2}" alt="2">
+												<img class="" src="/resources/img/bag/${productVo.p_img2}"/></li>
 											<li class="plpl" data-responsive="/resources/img/bag/${productVo.p_img3}"
-												data-src="/resources/img/bag/${productVo.p_img3}" alt="3"><img class=""
-												src="/resources/img/bag/${productVo.p_img3}" /></li>
+												data-src="/resources/img/bag/${productVo.p_img3}" alt="3">
+												<img class="" src="/resources/img/bag/${productVo.p_img3}" /></li>
+											<li class="plpl" data-responsive="/resources/img/bag/${productVo.p_img4}"
+												data-src="/resources/img/bag/${productVo.p_img4}" alt="4">
+												<img class="" src="/resources/img/bag/${productVo.p_img4}" /></li>
 										</ul>
 									</a>
-								</div>
+								</div> 
 							</div> 
 						</div>
 						<div class="col-lg-2 col-xs-12 ">
 							<div class="row">
 								<div class="th-body" id="thr">
-									<a data-slide-index="0" class="image"><span class="trick">
-										<img class="img" src="/resources/img/bag/${productVo.p_img1}" alt="1" />
-									</span>
-									</a><a data-slide-index="1" class="image"><span class="trick">
-										<img class="img" src="/resources/img/bag/${productVo.p_img2}" alt="2" />
-									</span>
-									</a> <a data-slide-index="2" class="image"><span class="trick">
-										<img class="img" src="/resources/img/bag/${productVo.p_img3}" alt="3" />
-									</span>
+									<a data-slide-index="0" class="image">
+										<span class="trick"><img class="img" src="/resources/img/bag/${productVo.p_img1}" alt="1"/></span>
+									</a>
+									<a data-slide-index="1" class="image">
+										<span class="trick"><img class="img" src="/resources/img/bag/${productVo.p_img2}" alt="2"/></span>
+									</a> 
+									<a data-slide-index="2" class="image">
+										<span class="trick"><img class="img" src="/resources/img/bag/${productVo.p_img3}" alt="3"/></span>
+									</a>
+									<a data-slide-index="3" class="image">
+										<span class="trick"><img class="img" src="/resources/img/bag/${productVo.p_img4}" alt="4"/></span>
 									</a>
 								</div> 
 							</div>
@@ -138,21 +140,14 @@
 					<div class="row">
 						<div class="detail-right" style="width: 100%;">
 							<div class="goods-info">
-								<h2>${fn:toUpperCase(productVo.b_name)}</h2> 
-								<p class="artist">
+								<h2 style="color: red;">${fn:toUpperCase(productVo.b_name)}</h2> 
+								<p class="artist"> 
 									${productVo.p_name}
 								</p>
 								<p class="product"><strong><!-- <span>No.2007250001</span>--></strong></p>
 								<dl class="product-info">
 									<dd>${productVo.p_info}</dd>
 								</dl>
-								<!-- <div class="detail-check">
-									<label>
-										<div class="aaa">
-											<strong>관심추가</strong><span>마이페이지에서 관심리스트를 확인 할 수 있습니다.</span>
-										</div>
-									</label>
-								</div> -->
 							</div>
 							<div class="goods-value">
 								<p>
@@ -180,8 +175,8 @@
 									</strong>
 								</p> 
 							</div>
-							<div class="goods-button">
-								<div class="row">
+							<div class="goods-button"> 
+								<div class="row" style="font-size: smaller;">
 									<div class="col-lg-5 col-xs-12">
 										<div class="row bt-are">
 											<div class="col-lg-6 col-xs-6 "> 
@@ -198,11 +193,20 @@
 											<div class="col-lg-4 col-xs-4 "></div>
 											<div class="col-lg-8 col-xs-8 ">
 												<button style="width: 100%; display: block" class="btn-artday3 mobile-bbt" data-toggle="modal"
-													data-target="#bid_subscription" type="button" id="bid_bid">응찰</button>
+													type="button" id="bid_bid" href="/kjy/member/login"
+													 <c:choose>
+									                	<c:when test="${not empty sessionScope.m_id}">
+									                		data-target="#bid_subscription"
+									                	</c:when> 
+									                	<c:otherwise>
+									                		onclick="return confirm('로그인 후 응찰이 가능합니다.\n로그인 하시겠습니까?');"
+									                	</c:otherwise>
+									                </c:choose>
+													>응찰</button>
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> 
 							</div>
 						</div>
 					</div>
@@ -330,98 +334,181 @@ $(document).ready(function () {
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="bidding-box2">
-				<div class="row">
-					<div class="col-lg-12 " style="border-right: 1px solid #ddd;">
-						<div class="bid-left">
-							<div class="row">
-								<div class="col-xs-3">
-									<h3>응찰</h3>
-								</div>
-								<div class="col-xs-9">
-									<div class="bding2">
-										<div class="form-group">
-											<div class="row pd-b10">
-												<label for="###" class="col-sm-3 control-label gray-color">남은시간</label>
-												<div class="col-sm-8">
-													<strong class="import-color" id="time"></strong>
-												</div>
-											</div>
-											<div class="row pd-b10">
-												<label for="###" class="col-sm-3 control-label gray-color">시작가</label>
-												<div class="col-sm-8">
-													<strong class="normal-color">100,000원</strong>
-												</div>
-											</div>
-											<div class="row pd-b10">
-												<label for="###" class="col-sm-3 control-label gray-color">현재가</label>
-												<div class="col-sm-8">
-													<strong class="import-color" id="txt_owPriceCurrent">360,000원</strong>
-												</div>
-											</div>
-											<div class="row pd-b10">
-												<label for="###" class="col-sm-3 control-label gray-color">응찰단위</label>
-												<div class="col-sm-8">
-													<strong class="normal-color">20,000원</strong>
-												</div>
-											</div>
-											<div class="row pd-b10">
-												<label for="###" class="col-sm-3 control-label gray-color">응찰금액</label>
-												<div class="col-sm-8">
-													<strong class="import-color"> </strong>
-												</div>
-											</div>
-											<form name="form1" method="post"
-												action="online-auctiuon-bid-proc.php">
-												<input type="hidden" name="owcode" value="OW2007250001">
-												<input type="hidden" name="oacode" value="O2007001">
-												<input type="hidden" name="page" value="1">
-												<div class="input-group ">
-													<input type="text" name="quant[1]"
-														class="form-control input-number"
-														style="font-size: 17px; font-weight: bold;"
-														value="380,000원" min="380000" max="1000000000"
-														id="now_quant" readonly> <span
-														class="input-group-btn">
-														<button type="button" class="btn bid-number btn-number"
-															data-type="plus" data-field="quant[1]">
-															<span class="glyphicon glyphicon-plus"></span>
-														</button>
-													</span> <span class="input-group-btn">
-														<button type="button" class="btn bid-number btn-number"
-															disabled="disabled" data-type="minus"
-															data-field="quant[1]">
-															<span class="glyphicon glyphicon-minus"></span>
-														</button>
-													</span>
-												</div>
-											</div>
-												<div class="bid-button">
-												<div class="">
-													<button class="btn btn-artday2 " style="width: 100%;" data-toggle="modal" href="#bid" 
-													type="button" id="bid_button">응찰하기</button>
-													<div class="modal " id="bid">
-														<div class="bid-dialog " style="">
-															<div class="modal-content">
-																<div class="modal-body"> 
-																	응찰 이후 취소는 Luxion 약관에 의거하여<br> 불이익이 발생할 수 있습니다. <br>
-																	금액을 확인 후 응찰하시겠습니까?
-																</div>
-																<div class="modal-footer">
-																	<a href="#" data-dismiss="modal" class=" bid-cancel " style="color: #333">취소</a>
-																	<a href="javascript:bid_proc();" class=" bid-submit " style="color: #fff;">응찰하기</a>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</form>
-										</div>
+				<div class="row py-5 p-4 bg-white rounded shadow-sm">
+						<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">응찰</div>
+						<div class="p-4">
+							<p class="policy mb-4" style="color: red; font-weight: 900;"> 
+								응찰 이후 취소는 Luxion 약관에 의거하여 불이익이 발생할 수 있습니다. 금액을 확인 후 응찰하시겠습니까?
+							</p> 
+							<ul class="list-unstyled mb-4">
+								<li class="d-flex justify-content-between py-3 border-bottom">
+									<strong class="text-muted">시작가</strong>
+									<strong>
+										<fmt:setLocale value="ko_KR" />
+										<fmt:formatNumber type="currency" value="${productVo.s_price}"/> 원
+									</strong>
+								</li> 
+								<li class="d-flex justify-content-between py-3 border-bottom">
+									<strong class="text-muted">현재가</strong>
+									<strong>
+										<fmt:setLocale value="ko_KR"/>
+										<c:choose>
+											<c:when test="${productVo.p_price != 0}">
+												<fmt:formatNumber type="currency" value="${productVo.p_price}"/>
+											</c:when> 
+											<c:otherwise> 
+												<fmt:formatNumber type="currency" value="${productVo.s_price}"/>
+											</c:otherwise>
+										</c:choose> 원
+									</strong> 
+								</li>
+								<li class="d-flex justify-content-between py-3 border-bottom">
+									<strong class="text-muted">응찰 단위</strong>
+									<strong>
+										<fmt:formatNumber type="currency" value="${unit}"/> 원 
+									</strong>
+								</li>
+								<li class="d-flex justify-content-between py-3 border-bottom">
+									<strong class="text-muted">응찰 금액</strong>
+									<div class="input-group">
+										<input type="text" name="quant[1]" id="bid_price"class="form-control input-number"
+											style="font-size: 17px; font-weight: bold; text-align: right;" 
+												<c:choose>
+													<c:when test="${productVo.p_price == 0}">
+														value="<fmt:formatNumber type="currency" value="${productVo.s_price + unit}"/>"
+													</c:when> 
+													<c:otherwise>
+														value="${productVo.p_price}" 
+													</c:otherwise>
+												</c:choose>
+											min="${productVo.s_price}" max="1000000000" id="now_quant" readonly>
+										<span class="input-group-btn">
+											<button type="button" class="btn bid-number btn-number"
+												data-type="plus" data-field="quant[1]">
+												<span class="mdi mdi-plus"></span>
+											</button>
+										</span> 
+										<span class="input-group-btn">
+											<button type="button" class="btn bid-number btn-number"
+												disabled="disabled" data-type="minus" data-field="quant[1]">
+												<span class="mdi mdi-minus"></span> 
+											</button>
+										</span>
 									</div>
-								</div>
-							</div>
+								</li>
+							</ul>
+							<a href="#" class="btn btn-dark rounded-pill py-2 btn-block">신청</a>
 						</div>
-					</div>
-				</div> 
+				</div>
+				<!-- 				<div class="row">  -->
+<!-- 					<div class="col-lg-12 " style="border-right: 1px solid #ddd;"> -->
+<!-- 						<div class="bid-left">  -->
+<!-- 							<div class="row">  -->
+<!-- 								<div class="col-xs-6"> -->
+<!-- 					 				<h3>응찰</h3>  -->
+<!--  							</div>  -->
+<!-- 								<div class="col-xs-6"> -->
+<!-- 									<div class="bding2"> -->
+<!-- 										<div class="form-group"> -->
+<!-- 											<div class="row pd-b10"> -->
+<!-- 												<label for="###" class="col-sm-6 control-label gray-color">남은시간</label> -->
+<!-- 												<div class="col-sm-6"> -->
+<!-- 													<strong class="import-color" id="time"></strong> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 											<div class="row pd-b10">  -->
+<!-- 												<label for="###" class="col-sm-6 control-label gray-color">시작가</label> -->
+<!-- 												<div class="col-sm-6"> -->
+<!-- 													<strong class="normal-color"> -->
+<%-- 														<fmt:setLocale value="ko_KR" /> --%>
+<%-- 														<fmt:formatNumber type="currency" value="${productVo.s_price}" /> --%>
+<!-- 													</strong> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 											<div class="row pd-b10"> -->
+<!-- 												<label for="###" class="col-sm-6 control-label gray-color">현재가</label> -->
+<!-- 												<div class="col-sm-6"> -->
+<%-- 													<fmt:setLocale value="ko_KR" />  --%>
+<%-- 													<c:choose> --%>
+<%-- 														<c:when test="${productVo.p_price != 0}"> --%>
+<%-- 															<fmt:formatNumber type="currency" value="${productVo.p_price}" /> --%>
+<%-- 														</c:when>  --%>
+<%-- 														<c:otherwise>  --%>
+<%-- 															<fmt:formatNumber type="currency" value="${productVo.s_price}" /> --%>
+<%-- 														</c:otherwise> --%>
+<%-- 													</c:choose> --%>
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 											<div class="row pd-b10"> -->
+<!-- 												<label for="###" class="col-sm-6 control-label gray-color">응찰단위</label> -->
+<!-- 												<div class="col-sm-6"> -->
+<!-- 													<strong class="normal-color"> -->
+<%-- 														<c:choose> --%>
+<%-- 															<c:when test="${productVo.s_price >= 1000000}"> --%>
+<%-- 																<fmt:formatNumber type="currency" value="100000"/>  --%>
+<%-- 															</c:when> --%>
+<%-- 															<c:when test="${productVo.s_price <= 1000000}"> --%>
+<%-- 																<fmt:formatNumber type="currency" value="50000"/> --%>
+<%-- 															</c:when> --%>
+<%-- 														</c:choose> --%>
+<!-- 													</strong> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+<!-- 											<div class="row pd-b10"> -->
+<!-- 												<label for="###" class="col-sm-6 control-label gray-color">응찰금액</label> -->
+<!-- 												<div class="col-sm-6"> -->
+<!-- 													<strong class="import-color"></strong> -->
+<!-- 													<form name="form1" method="post" -->
+<!-- 														action="online-auctiuon-bid-proc.php"> -->
+<!-- 														<input type="hidden" name="owcode" value="OW2007250001"> -->
+<!-- 														<input type="hidden" name="oacode" value="O2007001"> -->
+<!-- 														<input type="hidden" name="page" value="1"> -->
+<!-- 														<div class="input-group "> -->
+<!-- 															<input type="text" name="quant[1]" class="form-control input-number" -->
+<!-- 																style="font-size: 17px; font-weight: bold;" value="380,000원"  -->
+<%-- 																min="${productVo.s_price}" max="1000000000" id="now_quant" readonly> --%>
+<!-- 															<span class="input-group-btn"> -->
+<!-- 																<button type="button" class="btn bid-number btn-number" -->
+<!-- 																	data-type="plus" data-field="quant[1]"> -->
+<!-- 																	<span class="glyphicon glyphicon-plus"></span> -->
+<!-- 																</button> -->
+<!-- 															</span> <span class="input-group-btn"> -->
+<!-- 																<button type="button" class="btn bid-number btn-number" -->
+<!-- 																	disabled="disabled" data-type="minus" data-field="quant[1]"> -->
+<!-- 																	<span class="glyphicon glyphicon-minus"></span> -->
+<!-- 																</button> -->
+<!-- 															</span> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 														<div class="bid-button"> -->
+<!-- 														<div class=""> -->
+<!-- 															<button class="btn btn-artday2 " style="width: 100%;" data-toggle="modal" href="#bid"  -->
+<!-- 															type="button" id="bid_button">응찰하기</button> -->
+<!-- 															<div class="modal " id="bid"> -->
+<!-- 																<div class="bid-dialog " style=""> -->
+<!-- 																	<div class="modal-content"> -->
+<!-- 																		<div class="modal-body">  -->
+<!-- 																			응찰 이후 취소는 Luxion 약관에 의거하여<br> 불이익이 발생할 수 있습니다. <br> -->
+<!-- 																			금액을 확인 후 응찰하시겠습니까? -->
+<!-- 																		</div> -->
+<!-- 																		<div class="modal-footer"> -->
+<!-- 																			<a href="#" data-dismiss="modal" class=" bid-cancel " style="color: #333">취소</a> -->
+<!-- 																			<a href="javascript:bid_proc();" class=" bid-submit " style="color: #fff;">응찰하기</a> -->
+<!-- 																		</div> -->
+<!-- 																	</div> -->
+<!-- 																</div> -->
+<!-- 															</div> -->
+<!-- 														</div> -->
+<!-- 													</div>  -->
+<!-- 												</form> -->
+<!-- 												</div> -->
+<!-- 											</div>  -->
+<!-- 									</div>  -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div>  -->
 			</div>
 		</div>
 	</div>
@@ -460,23 +547,51 @@ $(function() {
 		timer = setInterval(showRemaining, 1000);  
 	}
 	
-	// product apply timer 
+	// product apply timer
 	var that = $("#time"); 
 	var endDate = that.attr("data-until"); 
 	var dateObj = new Date(endDate); 
-	countDownTimer(that, dateObj); 
+	countDownTimer(that, dateObj);
 	
 	// bid list
 	$("#bid_list").click(function() { 
-		bid_list();
+		bid_list(); 
 	});
 	
 	// bid subscription
 	$("#bid_bid").click(function(e) {
-		/* e.preventDefault(); */
-		console.log(pno);
+		var pno = "${productVo.pno}";
+		var b_price;
+		if (${productVo.p_price != 0}) {
+			b_price = ${productVo.p_price} + ${unit};
+		} else {
+			b_price = ${productVo.s_price} + ${unit};
+		}
+		var b_note = "낙찰 예정";
+		var m_id = "<%=session.getAttribute("m_id") %>" 
+		var sendData = {
+				"m_id" : m_id,
+				"b_price" : b_price,
+				"b_note"  : b_note,
+				"pno"	: pno
+		};
+		var url = "/kjy/member/bidSubscription";
+		$.ajax({
+			"type" : "post",
+			"url"  : url,
+			"dataType" 	: "text",
+			"data" : JSON.stringify(sendData),
+			"headers" 	: {
+				"Content-Type"	: "application/json",
+				"X-HTTP-Method-Override"	: "post"
+			},
+			"success"	: function(rData) {
+				console.log(rData);
+				/* $("#btnComment").trigger("click"); */
+			}
+		});	 
 	});
 });
-</script>
+</script> 
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

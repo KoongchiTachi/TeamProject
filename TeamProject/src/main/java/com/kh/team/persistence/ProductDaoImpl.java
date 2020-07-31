@@ -26,10 +26,10 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public void updateProduct() throws Exception {
-
+	public void updateProduct(String pno) throws Exception {
+		
 	}
-
+	
 	@Override
 	public void deleteProduct() throws Exception {
 
@@ -48,10 +48,16 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public List<ProductVo> normalProduct() throws Exception {
-		return null;
-	}
+	public List<ProductVo> normalProduct(int p_value) throws Exception {
+		List<ProductVo> list = sqlSession.selectList(NAMESPACE + "normalProduct", p_value);
+		return list; 
+	} 
 
+	@Override
+	public void updateP_price(String pno) throws Exception {
+		sqlSession.update(NAMESPACE + "updateP_price", pno);
+	}
+	
 	@Override
 	public List<BidVo> bidList(String pno) throws Exception {
 		List<BidVo> list = sqlSession.selectList(NAMESPACE + "bidList", pno);
@@ -78,5 +84,6 @@ public class ProductDaoImpl implements ProductDao {
 	public int bidCountByPno(String pno) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "bidCountByPno", pno);
 	}
+
 
 }

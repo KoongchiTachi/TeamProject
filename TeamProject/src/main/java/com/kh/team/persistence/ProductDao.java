@@ -10,19 +10,21 @@ public interface ProductDao {
 	// 상품 등록
 	public void insertProduct() throws Exception;
 	// 상품 수정
-	public void updateProduct() throws Exception;
+	public void updateProduct(String pno) throws Exception;
 	// 상품 삭제
 	public void deleteProduct() throws Exception;
 	// 상품 내용
 	public ProductVo selectByPno(String pno) throws Exception;
-	// 상품 응찰 카운트
+	// 상품 응찰 횟수
 	public int bidCountByPno(String pno) throws Exception;
-	// 상품 목록 ( 경매 종료 )
+	// 상품 목록 (경매 종료)
 	public List<ProductVo> endProduct(String p_state) throws Exception; 
-	// 상품 목록 ( 프리미엄 )
+	// 상품 목록 (프리미엄)
 	public List<ProductVo> premiumProduct(int p_value) throws Exception;
-	// 상품 목록 ( 일반 )
-	public List<ProductVo> normalProduct() throws Exception;
+	// 상품 목록 (일반)
+	public List<ProductVo> normalProduct(int p_value) throws Exception;
+	// 현재가 변경 (응찰)
+	public void updateP_price(String pno) throws Exception;
 	// 응찰 내역
 	public List<BidVo> bidList(String pno) throws Exception;
 	// 경매상태 변경

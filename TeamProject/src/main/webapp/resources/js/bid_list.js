@@ -15,13 +15,11 @@ function bid_list(){
 					tr.addClass("cl_tr");
 					var th = tr.find("th");
 					var len = this.m_id.length;
-					
 					var m_id = this.m_id.substring(0, len-2) + "**";
-					
 					th.eq(0).text(m_id).contents().unwrap().wrap('<td></td>');
 					th.eq(1).text(this.b_price).contents().unwrap().wrap('<td></td>');
 					th.eq(2).text(this.b_date).contents().unwrap().wrap('<td></td>');
-// 						th.eq(4).text(this.b_note).wrap('<td></td>');  
+					//th.eq(4).text(this.b_note).wrap('<td></td>');  
 					console.log("cl_tr");
 					$("#bid_tr").append(tr);
 				}); 

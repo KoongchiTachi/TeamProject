@@ -44,8 +44,9 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductVo> normalProduct() throws Exception {
-		return null;
+	public List<ProductVo> normalProduct(int p_value) throws Exception {
+		List<ProductVo> list = productDao.normalProduct(p_value);
+		return list;
 	}
 
 	@Override

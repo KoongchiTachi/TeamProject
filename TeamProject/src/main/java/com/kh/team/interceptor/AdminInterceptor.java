@@ -22,7 +22,6 @@ public class AdminInterceptor extends HandlerInterceptorAdapter{
 		} else {
 			return false; // 요청을 계속 진행하지 않음
 		}
-		
 	}
 	
 	@Override

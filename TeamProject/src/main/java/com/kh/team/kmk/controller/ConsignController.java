@@ -15,11 +15,13 @@ public class ConsignController {
 	@Inject 
 	private ConsignService consignService; 
 	
+	// 위탁 신청
 	@RequestMapping(value = "/consign_form", method = RequestMethod.GET)
 	public String consignForm() throws Exception {
 		String test = "testtesttest";
 		return "/kmk/consign/consign_form"; 
-		
-		
 	}
+	
+	// 위탁 신청 안내
+	
 }

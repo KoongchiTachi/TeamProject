@@ -6,8 +6,8 @@
 <mapper namespace="mappers.bid-mapper">
 
 	<insert id="insertBid">
-		insert into tbl_bid(bno, m_id, b_price, b_note, pno)
-		values(seq_bno.nextval, #{m_id}, #{b_price}, #{b_note}, #{pno})
+		insert into tbl_bid(bno, m_id, b_price, b_date, b_note, pno)
+		values(seq_bno.nextval, #{m_id}, #{b_price}, sysdate, #{b_note,jdbcType=VARCHAR}, #{pno})
 	</insert>
 	
 	<select id="bidList" resultType="BidVo">

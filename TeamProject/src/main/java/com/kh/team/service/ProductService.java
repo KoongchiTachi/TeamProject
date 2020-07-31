@@ -21,7 +21,7 @@ public interface ProductService {
 	// 상품 목록 ( 프리미엄 )
 	public List<ProductVo> premiumProduct(int p_value) throws Exception;
 	// 상품 목록 ( 일반 )
-	public List<ProductVo> normalProduct() throws Exception;
+	public List<ProductVo> normalProduct(int p_value) throws Exception;
 	// 응찰 내역
 	public List<BidVo> bidList(String pno) throws Exception;
 }

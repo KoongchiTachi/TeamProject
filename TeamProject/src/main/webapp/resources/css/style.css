@@ -303,7 +303,8 @@ ol {
 	opacity: 1;
 	visibility: visible;
 	z-index: 999;
-}
+	box-shadow:1px 5px 6px -4px rgba(151, 171, 187, 0.7); /* 07.30 메뉴 그림자 적용 */
+}  
 
 .inner-header .main-menu ul li .drop-menu {
 	position: absolute;

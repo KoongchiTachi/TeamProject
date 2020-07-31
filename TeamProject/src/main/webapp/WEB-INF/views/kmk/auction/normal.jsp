@@ -173,7 +173,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
 <div class="container-fluid" style="margin-top: 120;">
 	<div class="row">
 		<div class="col-md-12">
@@ -206,12 +206,11 @@
 				<div class="tile align-items-center" data-pno="${premium.pno}" id="tile">
 					<!-- Card image -->
 					<div class="wrapper">
-					<div class="title" >${premium.b_name}</div>
-					<div class="p_logo"><img alt="premium" src="/resources/img/logo/premium_icon.png"></div> 
-					<div class="banner-img"> 
-						<img style="width: 85%;" src="/resources/img/bag/${premium.p_img}" alt="Image 1"> 
+					<div class="title" >${premium.b_name}</div> 
+					<div class="banner-img">
+						<img style="width: 85%;" src="/resources/img/bag/${premium.p_img1}" alt="Image 1"> 
 					</div> 
-					<div class="dates"> 
+					<div class="dates">
 						<div class="start" id="countdown" data-until="${premium.p_until}"></div> 
 					</div>
 					<div class="stats s_price"> 

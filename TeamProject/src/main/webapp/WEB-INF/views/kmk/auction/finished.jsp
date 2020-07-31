@@ -91,7 +91,7 @@ var {
 
 <div class="container" style="margin-top: 150px;">
 	<br>
-	<p class="text-center">지난 경매 내역입니다.</p>
+		<p class="text-center">지난 경매 내역입니다.</p>
 	<hr>
 	<div class="card col-lg-12 mx-auto">
 		<table class="table table-hover shopping-cart-wrap">
@@ -109,11 +109,11 @@ var {
 						<td class="text-center description">
 							<figure class="media"> 
 								<div class="img-wrap">
-									<img src="/resources/img/bag/${product.p_img}" class="img-thumbnail img-sm">
+									<img src="/resources/img/bag/${product.p_img1}" class="img-thumbnail img-sm">
 								</div>
 								<figcaption class="media-body figcaption">
 									<h6 class="title text-truncate">${product.b_name}</h6>
-									<dl class="param param-inline small"> 
+									<dl class="param param-inline small">  
 										<dt>${product.p_info}</dt>
 										<dd></dd>
 									</dl>

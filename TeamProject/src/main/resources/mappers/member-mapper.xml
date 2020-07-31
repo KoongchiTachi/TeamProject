@@ -70,17 +70,15 @@
 			<choose>
 				<when test='searchType == "g"'>
 				</when>
-				<when test='searchType == "g1001"'>
-					, code_grade c
-					where c.g_code = m.m_grade and m.m_grade like '%' || #{searchType} || '%'
+				<when test='searchType == "id"'>
+					where m_id like '%' || #{keyword} || '%'
 				</when>
-				<when test='searchType == "g1002"'>
-					, code_grade c
-					where c.g_code = m.m_grade and m.m_grade like '%' || #{searchType} || '%'
+				<when test='searchType == "name"'>
+					where m_name like '%' || #{keyword} || '%'
 				</when>
-				<when test='searchType == "g1003"'>
+				<when test='searchType == "grade"'>
 					, code_grade c
-					where c.g_code = m.m_grade and m.m_grade like '%' || #{searchType} || '%'
+					where c.g_code = m.m_grade and c.g_name = #{keyword}
 				</when>
 			</choose>
 		</if>
@@ -92,14 +90,15 @@
 			<choose>
 				<when test='searchType == "g"'>
 				</when>
-				<when test='searchType == "g1001"'>
-					where m_grade = #{searchType}
+				<when test='searchType == "id"'>
+					where m_id like '%' || #{keyword} || '%'
 				</when>
-				<when test='searchType == "g1002"'>
-					where m_grade = #{searchType}
+				<when test='searchType == "name"'>
+					where m_name like '%' || #{keyword} || '%'
 				</when>
-				<when test='searchType == "g1003"'>
-					where m_grade = #{searchType}
+				<when test='searchType == "grade"'>
+					m, code_grade c
+					where m.m_grade = c.g_code and c.g_name = #{keyword}
 				</when>
 			</choose>
 		</if>

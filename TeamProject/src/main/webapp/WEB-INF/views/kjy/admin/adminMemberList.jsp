@@ -24,6 +24,16 @@ h2 {
 </style>
 
 <script>
+function changeSelect() {
+	var sel = $("#select").val();
+	console.log(sel);
+	if (sel == "g") {
+		$("#keyword").val("");
+	}
+}
+</script>
+
+<script>
 $(function() {
 	// 회원 삭제
 	$(".btnDel").click(function() {
@@ -79,21 +89,22 @@ $(function() {
 				</div>
 				<div class="col-md-10">
 				<form class="form-inline md-form mr-auto mb-4" style="float: right;">
-					<select id="select" class="mdb-select md-form colorful-select dropdown-primary" name="searchType" style="width: 100px; height: 38px; border: 1px solid #cfcfcf; border-radius: 5px 5px 5px 5px;">
+					<select id="select" class="mdb-select md-form colorful-select dropdown-primary" name="searchType" onchange="changeSelect()" style="width: 100px; height: 38px; border: 1px solid #cfcfcf; border-radius: 5px 5px 5px 5px;">
 						<option value="g"
 							<c:if test="${adminMemberListPagingDto.searchType == 'g'}">selected</c:if>
-						>전체 등급</option>
-						<option>----------</option>
-						<option value="g1001"
-							<c:if test="${adminMemberListPagingDto.searchType == 'g1001'}">selected</c:if>
-						>Prime</option>
-						<option value="g1002"
-							<c:if test="${adminMemberListPagingDto.searchType == 'g1002'}">selected</c:if>
-						>Vip</option>
-						<option value="g1003"
-							<c:if test="${adminMemberListPagingDto.searchType == 'g1003'}">selected</c:if>
-						>VVip</option>
+						>전체</option>
+						<option value="id"
+							<c:if test="${adminMemberListPagingDto.searchType == 'id'}">selected</c:if>
+						>아이디</option>
+						<option value="name"
+							<c:if test="${adminMemberListPagingDto.searchType == 'name'}">selected</c:if>
+						>이름</option>
+						<option value="grade"
+							<c:if test="${adminMemberListPagingDto.searchType == 'grade'}">selected</c:if>
+						>등급</option>
 					</select>&nbsp;&nbsp;
+					<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="keyword"
+							name="keyword" value="${adminMemberListPagingDto.keyword}">
 					<button class="btn btn-elegant btn-rounded my-0"
 						type="submit" id="btnSearch" style="background-color: #979494; color: #fff;">검색</button>
 				</form>
@@ -173,6 +184,40 @@ $(function() {
 			
 		</div>
 	</div>
+	
+	<!-- 회원 삭제 모달 창 -->
+	<div class="row">
+		<div class="col-md-12">
+			<a id="modal-42884" href="#modal-container-42884" role="button" class="btn" data-toggle="modal" style="visibility: hidden;">Launch demo modal</a>
+			<div class="modal fade" id="modal-container-42884" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="myModalLabel">
+								회원 삭제
+							</h5> 
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							정말 삭제 하시겠습니까?
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary">
+								확인
+							</button> 
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">
+								취소
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 회원 삭제 모달 창 -->
+	
 </div>
 
 <%@ include file="/WEB-INF/views/include/sidebarFooter.jsp"%>

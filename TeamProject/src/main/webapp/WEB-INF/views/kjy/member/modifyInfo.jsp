@@ -295,6 +295,7 @@ $(function() {
             </div>
             <div class="col-md-2">
             	<button type="submit" class="btn profile-edit-btn" name="btnModifyInfo">정보 변경</button>
+            	<a href="/kjy/member/myPage" class="btn profile-edit-btn" style="margin-top: 20px; background: #bfbfbf;">취소</a> 
             </div>
         </div>
         <div class="row">

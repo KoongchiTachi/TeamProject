@@ -16,3 +16,11 @@
 	<input type="hidden" name="searchType" value="${faqPagingDto.searchType}"/>
 	<input type="hidden" name="keyword" value="${faqPagingDto.keyword}"/>
 </form> 
+
+<form id="adminFrmPageQ" action="/sjw/admin/admin_qnaList" method="get">
+	<input type="hidden" name="qno" value="${qnaVo.qno}"/>
+	<input type="hidden" name="page" value="${qnaPagingDto.page}"/>
+	<input type="hidden" name="perPage" value="${qnaPagingDto.perPage}"/>
+	<input type="hidden" name="searchType" value="${qnaPagingDto.searchType}"/>
+	<input type="hidden" name="keyword" value="${qnaPagingDto.keyword}"/>
+</form> 

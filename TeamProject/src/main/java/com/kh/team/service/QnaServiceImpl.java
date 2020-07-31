@@ -4,6 +4,8 @@ import java.util.List;
 import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.kh.team.domain.QnaPagingDto;
 import com.kh.team.domain.QnaVo;
 import com.kh.team.domain.QreplyVo;
 import com.kh.team.persistence.QnaDao;
@@ -14,57 +16,71 @@ public class QnaServiceImpl implements QnaService {
 	@Inject
 	private QnaDao qnaDao;
 	
-	// QnA 목록 - 회원
+	// QnA 1:1문의 목록 - 회원
 	@Override
 	public List<QnaVo> myQna(String m_id) throws Exception {
 		return qnaDao.myQna(m_id);
 	}
-	
-	// QnA 목록 - 관리자
+
+	// QnA 1:1문의 목록 (페이징) - 관리자
 	@Override
-	public List<QnaVo> qnaList() throws Exception {
-		List<QnaVo> list = qnaDao.qnaList();
-		return list;
+	public List<QnaVo> qnaList(QnaPagingDto qnaPagingDto) throws Exception {
+		return qnaDao.qnaList(qnaPagingDto);
+	}
+
+	// 게시글 수
+	@Override
+	public int getCount(QnaPagingDto qnaPagingDto) throws Exception {
+		return qnaDao.getCount(qnaPagingDto);
 	}
 	
-	// QnA 답변 목록
+	// QnA 1:1문의 답변 목록
 	@Override
 	public List<QreplyVo> qReplyList(int qno) throws Exception {
 		return qnaDao.qReplyList(qno);
 	}
 
 
-	// QnA 내용보기
+	// QnA 1:1문의 내용보기 - 관리자
 	@Override
 	public QnaVo qnaRead(int qno) throws Exception {
 		QnaVo qnaVo = qnaDao.qnaRead(qno);
 		return qnaVo;
 	}
 
-	// QnA 입력
+	// QnA 1:1문의 입력 - 회원
 	@Transactional
 	@Override
 	public void qnaInsert(QnaVo qnaVo) throws Exception {
 		int qno = qnaDao.getNextVal();
 		qnaVo.setQno(qno);
-		
 		String[] files = qnaVo.getFiles();
-		if (files == null) {
-			qnaDao.qnaInsert(qnaVo);
-			return;
-		}
-		for (String file_name : files) {
-			qnaDao.insertQUpload(file_name, qno);
+		qnaDao.qnaInsert(qnaVo);
+		if (files != null) {
+			for (String file_name : files) {
+				qnaDao.insertQUpload(file_name, qno);
+			}
 		}
 	}
-
-	// QnA 수정 - 관리자
+	
+	// QnA 1:1문의 답변 입력 - 관리자
+	@Transactional
 	@Override
-	public void qnaUpdate(QnaVo qnaVo) throws Exception {
-		qnaDao.qnaUpdate(qnaVo);
+	public void replyInsert(QnaVo qnaVo) throws Exception {
+		int qno = qnaVo.getQno();
+//		qnaVo.setQno(qno);
+		String q_answer = qnaVo.getQ_answer();
+		qnaDao.replyInsert(qnaVo);
+		qnaDao.qnaUpdate(q_answer, qno);
 	}
 
-	// QnA 삭제 - 회원
+	// QnA 1:1문의 답변 수정 - 관리자
+	@Override
+	public void replyUpdate(QnaVo qnaVo) throws Exception {
+		qnaDao.replyUpdate(qnaVo);
+	}
+
+	// QnA 1:1문의 삭제 - 회원
 	@Override
 	public void qnaDelete(int qno) throws Exception {
 		qnaDao.qnaDelete(qno);

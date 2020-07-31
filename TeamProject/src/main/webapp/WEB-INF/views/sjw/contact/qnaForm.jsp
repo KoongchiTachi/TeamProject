@@ -224,7 +224,7 @@ $(function() {
 									required></textarea>
 								<label for="q_content">문의 내용</label>
 							</div>
-							<input type="hidden" name="q_answer" value="q1001">
+							<input type="hidden" name="q_answer" value="N">
 						</div>
 						<div class="row">
 							<div class="col-md-12">
@@ -235,7 +235,6 @@ $(function() {
 										<p class="help-block">
 											<br/>※ 10MB 미만의 이미지 파일<br /> 4개까지 첨부 가능합니다.
 										</p>
-										<input type="hidden" name="file_name">
 									</div>
 									<div class="col-md-8">
 										<input type="file" class="form-control-file" name="file_name"

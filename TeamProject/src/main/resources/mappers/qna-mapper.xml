@@ -10,51 +10,78 @@
 		select seq_qno.nextval from dual
 	</select>
 	
-	<!-- QnA 목록 - 회원 -->
+	<!-- QnA 1:1문의 목록 - 회원 --> 
 	<select id="myQna" resultType="QnaVo">
-		select m.m_name, q.qno, q.q_kind, q.q_title, q.q_content, q.q_date, q.q_answer, c.q_name
-		from tbl_qna q, tbl_member m, code_answer c
-		where m.m_id = q.m_id and m.m_id = #{m_id} and c.q_code = 'q1001'
+		select m.m_name, q.qno, q.q_kind, q.q_title, q.q_content, q.q_date, q.q_answer
+		from tbl_qna q, tbl_member m
+		where m.m_id = q.m_id and m.m_id = #{m_id}
 		order by qno desc
 	</select>
 	
-	<!-- QnA 전체 목록 - 관리자 -->
+	<!-- QnA 1:1문의 목록 문의 (페이징) - 관리자 -->
 	<select id="qnaList" resultType="QnaVo">
-		select * from tbl_qna
-		order by qno desc
+		select *
+			from (select rownum rnum, a.* 
+      			from (select * from tbl_qna
+      			<include refid="search"></include>
+        		order by qno desc) a)
+		where rnum between #{startRow} and #{endRow}
+	</select>
+	
+	<!-- 게시글 수 -->
+	<select id="getCount" resultType="int">
+		select count(*) from tbl_qna
+		<include refid="search"></include>
 	</select>
 	
 	<!-- QnA 답변목록 -->
 	<select id="qReplyList" resultType="QreplyVo">
 		select * from tbl_qreply
 		where qno = #{qno}
-		order by qrno desc
 	</select>
 	
-	<!-- QnA 내용보기 -->
+	<!-- 답변 입력 -->
+	<insert id="replyInsert">
+		insert into tbl_qreply(qrno, q_reply, qno)
+		values (seq_qrno.nextval, #{q_reply}, #{qno})
+	</insert>
+	
+	<!-- QnA q_answer 수정 - 관리자 -->
+	<update id="qnaUpdate">
+		update tbl_qna set
+			q_answer = #{q_answer}
+		where qno = #{qno}
+	</update>
+	
+	<!-- 답변 수정 -->
+	<update id="replyUpdate">
+		update tbl_qreply set
+			q_reply = #{q_reply}
+		where qrno = #{qrno}
+	</update>
+	
+	<!-- 답변 삭제 -->
+<!-- 	<delete id="replyDelete"> -->
+<!-- 		delete from tbl_qreply -->
+<!-- 		where qrno = #{qrno} -->
+<!-- 	</delete>	 -->
+	
+	<!-- QnA 1:1문의 내용보기 - 관리자 -->
 	<select id="qnaRead" resultType="QnaVo">
 		select * from tbl_qna
 		where qno = #{qno}
 	</select>
 	
-	<!-- QnA 입력 -->
+	<!-- QnA 1:1문의 입력 - 회원 -->
 	<insert id="qnaInsert">
 		insert into tbl_qna (qno, m_id, q_kind, q_title, q_content, q_answer)
 		values (#{qno}, #{m_id}, #{q_kind}, #{q_title}, #{q_content}, #{q_answer})	
 	</insert>
 	
-	<!-- QnA 수정 -->
-	<update id="qnaUpdate">
-		update tbl_qna set
-			m_id = #{m_id},
-			q_kind = #{q_kind},
-			q_title = #{q_title},
-			q_content = #{q_content},
-			q_answer = #{q_answer}
-		where qno = #{qno}
-	</update>
 	
-	<!-- QnA 삭제 -->
+
+	
+	<!-- QnA 1:1문의 삭제 -->
 	<delete id="qnaDelete">
 		delete from tbl_qna
 		where qno = #{qno}
@@ -65,5 +92,24 @@
 		insert into tbl_qupload(file_name, qno)
 		values (#{file_name}, #{qno})
 	</insert>
+	
+	<!-- 검색 -->
+	<sql id="search">
+		<if test="searchType != null">
+			<choose>
+				<when test='searchType == "t"'>
+					where q_title like '%' || #{keyword} || '%'
+				</when>
+				<when test='searchType == "c"'>
+					where q_content like '%' || #{keyword} || '%'
+				</when>
+				<when test='searchType == "tc"'>
+					where q_title like '%' || #{keyword} || '%'
+					or q_content like '%' || #{keyword} || '%'
+				</when>
+			</choose>
+		</if>
+	</sql>
+	
 	
 </mapper>

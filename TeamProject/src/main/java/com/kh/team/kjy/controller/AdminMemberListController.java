@@ -8,7 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kh.team.domain.AdminMemberListPagingDto;
 import com.kh.team.domain.MemberVo;
 import com.kh.team.service.MemberService;
 
@@ -19,17 +22,24 @@ public class AdminMemberListController {
 	@Inject
 	private MemberService memberService;
 	
-	// 관리자 - 회원 리스트
+	// 관리자 - 회원 리스트(페이징)
 	@RequestMapping(value = "/adminMemberList", method = RequestMethod.GET)
-	public void adminMemberList(Model model) throws Exception {
-		List<MemberVo> list = memberService.memberList();
+	public void adminMemberList(AdminMemberListPagingDto adminMemberListPagingDto, Model model) throws Exception {
+		adminMemberListPagingDto.setPageInfo();
+		int totalCount = memberService.getCount(adminMemberListPagingDto);
+		adminMemberListPagingDto.setTotalCount(totalCount);
+		System.out.println("adminMemberListPagingDto:" + adminMemberListPagingDto);
+		List<MemberVo> list = memberService.memberList(adminMemberListPagingDto);
 		model.addAttribute("list", list);
+		model.addAttribute("adminMemberListPagingDto", adminMemberListPagingDto);
 	}
 	
 	// 관리자 - 회원 삭제
+	@ResponseBody
 	@RequestMapping(value = "/deleteMember", method = RequestMethod.GET)
-	public void deleteMember(String m_id) throws Exception {
+	public String deleteMember(String m_id) throws Exception {
 		memberService.deleteMember(m_id);
+		return "success";
 	}
 	
 }

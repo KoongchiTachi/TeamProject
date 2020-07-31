@@ -43,9 +43,16 @@ public class MyQnaController {
 	}
 	
 	// 1:1문의 답변
-	@RequestMapping(value = "/qReplyList/{qno}", method=RequestMethod.GET)
-	public List<QreplyVo> qReplyList(@PathVariable("qno") int qno) throws Exception {
-		return qnaService.qReplyList(qno);
+//	@RequestMapping(value = "/qReplyList/{qno}", method=RequestMethod.GET)
+//	public List<QreplyVo> qReplyList(@PathVariable("qno") int qno) throws Exception {
+//		return qnaService.qReplyList(qno);
+//	}
+	
+	@RequestMapping(value = "/qReplyList", method=RequestMethod.GET)
+	public void qReplyList(int qno, Model model) throws Exception {
+		List<QreplyVo> list2 = qnaService.qReplyList(qno);
+		System.out.println("list2" + list2);
+		model.addAttribute("list2", list2);
 	}
 
 }

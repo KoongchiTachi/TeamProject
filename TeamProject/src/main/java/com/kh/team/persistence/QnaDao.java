@@ -1,6 +1,7 @@
 package com.kh.team.persistence;
 
 import java.util.List;
+import com.kh.team.domain.QnaPagingDto;
 import com.kh.team.domain.QnaVo;
 import com.kh.team.domain.QreplyVo;
 
@@ -9,25 +10,34 @@ public interface QnaDao {
 	// nextval
 	public int getNextVal() throws Exception;
 	
-	// QnA 목록 - 회원
+	// QnA 1:1문의 목록 - 회원
 	public List<QnaVo> myQna(String m_id) throws Exception;
 	
-	// 답변 목록
+	// QnA 1:1문의 답변 목록
 	public List<QreplyVo> qReplyList(int qno) throws Exception;
 	
-	// QnA 목록 - 관리자
-	public List<QnaVo> qnaList() throws Exception;
-		
-	// QnA 내용보기
+	// QnA 1:1문의 목록 (페이징) - 관리자
+	public List<QnaVo> qnaList(QnaPagingDto qnaPagingDto) throws Exception;
+	
+	// 게시글 수
+	public int getCount(QnaPagingDto qnaPagingDto) throws Exception;
+	
+	// QnA 1:1문의 내용보기 - 관리자
 	public QnaVo qnaRead(int qno) throws Exception;
 		
-	// QnA 입력
+	// QnA 1:1문의 입력 - 회원
 	public void qnaInsert(QnaVo qnaVo) throws Exception;
+	
+	// QnA 1:1문의 답변 입력 - 관리자
+	public void replyInsert(QnaVo qnaVo) throws Exception;
+	
+	// QnA 1:1문의 답변 여부 수정 - 관리자
+	public void qnaUpdate(String q_answer, int qno) throws Exception;
 		
-	// QnA 수정
-	public void qnaUpdate(QnaVo qnaVo) throws Exception;
+	// QnA 1:1문의 답변 수정 - 관리자
+	public void replyUpdate(QnaVo qnaVo) throws Exception;
 		
-	// QnA 삭제
+	// QnA 1:1문의 삭제
 	public void qnaDelete(int qno) throws Exception;
 	
 	// 첨부파일 추가

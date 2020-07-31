@@ -36,12 +36,16 @@ public class QnaController {
 	}
 	
 	/*
-	// QnA 목록
-	@RequestMapping(value = "/qnaList", method = RequestMethod.GET)
-	public String qnaList(Model model) throws Exception {
-		List<QnaVo> list = qnaService.qnaList();
+	
+	// QnA 목록 (페이징) - 관리자
+	@RequestMapping(value = "/admin_qnaList", method = RequestMethod.GET)
+	public void qnaList(QnaPagingDto qnaPagingDto, Model model) throws Exception {
+		qnaPagingDto.setPageInfo();
+		int totalCount = qnaService.getCount(qnaPagingDto);
+		qnaPagingDto.setTotalCount(totalCount);
+		List<QnaVo> list = qnaService.qnaList(qnaPagingDto);
 		model.addAttribute("list", list);
-		return "/sjw/auction/qnaList";
+		model.addAttribute("qnaPagingDto", qnaPagingDto);  
 	}
 	
 	// QnA 내용보기
@@ -52,20 +56,20 @@ public class QnaController {
 	}
 	
 	// QnA 수정 폼
-	@RequestMapping(value = "/updateQna", method = RequestMethod.GET)
-	public void updateQna(int qno, Model model) throws Exception {
+	@RequestMapping(value = "/admin_qnaUpdate", method = RequestMethod.GET)
+	public void qnaUpdateGet(int qno, Model model) throws Exception {
 		QnaVo qnaVo = qnaService.qnaRead(qno);
 		model.addAttribute("qnaVo", qnaVo);
 	}
 	
 	// QnA 수정 처리
-	@RequestMapping(value = "/updateQna", method = RequestMethod.POST)
-	public void updateQna(QnaVo qnaVo) throws Exception {
+	@RequestMapping(value = "/admin_qnaUpdate", method = RequestMethod.POST)
+	public void qnaUpdatePost(QnaVo qnaVo) throws Exception {
 		qnaService.updateQna(qnaVo);
 	}
 	
 	@RequestMapping(value = "/deleteQna", method = RequestMethod.GET)
-	public String deleteQna(int bno) throws Exception {
+	public String qnaDelete(int bno) throws Exception {
 		qnaService.deleteQna(qno);
 	}
 	

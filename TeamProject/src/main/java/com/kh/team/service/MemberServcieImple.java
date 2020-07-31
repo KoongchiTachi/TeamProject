@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.kh.team.domain.AdminMemberListPagingDto;
 import com.kh.team.domain.MemberVo;
 import com.kh.team.persistence.MemberDao;
 
@@ -27,8 +28,8 @@ public class MemberServcieImple implements MemberService {
 
 	// 관리자 - 전체 멤버 목록
 	@Override
-	public List<MemberVo> memberList() throws Exception {
-		return memberDao.memberList();
+	public List<MemberVo> memberList(AdminMemberListPagingDto adminMemberListPagingDto) throws Exception {
+		return memberDao.memberList(adminMemberListPagingDto);
 	}
 
 	@Override
@@ -58,6 +59,12 @@ public class MemberServcieImple implements MemberService {
 	@Override
 	public void deleteMember(String m_id) throws Exception {
 		memberDao.deleteMember(m_id);
+	}
+
+	// 관리자 - 회원 전체 수
+	@Override
+	public int getCount(AdminMemberListPagingDto adminMemberListPagingDto) throws Exception {
+		return memberDao.getCount(adminMemberListPagingDto);
 	}
 
 }

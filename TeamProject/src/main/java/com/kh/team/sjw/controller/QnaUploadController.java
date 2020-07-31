@@ -23,6 +23,7 @@ public class QnaUploadController {
 		System.out.println("file: " + file);
 		String originalName = file.getOriginalFilename();
 		long size = file.getSize();
+		System.out.println("originalName: " + originalName);
 		System.out.println("size: " + size);
 		System.out.println("uploadPath: " + uploadPath);
 		String dirPath = QnaFileUploadUtil.uploadFile(uploadPath, originalName, file.getBytes());

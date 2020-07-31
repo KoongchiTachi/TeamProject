@@ -17,7 +17,7 @@
 	margin-bottom: 0px;
 	border-top: 1px solid #000000;
 	border-bottom: 1px solid #000000;
-	background-color : #EEEEEE;
+	background-color : #f2f2f2;
 	font-size: 20px;
 	color: #5E5E5E;
 }
@@ -45,9 +45,9 @@
                     <form action="#" class="contact-form">
                         <div class="row">
                             <div class="col-lg-12" style="margin-bottom: 0px;">
-                                <input type="text" class="title" value="${noticeVo.n_title}" readonly/>
-                                <input type="text" style="margin-bottom: 0px;" value="${noticeVo.n_date}" readonly/>
-                                <textarea style="height: auto; min-height: 400px;" readonly>${noticeVo.n_content}</textarea>
+                                <input type="text" class="title" style="padding-left: 25px; padding-right: 25px;" value="${noticeVo.n_title}" readonly/>
+                                <input type="text" style="margin-bottom: 0px; padding-left: 25px; padding-right: 25px;" value="${noticeVo.n_date}" readonly/>
+                                <textarea style="height: auto; min-height: 400px; padding-left: 25px; padding-right: 25px;" readonly>${noticeVo.n_content}</textarea>
                             </div>
                         </div>
                     </form>

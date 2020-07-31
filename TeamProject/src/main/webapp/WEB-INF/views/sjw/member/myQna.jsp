@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <link rel="stylesheet" href="/resources/css/bootstrap-table-expandable.css">
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
 <script src="/resources/js/bootstrap-table-expandable.js"></script>
 <style>
 .myQnaList {
@@ -36,8 +35,32 @@ $(function() {
 	
 	var msg = "${msg}";
 	if (msg == "insertSuccess") {
-		alert("1:1문의 등록 성공");
+		alert("1:1 문의가 접수 되었습니다.");
 	}
+	
+	// 댓글보기 버튼
+// 	$("#qnahead").click(function() {
+// 		console.log("클릭")
+// 		var url = "/sjw/member/qReplyList/${qnaVo.qno}";
+// 		$.getJSON(url, function(rData) {
+// 			console.log(rData);
+// 			$("#commentTable tr.cl_tr").remove(); // 기존에 댓글 테이블 비우기
+//  			$.each(rData, function () {
+// 				var tr = $("#commentTable tr:first").clone();
+// 				tr.addClass("cl_tr").css("background-color", "#eee");
+// 				console.log(tr);
+//  				var td = tr.find("td");
+//  				console.log(td);
+// 				td.eq(0).text(this.c_content);
+// 				td.eq(1).text(this.c_writer);
+// 				td.eq(2).text(dateString(this.c_regdate));
+// 				td.eq(3).text("").append("<button class='btn btn-sm btn-warning btnCommentModify' data-cno='"+this.cno+"'>수정</button>");
+// 				td.eq(4).text("").append("<button class='btn btn-sm btn-danger btnCommentDelete' data-cno='"+this.cno+"'>삭제</button>");
+				
+// 				$("#commentTable").append(tr);
+//  			});
+// 		});
+// 	});
 	
 	$(".btnDelete").click(function() { 
 		//console.log("클릭");
@@ -61,7 +84,7 @@ $(function() {
  				that.parent().parent().parent().hide(500);
 			},
 			"error" : function(data) {
-				alert("답변이 있는 게시물은 삭제할 수 없습니다.");
+				alert("에러발생.");
 				return false;
 			}
 		});
@@ -101,11 +124,18 @@ $(function() {
 						</c:when>
 						<c:when test="${listSize != 0}">
 				<c:forEach items="${list}" var="qnaVo">
-					<tr>
+					<tr id="qnahead">
 						<td>${qnaVo.q_kind}</td>
 						<td>${qnaVo.q_title}</td>
 						<td>${qnaVo.q_date}</td>
-						<td>${qnaVo.q_name}</td>
+						<c:choose>
+							<c:when test="${qnaVo.q_answer == 'N'}">
+								<td>답변대기</td>
+							</c:when>
+							<c:otherwise>
+								<td>답변완료</td>
+							</c:otherwise>
+						</c:choose>
 						<td></td>
 					</tr>
 					<tr>
@@ -115,8 +145,9 @@ $(function() {
 								<button type="button" class="btn btn-danger btn-sm btnDelete" style="margin-left: 15px; margin-top: 25px;" data-qno="${qnaVo.qno}">삭제</button>
 							</div>
 							<hr style="width: 108%;"><br/>
-							<h6 style="font-weight: bold;">답변</h6><p>답변작성시간</p><br/>
-							<p>답변내용넣을것</p>
+							<h6 style="font-weight: bold;">답변</h6>
+							<p>답변작성시간${qr_date}</p><br/>
+							<p>답변내용${q_reply}</p>
 						</td>
 					</tr>
 					</c:forEach>

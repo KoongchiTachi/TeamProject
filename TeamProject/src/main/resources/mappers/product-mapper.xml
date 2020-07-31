@@ -30,8 +30,8 @@
 		select * from tbl_product p, code_brand c
 		where c.b_code = p.p_brand and pno = #{pno}
 	</select>
-	
-	<!-- 상품별 응찰 카운트 -->
+	 
+	<!-- 상품별 응찰 카운트 --> 
 	<select id="bidCountByPno" resultType="java.lang.Integer"> 
 		select count(*) from tbl_bid 
 		where pno = #{pno}

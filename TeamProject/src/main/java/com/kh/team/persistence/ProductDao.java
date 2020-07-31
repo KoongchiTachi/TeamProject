@@ -24,7 +24,7 @@ public interface ProductDao {
 	// 상품 목록 (일반)
 	public List<ProductVo> normalProduct(int p_value) throws Exception;
 	// 현재가 변경 (응찰)
-	public void updateP_price(String pno) throws Exception;
+	public void updateP_price(int b_price, String pno) throws Exception;
 	// 응찰 내역
 	public List<BidVo> bidList(String pno) throws Exception;
 	// 경매상태 변경

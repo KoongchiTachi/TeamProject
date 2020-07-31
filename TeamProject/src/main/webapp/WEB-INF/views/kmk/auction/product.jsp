@@ -1,3 +1,4 @@
+<%@page import="com.kh.team.domain.ProductVo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -377,8 +378,8 @@ $(document).ready(function () {
 													<c:when test="${productVo.p_price == 0}">
 														value="<fmt:formatNumber type="currency" value="${productVo.s_price + unit}"/>"
 													</c:when> 
-													<c:otherwise>
-														value="${productVo.p_price}" 
+													<c:otherwise> 
+														value="<fmt:formatNumber type="currency" value="${productVo.p_price + unit}"/>"
 													</c:otherwise>
 												</c:choose>
 											min="${productVo.s_price}" max="1000000000" id="now_quant" readonly>
@@ -397,7 +398,7 @@ $(document).ready(function () {
 									</div>
 								</li>
 							</ul>
-							<a href="#" class="btn btn-dark rounded-pill py-2 btn-block">신청</a>
+							<a id="bid_Subscription" href="/kmk/auction/premium" class="btn btn-dark rounded-pill py-2 btn-block">신청</a>
 						</div>
 				</div>
 				<!-- 				<div class="row">  -->
@@ -559,36 +560,49 @@ $(function() {
 	});
 	
 	// bid subscription
-	$("#bid_bid").click(function(e) {
-		var pno = "${productVo.pno}";
+	$("#bid_Subscription").click(function(e) {
+		e.preventDefault(); 
+		var pno = "${productVo.pno}"; 
 		var b_price;
-		if (${productVo.p_price != 0}) {
-			b_price = ${productVo.p_price} + ${unit};
-		} else {
-			b_price = ${productVo.s_price} + ${unit};
-		}
-		var b_note = "낙찰 예정";
-		var m_id = "<%=session.getAttribute("m_id") %>" 
+		if (${productVo.p_price == 0}) {  
+			 b_price = ${productVo.s_price} + ${unit};
+		} else { 
+			 b_price = ${productVo.p_price} + ${unit};
+		}; 
+		var s_price = <%=session.getAttribute("s_price")%>;
+		console.log("s_price: ", s_price); 
+		var b_note = "낙찰 예정";   
+		var m_id = "<%=session.getAttribute("m_id")%>";
+		console.log("pno : ", pno);
+		console.log("b_price : ", b_price);
+		console.log("b_note : ", b_note);
+		console.log("m_id : ", m_id); 
 		var sendData = {
-				"m_id" : m_id,
+				"m_id" : m_id, 
 				"b_price" : b_price,
 				"b_note"  : b_note,
 				"pno"	: pno
 		};
+		console.log("sendData : " , sendData);
 		var url = "/kjy/member/bidSubscription";
-		$.ajax({
+		$.ajax({ 
 			"type" : "post",
-			"url"  : url,
-			"dataType" 	: "text",
-			"data" : JSON.stringify(sendData),
-			"headers" 	: {
+			"url"  : url, 
+			"dataType" 	: "text", 
+			"data" : sendData,    
+			/* "headers" 	: {
 				"Content-Type"	: "application/json",
 				"X-HTTP-Method-Override"	: "post"
-			},
+			}, */ 
 			"success"	: function(rData) {
-				console.log(rData);
-				/* $("#btnComment").trigger("click"); */
-			}
+				if (rData == "success") {  
+					console.log("고"); 
+					window.location.href("redirect:/kmk/auction/premium");     
+				}
+			},
+			"error"		: function(request,status,error) {
+             	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			} 
 		});	 
 	});
 });

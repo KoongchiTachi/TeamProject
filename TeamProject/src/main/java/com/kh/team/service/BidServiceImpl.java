@@ -22,9 +22,9 @@ public class BidServiceImpl implements BidService {
 	private ProductDao productDao;
 	
 	@Override
-	public void insertBid(BidVo bidVo, String pno) throws Exception {
+	public void insertBid(BidVo bidVo, String pno, int b_price) throws Exception {
 		bidDao.insertBid(bidVo);
-		productDao.updateP_price(pno);
+		productDao.updateP_price(b_price, pno); 
 	}
 
 	@Override

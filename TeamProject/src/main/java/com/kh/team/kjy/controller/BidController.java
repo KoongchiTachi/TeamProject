@@ -1,5 +1,6 @@
 package com.kh.team.kjy.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.team.domain.BidListPagingDto;
 import com.kh.team.domain.BidVo;
@@ -27,11 +29,16 @@ public class BidController {
 	private BidService bidService;
 	@Inject
 	private MemberService memberService;
-	
+	 
 	// 응찰 신청
+	@ResponseBody
 	@RequestMapping(value ="/bidSubscription", method= RequestMethod.POST)
-	public String bidSubscription(BidVo bidVo, String pno) throws Exception {
-		bidService.insertBid(bidVo, pno);
+	public String bidSubscription(BidVo bidVo, String pno, int b_price) throws Exception {
+//		BidVo bidVo = new BidVo();
+		bidVo.setB_price(b_price); 
+		System.out.println(pno);
+		System.out.println(bidVo);
+		bidService.insertBid(bidVo, pno, b_price);
 		return "success";
 	}
 	

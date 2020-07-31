@@ -5,20 +5,20 @@
 
 <mapper namespace="mappers.bid-mapper">
 
-	<insert id="insertBid">
+	<insert id="insertBid">  
 		insert into tbl_bid(bno, m_id, b_price, b_date, b_note, pno)
-		values(seq_bno.nextval, #{m_id}, #{b_price}, sysdate, #{b_note,jdbcType=VARCHAR}, #{pno})
+		values (seq_bno.nextval, #{m_id}, #{b_price}, sysdate, #{b_note}, #{pno})
 	</insert>
-	
+	 
 	<select id="bidList" resultType="BidVo">
 		select * 
 		from (select rownum rnum, a.*
 			  from (select m.m_id, p.pno, b.bno, p.p_img1, p.p_info, p.p_price, b.b_price, b.b_date, s.s_name, p.p_name
 					from tbl_bid b, tbl_product p, tbl_member m, code_state s
-					where b.pno = p.pno and p.p_state = s.s_code and m.m_id = b.m_id and m.m_id = #{m_id}) a)
+					where b.pno = p.pno and p.p_state = s.s_code and m.m_id = b.m_id and m.m_id = #{m_id} order by b.b_date desc) a)
 		where rnum between #{startRow} and #{endRow}
 	</select>
-	
+	 
 	<select id="getCount" resultType="int">
 		select count(*) from tbl_bid 
 		where m_id = #{m_id}

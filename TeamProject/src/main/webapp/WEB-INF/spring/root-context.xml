@@ -7,8 +7,7 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- 커넥션 풀 -->
-	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		id="dataSource">
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>	
 		<property name="url" value="jdbc:log4jdbc:oracle:thin:@192.168.0.225:1521:xe"/> <!-- 이전과 다르게 log4jdbc가 있음 -->
 		<property name="username" value="TEAM03"/> 
@@ -16,16 +15,14 @@
 	</bean>
 	
 	<!-- getConnection -->
-	<bean class="org.mybatis.spring.SqlSessionFactoryBean"
-		id="sqlSessionFactory">
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="configLocation" value="classpath:/mybatis-config.xml"/>	<!-- 설정파일 경로 찾기 -->
 		<property name="mapperLocations" value="classpath:/mappers/**/*-mapper.xml"></property> <!-- 모든 mapper.xml 찾기 -->
 	</bean>
 	
 	<!-- try ~ catch -->
-	<bean class="org.mybatis.spring.SqlSessionTemplate"
-		destroy-method="clearCache">
+	<bean class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean> 
 	

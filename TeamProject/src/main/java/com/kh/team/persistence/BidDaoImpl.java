@@ -23,7 +23,7 @@ public class BidDaoImpl implements BidDao {
 	
 	@Override
 	public void insertBid(BidVo bidVo) throws Exception {
-		sqlSession.insert(NAMESPACE + "insertBid", bidVo);
+		sqlSession.insert(NAMESPACE + "insertBid", bidVo); 
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class BidDaoImpl implements BidDao {
 
 	@Override
 	public int successBidCount(SuccessBidPagingDto successBidPagingDto, String m_id) throws Exception {
-		Map<String, Object> param = new HashMap<>();
+		Map<String, Object> param = new HashMap<>(); 
 		param.put("successBidPagingDto", successBidPagingDto);
 		param.put("m_id", m_id);
 		return sqlSession.selectOne(NAMESPACE + "successBidCount", param);

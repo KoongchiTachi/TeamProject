@@ -9,7 +9,7 @@ import com.kh.team.domain.SuccessBidPagingDto;
 public interface BidService {
 
 	// 응찰 입력
-	public void insertBid(BidVo bidVo, String pno) throws Exception;
+	public void insertBid(BidVo bidVo, String pno, int b_price) throws Exception;
 	
 	// 응찰 내역
 	public List<BidVo> bidList(String m_id, int startRow, int endRow) throws Exception;

@@ -1,7 +1,9 @@
 package com.kh.team.persistence;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -54,8 +56,11 @@ public class ProductDaoImpl implements ProductDao {
 	} 
 
 	@Override
-	public void updateP_price(String pno) throws Exception {
-		sqlSession.update(NAMESPACE + "updateP_price", pno);
+	public void updateP_price(int b_price, String pno) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		param.put("b_price", b_price); 
+		param.put("pno", pno);
+		sqlSession.update(NAMESPACE + "updateP_price", param);
 	}
 	
 	@Override

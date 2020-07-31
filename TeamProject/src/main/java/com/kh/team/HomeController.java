@@ -44,13 +44,13 @@ public class HomeController/* implements Runnable*/ {
 							for (Timestamp t : p_untilList) {
 								long p_until = t.getTime();
 								long now = new Date().getTime();
-								
 //								System.out.println("p_until:" + p_until);
 //								System.out.println("now:" + now);
 //								System.out.println("-------------------");
-								if (p_until < now) { 
+								if (p_until < now) {
 									productDao.updateP_state("s02");
-									p_untilList = productDao.selectP_until();
+									p_untilList = productDao.selectP_until(); 
+									
 									System.out.println("p_until Changed : p_untilList:" + p_untilList);
 									break;
 								}
@@ -64,10 +64,6 @@ public class HomeController/* implements Runnable*/ {
 			th.start();
 			isCheckP_until = true;
 		}
-		
 		return "home";
 	}
-	
-	
-	
 }

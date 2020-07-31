@@ -48,7 +48,7 @@ public class AuctionController {
 	// 상품 상세 페이지
 	@RequestMapping(value="/product", method = RequestMethod.GET)
 	public void bidPage(HttpServletRequest request, String pno, Model model) throws Exception {
-		HttpSession session = request.getSession(); 
+		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
 		ProductVo productVo = productService.selectByPno(pno);
 		int cnt = productService.bidCountByPno(pno);
@@ -58,8 +58,8 @@ public class AuctionController {
 		model.addAttribute("cnt", cnt); 
 		model.addAttribute("unit", unit);
 		model.addAttribute(productVo);
-		session.setAttribute("m_id", m_id);
-		System.out.println("m_id" + m_id);
+		session.setAttribute("m_id", m_id); 
+		session.setAttribute("s_price", s_price); 
 	}
 	
 	// 상품 응찰 내역

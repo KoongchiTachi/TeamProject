@@ -51,9 +51,10 @@
 			<exclude-mapping path="/kjy/member/idPwFind"/> 
 			<exclude-mapping path="/kjy/member/checkDupId"/> 
 			<exclude-mapping path="/kjy/member/emailAuth"/> 
-			<exclude-mapping path="/kjy/member/joinRun"/> 
-			<beans:ref bean="authInterceptor"/>
-		</interceptor>
+			<exclude-mapping path="/kjy/member/joinRun"/>
+			<exclude-mapping path="/kjy/member/bidSubscription"/>
+			<beans:ref bean="authInterceptor"/> 
+		</interceptor> 
 		<interceptor>
 			<mapping path="/admin"/>
 			<mapping path="/kjy/admin/**"/>

@@ -75,19 +75,6 @@
 	border: 1px dashed #ebe8e8;
 }
 </style>
-<script>
-$(function() {
-	
-	$("#btnSearch").click(function () {
-		var keyword = $("#keyword").val();
-		$("#frmPage > input[name=keyword]").val(keyword);
-		$("#frmPage").submit();
-	});
-});
-</script>
-<!-- <form id="frmPage" action="/sjw/contact/faq1" method="get"> -->
-<%-- 	<input type="hidden" name="keyword" value="${faqPagingDto.keyword}"/> --%>
-<!-- </form> -->
 <section class="contact-section spad">
 	<div class="container faq">
 		<div class="row">
@@ -105,7 +92,7 @@ $(function() {
 				<div class="tab">
 					<ul class="tab_menu">
 						<li><a href="/sjw/contact/faqList">전체</a></li>
-						<li class="on"><a href="/sjw/contact/faq1">회원</a></li>
+						<li><a href="/sjw/contact/faq1">회원</a></li>
 						<li><a href="/sjw/contact/faq2">경매</a></li>
 						<li><a href="/sjw/contact/faq3">낙찰</a></li>
 						<li><a href="/sjw/contact/faq4">위탁</a></li>
@@ -126,17 +113,8 @@ $(function() {
 			</div>
 			<div class="row">
 				<div class="col-md-5"></div>
-				<div class="col-md-2">
-				</div>
-				<div class="col-md-5">
-					<div class="blog-right">
-<!-- 						<div class="blog-search"> -->
-<!-- 							<input type="text" id="keyword" name="keyword" -->
-<%-- 								placeholder="제목/내용 입력" value="${faqPagingDto.keyword}"> --%>
-<!-- 							<button type="button" id="btnSearch">검색</button> -->
-<!-- 						</div> -->
-					</div>
-				</div>
+				<div class="col-md-2"></div>
+				<div class="col-md-5"></div>
 			</div>
 		</div>
 	</div>

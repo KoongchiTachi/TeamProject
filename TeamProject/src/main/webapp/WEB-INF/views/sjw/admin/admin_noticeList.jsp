@@ -47,6 +47,7 @@ $(function() {
 			}
 			var r = confirm("삭제하시겠습니까?");
 			if (r == false) {
+				location.reload();
 				return;
 			}
 			var url = "/sjw/admin/admin_noticeDeleteChk";
@@ -59,7 +60,7 @@ $(function() {
 					$(".chkNotice:checked").parent().parent().hide();
 				},
 				"error" : function(data) {
-					alert("에러가 발생했습니다.");
+					alert("에러발생.");
 					return false;
 				}
 			});
@@ -74,7 +75,7 @@ $(function() {
 		$("#adminFrmPageN").submit();
 	});
 	
-	// 제목 클릭 -> 공지내용보기
+	// 제목 클릭 -> 공지 조회
 	$("a.n_title").click(function(e) {
 		e.preventDefault();
 		var nno = $(this).attr("data-nno");
@@ -138,7 +139,7 @@ $(function() {
 							<tr style="text-align: center;">
 								<th style="width: 100px;"><input type="checkbox" id="chkAll"></th>
 								<th style="width: 100px;">글번호</th>
-								<th>제목</th>
+								<th style="width: 700px;">제목</th>
 								<th>작성일</th>
 							</tr>
 						</thead>
@@ -147,7 +148,7 @@ $(function() {
 								<tr style="text-align: center;">
 									<td><input type="checkbox" class="chkNotice" data-nno="${noticeVo.nno}"></td>
 									<td>${noticeVo.nno}</td>
-									<td><a href="/sjw/admin/admin_noticeRead" class="n_title" style="color: #525252;" data-nno="${noticeVo.nno}">${noticeVo.n_title}</a></td>
+									<td><a href="/sjw/admin/admin_noticeRead" class="n_title" style="color: #525252; text-decoration: underline;" data-nno="${noticeVo.nno}">${noticeVo.n_title}</a></td>
 									<td>${noticeVo.n_date}</td>
 								</tr>
 							</c:forEach>
@@ -157,12 +158,10 @@ $(function() {
 						<div class="col-md-10">
 							<nav>
 								<ul class="pagination">
-									<!-- 이전 -->
 									<c:if test="${noticePagingDto.startPage != 1}">
 										<li class="page-item"><a class="page-link"
 											href="${noticePagingDto.startPage - 1}">&laquo;</a></li>
 									</c:if>
-									<!-- 페이지 넘버링 -->
 									<c:forEach begin="${noticePagingDto.startPage}"
 										end="${noticePagingDto.endPage}" var="v">
 									<li class="page-item"
@@ -178,7 +177,6 @@ $(function() {
 										<a class="page-link" href="${v}">${v}</a>
 									</li>
 									</c:forEach>
-									<!-- 다음 -->
 									<c:if
 										test="${noticePagingDto.endPage < noticePagingDto.totalPage}">
 										<li class="page-item"><a class="page-link"

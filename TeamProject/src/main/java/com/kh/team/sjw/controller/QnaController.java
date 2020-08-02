@@ -35,44 +35,4 @@ public class QnaController {
 		return "redirect:/sjw/member/myQna";
 	}
 	
-	/*
-	
-	// QnA 목록 (페이징) - 관리자
-	@RequestMapping(value = "/admin_qnaList", method = RequestMethod.GET)
-	public void qnaList(QnaPagingDto qnaPagingDto, Model model) throws Exception {
-		qnaPagingDto.setPageInfo();
-		int totalCount = qnaService.getCount(qnaPagingDto);
-		qnaPagingDto.setTotalCount(totalCount);
-		List<QnaVo> list = qnaService.qnaList(qnaPagingDto);
-		model.addAttribute("list", list);
-		model.addAttribute("qnaPagingDto", qnaPagingDto);  
-	}
-	
-	// QnA 내용보기
-	@RequestMapping(value = "/qnaRead", method = RequestMethod.GET)
-	public void qnaRead(@RequestParam("qno") int qno, Model model) throws Exception {
-		QnaVo qnaVo = qnaService.qnaRead(qno);
-		model.addAttribute("qnaVo", qnaVo);
-	}
-	
-	// QnA 수정 폼
-	@RequestMapping(value = "/admin_qnaUpdate", method = RequestMethod.GET)
-	public void qnaUpdateGet(int qno, Model model) throws Exception {
-		QnaVo qnaVo = qnaService.qnaRead(qno);
-		model.addAttribute("qnaVo", qnaVo);
-	}
-	
-	// QnA 수정 처리
-	@RequestMapping(value = "/admin_qnaUpdate", method = RequestMethod.POST)
-	public void qnaUpdatePost(QnaVo qnaVo) throws Exception {
-		qnaService.updateQna(qnaVo);
-	}
-	
-	@RequestMapping(value = "/deleteQna", method = RequestMethod.GET)
-	public String qnaDelete(int bno) throws Exception {
-		qnaService.deleteQna(qno);
-	}
-	
-	*/
-
 }

@@ -38,15 +38,16 @@
 	<select id="qReplyList" resultType="QreplyVo">
 		select * from tbl_qreply
 		where qno = #{qno}
+		order by qrno desc
 	</select>
 	
 	<!-- 답변 입력 -->
-	<insert id="replyInsert">
+	<insert id="qReplyInsert">
 		insert into tbl_qreply(qrno, q_reply, qno)
 		values (seq_qrno.nextval, #{q_reply}, #{qno})
 	</insert>
 	
-	<!-- QnA q_answer 수정 - 관리자 -->
+	<!-- QnA 답변 상태 수정 - 관리자 -->
 	<update id="qnaUpdate">
 		update tbl_qna set
 			q_answer = #{q_answer}
@@ -54,17 +55,11 @@
 	</update>
 	
 	<!-- 답변 수정 -->
-	<update id="replyUpdate">
+	<update id="qReplyUpdate">
 		update tbl_qreply set
 			q_reply = #{q_reply}
 		where qrno = #{qrno}
 	</update>
-	
-	<!-- 답변 삭제 -->
-<!-- 	<delete id="replyDelete"> -->
-<!-- 		delete from tbl_qreply -->
-<!-- 		where qrno = #{qrno} -->
-<!-- 	</delete>	 -->
 	
 	<!-- QnA 1:1문의 내용보기 - 관리자 -->
 	<select id="qnaRead" resultType="QnaVo">
@@ -78,11 +73,14 @@
 		values (#{qno}, #{m_id}, #{q_kind}, #{q_title}, #{q_content}, #{q_answer})	
 	</insert>
 	
-	
-
-	
 	<!-- QnA 1:1문의 삭제 -->
 	<delete id="qnaDelete">
+		delete from tbl_qna
+		where qno = #{qno}
+	</delete>
+	
+	<!-- qna 삭제 (체크박스) - 관리자 -->
+	<delete id="qnaDeleteChk">
 		delete from tbl_qna
 		where qno = #{qno}
 	</delete>
@@ -97,11 +95,17 @@
 	<sql id="search">
 		<if test="searchType != null">
 			<choose>
-				<when test='searchType == "t"'>
+				<when test='searchType == "all"'>
 					where q_title like '%' || #{keyword} || '%'
+					or q_content like '%' || #{keyword} || '%'
+					or q_kind like '%' || #{keyword} || '%'
+					or m_id like '%' || #{keyword} || '%'
 				</when>
-				<when test='searchType == "c"'>
-					where q_content like '%' || #{keyword} || '%'
+				<when test='searchType == "kind"'>
+					where q_kind like '%' || #{keyword} || '%'
+				</when>
+				<when test='searchType == "id"'>
+					where m_id like '%' || #{keyword} || '%'
 				</when>
 				<when test='searchType == "tc"'>
 					where q_title like '%' || #{keyword} || '%'

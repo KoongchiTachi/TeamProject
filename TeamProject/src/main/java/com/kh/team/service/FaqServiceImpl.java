@@ -3,7 +3,6 @@ package com.kh.team.service;
 import java.util.List;
 import javax.inject.Inject;
 import org.springframework.stereotype.Service;
-
 import com.kh.team.domain.FaqPagingDto;
 import com.kh.team.domain.FaqVo;
 import com.kh.team.persistence.FaqDao;
@@ -19,7 +18,6 @@ public class FaqServiceImpl implements FaqService {
 	public List<FaqVo> faqList(FaqPagingDto faqPagingDto) throws Exception {
 		return faqDao.faqList(faqPagingDto);
 	}
-	
 	// 게시글 수
 	@Override
 	public int getCount(FaqPagingDto faqPagingDto) throws Exception {
@@ -57,7 +55,7 @@ public class FaqServiceImpl implements FaqService {
 		return list;
 	}
 	
-	// faq 내용보기
+	// faq 조회
 	@Override
 	public FaqVo faqRead(int fno) throws Exception {
 		FaqVo faqVo = faqDao.faqRead(fno);

@@ -30,38 +30,33 @@ public class FaqController {
 	
 	// faq f_cate = f1001 회원 관련 목록
 	@RequestMapping(value = "/faq1", method = RequestMethod.GET)
-	public String faq1(Model model) throws Exception {
+	public void faq1(Model model) throws Exception {
 		List<FaqVo> list = faqService.faq1();
 		model.addAttribute("list", list);
-		return "sjw/contact/faq1";
 	}
 	// faq f_cate = f1002 경매 관련 목록
 	@RequestMapping(value = "/faq2", method = RequestMethod.GET)
-	public String faq2(Model model) throws Exception {
+	public void faq2(Model model) throws Exception {
 		List<FaqVo> list = faqService.faq2();
 		model.addAttribute("list", list);
-		return "sjw/contact/faq2";
 	}
 	// faq f_cate = f1003 낙찰 관련 목록
 	@RequestMapping(value = "/faq3", method = RequestMethod.GET)
-	public String faq3(Model model) throws Exception {
+	public void faq3(Model model) throws Exception {
 		List<FaqVo> list = faqService.faq3();
 		model.addAttribute("list", list);
-		return "sjw/contact/faq3";
 	}
 	// faq f_cate = f1004 위탁 관련 목록
 	@RequestMapping(value = "/faq4", method = RequestMethod.GET)
-	public String faq4(Model model) throws Exception {
+	public void faq4(Model model) throws Exception {
 		List<FaqVo> list = faqService.faq4();
 		model.addAttribute("list", list);
-		return "sjw/contact/faq4";
 	}
 	// faq f_cate = f1005 기타 관련 목록
 	@RequestMapping(value = "/faq5", method = RequestMethod.GET)
-	public String faq5(Model model) throws Exception {
+	public void faq5(Model model) throws Exception {
 		List<FaqVo> list = faqService.faq5();
 		model.addAttribute("list", list);
-		return "sjw/contact/faq5";
 	}
 
 }

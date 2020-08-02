@@ -7,8 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import com.kh.team.domain.QnaPagingDto;
 import com.kh.team.domain.QnaVo;
+import com.kh.team.domain.QreplyVo;
 import com.kh.team.service.QnaService;
 
 @Controller
@@ -34,15 +36,29 @@ public class AdminQnaController {
 	@RequestMapping(value = "/admin_qnaRead", method = RequestMethod.GET)
 	public void qnaRead(@RequestParam("qno") int qno, QnaPagingDto qnaPagingDto, Model model) throws Exception {
 		QnaVo qnaVo = qnaService.qnaRead(qno);
+		
 		model.addAttribute("qnaVo", qnaVo);
 		model.addAttribute("qnaPagingDto", qnaPagingDto);
 	}
 	
 	// QnA 답변 입력 - 관리자
-	@RequestMapping(value = "/replyInsert", method=RequestMethod.POST)
-	public String replyInsert(QnaVo qnaVo) throws Exception {
-//		System.out.println("qnaVo:" + qnaVo);
-		qnaService.replyInsert(qnaVo);
+	@RequestMapping(value = "/qReplyInsert", method=RequestMethod.POST)
+	public String qReplyInsert(QreplyVo qreplyVo) throws Exception {
+//		System.out.println("qreplyVo:" + qreplyVo);
+		qnaService.qReplyInsert(qreplyVo);
 		return "redirect:/sjw/admin/admin_qnaList";
+	}
+	
+	// QnA 삭제 (체크박스) - 관리자
+	@ResponseBody
+	@RequestMapping(value = "/admin_qnaDeleteChk", method = RequestMethod.POST)
+	public String qnaDeleteChk(@RequestParam(value = "chbox[]") List<String> chArr, QnaVo qnos) throws Exception {
+		int qno = 0;
+		for (String check : chArr) {
+			qno = Integer.parseInt(check);
+			qnos.setQno(qno);
+			qnaService.qnaDeleteChk(qnos);
+		}
+		return "success";
 	}
 }

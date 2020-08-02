@@ -33,19 +33,19 @@
 		where f_cate = 'f1002'
 	</select>
 	
-		<!-- faq f_cate = f1003 경매 관련 목록 -->
+	<!-- faq f_cate = f1003 경매 관련 목록 -->
 	<select id="faq3" resultType="FaqVo">
 		select * from tbl_faq
 		where f_cate = 'f1003'
 	</select>
 	
-		<!-- faq f_cate = f1004 경매 관련 목록 -->
+	<!-- faq f_cate = f1004 경매 관련 목록 -->
 	<select id="faq4" resultType="FaqVo">
 		select * from tbl_faq
 		where f_cate = 'f1004'
 	</select>
 	
-		<!-- faq f_cate = f1005 경매 관련 목록 -->
+	<!-- faq f_cate = f1005 경매 관련 목록 -->
 	<select id="faq5" resultType="FaqVo">
 		select * from tbl_faq
 		where f_cate = 'f1005'

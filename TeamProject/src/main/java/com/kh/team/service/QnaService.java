@@ -12,26 +12,28 @@ public interface QnaService {
 	
 	// QnA 1:1문의 목록 (페이징) - 관리자
 	public List<QnaVo> qnaList(QnaPagingDto qnaPagingDto) throws Exception;
-	
 	// 게시글 수
 	public int getCount(QnaPagingDto qnaPagingDto) throws Exception;
 	
 	// QnA 1:1문의 답변 목록
 	public List<QreplyVo> qReplyList(int qno) throws Exception;
 	
-	// QnA 1:1문의 내용보기 - 관리자
+	// QnA 1:1문의 조회 - 관리자
 	public QnaVo qnaRead(int qno) throws Exception;
 		
 	// QnA 1:1문의 입력 - 회원
 	public void qnaInsert(QnaVo qnaVo) throws Exception;
 	
 	// QnA 1:1문의 답변 입력 - 관리자
-	public void replyInsert(QnaVo qnaVo) throws Exception;
+	public void qReplyInsert(QreplyVo qreplyVo) throws Exception;
 		
 	// QnA 1:1문의 답변 수정 - 관리자
-	public void replyUpdate(QnaVo qnaVo) throws Exception;
+	public void qReplyUpdate(QreplyVo qreplyVo) throws Exception;
 		
 	// QnA 1:1문의 삭제 - 회원
 	public void qnaDelete(int qno) throws Exception;
+	
+	// QnA 1:1문의 삭제 (체크박스) - 관리자
+	public void qnaDeleteChk(QnaVo qnos) throws Exception;
 
 }

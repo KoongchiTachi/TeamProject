@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="/WEB-INF/views/include/sidebarHeader.jsp"%>
 <%@ include file="/WEB-INF/views/include/sjw/admin_frmPage.jsp" %>
-
+<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 <style>
 th {
 	background-color: #f5f5f5;
@@ -12,15 +12,129 @@ input[type="text"]:disabled,
 textarea.form-control:disabled {
  	background: white;
 }
-
 </style>
+<script>
+$(function() {
+	
+		qReplyList();
+	
+	function qReplyList(){
+
+		var url = "/qreply/qReplyList";
+		var paramData = {"qno" : "${qnaVo.qno}"};
+		$.ajax({
+			"type" : "POST",
+			"url" : url,
+			"data" : paramData,
+			"dataType" : "json",
+			"success": function(result) {
+        	console.log(result);
+           		var html = "";
+					if(result.length < 1){
+						html += '<textarea class="form-control" name="q_reply" placeholder="답변을 작성해 주세요." style="height: 120px;" required>';
+						html += '</textarea>';
+						html += '<div align="center">';
+						html += '<button type="submit" class="btn btn-secondary" style="margin-top: 10px;">등록</button>&nbsp;';
+						html += '<a href="/sjw/admin/admin_qnaList" class="btn btn-secondary" style="margin-top: 10px;">목록</a>';
+						html += '</div>';
+					} else {
+                    	$(result).each(function(){
+                    	html += '<textarea class="form-control" id="qreply" style="height: 120px;" disabled>' + this.q_reply + '</textarea>';
+                     	html += '<div align="center">';
+                     	html += '<button type="button" class="btn btn-secondary btnCommentModify" style="margin-top: 10px;" data-qrno="'+this.qrno+'">수정</button>&nbsp;';
+                     	html += '<a href="/sjw/admin/admin_qnaList" class="btn btn-secondary" style="margin-top: 10px;">목록</a>';
+                     	html += '</div>';
+                	});
+				}
+				$("#qReplyList").append(html);
+        	}	   
+		});	
+	}
+	
+	// 답변 수정 버튼
+	$("#qReplyList").on("click", ".btnCommentModify", function() {
+		//console.log("수정버튼");
+ 		var qrno = $(this).attr("data-qrno");
+ 		//console.log(qrno);
+ 		var qreply = $("#qreply").val();
+ 		//console.log(qreply);
+  		$("#modal_content").val(qreply);
+  		$("#btnModifyModal").attr("data-qrno", qrno);
+  		$("#modal-310487").trigger("click");
+	});
+	
+	// 답변 수정 완료 버튼
+	$("#btnModifyModal").click(function () {
+		var qreply = $("#modal_content").val();
+		console.log(qreply);
+		var qrno = $(this).attr("data-qrno");
+		var sendData = {
+			"q_reply" : qreply,
+			"qrno" : qrno
+		};
+		//console.log("sendData:", sendData);
+		var url = "/qreply/qReplyUpdate";
+		$.ajax({
+			"type" : "put",
+			"url" : url,
+			"dataType" : "text",
+			"data" : JSON.stringify(sendData),
+			"headers" : {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "put"
+			},
+			"success" : function(rData) {
+				console.log(rData);
+				alert("수정되었습니다.");
+				location.reload();
+				$("#btnCancelModal").trigger("click");
+			}
+		});
+	});
+	
+});
+</script>
+
+<div class="row">
+		<div class="col-md-12">
+			 <a id="modal-310487" href="#modal-container-310487" role="button" class="btn modal-310487" data-toggle="modal">Launch demo modal</a>
+			<div class="modal fade" id="modal-container-310487" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" id="myModal">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content" style="height: 500px;">
+						<div class="modal-header">
+							<h5 class="modal-title" id="myModalLabel">
+								답변 수정
+							</h5> 
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<label>답변내용</label>
+							<textarea id="modal_content" class="form-control" rows="11"></textarea><br/>
+						</div>
+						<div class="modal-footer">
+							 
+							<button type="button" class="btn btn-primary" id="btnModifyModal">
+								수정완료
+							</button> 
+							<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancelModal">
+								취소
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row">
 				<div class="col-md-2"></div>
 				<div class="col-md-8">
-					<form role="form" action="/sjw/admin/replyInsert" method="post" style="background-color: white;">
+					<form role="form" action="/sjw/admin/qReplyInsert" method="post" style="background-color: white;">
 					<input type="hidden" name="qno" value="${qnaVo.qno}">
 						<table class="table table-bordered">
 							<tbody>
@@ -35,8 +149,6 @@ textarea.form-control:disabled {
 								<tr>
 									<th>문의내용</th>
 									<td>
-<!-- 									<textarea onkeydown="resize(this)" rows="20" cols="10" -->
-<!-- 											placeholder="내용을 입력하세요. " name="content" class="form-control"></textarea> -->
 										<textarea class="form-control" style="height: 120px;" disabled>${qnaVo.q_content}</textarea>
 									</td>
 								</tr>
@@ -61,15 +173,9 @@ textarea.form-control:disabled {
 								</tr>
 								<tr>
 									<th>관리자 답변</th>
-									<td>
- 									<textarea class="form-control" name="q_reply" placeholder="답변을 작성해 주세요." style="height: 120px;" required></textarea>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="3" align="center">
-									<button type="submit" class="btn btn-secondary">등록</button>
-									<a href="/sjw/admin/admin_qnaList" class="btn btn-secondary">취소</a>
-									</td>
+										<td>
+											<div id="qReplyList"></div>
+										</td>
 								</tr>
 							</tbody>
 						</table>

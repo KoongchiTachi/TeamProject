@@ -16,65 +16,59 @@
 <script>
 $(function() {
 		
-// 		var msg = "${msg}";
-// 		if (msg == "insertSuccess") {
-// 			alert("등록되었습니다.");
-// 		}
-// 		if (msg == "deleteSuccess") {
-// 			alert("삭제되었습니다.");
-// 		}
+		$("#chkAll").click(function() {
+			var chk = $(this).prop("checked");
+			if (chk) {
+				$(".chkQna").prop("checked", true);
+			} else {
+				$(".chkQna").prop("checked", false);
+			}
+		});
+		$(".chkQna").click(function() {
+			$("#chkAll").prop("checked", false);
+		});
 		
-// 		$("#chkAll").click(function() {
-// 			var chk = $(this).prop("checked");
-// 			if (chk) {
-// 				$(".chkNotice").prop("checked", true);
-// 			} else {
-// 				$(".chkNotice").prop("checked", false);
-// 			}
-// 		});
-// 		$(".chkNotice").click(function() {
-// 			$("#chkAll").prop("checked", false);
-// 		});
-		
-// 		$("#btnCheck").click(function() {
-// 			var checkArr = new Array();
-// 			$(".chkNotice:checked").each(function() {			
-// 				checkArr.push($(this).attr("data-nno"));
-// 			});
-// 			if (checkArr == null || checkArr == "") {
-// 				alert("선택된 글이 없습니다.");
-// 				return;
-// 			}
-// 			var r = confirm("삭제하시겠습니까?");
-// 			if (r == false) {
-// 				return;
-// 			}
-// 			var url = "/sjw/admin/admin_noticeDeleteChk";
-// 			$.ajax({
-// 				"type" : "post",
-// 				"url" : url,
-// 				"data" : { chbox : checkArr },
-// 				"success" : function(result) {
-// 					alert("삭제되었습니다.");
-// 					$(".chkNotice:checked").parent().parent().hide();
-// 				},
-// 				"error" : function(data) {
-// 					alert("에러가 발생했습니다.");
-// 					return false;
-// 				}
-// 			});
-// 		});
+		// 글 삭제 (체크박스)
+		$("#btnCheck").click(function() {
+			var checkArr = new Array();
+			$(".chkQna:checked").each(function() {			
+				checkArr.push($(this).attr("data-qno"));
+			});
+			if (checkArr == null || checkArr == "") {
+				alert("선택된 글이 없습니다.");
+				return;
+			}
+			var r = confirm("삭제하시겠습니까?");
+			if (r == false) {
+				location.reload();
+ 				return;
+			}
+			var url = "/sjw/admin/admin_qnaDeleteChk";
+			$.ajax({
+				"type" : "post",
+				"url" : url,
+				"data" : { chbox : checkArr },
+				"success" : function(result) {
+					alert("삭제되었습니다.");
+					$(".chkQna:checked").parent().parent().hide();
+				},
+				"error" : function(data) {
+					alert("에러발생.");
+					return false;
+				}
+			});
+		});
 	
-// 	// 검색
-// 	$("#btnSearch").click(function () {
-// 		var searchType = $("select[name=searchType]").val();
-// 		var keyword = $("#keyword").val();
-// 		$("#adminFrmPageN > input[name=searchType]").val(searchType);
-// 		$("#adminFrmPageN > input[name=keyword]").val(keyword);
-// 		$("#adminFrmPageN").submit();
-// 	});
+ 	// 검색
+	$("#btnSearch").click(function () {
+		var searchType = $("select[name=searchType]").val();
+		var keyword = $("#keyword").val();
+		$("#adminFrmPageN > input[name=searchType]").val(searchType);
+		$("#adminFrmPageN > input[name=keyword]").val(keyword);
+		$("#adminFrmPageN").submit();
+	});
 	
-	// 제목 클릭 -> 공지내용보기
+	// 제목 클릭 -> 1:1문의 조회
 	$("a.q_title").click(function(e) {
 		e.preventDefault();
 		var qno = $(this).attr("data-qno");
@@ -112,34 +106,41 @@ $(function() {
 				1:1문의 목록
 			</h3>
 			<div class="row">
-				<div class="col-md-2">
-				</div>
+				<div class="col-md-2"></div>
 				<div class="col-md-8">
-							<form class="form-inline md-form mr-auto mb-4" style="float: right;">
-								<select class="mdb-select md-form colorful-select dropdown-primary" name="searchType" style="width: 100px; height: 38px; border: 1px solid #cfcfcf; border-radius: 5px 5px 5px 5px;">
-									<option value="tc"
-										<c:if test="${qnaPagingDto.searchType == 'tc'}">selected</c:if>
-									>전체</option>
-									<option value="t"
-										<c:if test="${qnaPagingDto.searchType == 't'}">selected</c:if>
-									>제목</option>
-									<option value="c"
-										<c:if test="${qnaPagingDto.searchType == 'c'}">selected</c:if>
-									>내용</option>
-								</select>&nbsp;&nbsp;
-								<input class="form-control mr-sm-2" type="text"
-									placeholder="Search" aria-label="Search" id="keyword"
-									name="keyword" value="${qnaPagingDto.keyword}">
-								<button class="btn btn-elegant btn-rounded my-0"
-									type="submit" id="btnSearch" style="background-color: #979494; color: #fff;">검색</button>
-							</form>
-					<table class="table table-hover" style="border-top: 3px solid #979697; border-bottom: 3px solid #979697;" >
+					<form class="form-inline md-form mr-auto mb-4"
+						style="float: right;">
+						<select
+							class="mdb-select md-form colorful-select dropdown-primary"
+							name="searchType"
+							style="width: 100px; height: 38px; border: 1px solid #cfcfcf; border-radius: 5px 5px 5px 5px;">
+							<option value="all"
+								<c:if test="${qnaPagingDto.searchType == 'all'}">selected</c:if>
+							>전체</option>
+							<option value="kind"
+								<c:if test="${qnaPagingDto.searchType == 'kind'}">selected</c:if>
+							>문의유형</option>
+							<option value="id"
+								<c:if test="${qnaPagingDto.searchType == 'id'}">selected</c:if>
+							>작성자</option>
+							<option value="tc"
+								<c:if test="${qnaPagingDto.searchType == 'tc'}">selected</c:if>
+							>제목/내용</option>
+						</select>&nbsp;&nbsp; <input class="form-control mr-sm-2" type="text"
+							placeholder="Search" aria-label="Search" id="keyword"
+							name="keyword" value="${qnaPagingDto.keyword}">
+						<button class="btn btn-elegant btn-rounded my-0" type="submit"
+							id="btnSearch" style="background-color: #979494; color: #fff;">검색</button>
+					</form>
+					<table class="table table-hover"
+						style="border-top: 3px solid #979697; border-bottom: 3px solid #979697;">
 						<thead>
 							<tr style="text-align: center;">
+								<th style="width: 50px;"><input type="checkbox" id="chkAll"></th>
 								<th>글번호</th>
 								<th>문의유형</th>
+								<th style="width: 300px;">제목</th>
 								<th>작성자</th>
-								<th style="width: 250px;">제목</th>
 								<th>작성일</th>
 								<th>답변여부</th>
 							</tr>
@@ -147,10 +148,14 @@ $(function() {
 						<tbody>
 							<c:forEach items="${list}" var="qnaVo">
 								<tr style="text-align: center;">
+									<td><input type="checkbox" class="chkQna"
+										data-qno="${qnaVo.qno}"></td>
 									<td>${qnaVo.qno}</td>
 									<td>${qnaVo.q_kind}</td>
+									<td><a href="/sjw/admin/admin_qnaRead" class="q_title"
+										style="color: #525252; text-decoration: underline;"
+										data-qno="${qnaVo.qno}">${qnaVo.q_title}</a></td>
 									<td>${qnaVo.m_id}</td>
-									<td><a href="/sjw/admin/admin_qnaRead" class="q_title" style="color: #525252;" data-qno="${qnaVo.qno}">${qnaVo.q_title}</a></td>
 									<td>${qnaVo.q_date}</td>
 									<c:choose>
 										<c:when test="${qnaVo.q_answer == 'N'}">
@@ -165,43 +170,40 @@ $(function() {
 						</tbody>
 					</table>
 					<div class="row">
-						<div class="col-md-6">
-							<nav style="float: right; margin-top: 20px;">
+						<div class="col-md-10">
+							<nav>
 								<ul class="pagination">
-									<!-- 이전 -->
 									<c:if test="${qnaPagingDto.startPage != 1}">
 										<li class="page-item"><a class="page-link"
 											href="${qnaPagingDto.startPage - 1}">&laquo;</a></li>
 									</c:if>
-									<!-- 페이지 넘버링 -->
 									<c:forEach begin="${qnaPagingDto.startPage}"
 										end="${qnaPagingDto.endPage}" var="v">
-									<li class="page-item"
-										<c:choose>
+										<li class="page-item"
+											<c:choose>
  											<c:when test="${qnaPagingDto.page == v}">
  												class="page-item active"
  											</c:when>
  											<c:otherwise>
  						 						class="page-item"
 											</c:otherwise>
- 										</c:choose>
- 									>
-										<a class="page-link" href="${v}">${v}</a>
-									</li>
+ 										</c:choose>>
+											<a class="page-link" href="${v}">${v}</a>
+										</li>
 									</c:forEach>
-									<!-- 다음 -->
-									<c:if
-										test="${qnaPagingDto.endPage < qnaPagingDto.totalPage}">
+									<c:if test="${qnaPagingDto.endPage < qnaPagingDto.totalPage}">
 										<li class="page-item"><a class="page-link"
 											href="${qnaPagingDto.endPage + 1}">&raquo;</a></li>
 									</c:if>
 								</ul>
 							</nav>
 						</div>
+						<div class="col-md-2" align="right">
+							<button type="button" class="btn btn-secondary" id="btnCheck">삭제</button>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-2">
-				</div>
+				<div class="col-md-2"></div>
 			</div>
 		</div>
 	</div>

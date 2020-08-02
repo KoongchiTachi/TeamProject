@@ -4,7 +4,6 @@ import java.util.List;
 import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-
 import com.kh.team.domain.FaqPagingDto;
 import com.kh.team.domain.FaqVo;
 
@@ -22,7 +21,6 @@ public class FaqDaoImpl implements FaqDao {
 		List<FaqVo> list = sqlSession.selectList(NAMESPACE + "faqList", faqPagingDto);
 		return list;
 	}
-	
 	// 게시글 수
 	@Override
 	public int getCount(FaqPagingDto faqPagingDto) throws Exception {
@@ -55,7 +53,7 @@ public class FaqDaoImpl implements FaqDao {
 		return sqlSession.selectList(NAMESPACE + "faq5");
 	}
 
-	// faq 내용보기
+	// faq 조회
 	@Override
 	public FaqVo faqRead(int fno) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "faqRead", fno);

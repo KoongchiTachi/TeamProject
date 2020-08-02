@@ -12,6 +12,7 @@
 	background-color: #979494;
 	border: solid 1px #979494;
 }
+
 </style>
 <script>
 $(function() {
@@ -47,6 +48,7 @@ $(function() {
 		}
 		var r = confirm("삭제하시겠습니까?");
 		if (r == false) {
+			location.reload();
 			return;
 		}
 		var url = "/sjw/admin/admin_faqDeleteChk";
@@ -59,7 +61,7 @@ $(function() {
 				$(".chkFaq:checked").parent().parent().hide();
 			},
 			"error" : function(data) {
-				alert("에러가 발생했습니다.");
+				alert("에러발생.");
 				return false;
 			}
 		});
@@ -74,7 +76,7 @@ $(function() {
 		$("#adminFrmPageF").submit();
 	});
 	
-	// 제목 클릭 -> faq내용보기
+	// 제목 클릭 -> faq 조회
 	$("a.f_title").click(function(e) {
 		e.preventDefault();
 		var fno = $(this).attr("data-fno");
@@ -136,10 +138,10 @@ $(function() {
 					<table class="table table-hover" style="border-top: 3px solid #979697; border-bottom: 3px solid #979697;">
 						<thead>
 							<tr style="text-align: center;">
-								<th style="width: 50px;"><input type="checkbox" id="chkAll"></th>
-								<th style="width: 50px;">글번호</th>
-								<th style="width: 100px;">카테고리</th>
-								<th style="width: 470px;">제목</th>
+								<th style="width: 60px;"><input type="checkbox" id="chkAll"></th>
+								<th style="width: 80px;">글번호</th>
+								<th style="width: 80px;">카테고리</th>
+								<th style="width: 480px;">제목</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -164,7 +166,7 @@ $(function() {
 											<td>기타</td>
 										</c:otherwise>
 									</c:choose>
-									<td><a href="/sjw/admin/admin_faqRead" class="f_title" data-fno="${faqVo.fno}">${faqVo.f_title}</a></td>
+									<td><a href="/sjw/admin/admin_faqRead" class="f_title" data-fno="${faqVo.fno}" style="text-decoration: underline;">${faqVo.f_title}</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -173,12 +175,10 @@ $(function() {
 						<div class="col-md-10">
 							<nav>
 								<ul class="pagination">
-									<!-- 이전 -->
 									<c:if test="${faqPagingDto.startPage != 1}">
 										<li class="page-item"><a class="page-link"
 											href="${faqPagingDto.startPage - 1}">&laquo;</a></li>
 									</c:if>
-									<!-- 페이지 넘버링 -->
 									<c:forEach begin="${faqPagingDto.startPage}"
 										end="${faqPagingDto.endPage}" var="v">
 									<li class="page-item"
@@ -194,7 +194,6 @@ $(function() {
 										<a class="page-link" href="${v}">${v}</a>
 									</li>
 									</c:forEach>
-									<!-- 다음 -->
 									<c:if test="${faqPagingDto.endPage < faqPagingDto.totalPage}">
 										<li class="page-item"><a class="page-link"
 											href="${faqPagingDto.endPage + 1}">&raquo;</a></li>

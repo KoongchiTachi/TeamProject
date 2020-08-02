@@ -38,7 +38,7 @@ public class NoticeController {
 	}
 	
 	
-	///////////////////////////////////////////////////map, info는 따로 controller 만들지 않음
+	///////////////////////////////////////////////////map, info는 따로 controller X
 	
 	@RequestMapping("/map")
 	public void map() throws Exception {

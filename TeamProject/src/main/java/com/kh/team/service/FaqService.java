@@ -8,7 +8,6 @@ public interface FaqService {
 	
 	// faq 목록 (페이징)
 	public List<FaqVo> faqList(FaqPagingDto faqPagingDto) throws Exception;
-	
 	// 게시글 수
 	public int getCount(FaqPagingDto faqPagingDto) throws Exception;
 	
@@ -23,7 +22,7 @@ public interface FaqService {
 	// faq f_cate = f1005 기타 관련 목록
 	public List<FaqVo> faq5() throws Exception;
 	
-	// faq 내용보기
+	// faq 조회
 	public FaqVo faqRead(int fno) throws Exception;
 	
 	// faq 입력 - 관리자

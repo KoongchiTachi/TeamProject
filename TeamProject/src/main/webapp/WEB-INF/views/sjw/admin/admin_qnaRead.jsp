@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ include file="/WEB-INF/views/include/sidebarHeader.jsp"%>
 <%@ include file="/WEB-INF/views/include/sjw/admin_frmPage.jsp" %>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
@@ -11,6 +12,9 @@ th {
 input[type="text"]:disabled,
 textarea.form-control:disabled {
  	background: white;
+}
+#qReplyList textarea {
+	border: 3px double #c4c4c4;
 }
 </style>
 <script>
@@ -31,17 +35,18 @@ $(function() {
         	console.log(result);
            		var html = "";
 					if(result.length < 1){
-						html += '<textarea class="form-control" name="q_reply" placeholder="답변을 작성해 주세요." style="height: 120px;" required>';
+						html += '<textarea class="form-control" name="q_reply" placeholder="답변을 작성해 주세요." style="height: 150px; backgroud-color: #EEEEEE;" required>';
 						html += '</textarea>';
 						html += '<div align="center">';
-						html += '<button type="submit" class="btn btn-secondary" style="margin-top: 10px;">등록</button>&nbsp;';
+						html += '<button type="submit" class="btn btn-secondary btnSubmit" id="btnSubmit" style="margin-top: 10px;">등록</button>&nbsp;';
 						html += '<a href="/sjw/admin/admin_qnaList" class="btn btn-secondary" style="margin-top: 10px;">목록</a>';
 						html += '</div>';
 					} else {
                     	$(result).each(function(){
-                    	html += '<textarea class="form-control" id="qreply" style="height: 120px;" disabled>' + this.q_reply + '</textarea>';
+                    	html += '<textarea class="form-control" id="qreply" style="height: 150px;" disabled>' + this.q_reply + '</textarea>';
                      	html += '<div align="center">';
-                     	html += '<button type="button" class="btn btn-secondary btnCommentModify" style="margin-top: 10px;" data-qrno="'+this.qrno+'">수정</button>&nbsp;';
+                     	html += '<a id="modal-310487" href="#modal-container-310487" role="button" class="btn btn btn-secondary modal-310487 btnCommentModify" data-toggle="modal" style="margin-top: 10px;" data-qrno="'+this.qrno+'">수정</a>&nbsp;';
+//                      	html += '<button type="button" class="btn btn-secondary btnCommentModify" style="margin-top: 10px;" data-qrno="'+this.qrno+'">수정</button>&nbsp;';
                      	html += '<a href="/sjw/admin/admin_qnaList" class="btn btn-secondary" style="margin-top: 10px;">목록</a>';
                      	html += '</div>';
                 	});
@@ -60,7 +65,6 @@ $(function() {
  		//console.log(qreply);
   		$("#modal_content").val(qreply);
   		$("#btnModifyModal").attr("data-qrno", qrno);
-  		$("#modal-310487").trigger("click");
 	});
 	
 	// 답변 수정 완료 버튼
@@ -92,12 +96,20 @@ $(function() {
 		});
 	});
 	
+	$("#qReplyList").on("click", ".btnSubmit", function() {
+		var check = $("input:radio[name='q_answer']:checkbox[value='Y']").size();
+		console.log(check);
+		if(check == 0){
+            $("input[name='q_answer']").eq(1).attr("checked", true);
+		}
+	});
+	
 });
 </script>
 
 <div class="row">
 		<div class="col-md-12">
-			 <a id="modal-310487" href="#modal-container-310487" role="button" class="btn modal-310487" data-toggle="modal">Launch demo modal</a>
+<!-- 			 <a id="modal-310487" href="#modal-container-310487" role="button" class="btn modal-310487" data-toggle="modal">Launch demo modal</a> -->
 			<div class="modal fade" id="modal-container-310487" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" id="myModal">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content" style="height: 500px;">
@@ -158,7 +170,16 @@ $(function() {
 								</tr>
 								<tr>
 									<th>첨부파일</th>
-									<td><input type="file" class="form-control" /></td>
+									<c:choose> 
+										<c:when test="${fn:length(list) > 0}">
+											<c:forEach items="${list}" var="qnaVo">
+												<td style="display: table;"><a href="#" style="font-size: 15px; display:table-cell; padding-left: 15px;">${qnaVo.file_name}</a></td>
+											</c:forEach>
+										</c:when>
+										<c:otherwise>
+											<td>첨부파일이 없습니다.</td>
+										</c:otherwise>
+									</c:choose>
 								</tr>
 								<tr>
 									<th>답변상태</th>
@@ -166,7 +187,7 @@ $(function() {
 									<input type="radio" name="q_answer" disabled="disabled" value="N"
 										<c:if test="${qnaVo.q_answer == 'N'}">checked</c:if>
 											>&nbsp;답변대기&nbsp;&nbsp;
-									<input type="radio" name="q_answer" id="check" required value="Y"
+									<input type="radio" name="q_answer" required value="Y"
 										<c:if test="${qnaVo.q_answer == 'Y'}">checked</c:if>
 											>&nbsp;답변완료
  									</td>

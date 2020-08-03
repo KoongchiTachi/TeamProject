@@ -35,7 +35,7 @@ $(function() {
 	
 	var msg = "${msg}";
 	if (msg == "insertSuccess") {
-		alert("1:1 문의가 접수 되었습니다.");
+		alert("1:1문의가 접수 되었습니다.");
 	}
 	
 	$(".btnDelete").click(function() { 
@@ -83,7 +83,7 @@ $(function() {
 		<div class="container">
 			<table class="table table-hover table-expandable table-striped">
 				<thead>
-					<tr>
+					<tr style="text-align: center;">
 						<th>문의유형</th>
 						<th>제목</th>
 						<th>작성일</th>
@@ -100,7 +100,7 @@ $(function() {
 					</c:when>
 					<c:when test="${listSize != 0}">
 					<c:forEach items="${list}" var="qnaVo">
-						<tr>
+						<tr style="text-align: center;">
 							<td>${qnaVo.q_kind}</td>
 							<td>${qnaVo.q_title}</td>
 							<td>${qnaVo.q_date}</td>

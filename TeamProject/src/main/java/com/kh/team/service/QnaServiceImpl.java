@@ -88,4 +88,10 @@ public class QnaServiceImpl implements QnaService {
 		qnaDao.qnaDeleteChk(qnos);
 	}
 
+	// QnA 1:1문의 첨부파일 목록
+	@Override
+	public List<QnaVo> qUploadList(int qno) throws Exception {
+		return qnaDao.qUploadList(qno);
+	}
+
 }

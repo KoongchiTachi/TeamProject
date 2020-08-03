@@ -41,6 +41,12 @@
 		order by qrno desc
 	</select>
 	
+	<!-- QnA 첨부파일 목록 -->
+	<select id="qUploadList" resultType="QnaVo">
+		select * from tbl_qupload
+		where qno = #{qno}
+	</select>
+	
 	<!-- 답변 입력 -->
 	<insert id="qReplyInsert">
 		insert into tbl_qreply(qrno, q_reply, qno)
@@ -100,6 +106,12 @@
 					or q_content like '%' || #{keyword} || '%'
 					or q_kind like '%' || #{keyword} || '%'
 					or m_id like '%' || #{keyword} || '%'
+				</when>
+				<when test='searchType == "N"'>
+					where q_answer like '%' || 'N' || '%'
+				</when>
+				<when test='searchType == "Y"'>
+					where q_answer like '%' || 'Y' || '%'
 				</when>
 				<when test='searchType == "kind"'>
 					where q_kind like '%' || #{keyword} || '%'

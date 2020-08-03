@@ -103,4 +103,10 @@ public class QnaDaoImpl implements QnaDao {
 		sqlSession.insert(NAMESPACE + "insertQUpload", paramMap);
 	}
 
+	// QnA 첨부파일 목록
+	@Override
+	public List<QnaVo> qUploadList(int qno) throws Exception {
+		return sqlSession.selectList(NAMESPACE + "qUploadList", qno);
+	}
+
 }

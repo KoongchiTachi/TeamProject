@@ -28,7 +28,7 @@ public class AdminQnaController {
 		qnaPagingDto.setTotalCount(totalCount);
 		List<QnaVo> list = qnaService.qnaList(qnaPagingDto);
 		model.addAttribute("list", list);
-		System.out.println("list" + list);
+//		System.out.println("list" + list);
 		model.addAttribute("qnaPagingDto", qnaPagingDto);  
 	}
 	
@@ -36,7 +36,9 @@ public class AdminQnaController {
 	@RequestMapping(value = "/admin_qnaRead", method = RequestMethod.GET)
 	public void qnaRead(@RequestParam("qno") int qno, QnaPagingDto qnaPagingDto, Model model) throws Exception {
 		QnaVo qnaVo = qnaService.qnaRead(qno);
-		
+		List<QnaVo> list = qnaService.qUploadList(qno);
+		System.out.println("list: " + list);
+		model.addAttribute("list", list);
 		model.addAttribute("qnaVo", qnaVo);
 		model.addAttribute("qnaPagingDto", qnaPagingDto);
 	}

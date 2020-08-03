@@ -35,5 +35,8 @@ public interface QnaService {
 	
 	// QnA 1:1문의 삭제 (체크박스) - 관리자
 	public void qnaDeleteChk(QnaVo qnos) throws Exception;
+	
+	// QnA 1:1문의 첨부파일 목록
+	public List<QnaVo> qUploadList(int qno) throws Exception;
 
 }

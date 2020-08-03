@@ -12,6 +12,9 @@
 	background-color: #979494;
 	border: solid 1px #979494;
 }
+.optionGroup {
+    font-weight: bold;
+}
 </style>
 <script>
 $(function() {
@@ -113,7 +116,17 @@ $(function() {
 						<select
 							class="mdb-select md-form colorful-select dropdown-primary"
 							name="searchType"
-							style="width: 100px; height: 38px; border: 1px solid #cfcfcf; border-radius: 5px 5px 5px 5px;">
+							style="width: 120px; height: 38px; border: 1px solid #cfcfcf; border-radius: 5px 5px 5px 5px;">
+							<option class="optionGroup" selected disabled>선택하세요</option>
+							<optgroup label="답변상태">
+							<option value="N"
+								<c:if test="${qnaPagingDto.searchType == 'N'}">selected</c:if>
+							>답변대기</option>
+							<option value="Y"
+								<c:if test="${qnaPagingDto.searchType == 'Y'}">selected</c:if>
+							>답변완료</option>
+							</optgroup>
+							<optgroup label="검색">
 							<option value="all"
 								<c:if test="${qnaPagingDto.searchType == 'all'}">selected</c:if>
 							>전체</option>
@@ -126,6 +139,7 @@ $(function() {
 							<option value="tc"
 								<c:if test="${qnaPagingDto.searchType == 'tc'}">selected</c:if>
 							>제목/내용</option>
+							</optgroup>
 						</select>&nbsp;&nbsp; <input class="form-control mr-sm-2" type="text"
 							placeholder="Search" aria-label="Search" id="keyword"
 							name="keyword" value="${qnaPagingDto.keyword}">

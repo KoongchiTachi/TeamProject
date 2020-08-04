@@ -195,6 +195,7 @@ $(function() {
                 <div class="profile-work">
                     <p id="auctionList">AUCTION LIST</p>
                     <div id="auctionA">
+	                    <a href="/kjy/member/consignList"> 위탁</a><br/> 
 	                    <a href="/kjy/member/myBidList"> 응찰 </a><br/> 
 	                    <a href="/kjy/member/successBidList"> 낙찰 </a><br/>
                     </div>

@@ -182,7 +182,7 @@ $(function() {
 									</c:choose>
 								</tr>
 								<tr>
-									<th>답변상태</th>
+									<th>답변상태</th> 
 									<td>
 									<input type="radio" name="q_answer" disabled="disabled" value="N"
 										<c:if test="${qnaVo.q_answer == 'N'}">checked</c:if>

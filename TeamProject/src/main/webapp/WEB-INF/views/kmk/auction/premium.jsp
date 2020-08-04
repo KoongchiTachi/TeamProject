@@ -99,10 +99,11 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="/resources/css/product_list.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/product/product_list.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/product/like_heart.css" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
 
-<script>
+<script> 
 </script>
 
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
@@ -135,8 +136,7 @@
 
 		<!-- Grid row --> 
 		<div class="row">
-
-			<!-- Grid column -->
+			<!-- Grid column --> 
 			<c:forEach items="${list}" var="premium">
 			<div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch">
 				<!-- Card -->
@@ -146,8 +146,12 @@
 					<div class="title" >${premium.b_name}</div>
 					<div class="p_logo">
 						<img alt="premium" src="/resources/img/logo/premium_icon.png">
-						<!-- <button id="swapHeart" class="btn btn-secondary swap"><span class="glyphicon glyphicon-heart-empty"></span></button> -->
-					</div> 
+						<button class="like-button
+						<c:if test="${wish}">
+							liked
+						</c:if>
+						" data-pno="${premium.pno}"/>  
+					</div>  
 					<div class="banner-img"> 
 						<img style="width: 85%;" src="/resources/img/bag/${premium.p_img1}" alt="Image 1"> 
 					</div>  
@@ -176,7 +180,7 @@
 						</div>
 					</div>
 					<div class="footer"> 
-						<a href="/kmk/auction/product" class="Cbtn Cbtn-primary" data-pno="${premium.pno}">응찰하기</a> 
+						<a href="/kmk/auction/product" class="Cbtn Cbtn-primary" data-pno="${premium.pno}">응찰하기</a>
 					</div> 
 				</div>
 					<!-- Card content -->
@@ -244,6 +248,38 @@ $(function() {
 		$("#hideForm").submit(); 
 	});
 	
+ 	// product like button 
+	$( ".like-button" ).each(function(index) {
+     	var that = $(this);
+     	var pno = $(this).attr("data-pno"); 
+     	that.click(function() {
+	     	console.log(pno);
+			that.toggleClass("liked", 200);
+			var m_id = "<%=session.getAttribute("m_id")%>";
+			var url = "/kmk/auction/check";
+			var sendData = {
+					"m_id" : m_id,
+					"pno" : pno
+			};
+			console.log(sendData);
+			$.ajax({ 
+				"type" : "GET",
+				"url"  : url, 
+				"dataType" 	: "text", 
+				"data" : sendData,    
+				"success"	: function(rData) {
+					if (rData == "success") {   
+						console.log("체크함"); 
+					} else if (rData == "not") {
+						console.log("체크안함")
+					}
+				},
+				"error"		: function(request,status,error) {
+	             	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				} 
+			});	 
+     	});
+    });
 });
 
 

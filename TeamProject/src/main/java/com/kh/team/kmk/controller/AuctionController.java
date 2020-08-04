@@ -12,13 +12,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kh.team.domain.BidVo;
 import com.kh.team.domain.ProductVo;
+import com.kh.team.domain.WishVo;
 import com.kh.team.service.ProductService;
+import com.kh.team.service.WishlistService;
 
 @Controller
 @RequestMapping(value = "/kmk/auction")  
@@ -29,6 +32,9 @@ public class AuctionController {
 	@Inject
 	private ProductService productService;
 	
+	@Inject
+	private WishlistService wishlistService;
+	
 	// 프리미엄 상품 목록
 	@RequestMapping(value = "/premium", method = RequestMethod.GET)
 	public String premiumAuction(Model model) throws Exception {
@@ -38,11 +44,11 @@ public class AuctionController {
 	}
 	
 	// 일반 상품 목록
-	@RequestMapping(value="/normal", method = RequestMethod.GET) 
+	@RequestMapping(value="/note", method = RequestMethod.GET) 
 	public String latestAuction(Model model) throws Exception {
 		List<ProductVo> list = productService.normalProduct(p_value);
 		model.addAttribute("list", list);
-		return "/kmk/auction/normal";
+		return "/kmk/auction/note";
 	} 
 	 
 	// 상품 상세 페이지
@@ -58,7 +64,7 @@ public class AuctionController {
 		model.addAttribute("cnt", cnt); 
 		model.addAttribute("unit", unit);
 		model.addAttribute(productVo);
-		session.setAttribute("m_id", m_id); 
+		session.setAttribute("m_id", m_id);
 		session.setAttribute("s_price", s_price); 
 	}
 	
@@ -100,6 +106,17 @@ public class AuctionController {
 	// 응찰 신청
 	public void bidSubscription() throws Exception {
 		
+	}
+	
+	// 관심상품 등록 및 해제 
+	@RequestMapping(value="/check", method = RequestMethod.POST)
+	public String attentionProduct(String pno, String m_id) throws Exception {
+		WishVo wishVo = new WishVo();
+		wishVo = wishlistService.getAttentionCheck(pno, m_id);
+		if (wishVo.getM_id().equals(null)) {
+			return "not";
+		}
+		return "success";
 	}
 	
 	// 최근 등록 상품 ( 메인화면 노출 )

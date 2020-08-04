@@ -2,6 +2,7 @@ package com.kh.team.persistence;
 
 import java.util.List;
 
+import com.kh.team.domain.WishVo;
 import com.kh.team.domain.WishlistPagingDto;
 import com.kh.team.domain.WishlistVo;
 
@@ -15,6 +16,9 @@ public interface WishlistDao {
 	
 	// 위시리스트 삭제
 	public void deleteWishlist(int wno) throws Exception;
+	
+	// 관심상품등록 여부
+	public WishVo getAttentionCheck(String pno, String m_id) throws Exception;
 
 	// 다중선택된 위시리스트 삭제
 	public void deleteWishMulti(WishlistVo wnos) throws Exception;

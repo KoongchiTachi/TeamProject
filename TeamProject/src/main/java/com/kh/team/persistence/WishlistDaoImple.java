@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.kh.team.domain.WishVo;
 import com.kh.team.domain.WishlistPagingDto;
 import com.kh.team.domain.WishlistVo;
 
@@ -16,15 +17,15 @@ import com.kh.team.domain.WishlistVo;
 public class WishlistDaoImple implements WishlistDao {
 
 	private static final String NAMESPACE = "mappers.wishlist-mapper.";
-	
+
 	@Inject
 	private SqlSession sqlSession;
-	
+
 	@Override
 	public void insertWishlist(WishlistVo wishlistVo) throws Exception {
 		sqlSession.insert(NAMESPACE + "insertWishlist", wishlistVo);
 	}
-	
+
 	@Override
 	public List<WishlistVo> wishList(String m_id, int startRow, int endRow) throws Exception {
 		Map<String, Object> param = new HashMap<>();
@@ -52,5 +53,12 @@ public class WishlistDaoImple implements WishlistDao {
 		return sqlSession.selectOne(NAMESPACE + "getCount", param);
 	}
 
+	@Override
+	public WishVo getAttentionCheck(String pno, String m_id) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		param.put("pno", pno);
+		param.put("m_id", m_id); 
+		return sqlSession.selectOne(NAMESPACE + "getAttentionCheck", param);
+	}
 
 }

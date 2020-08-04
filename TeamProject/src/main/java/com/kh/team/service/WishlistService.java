@@ -2,6 +2,7 @@ package com.kh.team.service;
 
 import java.util.List;
 
+import com.kh.team.domain.WishVo;
 import com.kh.team.domain.WishlistPagingDto;
 import com.kh.team.domain.WishlistVo;
 
@@ -21,4 +22,7 @@ public interface WishlistService {
 	
 	// 게시글 수
 	public int getCount(WishlistPagingDto wishlistPagingDto, String m_id) throws Exception;
+	
+	// 관심상품 등록여부
+	public WishVo getAttentionCheck(String pno, String m_id) throws Exception;
 }

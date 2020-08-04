@@ -21,13 +21,18 @@
 	
 	<delete id="deleteWishlist">
 		delete from tbl_wish
-		where wno = #{wno}
+		where wno = #{wno} and pno = #{pno}
 	</delete>
 	
 	<delete id="deleteWishMulti">
 		delete from tbl_wish
-		where wno = ${wno}
+		where wno = #{wno}
 	</delete>
+	
+	<select id="getAttentionCheck" resultType="WishVo">
+		select * from tbl_wish
+		where pno = #{pno} and m_id = #{m_id}
+	</select>
 	
 	<select id="getCount" resultType="int">
 		select count(*) from tbl_wish

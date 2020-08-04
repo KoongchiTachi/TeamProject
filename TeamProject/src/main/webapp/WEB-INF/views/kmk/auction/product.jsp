@@ -568,7 +568,7 @@ $(function() {
 			 b_price = ${productVo.s_price} + ${unit};
 		} else { 
 			 b_price = ${productVo.p_price} + ${unit};
-		}; 
+		};  
 		var s_price = <%=session.getAttribute("s_price")%>;
 		console.log("s_price: ", s_price); 
 		var b_note = "낙찰 예정";   
@@ -576,7 +576,7 @@ $(function() {
 		console.log("pno : ", pno);
 		console.log("b_price : ", b_price);
 		console.log("b_note : ", b_note);
-		console.log("m_id : ", m_id); 
+		console.log("m_id : ", m_id);  
 		var sendData = {
 				"m_id" : m_id, 
 				"b_price" : b_price,

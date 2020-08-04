@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.kh.team.domain.WishVo;
 import com.kh.team.domain.WishlistPagingDto;
 import com.kh.team.domain.WishlistVo;
 import com.kh.team.persistence.WishlistDao;
@@ -39,6 +40,11 @@ public class WishlistServiceImple implements WishlistService {
 	@Override
 	public int getCount(WishlistPagingDto wishlistPagingDto, String m_id) throws Exception {
 		return wishlistDao.getCount(wishlistPagingDto, m_id);
+	}
+
+	@Override
+	public WishVo getAttentionCheck(String pno, String m_id) throws Exception {
+		return wishlistDao.getAttentionCheck(pno, m_id);
 	}
 
 

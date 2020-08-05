@@ -42,8 +42,6 @@ public class WishlistController {
 		model.addAttribute("wishlistPagingDto", wishlistPagingDto);
 	}
 	
-	// 동일한 상품 체크
-	
 	// 위시리스트 삭제
 	@ResponseBody
 	@RequestMapping(value = "/deleteWishlist", method = RequestMethod.POST)

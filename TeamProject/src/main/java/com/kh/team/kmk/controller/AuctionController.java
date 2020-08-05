@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.SessionScope;
 
 import com.kh.team.domain.BidVo;
 import com.kh.team.domain.ProductVo;
@@ -37,9 +38,14 @@ public class AuctionController {
 	
 	// 프리미엄 상품 목록
 	@RequestMapping(value = "/premium", method = RequestMethod.GET)
-	public String premiumAuction(Model model) throws Exception {
+	public String premiumAuction(HttpServletRequest request, Model model) throws Exception {
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
 		List<ProductVo> list = productService.premiumProduct(p_value);
+		List<WishVo> wish = productService.attentionItems(m_id);
 		model.addAttribute("list", list);
+		model.addAttribute("wish", wish);
+		System.out.println("wish : " + wish);
 		return "/kmk/auction/premium";  
 	}
 	
@@ -49,7 +55,7 @@ public class AuctionController {
 		List<ProductVo> list = productService.normalProduct(p_value);
 		model.addAttribute("list", list);
 		return "/kmk/auction/note";
-	} 
+	}
 	 
 	// 상품 상세 페이지
 	@RequestMapping(value="/product", method = RequestMethod.GET)
@@ -71,9 +77,8 @@ public class AuctionController {
 	// 상품 응찰 내역
 	@ResponseBody
 	@RequestMapping(value="/bidList/{pno}", method = RequestMethod.POST)
-	public List<BidVo> bidList(@PathVariable("pno") String pno, Model model) throws Exception {
+	public List<BidVo> bidList(@PathVariable("pno") String pno) throws Exception {
 		List<BidVo> bidList = productService.bidList(pno);
-//		model.addAttribute("bidList", bidList);
 		return bidList;
 	}
 	
@@ -101,7 +106,7 @@ public class AuctionController {
 		model.addAttribute("productVo", productVo);
 		model.addAttribute("date", date);
 		return "/kmk/auction/count"; 
-	}
+	} 
 	
 	// 응찰 신청
 	public void bidSubscription() throws Exception {
@@ -109,14 +114,19 @@ public class AuctionController {
 	}
 	
 	// 관심상품 등록 및 해제 
-	@RequestMapping(value="/check", method = RequestMethod.POST)
-	public String attentionProduct(String pno, String m_id) throws Exception {
+	@ResponseBody
+	@RequestMapping(value="/check/{pno}/{m_id}", method = RequestMethod.POST)
+	public String attentionProduct(@PathVariable("pno") String pno, @PathVariable("m_id") String m_id) throws Exception {
 		WishVo wishVo = new WishVo();
 		wishVo = wishlistService.getAttentionCheck(pno, m_id);
-		if (wishVo.getM_id().equals(null)) {
-			return "not";
+		if (wishVo != null) {
+			int wno = wishVo.getWno(); 
+			wishlistService.deleteWishlist(wno);
+			return "not"; 
+		}  else {
+			wishlistService.insertWishlist(pno, m_id);
+			return "ok";
 		}
-		return "success";
 	}
 	
 	// 최근 등록 상품 ( 메인화면 노출 )

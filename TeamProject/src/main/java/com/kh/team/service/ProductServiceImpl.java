@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.team.domain.BidVo;
 import com.kh.team.domain.ProductVo;
+import com.kh.team.domain.WishVo;
 import com.kh.team.persistence.ProductDao;
 
 @Service
@@ -63,6 +64,12 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public int bidCountByPno(String pno) throws Exception {
 		return productDao.bidCountByPno(pno);
+	}
+
+	@Override
+	public List<WishVo> attentionItems(String m_id) throws Exception {
+		List<WishVo> wish = productDao.attentionItems(m_id);
+		return wish;
 	}
 
 }

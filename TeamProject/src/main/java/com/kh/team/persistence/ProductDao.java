@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.kh.team.domain.BidVo;
 import com.kh.team.domain.ProductVo;
+import com.kh.team.domain.WishVo;
 
 public interface ProductDao {
 	// 상품 등록
@@ -23,6 +24,8 @@ public interface ProductDao {
 	public List<ProductVo> premiumProduct(int p_value) throws Exception;
 	// 상품 목록 (일반)
 	public List<ProductVo> normalProduct(int p_value) throws Exception;
+	// 관심상품 목록
+	public List<WishVo> attentionItems(String m_id) throws Exception;
 	// 현재가 변경 (응찰)
 	public void updateP_price(int b_price, String pno) throws Exception;
 	// 응찰 내역

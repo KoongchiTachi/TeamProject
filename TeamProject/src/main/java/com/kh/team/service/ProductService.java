@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.kh.team.domain.BidVo;
 import com.kh.team.domain.ProductVo;
+import com.kh.team.domain.WishVo;
 
 public interface ProductService {
 	// 상품 등록
@@ -22,6 +23,8 @@ public interface ProductService {
 	public List<ProductVo> premiumProduct(int p_value) throws Exception;
 	// 상품 목록 ( 일반 )
 	public List<ProductVo> normalProduct(int p_value) throws Exception;
+	// 관심상품 목록
+	public List<WishVo> attentionItems(String m_id) throws Exception;
 	// 응찰 내역
 	public List<BidVo> bidList(String pno) throws Exception;
 }

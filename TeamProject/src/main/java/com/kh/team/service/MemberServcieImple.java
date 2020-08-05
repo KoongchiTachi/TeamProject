@@ -70,12 +70,7 @@ public class MemberServcieImple implements MemberService {
 	// 관리자 - 경매 진행 중인 회원 삭제 불가
 	@Override
 	public boolean auctioningMember(String m_id) throws Exception {
-		MemberVo vo = memberDao.auctioningMember(m_id);
-		if (vo != null) {
-			return false;
-		} else {
-			return true;
-		}
+		return memberDao.auctioningMember(m_id);
 	}
 
 	// 회원 거래 횟수 가져오기

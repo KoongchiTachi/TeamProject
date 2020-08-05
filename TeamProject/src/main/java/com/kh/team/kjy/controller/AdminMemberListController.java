@@ -37,8 +37,13 @@ public class AdminMemberListController {
 	@ResponseBody
 	@RequestMapping(value = "/deleteMember", method = RequestMethod.GET)
 	public String deleteMember(String m_id) throws Exception {
-		memberService.deleteMember(m_id);
-		return "success";
+		boolean result = memberService.auctioningMember(m_id);
+		if (result == true) {
+			memberService.deleteMember(m_id);
+			return "success";
+		} else {
+			return "failure";
+		}
 	}
 	
 }

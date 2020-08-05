@@ -75,6 +75,19 @@
 		where m_id = #{m_id}
 	</update>
 	
+	<!-- 경매 진행 중인 회원 확인 -->
+	<select id="auctioningMemberPro" resultType="int">
+		select count(*) 
+		from tbl_product
+		where p_state = 's01' and m_id = #{m_id}
+	</select>
+	
+	<select id="auctioningMemberProBid" resultType="int">
+		select count(*)
+		from tbl_bid b, tbl_product p
+		where b.pno = p.pno and p.p_state = 's01' and b.m_id = #{m_id}
+	</select>
+	
 	<!-- 페이징 검색 -->
 	<sql id="search">
 		<if test="searchType != null">
@@ -115,11 +128,4 @@
 		</if>
 	</sql>
 	
-	<!-- 경매 진행 중인 회원 확인 -->
-	<select id="auctioningMember">
-		select b.m_id, b.pno
-		from tbl_product p, tbl_bid b
-		where p.pno = b.bno and p.p_progress = 'p06'
-	</select>
-
 </mapper>

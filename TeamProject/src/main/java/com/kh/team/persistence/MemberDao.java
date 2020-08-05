@@ -32,7 +32,7 @@ public interface MemberDao {
 	public int getCount(AdminMemberListPagingDto adminMemberListPagingDto) throws Exception;
 	
 	// 관리자 - 경매 진행 중인 회원 삭제 불가
-	public MemberVo auctioningMember(String m_id) throws Exception;
+	public boolean auctioningMember(String m_id) throws Exception;
 	
 	// 회원 거래 횟수 가져오기
 	public int getTrade(String m_id) throws Exception;

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kh.team.domain.MemberVo;
 import com.kh.team.service.MemberService;
@@ -76,12 +77,19 @@ public class KjyController {
 		model.addAttribute("m_id", m_id);
 	}
 	
-	// 회원 탈퇴 처리
+	// 회원 탈퇴 처리 (경매 진행 중인 회원 확인)
 	@RequestMapping(value = "/deleteMemberRun", method = RequestMethod.POST)
-	public String deleteMemberRun(HttpSession session, String m_id, String m_pw) throws Exception {
-		memberService.deleteMember(m_id, m_pw);
-		session.invalidate();
-		return "redirect:/";
+	public String deleteMemberRun(HttpSession session, String m_id, String m_pw, RedirectAttributes rttr) throws Exception {
+		boolean result = memberService.auctioningMember(m_id);
+		System.out.println("result:" + result);
+		if (result == true) {
+			memberService.deleteMember(m_id, m_pw); // 널인 경우만 삭제
+			session.invalidate();
+			return "redirect:/";
+		} 
+		
+		rttr.addFlashAttribute("msg", "failure");
+		return "redirect:/kjy/member/deleteMemberForm";
 	}
 	
 }

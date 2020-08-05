@@ -44,14 +44,13 @@ $(function() {
 			alert("회원 탈퇴를 원하시면 비밀번호를 입력해주세요.");
 			return;
 		}
-		
-		var r = confirm("정말 회원 탈퇴하시겠습니까?");
-		if (r == true) {
-			$("#frmDelete").submit();
-		} else {
-			alert("취소하셨습니다.");
-		}
 	});
+	
+	var msg = "${msg}";
+	console.log("msg:" + msg);
+	if (msg == "failure") {
+		alert("경매 진행 중인 상품이 있습니다.\n경매가 끝난 후 탈퇴해주세요.");
+	}
 });
 </script>
 
@@ -70,7 +69,7 @@ $(function() {
 					<label for="m_pw">비밀번호&nbsp;</label>
 					<input type="password" id="m_pw" name="m_pw">
 				</div>
-				<button type="button" class="btn btn-primary" id="btnDeleteMember">탈퇴하기</button>
+				<button type="submit" class="btn btn-primary" id="btnDeleteMember">탈퇴하기</button>
 				</form>
 				</div>
 				<div class="col-md-4">

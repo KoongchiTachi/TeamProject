@@ -56,6 +56,8 @@ $(function() {
 				if (rData == "success") {
 					that.parent().parent().hide("slow");
 					$("#btnCancelModal").trigger("click");
+				} else if (rData == "failure") {
+					alert("현재 " + m_id + " 회원이 경매 진행 중인 상품이 있습니다.\n경매가 끝난 후 삭제해주세요.");
 				}
 			});
 		});

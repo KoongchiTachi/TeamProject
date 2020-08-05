@@ -75,8 +75,16 @@ public class MemberDaoImple implements MemberDao {
 
 	// 관리자 - 경매 진행 중인 회원 삭제 불가
 	@Override
-	public MemberVo auctioningMember(String m_id) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + "auctioningMember", m_id);
+	public boolean auctioningMember(String m_id) throws Exception {
+		int pro = sqlSession.selectOne(NAMESPACE + "auctioningMemberPro", m_id);
+		int proBid = sqlSession.selectOne(NAMESPACE + "auctioningMemberProBid", m_id);
+		System.out.println("pro:" + pro);
+		System.out.println("proBid:" + proBid);
+		if (pro == 0 && proBid == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	// 회원 거래 횟수 가져오기

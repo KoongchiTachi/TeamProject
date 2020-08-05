@@ -26,7 +26,7 @@ public class AdminQnaController {
 		qnaPagingDto.setPageInfo();
 		int totalCount = qnaService.getCount(qnaPagingDto);
 		qnaPagingDto.setTotalCount(totalCount);
-		List<QnaVo> list = qnaService.qnaList(qnaPagingDto);
+		List<QnaVo> list = qnaService.qnaList(qnaPagingDto); // 첨부파일 목록
 		model.addAttribute("list", list);
 //		System.out.println("list" + list);
 		model.addAttribute("qnaPagingDto", qnaPagingDto);  
@@ -63,4 +63,5 @@ public class AdminQnaController {
 		}
 		return "success";
 	}
+	
 }

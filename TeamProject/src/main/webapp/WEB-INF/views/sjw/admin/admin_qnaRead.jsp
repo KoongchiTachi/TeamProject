@@ -21,7 +21,12 @@ textarea.form-control:disabled {
 $(function() {
 	
 		qReplyList();
-	
+		
+// 	 var qno = "${qnaVo.qno}";
+// 	 $.getJSON("/sjw/admin/qUploadList", {qno: qno}, function(arr){
+// 	 	console.log(arr);
+// 	 });
+		
 	function qReplyList(){
 
 		var url = "/qreply/qReplyList";
@@ -173,7 +178,9 @@ $(function() {
 									<c:choose> 
 										<c:when test="${fn:length(list) > 0}">
 											<c:forEach items="${list}" var="qnaVo">
-												<td style="display: table;"><a href="#" style="font-size: 15px; display:table-cell; padding-left: 15px;">${qnaVo.file_name}</a></td>
+<%-- 												<td style="display: table;"><a href="#" id="file_name" style="font-size: 15px; display:table-cell; padding-left: 15px;">${qnaVo.file_name}</a></td> --%>
+												<td style="display: inline-block; border: none;"><img src="/upload/displayFile?fileName=${qnaVo.file_name}" style="width: 100px;"></td>
+<%-- 												<td><img src="/Team/displayFile?fileName=${qnaVo.file_name}"></td> --%>
 											</c:forEach>
 										</c:when>
 										<c:otherwise>

@@ -41,12 +41,6 @@
 		order by qrno desc
 	</select>
 	
-	<!-- QnA 첨부파일 목록 -->
-	<select id="qUploadList" resultType="QnaVo">
-		select * from tbl_qupload
-		where qno = #{qno}
-	</select>
-	
 	<!-- 답변 입력 -->
 	<insert id="qReplyInsert">
 		insert into tbl_qreply(qrno, q_reply, qno)
@@ -96,6 +90,12 @@
 		insert into tbl_qupload(file_name, qno)
 		values (#{file_name}, #{qno})
 	</insert>
+	
+	<!-- QnA 첨부파일 목록 -->
+	<select id="qUploadList" resultType="QnaVo">
+		select * from tbl_qupload
+		where qno = #{qno}
+	</select>
 	
 	<!-- 검색 -->
 	<sql id="search">

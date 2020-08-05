@@ -31,4 +31,13 @@ public interface MemberDao {
 	// 관리자 - 회원 전체 수
 	public int getCount(AdminMemberListPagingDto adminMemberListPagingDto) throws Exception;
 	
+	// 관리자 - 경매 진행 중인 회원 삭제 불가
+	public MemberVo auctioningMember(String m_id) throws Exception;
+	
+	// 회원 거래 횟수 가져오기
+	public int getTrade(String m_id) throws Exception;
+	
+	// 회원 등급 수정
+	public void modifyGrade(int m_trade, String m_id) throws Exception;
+	
 }

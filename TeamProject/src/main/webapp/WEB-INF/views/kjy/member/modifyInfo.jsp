@@ -303,11 +303,12 @@ $(function() {
                 <div class="profile-work">
                     <p id="auctionList">AUCTION LIST</p>
                     <div id="auctionA">
+                    	<a href="/kjy/member/consignList"> 위탁</a><br/> 
 	                    <a href="/kjy/member/myBidList"> 응찰 </a><br/> 
 	                    <a href="/kjy/member/successBidList"> 낙찰 </a><br/>
                     </div>
                     <p><a href="/kjy/member/wishList">WISH LIST</a></p>
-                    <p><a href="">1 : 1 문의 내역</a></p>
+                    <p><a href="/sjw/member/myQna">1 : 1 문의 내역</a></p>
                     <p><a href="/kjy/member/deleteMemberForm">회원 탈퇴</a></p>
                 </div>
             </div>

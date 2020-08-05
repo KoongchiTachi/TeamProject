@@ -64,6 +64,17 @@
 		<include refid="count"></include>
 	</select>
 	
+	<select id="getTrade" resultType="int">
+		select m_trade from tbl_member
+		where m_id = #{m_id}
+	</select>
+	
+	<update id="modifyGrade">
+		update tbl_member
+		set m_grade = #{gradeCode}
+		where m_id = #{m_id}
+	</update>
+	
 	<!-- 페이징 검색 -->
 	<sql id="search">
 		<if test="searchType != null">
@@ -103,5 +114,12 @@
 			</choose>
 		</if>
 	</sql>
+	
+	<!-- 경매 진행 중인 회원 확인 -->
+	<select id="auctioningMember">
+		select b.m_id, b.pno
+		from tbl_product p, tbl_bid b
+		where p.pno = b.bno and p.p_progress = 'p06'
+	</select>
 
 </mapper>

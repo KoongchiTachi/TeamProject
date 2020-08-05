@@ -67,4 +67,28 @@ public class MemberServcieImple implements MemberService {
 		return memberDao.getCount(adminMemberListPagingDto);
 	}
 
+	// 관리자 - 경매 진행 중인 회원 삭제 불가
+	@Override
+	public boolean auctioningMember(String m_id) throws Exception {
+		MemberVo vo = memberDao.auctioningMember(m_id);
+		if (vo != null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	// 회원 거래 횟수 가져오기
+	@Override
+	public int getTrade(String m_id) throws Exception {
+		return memberDao.getTrade(m_id);
+	}
+	
+	// 회원 등급 수정
+	@Override
+	public void modifyGrade(int m_trade, String m_id) throws Exception {
+		memberDao.modifyGrade(m_trade, m_id);
+	}
+
+
 }

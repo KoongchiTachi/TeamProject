@@ -73,4 +73,31 @@ public class MemberDaoImple implements MemberDao {
 		return sqlSession.selectOne(NAMESPACE + "getCount", adminMemberListPagingDto);
 	}
 
+	// 관리자 - 경매 진행 중인 회원 삭제 불가
+	@Override
+	public MemberVo auctioningMember(String m_id) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "auctioningMember", m_id);
+	}
+
+	// 회원 거래 횟수 가져오기
+	@Override
+	public int getTrade(String m_id) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getTrade", m_id);
+	}
+	
+	// 회원 등급 수정
+	@Override
+	public void modifyGrade(int m_trade, String m_id) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		String gradeCode = null;
+		if (m_trade == 10) {
+			gradeCode = "g1003";
+		} else if (m_trade == 5) {
+			gradeCode = "g1002";
+		}
+		param.put("gradeCode", gradeCode);
+		param.put("m_id", m_id);
+		sqlSession.update(NAMESPACE + "modifyGrade", param);
+	}
+
 }

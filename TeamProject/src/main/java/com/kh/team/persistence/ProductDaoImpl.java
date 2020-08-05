@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.team.domain.BidVo;
 import com.kh.team.domain.ProductVo;
+import com.kh.team.domain.WishVo;
 
 @Repository
 public class ProductDaoImpl implements ProductDao {
@@ -20,11 +21,12 @@ public class ProductDaoImpl implements ProductDao {
 	@Inject
 	private SqlSession sqlSession;
 	
-	private final String NAMESPACE = "mappers.product-mapper.";
+	private final String PRODUCT = "mappers.product-mapper.";
+	private final String WISH = "mappers.wishlist-mapper.";
 	
 	@Override
 	public void insertProduct() throws Exception {
-		sqlSession.insert(NAMESPACE + "insertProduct");
+		sqlSession.insert(PRODUCT + "insertProduct");
 	}
 
 	@Override
@@ -39,19 +41,19 @@ public class ProductDaoImpl implements ProductDao {
 	
 	@Override
 	public List<ProductVo> endProduct(String p_state) throws Exception {
-		List<ProductVo> list = sqlSession.selectList(NAMESPACE + "endProduct", p_state);
+		List<ProductVo> list = sqlSession.selectList(PRODUCT + "endProduct", p_state);
 		return list; 
 	}
 
 	@Override
 	public List<ProductVo> premiumProduct(int p_value) throws Exception {
-		List<ProductVo> list = sqlSession.selectList(NAMESPACE + "premiumProduct" , p_value);
+		List<ProductVo> list = sqlSession.selectList(PRODUCT + "premiumProduct" , p_value);
 		return list;  
 	}
 
 	@Override
 	public List<ProductVo> normalProduct(int p_value) throws Exception {
-		List<ProductVo> list = sqlSession.selectList(NAMESPACE + "normalProduct", p_value);
+		List<ProductVo> list = sqlSession.selectList(PRODUCT + "normalProduct", p_value);
 		return list; 
 	} 
 
@@ -60,35 +62,39 @@ public class ProductDaoImpl implements ProductDao {
 		Map<String, Object> param = new HashMap<>();
 		param.put("b_price", b_price); 
 		param.put("pno", pno);
-		sqlSession.update(NAMESPACE + "updateP_price", param);
+		sqlSession.update(PRODUCT + "updateP_price", param);
 	}
 	
 	@Override
 	public List<BidVo> bidList(String pno) throws Exception {
-		List<BidVo> list = sqlSession.selectList(NAMESPACE + "bidList", pno);
+		List<BidVo> list = sqlSession.selectList(PRODUCT + "bidList", pno);
 		return list;
 	}
 
 	@Override
 	public ProductVo selectByPno(String pno) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + "selectByPno", pno);
+		return sqlSession.selectOne(PRODUCT + "selectByPno", pno);
 	}
 
 	@Override
 	public void updateP_state(String p_state) throws Exception {
-		sqlSession.update(NAMESPACE + "updateP_state", p_state);
+		sqlSession.update(PRODUCT + "updateP_state", p_state);
 		
 	}
 
 	@Override
 	public List<Timestamp> selectP_until() throws Exception {
-		return sqlSession.selectList(NAMESPACE + "selectP_until");
+		return sqlSession.selectList(PRODUCT + "selectP_until");
 	}
 
 	@Override
 	public int bidCountByPno(String pno) throws Exception {
-		return sqlSession.selectOne(NAMESPACE + "bidCountByPno", pno);
+		return sqlSession.selectOne(PRODUCT + "bidCountByPno", pno);
 	}
 
+	@Override
+	public List<WishVo> attentionItems(String m_id) throws Exception {
+		return sqlSession.selectList(WISH + "wishItems", m_id);
+	}
 
 }

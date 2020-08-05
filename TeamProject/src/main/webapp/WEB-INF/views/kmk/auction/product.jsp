@@ -13,7 +13,7 @@
 <link href="/resources/js/product/bxslider.css" rel="stylesheet">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/resources/js/product/bxslider.js"></script>
-<script src="/resources/js/product/bid_list.js"></script> 
+<script src="/resources/js/product/bid.js"></script> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css">
 
 
@@ -559,9 +559,14 @@ $(function() {
 		bid_list(); 
 	});
 	
+	// bid after location
+	var onSuccess = function (data, textStatus, jqXHR) {
+        console.log(jqXHR.status);
+        location.href= "redirect:/kmk/auction/premium";
+    };
+	
 	// bid subscription
 	$("#bid_Subscription").click(function(e) {
-		e.preventDefault(); 
 		var pno = "${productVo.pno}"; 
 		var b_price;
 		if (${productVo.p_price == 0}) {  
@@ -570,13 +575,8 @@ $(function() {
 			 b_price = ${productVo.p_price} + ${unit};
 		};  
 		var s_price = <%=session.getAttribute("s_price")%>;
-		console.log("s_price: ", s_price); 
 		var b_note = "낙찰 예정";   
 		var m_id = "<%=session.getAttribute("m_id")%>";
-		console.log("pno : ", pno);
-		console.log("b_price : ", b_price);
-		console.log("b_note : ", b_note);
-		console.log("m_id : ", m_id);  
 		var sendData = {
 				"m_id" : m_id, 
 				"b_price" : b_price,
@@ -584,25 +584,29 @@ $(function() {
 				"pno"	: pno
 		};
 		console.log("sendData : " , sendData);
+		
 		var url = "/kjy/member/bidSubscription";
 		$.ajax({ 
 			"type" : "post",
 			"url"  : url, 
 			"dataType" 	: "text", 
 			"data" : sendData,    
-			/* "headers" 	: {
-				"Content-Type"	: "application/json",
-				"X-HTTP-Method-Override"	: "post"
-			}, */ 
-			"success"	: function(rData) {
-				if (rData == "success") {  
-					console.log("고"); 
-					window.location.href("redirect:/kmk/auction/premium");     
-				}
-			},
+			/* "success"	: function(rData) {
+				if (rData == "success") { 
+					alert("응찰되었습니다.");
+				} 
+			}, */
+			"success"	: function(data, textStatus, jqXHR){
+                alert("응찰되었습니다.");
+                console.log(jqXHR.status);
+                window.location.href= "/kmk/auction/product?pno=" + pno;
+            },
 			"error"		: function(request,status,error) {
              	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-			} 
+			}, 
+			"complete": function () {
+				console.log("완료");
+	        }
 		});	 
 	});
 });

@@ -141,15 +141,17 @@
 			<div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch">
 				<!-- Card -->
 				<div class="tile align-items-center" data-pno="${premium.pno}" id="tile">
-					<!-- Card image -->
+					<!-- Card image --> 
 					<div class="wrapper">
 					<div class="title" >${premium.b_name}</div>
 					<div class="p_logo">
 						<img alt="premium" src="/resources/img/logo/premium_icon.png">
 						<button class="like-button
-						<c:if test="${wish}">
-							liked
-						</c:if>
+						<c:forEach items="${wish}" var="wishVo">
+							<c:if test="${wishVo.pno == premium.pno}">
+								liked 
+							</c:if> 
+						</c:forEach>
 						" data-pno="${premium.pno}"/>  
 					</div>  
 					<div class="banner-img"> 
@@ -247,40 +249,41 @@ $(function() {
 		$("#hideForm").attr("action", $(this).attr("href")); 
 		$("#hideForm").submit(); 
 	});
-	
- 	// product like button 
+ 	
+ 	// product like button
 	$( ".like-button" ).each(function(index) {
      	var that = $(this);
      	var pno = $(this).attr("data-pno"); 
-     	that.click(function() {
-	     	console.log(pno);
-			that.toggleClass("liked", 200);
-			var m_id = "<%=session.getAttribute("m_id")%>";
-			var url = "/kmk/auction/check";
-			var sendData = {
+		var m_id = "${sessionScope.m_id}";
+     	that.click(function() { 
+			if (m_id == "") {
+				alert("관심상품 등록은 로그인 이후 가능합니다.");
+				return;
+			}
+			var url = "/kmk/auction/check/" + pno + "/" + m_id;
+			var sendData = { 
 					"m_id" : m_id,
 					"pno" : pno
 			};
-			console.log(sendData);
 			$.ajax({ 
-				"type" : "GET",
-				"url"  : url, 
+				"type" : "POST",
+				"url"  : url,  
 				"dataType" 	: "text", 
 				"data" : sendData,    
 				"success"	: function(rData) {
-					if (rData == "success") {   
-						console.log("체크함"); 
-					} else if (rData == "not") {
-						console.log("체크안함")
+					if (rData == "not") {   
+						that.removeClass("liked");  
+					} else if (rData == "ok") { 
+						that.addClass("liked");  
 					}
 				},
-				"error"		: function(request,status,error) {
+				"error"		: function(request,status,error) { 
 	             	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 				} 
 			});	 
      	});
     });
-});
+}); 
 
 
 </script>

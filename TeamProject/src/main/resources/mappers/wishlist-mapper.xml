@@ -19,15 +19,20 @@
 		where rnum between #{startRow} and #{endRow}
 	</select>
 	
-	<delete id="deleteWishlist">
+	<select id="wishItems" resultType="WishVo"> 
+		select * from tbl_wish  
+		where m_id = #{m_id}
+	</select>
+	
+	<delete id="deleteWishlist">  
 		delete from tbl_wish
-		where wno = #{wno} and pno = #{pno}
+		where wno = #{wno}
 	</delete>
 	
 	<delete id="deleteWishMulti">
 		delete from tbl_wish
 		where wno = #{wno}
-	</delete>
+	</delete> 
 	
 	<select id="getAttentionCheck" resultType="WishVo">
 		select * from tbl_wish

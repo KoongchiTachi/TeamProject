@@ -18,8 +18,8 @@ public class WishlistServiceImple implements WishlistService {
 	private WishlistDao wishlistDao;
 	
 	@Override
-	public void insertWishlist(WishlistVo wishlistVo) throws Exception {
-		wishlistDao.insertWishlist(wishlistVo);
+	public void insertWishlist(String pno, String m_id) throws Exception {
+		wishlistDao.insertWishlist(pno, m_id);
 	}
 	
 	@Override

@@ -22,8 +22,11 @@ public class WishlistDaoImple implements WishlistDao {
 	private SqlSession sqlSession;
 
 	@Override
-	public void insertWishlist(WishlistVo wishlistVo) throws Exception {
-		sqlSession.insert(NAMESPACE + "insertWishlist", wishlistVo);
+	public void insertWishlist(String pno, String m_id) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		param.put("pno", pno); 
+		param.put("m_id", m_id);
+		sqlSession.insert(NAMESPACE + "insertWishlist", param);
 	}
 
 	@Override

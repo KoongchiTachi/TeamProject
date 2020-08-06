@@ -88,15 +88,15 @@
 	<sql id="search">
 		<if test="searchType != null">
 			<choose>
+				<when test='searchType == "cate"'>
+					, code_f_cate c
+					where f_cate = c.f_cate_code and c.f_cate_name = #{keyword} 
+				</when>
 				<when test='searchType == "t"'>
 					where f_title like '%' || #{keyword} || '%'
 				</when>
 				<when test='searchType == "c"'>
 					where f_content like '%' || #{keyword} || '%'
-				</when>
-				<when test='searchType == "tc"'>
-					where f_title like '%' || #{keyword} || '%'
-					or f_content like '%' || #{keyword} || '%'
 				</when>
 			</choose>
 		</if>

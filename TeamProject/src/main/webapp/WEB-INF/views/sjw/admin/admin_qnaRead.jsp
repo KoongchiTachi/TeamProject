@@ -22,11 +22,6 @@ $(function() {
 	
 		qReplyList();
 		
-// 	 var qno = "${qnaVo.qno}";
-// 	 $.getJSON("/sjw/admin/qUploadList", {qno: qno}, function(arr){
-// 	 	console.log(arr);
-// 	 });
-		
 	function qReplyList(){
 
 		var url = "/qreply/qReplyList";
@@ -40,7 +35,7 @@ $(function() {
         	console.log(result);
            		var html = "";
 					if(result.length < 1){
-						html += '<textarea class="form-control" name="q_reply" placeholder="답변을 작성해 주세요." style="height: 150px; backgroud-color: #EEEEEE;" required>';
+						html += '<textarea class="form-control" name="q_reply" placeholder="답변을 작성해 주세요." cols="20" rows="3" wrap="hard" style="height: 150px; backgroud-color: #EEEEEE;" required>';
 						html += '</textarea>';
 						html += '<div align="center">';
 						html += '<button type="submit" class="btn btn-secondary btnSubmit" id="btnSubmit" style="margin-top: 10px;">등록</button>&nbsp;';
@@ -51,7 +46,6 @@ $(function() {
                     	html += '<textarea class="form-control" id="qreply" style="height: 150px;" disabled>' + this.q_reply + '</textarea>';
                      	html += '<div align="center">';
                      	html += '<a id="modal-310487" href="#modal-container-310487" role="button" class="btn btn btn-secondary modal-310487 btnCommentModify" data-toggle="modal" style="margin-top: 10px;" data-qrno="'+this.qrno+'">수정</a>&nbsp;';
-//                      	html += '<button type="button" class="btn btn-secondary btnCommentModify" style="margin-top: 10px;" data-qrno="'+this.qrno+'">수정</button>&nbsp;';
                      	html += '<a href="/sjw/admin/admin_qnaList" class="btn btn-secondary" style="margin-top: 10px;">목록</a>';
                      	html += '</div>';
                 	});
@@ -108,8 +102,9 @@ $(function() {
             $("input[name='q_answer']").eq(1).attr("checked", true);
 		}
 	});
-	
+
 });
+
 </script>
 
 <div class="row">
@@ -128,7 +123,7 @@ $(function() {
 						</div>
 						<div class="modal-body">
 							<label>답변내용</label>
-							<textarea id="modal_content" class="form-control" rows="11"></textarea><br/>
+							<textarea id="modal_content" class="form-control" cols="20" rows="3" wrap="hard" style="height: 270px;"></textarea><br/>
 						</div>
 						<div class="modal-footer">
 							 
@@ -166,7 +161,7 @@ $(function() {
 								<tr>
 									<th>문의내용</th>
 									<td>
-										<textarea class="form-control" style="height: 120px;" disabled>${qnaVo.q_content}</textarea>
+										<textarea class="form-control" style="height: 120px;" wrap="hard" disabled>${qnaVo.q_content}</textarea>
 									</td>
 								</tr>
 								<tr>
@@ -177,10 +172,25 @@ $(function() {
 									<th>첨부파일</th>
 									<c:choose> 
 										<c:when test="${fn:length(list) > 0}">
-											<c:forEach items="${list}" var="qnaVo">
-<%-- 												<td style="display: table;"><a href="#" id="file_name" style="font-size: 15px; display:table-cell; padding-left: 15px;">${qnaVo.file_name}</a></td> --%>
-												<td style="display: inline-block; border: none;"><img src="/upload/displayFile?fileName=${qnaVo.file_name}" style="width: 100px;"></td>
-<%-- 												<td><img src="/Team/displayFile?fileName=${qnaVo.file_name}"></td> --%>
+											<c:forEach items="${list}" var="qnaVo" varStatus="vs">
+												<td style="display: table-row; border: none;">
+												<a id="modal-201171" href="#modal-container-201171" role="button" class="btn" data-toggle="modal" data-target="#myModal${vs.index}"
+													style="font-size: 13px;">${qnaVo.file_name}</a>
+												<div class="modal fade" id="myModal${vs.index}" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+													<div class="modal-dialog" role="document">
+														<div class="modal-content" style="width: 835px;">
+															<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal">
+																<span aria-hidden="true">×</span>
+															</button>
+														</div>
+														<div class="modal-body">
+															<img src="/upload/displayFile?fileName=${qnaVo.file_name}" style="width: 800px;">
+														</div>
+														</div>
+													</div>
+												</div>
+												</td>
 											</c:forEach>
 										</c:when>
 										<c:otherwise>
@@ -201,9 +211,9 @@ $(function() {
 								</tr>
 								<tr>
 									<th>관리자 답변</th>
-										<td>
-											<div id="qReplyList"></div>
-										</td>
+									<td>
+										<div id="qReplyList"></div>
+									</td>
 								</tr>
 							</tbody>
 						</table>

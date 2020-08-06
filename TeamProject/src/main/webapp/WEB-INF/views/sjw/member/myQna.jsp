@@ -65,6 +65,7 @@ $(function() {
 			}
 		});
 	});
+	
 });	
 </script>
 
@@ -129,7 +130,7 @@ $(function() {
 												<c:forEach items="${rList}" var="rVo">
 													<hr style="width: 108%;"><br/>
 			 										<h6 style="font-weight: bold;">답변</h6>
-													<c:out value="${rVo.qr_date}"></c:out><br/><br/><br/>
+			 										<c:out value="${rVo.qr_date}"></c:out><br/><br/><br/>
 													<c:out value="${rVo.q_reply}"></c:out><br/><br/><br/>
 												</c:forEach>
 											</c:if>

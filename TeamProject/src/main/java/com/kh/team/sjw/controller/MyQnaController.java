@@ -42,9 +42,7 @@ public class MyQnaController {
 		
 		System.out.println("allList" + allList);
 		System.out.println("list" + list);
-		//System.out.println("list2" + list2);
 		model.addAttribute("list", list);
-		//model.addAttribute("list2", list2);
 		model.addAttribute("listSize", list.size());
 		model.addAttribute("allList", allList);
 	}

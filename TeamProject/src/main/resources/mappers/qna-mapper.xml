@@ -13,9 +13,9 @@
 	<!-- QnA 1:1문의 목록 - 회원 --> 
 	<select id="myQna" resultType="QnaVo">
 		select m.m_name, q.qno, q.q_kind, q.q_title, q.q_content, q.q_date, q.q_answer
-		from tbl_qna q, tbl_member m
-		where m.m_id = q.m_id and m.m_id = #{m_id}
-		order by qno desc
+			from tbl_qna q, tbl_member m
+	 		where m.m_id = q.m_id and m.m_id = #{m_id}
+		    order by qno desc
 	</select>
 	
 	<!-- QnA 1:1문의 목록 문의 (페이징) - 관리자 -->
@@ -37,8 +37,8 @@
 	<!-- QnA 답변목록 -->
 	<select id="qReplyList" resultType="QreplyVo">
 		select * from tbl_qreply
-		where qno = #{qno}
-		order by qrno desc
+			where qno = #{qno}
+			order by qrno desc
 	</select>
 	
 	<!-- 답변 입력 -->

@@ -118,10 +118,11 @@ $(function() {
 				</div>
 				<div class="col-md-8">
 					<form class="form-inline md-form mr-auto mb-4" style="float: right;">
-						<select class="mdb-select md-form colorful-select dropdown-primary" name="searchType" style="width: 100px; height: 38px; border: 1px solid #cfcfcf; border-radius: 5px 5px 5px 5px;">
-							<option value="tc"
-								<c:if test="${faqPagingDto.searchType == 'tc'}">selected</c:if>
-							>전체</option>
+						<select class="mdb-select md-form colorful-select dropdown-primary" name="searchType" style="width: 120px; height: 38px; border: 1px solid #cfcfcf; border-radius: 5px 5px 5px 5px;">
+							<option value="" selected disabled>선택하세요</option>
+							<option value="cate"
+								<c:if test="${faqPagingDto.searchType == 'cate'}">selected</c:if>
+							>카테고리</option>
 							<option value="t"
 								<c:if test="${faqPagingDto.searchType == 't'}">selected</c:if>
 							>제목</option>

@@ -220,7 +220,7 @@ $(function() {
 								</div>
 							</div>
 							<div class="controls">
-								<textarea name="q_content" class="floatLabel" id="q_content" style="font-size: 18px;"
+								<textarea name="q_content" class="floatLabel" id="q_content" cols="40" wrap="hard" style="font-size: 18px;" 
 									required></textarea>
 								<label for="q_content">문의 내용</label>
 							</div>

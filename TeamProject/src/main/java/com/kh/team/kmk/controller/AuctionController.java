@@ -42,10 +42,11 @@ public class AuctionController {
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
 		List<ProductVo> list = productService.premiumProduct(p_value);
-		List<WishVo> wish = productService.attentionItems(m_id);
-		model.addAttribute("list", list);
-		model.addAttribute("wish", wish);
-		System.out.println("wish : " + wish);
+		model.addAttribute("list", list); 
+		if (m_id != null) {
+			List<WishVo> wish = productService.attentionItems(m_id);
+			model.addAttribute("wish", wish);  
+		} 
 		return "/kmk/auction/premium";  
 	}
 	

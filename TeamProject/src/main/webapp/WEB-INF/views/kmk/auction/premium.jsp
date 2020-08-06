@@ -150,9 +150,9 @@
 						<c:forEach items="${wish}" var="wishVo">
 							<c:if test="${wishVo.pno == premium.pno}">
 								liked 
-							</c:if> 
+							</c:if>
 						</c:forEach>
-						" data-pno="${premium.pno}"/>  
+						" data-pno="${premium.pno}"></button>
 					</div>  
 					<div class="banner-img"> 
 						<img style="width: 85%;" src="/resources/img/bag/${premium.p_img1}" alt="Image 1"> 

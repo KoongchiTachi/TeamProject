@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
@@ -176,11 +177,16 @@ $(function() {
 									</td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${wishlistVo.p_name}</strong><br>
 									<td class="left" style="width : 500px; vertical-align : middle;"><a href="">${wishlistVo.p_info}</a></td>
-									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${wishlistVo.p_price}원</strong><br>
+									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${wishlistVo.p_price}" /></strong><br>
 									<td class="button" style="width : 200px; vertical-align : middle;">
-										<div> 
-											<a href="#none" onclick="NewWishlist.actionOrder('order', 0)" class="btn btn-sm btn-outline-dark btnConsign">응찰하기</a>  
-										</div>
+										<c:if test="${wishlistVo.p_state == 's01'}">
+											<div> 
+												<a href="#none" onclick="NewWishlist.actionOrder('order', 0)" class="btn btn-sm btn-outline-dark btnConsign">응찰하기</a>  
+											</div>
+										</c:if>
+										<c:if test="${wishlistVo.p_state == 's02'}">
+											<div>경매 종료</div>
+										</c:if>
 										<div>
 											<button type="button" class="btn btn-sm btn-outline-dark btnDeleteWish" rel="10474||000B||" data-wno="${wishlistVo.wno}">&nbsp;X 삭제&nbsp;</button>
 										</div>  

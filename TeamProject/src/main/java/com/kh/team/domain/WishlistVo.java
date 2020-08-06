@@ -9,6 +9,7 @@ public class WishlistVo {
 	private String p_info;
 	private int p_price;
 	private String p_name;
+	private String p_state;
 
 	public String getPno() {
 		return pno;
@@ -66,10 +67,18 @@ public class WishlistVo {
 		this.p_name = p_name;
 	}
 
+	public String getP_state() {
+		return p_state;
+	}
+
+	public void setP_state(String p_state) {
+		this.p_state = p_state;
+	}
+
 	@Override
 	public String toString() {
 		return "WishlistVo [pno=" + pno + ", m_id=" + m_id + ", wno=" + wno + ", p_img1=" + p_img1 + ", p_info="
-				+ p_info + ", p_price=" + p_price + ", p_name=" + p_name + "]";
+				+ p_info + ", p_price=" + p_price + ", p_name=" + p_name + ", p_state=" + p_state + "]";
 	}
 
 }

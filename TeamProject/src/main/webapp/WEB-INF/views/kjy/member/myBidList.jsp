@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
@@ -101,16 +102,18 @@ $(function() {
 									</td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.p_name}</strong><br>
 									<td class="left" style="width : 400px; vertical-align : middle;"><a href="">${bidVo.p_info}</a></td>
-									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.b_price}원</strong><br>
+									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${bidVo.b_price}" /></strong><br>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.b_date}</strong><br>
-									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.p_price}원</strong><br>
+									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${bidVo.p_price}" /></strong><br>
 									<td class="button" style="width : 200px; vertical-align : middle;">
 										<div> 
 											<strong class="">${bidVo.s_name}</strong>  
 										</div>
-										<div>
-											<a href="#none" onclick="NewWishlist.actionOrder('order', 0)" class="btn btn-sm btn-outline-dark btnConsign">응찰하기</a>
-										</div>  
+										<c:if test="${bidVo.s_name == '진행'}">
+											<div>
+												<a href="#none" onclick="NewWishlist.actionOrder('order', 0)" class="btn btn-sm btn-outline-dark btnConsign">응찰하기</a>
+											</div>  
+										</c:if>
 									</td>
 								</tr>
 							</c:forEach>

@@ -127,18 +127,18 @@ $(function() {
 							>답변완료</option>
 							</optgroup>
 							<optgroup label="검색">
-							<option value="all"
-								<c:if test="${qnaPagingDto.searchType == 'all'}">selected</c:if>
-							>전체</option>
 							<option value="kind"
 								<c:if test="${qnaPagingDto.searchType == 'kind'}">selected</c:if>
 							>문의유형</option>
 							<option value="id"
 								<c:if test="${qnaPagingDto.searchType == 'id'}">selected</c:if>
 							>작성자</option>
-							<option value="tc"
-								<c:if test="${qnaPagingDto.searchType == 'tc'}">selected</c:if>
-							>제목/내용</option>
+							<option value="t"
+								<c:if test="${qnaPagingDto.searchType == 't'}">selected</c:if>
+							>제목</option>
+							<option value="c"
+								<c:if test="${qnaPagingDto.searchType == 'c'}">selected</c:if>
+							>내용</option>
 							</optgroup>
 						</select>&nbsp;&nbsp; <input class="form-control mr-sm-2" type="text"
 							placeholder="Search" aria-label="Search" id="keyword"

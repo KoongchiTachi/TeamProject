@@ -35,8 +35,9 @@
                         <h5>2020.3</h5>
                         <h4>Best Advertising</h4>
                         <span>Auction award</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiselit. Vivamus libero mauris, bibendum eget
-                            sapien ac, ultrices rhoncus ipsum. Donec nec sapien in urna.</p>
+                        <p>Many of life's failures are people who did not realize how close they were to 
+                        success when they gave up. Just because something doesn't do what you planned it 
+                        to do doesn't mean it's unless.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
@@ -44,8 +45,9 @@
                         <h5>2020.4</h5>
                         <h4>Best Services</h4>
                         <span>Auction award</span>
-                        <p>Ipsum dolor sit amet, consectetur adipiselit. Vivamus libero mauris, bibendum eget sapien ac,
-                            ultrices rhoncus ipsum. Donec nec sapien in urna fermentum ornare.</p>
+                        <p>We are an intelligent species and the use of our intelligence quite properly gives
+                        us pleasure. In this respect the brain is like a muscle. When it is in use we feel
+                        very good. Understanding is joyous.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
@@ -53,8 +55,8 @@
                         <h5>2020.5</h5>
                         <h4>National Auctioneers Association</h4>
                         <span>Auction award</span>
-                        <p>Dolor sit amet, consectetur adipiselit. Vivamus libero mauris, bibendum eget sapien ac,
-                            ultrices rhoncus ipsum. Donec nec sapien in urna fermentum ornare. </p>
+                        <p>To be brave is to love someone unconditionally, without expecting anything in return. 
+						To just give. that takes courage, because we don't want to fall on our faces or leave ourselves open to hurt.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
@@ -62,8 +64,8 @@
                         <h5>2020.6</h5>
                         <h4>Asia Auction Association</h4>
                         <span>Auction award</span>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiselit. Vivamus libero mauris, bibendum eget
-                            sapien ac, ultrices rhoncus ipsum. Donec nec sapien in urna.</p>
+                        <p>A Dream written down with a date becomes a Goal. A goal broken down becomes a Plan. 
+						A plan backed by Action makes your dream come true.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
@@ -71,8 +73,8 @@
                         <h5>2020.7</h5>
                         <h4>Auctioneer's Choice</h4>
                         <span>Auction award</span>
-                        <p>Ipsum dolor sit amet, consectetur adipiselit. Vivamus libero mauris, bibendum eget sapien ac,
-                            ultrices rhoncus ipsum. Donec nec sapien in urna fermentum ornare.</p>
+                        <p>One man may hit the mark, another blunder;<br/>
+                        but heed not these distinctions. Only from the alliance of the one, working with and through the other, are great things born.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
@@ -80,8 +82,8 @@
                         <h5>2020.8</h5>
                         <h4>Best Marketing</h4>
                         <span>Auction award</span>
-                        <p>Dolor sit amet, consectetur adipiselit. Vivamus libero mauris, bibendum eget sapien ac,
-                            ultrices rhoncus ipsum. Donec nec sapien in urna fermentum ornare.</p>
+                        <p>To will is to select a goal, determine a course of action that will bring one to that goal, and then
+						hold go that action till the goal is reached. The key is action.</p>
                     </div>
                 </div>
             </div>

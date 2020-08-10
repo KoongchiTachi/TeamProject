@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
+<script src="https://rawgit.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
 <style>
 .notice {
-	min-height : 80vh;
-	min-width: 100%;
-	padding-left: 450px;
+	min-height : 70vh;
 }
 .contact-form textarea {
-	font-size: 20px;
-	padding-top: 60px;
-	padding-bottom: 40px;
+	font-size: 18px;
+	padding-top: 65px;
+	padding-bottom: 65px;
  	color: #5E5E5E;
  }
 .contact-form input.title {
@@ -23,12 +22,16 @@
 }
 </style>
 <script>
+$(function() {
 	
+	autosize($("textarea"));
+	
+});
 </script>
 
 <%@ include file="/WEB-INF/views/include/sjw/frmPage.jsp" %>
 
-<section class="about-us spad">
+<section class="contact-section spad">
 <div class="container notice">
 	<div class="row">
                 <div class="col-lg-12">
@@ -39,29 +42,20 @@
                     </div>
                 </div>
             </div>
-             
             <div class="row">
                 <div class="col-lg-8">
-                    <form action="#" class="contact-form">
+                    <form action="#" class="contact-form" style="width: 155%;">
                         <div class="row">
                             <div class="col-lg-12" style="margin-bottom: 0px;">
-                                <input type="text" class="title" style="padding-left: 25px; padding-right: 25px;" value="${noticeVo.n_title}" readonly/>
-                                <input type="text" style="margin-bottom: 0px; padding-left: 25px; padding-right: 25px;" value="${noticeVo.n_date}" readonly/>
-                                <textarea style="height: auto; min-height: 400px; padding-left: 25px; padding-right: 25px;" readonly>${noticeVo.n_content}</textarea>
+                                <input type="text" class="title" style="padding-left: 40px; padding-right: 40px;" value="${noticeVo.n_title}" readonly/>
+                                <input type="text" style="margin-bottom: 0px; padding-left: 40px; padding-right: 40px; font-size: 15px;" value="${noticeVo.n_date}" readonly/>
+                                <textarea style="overflow:hidden; padding-left: 40px; padding-right: 40px;" readonly>${noticeVo.n_content}</textarea>
                             </div>
                         </div>
+                        <a href="/sjw/about/noticeList" style="float: right;" class="primary-btn">목록으로</a>
                     </form>
                 </div>
             </div>
-		</div>
-		<div class="row">
-			<div class="col-md-8">
-			</div>
-			<div class="col-md-2">
-				<a href="/sjw/about/noticeList" class="primary-btn" id="btnList">목록으로</a>
-			</div>
-			<div class="col-md-2">
-			</div>
 		</div>
 </section>
 

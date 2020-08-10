@@ -118,7 +118,7 @@ $(function() {
 						<tr>
 							<td colspan="5"><br/><h6 style="font-weight: bold;">질문</h6>
 								<p>${qnaVo.q_date}</p><br/>
-								<p>${qnaVo.q_content}</p><br/>
+								<p style="white-space: pre-line;">${qnaVo.q_content}</p><br/>
 								<div class="row">
 									<button type="button" class="btn btn-danger btn-sm btnDelete" style="margin-left: 15px; margin-top: 25px;" data-qno="${qnaVo.qno}">삭제</button>
 								</div>
@@ -131,7 +131,7 @@ $(function() {
 													<hr style="width: 108%;"><br/>
 			 										<h6 style="font-weight: bold;">답변</h6>
 			 										<c:out value="${rVo.qr_date}"></c:out><br/><br/><br/>
-													<c:out value="${rVo.q_reply}"></c:out><br/><br/><br/>
+													<span style="white-space: pre-line;"><c:out value="${rVo.q_reply}"></c:out></span><br/><br/><br/>
 												</c:forEach>
 											</c:if>
 										</c:forEach>

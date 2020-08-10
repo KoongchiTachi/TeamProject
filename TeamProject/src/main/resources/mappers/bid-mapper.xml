@@ -39,17 +39,6 @@
 	</select>
 	
 	<select id="successBidList" resultType="BidVo">
-		<!-- select * 
-		from (select rownum rnum, a.*
-			  from (select m.m_id, p.pno, b.bno, p.p_img1, p.p_info, b.b_price, b.b_date, p.p_name
-					from tbl_bid b, tbl_product p, tbl_member m
-					where p.pno = b.pno and b.m_id = m.m_id and m.m_id = #{m_id} and p.p_progress = 'p06') a)
-		where rnum between #{startRow} and #{endRow} -->
-		<!-- select * from 
-			(select rownum rnum, a.* from 
-				(select b.m_id, p.p_img1, p.p_name, p.p_info, b.b_price, b.b_date from tbl_bid b, tbl_product p
-				where p.t_bidding = b.m_id and p.t_bidding = #{m_id} and rownum &lt;=1 order by b.bno desc) a)
-		where rnum between #{startRow} and #{endRow}   -->
 		select * from
 			(select rownum rnum, a.* from
 				(select b.m_id, p.p_img1, p.p_name, p.p_info, b.b_price, b.b_date from tbl_product p, tbl_bid b

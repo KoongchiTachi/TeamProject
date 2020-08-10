@@ -145,6 +145,7 @@
 					<div class="wrapper">
 					<div class="title" >${premium.b_name}</div>
 					<div class="p_logo">
+						<img alt="premium" src="/resources/img/logo/premium_icon.png">
 						<button class="like-button
 						<c:forEach items="${wish}" var="wishVo">
 							<c:if test="${wishVo.pno == premium.pno}">
@@ -167,7 +168,7 @@
 						</div> 
 					</div> 
 					<div class="stats h_price">
-						<div> 
+						<div>
 							<strong>현재가</strong> 
 							<fmt:setLocale value="ko_KR"/> 
 							<c:choose>

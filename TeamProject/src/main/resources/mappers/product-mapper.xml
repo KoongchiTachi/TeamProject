@@ -86,7 +86,7 @@
 	<!-- 경매중인 상품 날짜 얻기 -->
 	<select id="selectP_until" resultType="java.sql.Timestamp">
 		select p_until from tbl_product
-		where p_state = 's01'
+		where p_state = 's02'
 	</select>
 	
 	<!-- 마감된 상품 번호 얻기 -->

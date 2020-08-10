@@ -68,17 +68,17 @@ public class AuctionController {
 	 
 	// 상품 상세 페이지
 	@RequestMapping(value="/product", method = RequestMethod.GET)
-	public void bidPage(HttpServletRequest request, HttpServletResponse response, String pno, Model model) throws Exception {
+	public void bidPage(HttpServletRequest request, /*HttpServletResponse response,*/ String pno, Model model) throws Exception {
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
 		ProductVo productVo = productService.selectByPno(pno);
-		if (productVo.getP_state() == "s02") {
+		/*if (productVo.getP_state() == "s02") {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('이미 마감된 상품입니다.');</script>");
 			out.flush();
 			return;
-		}
+		}*/
 		int cnt = productService.bidCountByPno(pno);
 		int s_price = productVo.getS_price();
 		int unit = 50000;

@@ -35,21 +35,25 @@ public class HomeController/* implements Runnable*/ {
 			p_untilList = productDao.selectP_until();
 //			System.out.println("p_untilList"+ p_untilList);
 			Thread th = new Thread(new Runnable() {
-				
 				@Override
 				public void run() {
 					while (true) {
 						try {
-							Thread.sleep(1000);
-							for (Timestamp t : p_untilList) {
-								long p_until = t.getTime();
+							Thread.sleep(10000);
+							for (Timestamp time : p_untilList) {
+								long p_until = time.getTime();
 								long now = new Date().getTime();
-//								System.out.println("p_until:" + p_until);
-//								System.out.println("now:" + now);
-//								System.out.println("-------------------");
+								String pno = productDao.findPno(time);
 								if (p_until < now) {
 									productDao.updateP_state("s02");
-									p_untilList = productDao.selectP_until(); 
+									productDao.bidWhether(pno);
+									String m_id = productDao.topBidding(pno);
+									System.out.println(("time : " + time));
+									System.out.println("pno : " + pno);
+									System.out.println("m_id : " + m_id);
+									if (m_id != null) productDao.matchingBidding(m_id, pno);
+									System.out.println("m_ id , pno : " + m_id + "/" + pno);
+									p_untilList = productDao.selectP_until();
 									System.out.println("p_until Changed : p_untilList:" + p_untilList);
 									break;
 								}

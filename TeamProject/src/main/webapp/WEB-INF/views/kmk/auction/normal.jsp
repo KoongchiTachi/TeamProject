@@ -11,7 +11,7 @@
         margin-top: 30px;
         margin-bottom: 30px;
         padding: 40px 30px !important;
-        position: relative; 
+        position: relative;
         box-shadow: 0 1px 21px #808080;
         font-size:10px;
     }
@@ -67,16 +67,43 @@
 		overflow-y:auto; 
 		overflow-x:hidden; 
 	}
+
+	/*only for centering on the page*/
+	.btn {
+	  margin: 0 auto;
+	  display: block;
+	}
+	/*removes ugly bootstrap border button*/
+	*.btn:active,
+	.btn:focus,
+	.btn:active:focus,
+	.btn:focus {
+	  outline: none !important;
+	}
+	
+	button > span {
+	  color: red;
+	  font-size:20px;
+	}
+	
+	.btn:active {
+	  box-shadow: none;
+	}
+	
+	.btn:active, .btn:hover, .btn:focus {
+	  background-color:white;
+	}
 } 
 </style>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="/resources/css/product_list.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/product/product_list.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/product/like_heart.css" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css' />
 
-<script>
+<script> 
 </script>
 
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
@@ -84,96 +111,7 @@
  
 <!------ Include the above in your HEAD tag ---------->
 
-
-<div class="modal fade" id="biding-list" role="dialog">
-	<div class="modal-dialog">
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h4 class="modal-title">응찰현황 리스트</h4>
-				<span class="title-header-bt">
-					<button class="btn-repage" type="button"
-						onclick="javascript:bid_list('OW2007250001');">
-						<span class="glyphicon glyphicon-refresh"></span> 새로고침
-					</button>
-				</span>
-			</div>
-			<div class="modal-body"
-				style="background: #fff; max-height: 500px; overflow-y: scroll;">
-				<div class="bid-right">
-					<table class="bidding-table">
-						<tr>
-							<th style="width: 10%">No.</th>
-							<th style="width: 20%">아이디</th>
-							<th style="width: 20%">응찰금액</th>
-							<th style="width: 30%">응찰일시</th>
-							<th style="width: 20%">상태</th>
-						</tr>
-						<tbody id="bid_tr">
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-full" role="document">
-        <div class="modal-content col-md-12 offset-md-3 main" style="margin-left: auto;"> 
-            <div class="modal-header"> 
-                <h5 class="modal-title">상품보기</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="col-md-12"> 
-            	<div class="row">
-                    <div class="col-md-4">
-                        <img class="img-fluid" alt="Invoce Template" src="/resources/img/bag/g_01.jpg" />
-                    </div>
-                    <div class="col-md-8 text-xs-right">  
-                        <h4 style="color: #F81D2D;"><strong id="b_name"></strong></h4>
-                        <p id="p_kind"></p>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col-md-12 text-xs-center">
-                        <h2 style="font-size:20px; margin-left: 10px">응찰현황</h2> 
-                    </div>
-                </div>
-                <br />
-                <div class="text-center">
-                    <table class="table text-center">
-                        <thead>
-                            <tr>
-                                <th class="cell1"><h5>회원 ID</h5></th>
-                                <th class="cell2"><h5>일시</h5></th>
-                                <th class="cell3"><h5>응찰가</h5></th> 
-                            </tr> 
-                        </thead> 
-                        <tbody id="modal_table" style="vertical-align: middle;">
-                            <tr>
-                                <td class="col-md-3 cell1"></td>  
-                                <td class="col-md-3 cell2"></td> 
-                                <td class="col-md-3 cell3"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div> 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
-            </div>
-        </div>
-    </div>
-</div> 
+<!-- body side -->
 <div class="container-fluid" style="margin-top: 120;">
 	<div class="row">
 		<div class="col-md-12">
@@ -198,19 +136,27 @@
 
 		<!-- Grid row --> 
 		<div class="row">
-
-			<!-- Grid column -->
-			<c:forEach items="${list}" var="premium"> 
+			<!-- Grid column --> 
+			<c:forEach items="${list}" var="premium">
 			<div class="col-lg-3 col-md-6 mb-4 d-flex align-items-stretch">
 				<!-- Card -->
 				<div class="tile align-items-center" data-pno="${premium.pno}" id="tile">
-					<!-- Card image -->
+					<!-- Card image --> 
 					<div class="wrapper">
-					<div class="title" >${premium.b_name}</div> 
-					<div class="banner-img">
+					<div class="title" >${premium.b_name}</div>
+					<div class="p_logo">
+						<button class="like-button
+						<c:forEach items="${wish}" var="wishVo">
+							<c:if test="${wishVo.pno == premium.pno}">
+								liked 
+							</c:if>
+						</c:forEach>
+						" style="border: 0px;" data-pno="${premium.pno}"></button>
+					</div>  
+					<div class="banner-img"> 
 						<img style="width: 85%;" src="/resources/img/bag/${premium.p_img1}" alt="Image 1"> 
-					</div> 
-					<div class="dates">
+					</div>  
+					<div class="dates">    
 						<div class="start" id="countdown" data-until="${premium.p_until}"></div> 
 					</div>
 					<div class="stats s_price"> 
@@ -222,8 +168,8 @@
 					</div> 
 					<div class="stats h_price">
 						<div> 
-							<strong>현재 입찰가</strong> 
-							<fmt:setLocale value="ko_KR" /> 
+							<strong>현재가</strong> 
+							<fmt:setLocale value="ko_KR"/> 
 							<c:choose>
 								<c:when test="${premium.p_price != 0}">
 									<fmt:formatNumber type="currency" value="${premium.p_price}" />
@@ -235,8 +181,8 @@
 						</div>
 					</div>
 					<div class="footer"> 
-						<a href="/kmk/auction/bid" class="Cbtn Cbtn-primary" data-pno="${premium.pno}">응찰하기</a> 
-					</div>
+						<a href="/kmk/auction/product" class="Cbtn Cbtn-primary" data-pno="${premium.pno}">응찰하기</a>
+					</div> 
 				</div>
 					<!-- Card content -->
 				</div>
@@ -249,12 +195,14 @@
 
 	</section>
 	<!--Section: Content-->
-
+	<!-- onclick="location.href='online-auction-bid.php?owcode=OW2007250001&oacode=O2007001&page=1'" -->
 </div>
 
+<!-- body side -->
+
 <script>
-// product timecount
 $(function() { 
+	// product timecount
 	const countDownTimer = function (c_tag, date) {
 		var untilDate = new Date(date);
 		var timer;
@@ -292,38 +240,7 @@ $(function() {
 		countDownTimer(that, dateObj);
 	});
 	
-	// 상품 모달
-	/* $("a.Cbtn-danger").each(function(index) {
-		var that = $(this); 
-		var pno = that.attr("data-pno");		
-		that.click(function() {
-			$.ajax({
-				"type" : "post",
-				"url" : "/kmk/auction/bidList/" + pno,
-				"success" : function(rData) {
-					$("#modal_table tr.cl_tr").remove();
-					if (rData != null) {
-						$.each(rData, function(index) {
-							var tr = $("#modal_table tr:eq(0)").clone();;
-							console.log(tr);
-							tr.addClass("cl_tr"); 
-							console.log(tr); 
-							var td = tr.find("td");
-							td.eq(0).text(this.m_id);
-							td.eq(1).text(this.b_date); 
-							td.eq(2).text(this.b_price);
-							$("table tbody").append(tr);
-						});
-					}
-				},
-				"error" : function(request,status,error) {
-			    	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-			    } 
-			});
-		});
-	}); */
-	
-// 	// 상품 응찰 페이지
+ 	// product bid page
 	$("a.Cbtn-primary").click(function(e) {
 		e.preventDefault(); 
 		var pno = $(this).attr("data-pno"); 
@@ -331,7 +248,41 @@ $(function() {
 		$("#hideForm").attr("action", $(this).attr("href")); 
 		$("#hideForm").submit(); 
 	});
-});
+ 	
+ 	// product like button
+	$( ".like-button" ).each(function(index) {
+     	var that = $(this);
+     	var pno = $(this).attr("data-pno"); 
+		var m_id = "${sessionScope.m_id}";
+     	that.click(function() { 
+			if (m_id == "") {
+				alert("관심상품 등록은 로그인 이후 가능합니다.");
+				return;
+			}
+			var url = "/kmk/auction/check/" + pno + "/" + m_id;
+			var sendData = { 
+					"m_id" : m_id,
+					"pno" : pno
+			};
+			$.ajax({ 
+				"type" : "POST",
+				"url"  : url,  
+				"dataType" 	: "text", 
+				"data" : sendData,    
+				"success"	: function(rData) {
+					if (rData == "not") {   
+						that.removeClass("liked");  
+					} else if (rData == "ok") { 
+						that.addClass("liked");  
+					}
+				},
+				"error"		: function(request,status,error) { 
+	             	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				} 
+			});	 
+     	});
+    });
+}); 
 
 
 </script>

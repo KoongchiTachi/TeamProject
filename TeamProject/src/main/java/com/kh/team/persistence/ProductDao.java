@@ -30,8 +30,16 @@ public interface ProductDao {
 	public void updateP_price(int b_price, String pno) throws Exception;
 	// 응찰 내역
 	public List<BidVo> bidList(String pno) throws Exception;
-	// 경매상태 변경
+	// 경매 종료 ( 시간 마감 )
 	public void updateP_state(String p_state) throws Exception;
+	// 경매 진행 상태 ( 유찰 / 낙찰 )
+	public void bidWhether(String pno) throws Exception;
+	// 최고 입찰자 찾기 ( 응찰 목록 )
+	public String topBidding(String pno) throws Exception;
+	// 낙찰자 선정 ( 상품 )
+	public void matchingBidding(String m_id,String pno) throws Exception;
 	// 실시간 날짜 업데이트
 	public List<Timestamp> selectP_until() throws Exception;
+	// 마감된 상품 번호 조회 ( 날짜 )
+	public String findPno(Timestamp time) throws Exception;
 }

@@ -194,18 +194,18 @@
 											<div class="col-lg-4 col-xs-4 "></div>
 											<div class="col-lg-8 col-xs-8 ">
 												<button style="width: 100%; display: block" class="btn-artday3 mobile-bbt" data-toggle="modal"
-													type="button" id="bid_bid" href="/kjy/member/login"
+													type="button" id="bid_bid"
 													 <c:choose>
 									                	<c:when test="${not empty sessionScope.m_id}">
 									                		data-target="#bid_subscription"
 									                	</c:when> 
 									                	<c:otherwise>
-									                		onclick="return confirm('로그인 후 응찰이 가능합니다.\n로그인 하시겠습니까?');"
+									                		onclick="javascript:bid_login();" 
 									                	</c:otherwise>
-									                </c:choose>
+									                </c:choose> 
 													>응찰</button>
 											</div>
-										</div>
+										</div> 
 									</div>
 								</div> 
 							</div>
@@ -213,7 +213,6 @@
 					</div>
 				</div>
 			</div>
-			
 			
 			<div class="row">
 				<div class="artist-spec">
@@ -234,13 +233,13 @@
 						<div class="col-lg-6">
 							<h3>상품소개</h3>
 							<div class="artist-intu" id="myList">
-								<span><strong>학력</strong>
-								<br><br>니혼대학교 철학 학사<br>서울대학교 중퇴<br><br>
-								</span><span></span><span><strong>전시(개인)</strong>
+								<span><strong>상품</strong>
+								<br><br>1<br>1<br><br>
+								</span><span></span><span><strong>정보</strong>
 								<br><br><br>
 								<p style="line-height: 1.2;">외 다수&nbsp;</p>
 								<br><br>
-								</span><span><strong>전시(그룹)</strong>
+								</span><span><strong>상세</strong>
 								<br><br><br>
 								</span>
 								<div id="loadMore"
@@ -559,14 +558,9 @@ $(function() {
 		bid_list(); 
 	});
 	
-	// bid after location
-	var onSuccess = function (data, textStatus, jqXHR) {
-        console.log(jqXHR.status);
-        location.href= "redirect:/kmk/auction/premium";
-    };
-	
 	// bid subscription
 	$("#bid_Subscription").click(function(e) {
+		e.preventDefault(); 
 		var pno = "${productVo.pno}"; 
 		var b_price;
 		if (${productVo.p_price == 0}) {  
@@ -575,7 +569,7 @@ $(function() {
 			 b_price = ${productVo.p_price} + ${unit};
 		};  
 		var s_price = <%=session.getAttribute("s_price")%>;
-		var b_note = "낙찰 예정";   
+		var b_note = "낙찰예정";   
 		var m_id = "<%=session.getAttribute("m_id")%>";
 		var sendData = {
 				"m_id" : m_id, 
@@ -591,11 +585,6 @@ $(function() {
 			"url"  : url, 
 			"dataType" 	: "text", 
 			"data" : sendData,    
-			/* "success"	: function(rData) {
-				if (rData == "success") { 
-					alert("응찰되었습니다.");
-				} 
-			}, */
 			"success"	: function(data, textStatus, jqXHR){
                 alert("응찰되었습니다.");
                 console.log(jqXHR.status);
@@ -604,9 +593,6 @@ $(function() {
 			"error"		: function(request,status,error) {
              	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 			}, 
-			"complete": function () {
-				console.log("완료");
-	        }
 		});	 
 	});
 });

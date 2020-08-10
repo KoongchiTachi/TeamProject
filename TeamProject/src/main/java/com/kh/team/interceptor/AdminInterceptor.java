@@ -14,7 +14,7 @@ public class AdminInterceptor extends HandlerInterceptorAdapter{
 			throws Exception {
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
-		System.out.println("m_id: " + m_id);
+//		System.out.println("m_id: " + m_id);
 		
 		// 관리자로 로그인 됐다면
 		if (m_id.equals("admin")) {

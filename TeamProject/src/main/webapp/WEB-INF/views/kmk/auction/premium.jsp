@@ -152,7 +152,7 @@
 								liked 
 							</c:if>
 						</c:forEach>
-						" data-pno="${premium.pno}"></button>
+						" style="border: 0px;" data-pno="${premium.pno}"></button>
 					</div>  
 					<div class="banner-img"> 
 						<img style="width: 85%;" src="/resources/img/bag/${premium.p_img1}" alt="Image 1"> 
@@ -169,7 +169,7 @@
 					</div> 
 					<div class="stats h_price">
 						<div> 
-							<strong>현재 입찰가</strong> 
+							<strong>현재가</strong> 
 							<fmt:setLocale value="ko_KR"/> 
 							<c:choose>
 								<c:when test="${premium.p_price != 0}">

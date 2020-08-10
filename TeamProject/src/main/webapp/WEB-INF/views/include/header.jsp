@@ -80,7 +80,7 @@
                         <li><a href="#">Auction</a>
                         	<ul class="drop-menu">
                                 <li><a href="/kmk/auction/premium">프리미엄</a></li>
-                                <li><a href="/kmk/auction/note">일반</a></li>  
+                                <li><a href="/kmk/auction/normal">일반</a></li>  
                                 <li><a href="/kmk/auction/finished">지난경매 및 결과</a></li>
                                 <li><a href="/kmk/auction/howBid">응찰방법</a></li>  
                             </ul>

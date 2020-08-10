@@ -113,9 +113,13 @@ var {
 								</div>
 								<figcaption class="media-body figcaption">
 									<h6 class="title text-truncate">${product.b_name}</h6>
-									<dl class="param param-inline small">  
-										<dt>${product.p_info}</dt>
-										<dd></dd>
+									<dl class="param param-inline small">
+										<dt>상품명</dt>
+										<dd>${product.p_name}</dd>
+									</dl>
+									<dl class="param param-inline small">   
+										<dt>사이즈</dt>
+										<dd>${product.p_info}</dd>
 									</dl>
 									<dl class="param param-inline small">
 										<dt>색상</dt>

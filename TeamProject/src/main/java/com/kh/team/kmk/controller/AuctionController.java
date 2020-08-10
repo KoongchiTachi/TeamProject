@@ -1,11 +1,13 @@
 package com.kh.team.kmk.controller;
 
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -46,24 +48,37 @@ public class AuctionController {
 		if (m_id != null) {
 			List<WishVo> wish = productService.attentionItems(m_id);
 			model.addAttribute("wish", wish);  
-		} 
+		}
 		return "/kmk/auction/premium";  
 	}
 	
 	// 일반 상품 목록
-	@RequestMapping(value="/note", method = RequestMethod.GET) 
-	public String latestAuction(Model model) throws Exception {
+	@RequestMapping(value="/normal", method = RequestMethod.GET) 
+	public String latestAuction(HttpServletRequest request, Model model) throws Exception {
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
 		List<ProductVo> list = productService.normalProduct(p_value);
 		model.addAttribute("list", list);
-		return "/kmk/auction/note";
+		if (m_id != null) {
+			List<WishVo> wish = productService.attentionItems(m_id);
+			model.addAttribute("wish", wish);  
+		}
+		return "/kmk/auction/normal";
 	}
 	 
 	// 상품 상세 페이지
 	@RequestMapping(value="/product", method = RequestMethod.GET)
-	public void bidPage(HttpServletRequest request, String pno, Model model) throws Exception {
+	public void bidPage(HttpServletRequest request, HttpServletResponse response, String pno, Model model) throws Exception {
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
 		ProductVo productVo = productService.selectByPno(pno);
+		if (productVo.getP_state() == "s02") {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('이미 마감된 상품입니다.');</script>");
+			out.flush();
+			return;
+		}
 		int cnt = productService.bidCountByPno(pno);
 		int s_price = productVo.getS_price();
 		int unit = 50000;
@@ -109,10 +124,6 @@ public class AuctionController {
 		return "/kmk/auction/count"; 
 	} 
 	
-	// 응찰 신청
-	public void bidSubscription() throws Exception {
-		
-	}
 	
 	// 관심상품 등록 및 해제 
 	@ResponseBody

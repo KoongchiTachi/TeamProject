@@ -17,13 +17,13 @@ import com.kh.team.domain.SuccessBidPagingDto;
 public class BidDaoImpl implements BidDao {
 
 	private static final String NAMESPACE = "mappers.bid-mapper.";
-	
+
 	@Inject
 	private SqlSession sqlSession;
-	
+
 	@Override
 	public void insertBid(BidVo bidVo) throws Exception {
-		sqlSession.insert(NAMESPACE + "insertBid", bidVo); 
+		sqlSession.insert(NAMESPACE + "insertBid", bidVo);
 	}
 
 	@Override
@@ -54,10 +54,20 @@ public class BidDaoImpl implements BidDao {
 
 	@Override
 	public int successBidCount(SuccessBidPagingDto successBidPagingDto, String m_id) throws Exception {
-		Map<String, Object> param = new HashMap<>(); 
+		Map<String, Object> param = new HashMap<>();
 		param.put("successBidPagingDto", successBidPagingDto);
 		param.put("m_id", m_id);
 		return sqlSession.selectOne(NAMESPACE + "successBidCount", param);
+	}
+
+	@Override
+	public int checkExpectedSuccess(String pno) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "checkExpectedSuccess", pno);
+	}
+
+	@Override
+	public void changeExpectedSuccess(String pno) throws Exception {
+		sqlSession.update(NAMESPACE + "changeExpectedSuccess", pno);
 	}
 
 }

@@ -11,6 +11,12 @@ public interface BidDao {
 	// 응찰 신청(입력)
 	public void insertBid(BidVo bidVo) throws Exception;
 	
+	// 이전 응찰 확인
+	public int checkExpectedSuccess(String pno) throws Exception;
+	
+	// 응찰 업데이트(낙찰예정 삭제)
+	public void changeExpectedSuccess(String pno) throws Exception;
+	
 	// 응찰 신청 목록 - 페이징(마이페이지)
 	public List<BidVo> bidList(String m_id, int startRow, int endRow) throws Exception;
 	

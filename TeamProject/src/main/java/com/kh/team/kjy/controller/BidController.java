@@ -18,6 +18,7 @@ import com.kh.team.domain.BidListPagingDto;
 import com.kh.team.domain.BidVo;
 import com.kh.team.domain.MemberVo;
 import com.kh.team.domain.SuccessBidPagingDto;
+import com.kh.team.persistence.BidDao;
 import com.kh.team.service.BidService;
 import com.kh.team.service.MemberService;
 
@@ -27,17 +28,21 @@ public class BidController {
 
 	@Inject
 	private BidService bidService;
+	
 	@Inject
 	private MemberService memberService;
+	
+	@Inject
+	private BidDao bidDao;
 	 
 	// 응찰 신청
 	@ResponseBody
 	@RequestMapping(value ="/bidSubscription", method= RequestMethod.POST)
 	public String bidSubscription(BidVo bidVo, String pno, int b_price) throws Exception {
-//		BidVo bidVo = new BidVo();
-		bidVo.setB_price(b_price); 
-		System.out.println(pno);
-		System.out.println(bidVo);
+		bidVo.setB_price(b_price);
+		int check_topBidding = bidDao.checkExpectedSuccess(pno);
+		System.out.println("check_topBidding : " + check_topBidding);
+		if (check_topBidding > 0) bidDao.changeExpectedSuccess(pno);
 		bidService.insertBid(bidVo, pno, b_price);
 		return "success";
 	}

@@ -8,6 +8,7 @@
 <style>
 th {
 	background-color: #f5f5f5;
+	width: 170px;
 }
 input[type="text"]:disabled,
 textarea.form-control:disabled {

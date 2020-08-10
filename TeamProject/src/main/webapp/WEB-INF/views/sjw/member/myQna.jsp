@@ -28,7 +28,6 @@ table.table-expandable > tbody > tr div.table-expandable-arrow {
 table.table-expandable > tbody > tr div.table-expandable-arrow.up {
     background-position:0px 0px;
 }
-
 </style>
 <script>
 $(function() {

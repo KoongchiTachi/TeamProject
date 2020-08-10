@@ -7,7 +7,18 @@
 <link rel="stylesheet" href="/resources/css/consign/consign.css" type="text/css">
 
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
-
+<style>
+/* active 0810 */
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
+</style>
+<script>
+// active 0810
+$(function() {
+	$(".nav3").addClass("active");
+});
+</script>
 <script type="text/javascript"> 
 $(function($) {
 	function floatLabel(inputType) { 

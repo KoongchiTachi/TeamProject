@@ -5,9 +5,15 @@
 <style>
 ul{
    list-style:none;
-   }
+}
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
 </style>
 <script>
+$(function() {
+	$(".nav3").addClass("active");
+});
 </script>
 
 <%@ include file="/WEB-INF/views/include/sjw/frmPage.jsp" %>

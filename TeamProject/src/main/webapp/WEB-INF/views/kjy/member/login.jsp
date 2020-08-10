@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <%@ include file="/WEB-INF/views/include/kjy/login_css.jsp" %>
-
 <script>
 $(function() {
 	var msg = "${msg}";
@@ -11,6 +10,15 @@ $(function() {
 	}
 });
 </script>
+<style>
+html, body {
+    height: 100%;
+    font-family: "Montserrat Alternates", sans-serif;
+    -webkit-font-smoothing: antialiased;
+     font-smoothing: antialiased; 
+    background: none;
+}
+</style>
 
 <div class="limiter" style="margin-top:120px;">
 	<div class="container-login100">

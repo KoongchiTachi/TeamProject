@@ -46,7 +46,9 @@
 	<meta name="theme-color" content="#ffffff">
 	 
 </head>
+<script>
 
+</script>
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -76,8 +78,9 @@
                 </div>
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="/">Home</a></li>
-                        <li><a href="#">Auction</a>
+                        <li class="nav1"><a href="/">Home</a></li>
+                        
+                        <li><a href="#" class="nav2">Auction</a>
                         	<ul class="drop-menu">
                                 <li><a href="/kmk/auction/premium">프리미엄</a></li>
                                 <li><a href="/kmk/auction/normal">일반</a></li>  
@@ -85,20 +88,20 @@
                                 <li><a href="/kmk/auction/howBid">응찰방법</a></li>  
                             </ul>
                         </li>
-                        <li><a href="#">Service</a>
+                        <li><a href="#" class="nav3">Service</a>
                         	<ul class="drop-menu">
                                 <li><a href="/sjw/service/consignGuide">위탁안내</a></li>
                                 <li><a href="/kmk/consign/consign_form">위탁신청</a></li> 
                             </ul>
                         </li>
-                        <li><a href="#">About</a>
+                        <li><a href="#" class="nav4">About</a>
                             <ul class="drop-menu">
                                 <li><a href="/sjw/about/info">회사 소개</a></li>
                                 <li><a href="/sjw/about/noticeList">공지사항</a></li>
                                 <li><a href="/sjw/about/map">오시는 길</a></li>
                             </ul> 
                         </li>
-                        <li><a href="#">Contact</a>
+                        <li><a href="#" class="nav5">Contact</a>
                         	<ul class="drop-menu">
                                 <li><a href="/sjw/contact/faqList">FAQ</a></li>
                                 <li><a href="/sjw/contact/qnaForm">1:1 문의</a></li>

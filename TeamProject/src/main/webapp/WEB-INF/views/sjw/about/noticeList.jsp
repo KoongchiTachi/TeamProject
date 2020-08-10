@@ -43,6 +43,9 @@
 .blog-search input::placeholder { 
 	color: #BDBDBD;
 }
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
 </style>
 <script>
 $(function() {
@@ -73,7 +76,9 @@ $(function() {
 		$("#frmPage").submit();
 	});
 	
-	
+
+	$(".nav4").addClass("active");
+
 });
 </script>
 

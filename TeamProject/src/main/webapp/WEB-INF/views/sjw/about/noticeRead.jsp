@@ -20,11 +20,16 @@
 	font-size: 20px;
 	color: #5E5E5E;
 }
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
 </style>
 <script>
 $(function() {
 	
 	autosize($("textarea"));
+	
+	$(".nav4").addClass("active");
 	
 });
 </script>

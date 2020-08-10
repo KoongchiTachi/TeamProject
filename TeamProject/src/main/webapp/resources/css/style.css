@@ -374,22 +374,22 @@ ol {
 .inner-header .main-menu ul li>a:hover::after {
 	opacity: 1;
 }
-
-.inner-header .main-menu ul li>a:after {
-	position: absolute;
-	left: 50%;
-	bottom: 9px;
-	width: 5px;
-	height: 5px;
-	background: #F9AD81;
-	content: "";
-	border-radius: 50%;
-	-webkit-transform: translateX(-2.5px);
-	transform: translateX(-2.5px);
-	opacity: 0;
-	-webkit-transition: all 0.2s;
-	transition: all 0.2s;
-}
+/* 2020 08 10 신정원 깔끔한 active를 위해 땡땡이는 버립니다... */
+/* .inner-header .main-menu ul li>a:after { */
+/* 	position: absolute; */
+/* 	left: 50%; */
+/* 	bottom: 9px; */
+/* 	width: 5px; */
+/* 	height: 5px; */
+/* 	background: #F9AD81; */
+/* 	content: ""; */
+/* 	border-radius: 50%; */
+/* 	-webkit-transform: translateX(-2.5px); */
+/* 	transform: translateX(-2.5px); */
+/* 	opacity: 0; */
+/* 	-webkit-transition: all 0.2s; */
+/* 	transition: all 0.2s; */
+/* } */
 
 .slicknav_menu {
 	display: none;

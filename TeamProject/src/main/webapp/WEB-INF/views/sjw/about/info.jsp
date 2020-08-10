@@ -1,7 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
- 
+<style>
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
+</style>
+<script>
+$(function() {
+	$(".nav4").addClass("active");
+});
+</script>
     <section class="about-us spad">
         <div class="container">
             <div class="row">

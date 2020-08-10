@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <script src="/resources/js/sjw_script.js"></script>
-<link rel="stylesheet" href="/resources/css/bids.css" type="text/css">
+<link rel="stylesheet" href="/resources/css/consign/consign.css" type="text/css">
 <style>
 .contact-form #file_name {
 	padding: 25px;
@@ -78,6 +78,9 @@ html, body {
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     background: none;
+}
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
 }
 </style>
 <script type="text/javascript"> 
@@ -176,6 +179,9 @@ $(function() {
 		});
 		//return false;
  	});
+	
+	$(".nav5").addClass("active");
+	
  });
 
 </script>

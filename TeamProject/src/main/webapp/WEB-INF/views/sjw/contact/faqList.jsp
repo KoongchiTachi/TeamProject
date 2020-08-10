@@ -82,6 +82,9 @@
 .moreFaq a {
 	border: 1px dashed #ebe8e8;
 }
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
 </style>
 <script>
 $(function() {
@@ -108,6 +111,8 @@ $(function() {
 			return;
 		}
 	});
+	
+	$(".nav5").addClass("active");
 });
 </script>
 <form id="frmPage" action="/sjw/contact/faqList" method="get">

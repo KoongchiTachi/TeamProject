@@ -74,7 +74,15 @@
 .moreFaq a {
 	border: 1px dashed #ebe8e8;
 }
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
 </style>
+<script>
+$(function() {
+	$(".nav5").addClass("active");
+});
+</script>
 <section class="contact-section spad">
 	<div class="container faq">
 		<div class="row">

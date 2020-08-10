@@ -29,16 +29,15 @@ h3 {
 	margin-top : 20px;
 	margin-bottom : 20px;
 }
-
-/* .contact-section { */
-/* 	min-width: 800px; */
-/* 	padding-right: 150px; */
-/* 	padding-left: 150px; */
-/* 	margin-right: 150px; */
-/* 	margin-left: 150px; */
-/* } */
-
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
 </style>
+<script>
+$(function() {
+	$(".nav4").addClass("active");
+});
+</script>
 
    <section class="contact-section spad">
      <div class="container">

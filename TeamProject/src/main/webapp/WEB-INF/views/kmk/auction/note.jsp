@@ -91,7 +91,10 @@ span.press {
     padding: 10px 12px 8px;
   }
 }
-
+/* 0810 active */
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
 </style>
 <link rel="stylesheet" href="/resources/css/product/like_heart.css" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Lato"rel="stylesheet' rel='stylesheet' type='text/css' />
@@ -155,6 +158,9 @@ $(function() {
     $( "i" ).click(function() {
       $( "i,span" ).toggleClass( "press", 1000 );
     }); 
+    
+ // 0810 active
+    $(".nav2").addClass("active");
 });
 </script>
 

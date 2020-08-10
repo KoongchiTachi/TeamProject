@@ -2,8 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ include file="./include/header.jsp" %>
+<style>
 
-
+</style>
+<script>
+$(function() {
+	
+	$(".nav1").addClass("active");
+});
+</script>
 <!-- Hero Area Section Begin --> 
 		<%@ include file="./include/banner.jsp" %>
 <!--     <section class="hero-area set-bg" data-setbg="/resources/img/main-bg.jpg"> -->

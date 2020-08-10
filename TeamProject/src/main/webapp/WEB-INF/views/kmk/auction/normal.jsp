@@ -93,7 +93,10 @@
 	.btn:active, .btn:hover, .btn:focus {
 	  background-color:white;
 	}
-} 
+/* 0810 active */
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
 </style>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -283,6 +286,8 @@ $(function() {
 			});	 
      	});
     });
+ 	
+	$(".nav2").addClass("active");
 }); 
 
 

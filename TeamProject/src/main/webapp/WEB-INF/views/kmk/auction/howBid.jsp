@@ -3,7 +3,18 @@
 <%@ include file = "/WEB-INF/views/include/header.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="/resources/css/note.css"/>
-
+<style>
+/* 0810 active */
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
+</style>
+<script>
+// 0810 active
+$(function() {
+	$(".nav2").addClass("active");
+});
+</script>
 <div id="container">
 	<div id="content"> 
 <!-- 		<div id="location"> -->

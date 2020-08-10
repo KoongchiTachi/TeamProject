@@ -49,7 +49,10 @@
 .btn-artday3 {
 	cursor: pointer;
 }
-
+/* 0810 active */
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
 </style>
 
 <!-- content start -->
@@ -595,6 +598,9 @@ $(function() {
 			}, 
 		});	 
 	});
+	
+// 	0810 active
+	$(".nav2").addClass("active");
 });
 </script> 
 

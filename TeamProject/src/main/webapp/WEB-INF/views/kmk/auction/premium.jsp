@@ -93,6 +93,9 @@
 	.btn:active, .btn:hover, .btn:focus {
 	  background-color:white;
 	}
+/* 0810 active */
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
 } 
 </style>
 
@@ -270,6 +273,10 @@ $(function() {
 			});	 
      	});
     });
+ 	
+ 	// 0810 active
+	$(".nav2").addClass("active");
+	
 }); 
 
 

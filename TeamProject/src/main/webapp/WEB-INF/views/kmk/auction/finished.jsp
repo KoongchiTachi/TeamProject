@@ -86,8 +86,18 @@ var {
 
 .title {
 	text-transform : uppercase;
-} 
+}
+/* 0810 active */
+.inner-header .main-menu ul li a.active {
+	color: #F9AD81;
+}
 </style>
+<script>
+//0810 active
+$(function() {
+	$(".nav2").addClass("active");
+});
+</script>
 
 <div class="container" style="margin-top: 150px;">
 	<br>

@@ -11,10 +11,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.kh.team.domain.AdminBannerVo;
 import com.kh.team.persistence.ProductDao;
+import com.kh.team.service.BannerService;
 
 @Controller
 public class HomeController/* implements Runnable*/ {
@@ -23,13 +26,15 @@ public class HomeController/* implements Runnable*/ {
 	
 	@Inject
 	private ProductDao productDao;
+	@Inject
+	private BannerService bannerService;
 	
 	private boolean isCheckP_until = false;
 	
 	private List<Timestamp> p_untilList;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale) throws Exception {
+	public String home(Locale locale, Model model) throws Exception {
 		logger.info("정상 작동됨.", locale);
 		if (isCheckP_until == false) {
 			p_untilList = productDao.selectP_until();
@@ -67,6 +72,10 @@ public class HomeController/* implements Runnable*/ {
 			th.start();
 			isCheckP_until = true;
 		}
+		List<AdminBannerVo> list = bannerService.bannerList();
+		int count = bannerService.getBannerCount();
+		model.addAttribute("list", list);
+		model.addAttribute("count", count);
 		return "home";
 	}
 }

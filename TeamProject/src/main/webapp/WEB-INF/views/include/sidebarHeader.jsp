@@ -257,9 +257,8 @@ a.article, a.article:hover {
 				</li>
 				<li><a href="#bannerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">배너</a>
 					<ul class="collapse list-unstyled" id="bannerSubmenu">
-						<li><a href="#">Page 1</a></li>
-						<li><a href="#">Page 2</a></li>
-						<li><a href="#">Page 3</a></li>
+						<li><a href="/kjy/admin/adminBannerList">배너 목록</a></li>
+						<li><a href="/kjy/admin/adminBannerForm">배너 입력</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Contact</a></li>

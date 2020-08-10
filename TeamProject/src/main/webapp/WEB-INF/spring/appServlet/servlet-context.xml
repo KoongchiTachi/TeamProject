@@ -33,6 +33,9 @@
 <!-- 		<beans:constructor-arg value="D:\Team"/>  -->
 		<beans:constructor-arg value="//192.168.0.208/Team"/>
 	</beans:bean>
+	<beans:bean id="bannerUploadPath" class="java.lang.String">
+		<beans:constructor-arg value="//192.168.0.208/Team/banner"/>
+	</beans:bean>
 	
 	
 	 

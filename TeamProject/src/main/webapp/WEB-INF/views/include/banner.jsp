@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,12 +90,11 @@
                     
 				</div>
 			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100" src="/resources/img/banner/banner2.jpg" alt="Second slide">
-			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100" src="/resources/img/banner/banner4.jpg" alt="Third slide">
-			</div>
+			<c:forEach items="${list}" var="adminBannerVo"> 
+				<div class="carousel-item">
+					<img class="d-block w-100" src="/uploadBanner/displayFile?bn_img=${adminBannerVo.bn_img}">
+				</div>
+			</c:forEach>
 			<!-- / 슬라이드 쇼 끝 -->
 			
 			<!-- 왼쪽 오른쪽 화살표 버튼 -->
@@ -109,8 +109,17 @@
 			<!-- 인디케이터 -->
 			<ul class="carousel-indicators">
 				<li data-target="#demo" data-slide-to="0" class="active"></li>
-				<li data-target="#demo" data-slide-to="1"></li>
-				<li data-target="#demo" data-slide-to="2"></li>
+				<c:choose>
+					<c:when test="${count == 2}">
+						<li data-target="#demo" data-slide-to="1"></li>
+						<li data-target="#demo" data-slide-to="2"></li>
+					</c:when>
+					<c:when test="${count == 1}">
+						<li data-target="#demo" data-slide-to="1"></li>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 			<!-- 인디케이터 끝 -->
 		</div>

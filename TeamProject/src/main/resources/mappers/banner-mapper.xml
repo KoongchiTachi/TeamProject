@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers.banner-mapper">
+
+	<insert id="insertBanner">
+		insert into tbl_banner(b_name, bnno, bn_img)
+		values(#{b_name}, seq_bnno.nextval, #{bn_img})
+	</insert>
+
+	<select id="bannerList" resultType="AdminBannerVo">
+		select * from tbl_banner
+		order by bnno asc
+	</select>
+	
+	<delete id="deleteBanner">
+		delete from tbl_banner
+		where bnno = #{bnno}
+	</delete>
+	
+	<select id="getBannerCount" resultType="int">
+		select count(*) from tbl_banner
+	</select>
+	
+	<select id="getBannerName" resultType="int">
+		select count(*) from tbl_banner
+		where b_name = #{b_name}
+	</select>
+
+</mapper>

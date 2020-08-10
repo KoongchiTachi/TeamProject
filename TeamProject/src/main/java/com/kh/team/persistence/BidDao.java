@@ -29,4 +29,9 @@ public interface BidDao {
 	// 낙찰 상품 갯수(마이페이지)
 	public int successBidCount(SuccessBidPagingDto successBidPagingDto, String m_id) throws Exception;
 		
+	// 낙찰한 사람, 낙찰된 사람 낙찰 상품 갯수 카운트
+	public int successBidProGrade(String m_id) throws Exception;
+	
+	// 낙찰한 사람, 낙찰된 사람의 등급 수정
+	public void successBidUpdateGrade(int count, String m_id) throws Exception;
 }

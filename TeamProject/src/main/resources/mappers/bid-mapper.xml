@@ -51,5 +51,17 @@
 		from tbl_bid b, tbl_product p
 		where p.pno = b.pno and p.p_progress = 'p06' and b.m_id = #{m_id}
 	</select>
+	
+	<select id="successBidProGrade" resultType="int">
+		select count(*) 
+		from tbl_product
+		where t_bidding = #{m_id} and p_progress = 'p06' or m_id = #{m_id} and p_progress = 'p06'
+	</select>
+	
+	<update id="successBidUpdateGrade">
+		update tbl_member
+		set m_trade = #{count}
+		where m_id = #{m_id}
+	</update>
 
 </mapper>

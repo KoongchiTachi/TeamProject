@@ -5,6 +5,8 @@
     
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
+<%@ include file="/WEB-INF/views/include/kmk/hideForm.jsp" %>
+
 <style>
 .bidList {
 	min-height: 100vh;
@@ -34,6 +36,15 @@
 
 <script>
 $(function() {
+	// 응찰하기 버튼 클릭
+	$(".btnConsign").click(function(e) {
+		e.preventDefault(); 
+		var pno = $(this).attr("data-pno"); 
+		$("#hideForm > input[name=pno]").val(pno); 
+		$("#hideForm").attr("action", $(this).attr("href")); 
+		$("#hideForm").submit(); 
+	});
+	
 	// 페이징
 	$("a.page-link").click(function(e) {
 		e.preventDefault();
@@ -106,12 +117,9 @@ $(function() {
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.b_date}</strong><br>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${bidVo.p_price}" /></strong><br>
 									<td class="button" style="width : 200px; vertical-align : middle;">
-										<div> 
-											<strong class="">${bidVo.s_name}</strong>  
-										</div>
 										<c:if test="${bidVo.s_name == '진행'}">
 											<div>
-												<a href="#none" onclick="NewWishlist.actionOrder('order', 0)" class="btn btn-sm btn-outline-dark btnConsign">응찰하기</a>
+												<a href="/kmk/auction/product" onclick="NewWishlist.actionOrder('order', 0)" class="btn btn-sm btn-outline-dark btnConsign" data-pno="${bidVo.pno}">응찰하기</a>
 											</div>  
 										</c:if>
 									</td>

@@ -70,4 +70,18 @@ public class BidDaoImpl implements BidDao {
 		sqlSession.update(NAMESPACE + "changeExpectedSuccess", pno);
 	}
 
+	@Override
+	public int successBidProGrade(String m_id) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "successBidProGrade", m_id);
+	}
+
+	@Override
+	public void successBidUpdateGrade(int count, String m_id) throws Exception {
+		Map<String, Object> param = new HashMap<>();
+		param.put("count", count);
+		param.put("m_id", m_id);
+		sqlSession.update(NAMESPACE + "successBidUpdateGrade", param);
+	}
+
+
 }

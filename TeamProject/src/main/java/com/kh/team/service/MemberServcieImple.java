@@ -5,9 +5,11 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kh.team.domain.AdminMemberListPagingDto;
 import com.kh.team.domain.MemberVo;
+import com.kh.team.persistence.BidDao;
 import com.kh.team.persistence.MemberDao;
 
 @Service
@@ -15,6 +17,8 @@ public class MemberServcieImple implements MemberService {
 
 	@Inject
 	private MemberDao memberDao;
+	@Inject
+	private BidDao bidDao;
 	
 	// 로그인 아이디, 비밀번호 체크
 	@Override
@@ -37,9 +41,12 @@ public class MemberServcieImple implements MemberService {
 		memberDao.insertMember(memberVo);
 	}
 
-	// 아이디 체크
+	// 회원 정보
+	@Transactional
 	@Override
 	public MemberVo selectMember(String m_id) throws Exception {
+		int proCount = bidDao.successBidProGrade(m_id);
+		bidDao.successBidUpdateGrade(proCount, m_id);
 		return memberDao.selectMember(m_id);
 	}
 

@@ -72,7 +72,13 @@ button {
 a {
 	text-align: left;
 }
-
+html, body {
+    height: 100%;
+    font-family: "Montserrat Alternates", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    background: none;
+}
 </style>
 <script type="text/javascript"> 
 $(function($) {

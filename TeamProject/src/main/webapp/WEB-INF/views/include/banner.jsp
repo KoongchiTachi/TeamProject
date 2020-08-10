@@ -11,7 +11,18 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <style>
 .carousel-inner > .carousel-item > img { 
-	width: 1903px; height: 938px; 
+	width: 1903px; height: 938px;
+}
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+    font-family: "Montserrat Alternates", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    background: none;
 }
 </style>
 </head>

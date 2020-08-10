@@ -98,6 +98,10 @@
 				<when test='searchType == "c"'>
 					where f_content like '%' || #{keyword} || '%'
 				</when>
+				<when test='searchType == "tc"'>
+					where f_content like '%' || #{keyword} || '%'
+					or f_title like '%' || #{keyword} || '%'
+				</when>
 			</choose>
 		</if>
 	</sql>

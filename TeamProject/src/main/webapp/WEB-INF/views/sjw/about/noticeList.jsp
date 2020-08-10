@@ -97,17 +97,9 @@ $(function() {
 						<div class="col-md-10">
 
 							<table class="table table-hover">
-<!-- 								<thead> -->
-<!-- 									<tr> -->
-<!-- 										<th>글번호</th> -->
-<!-- 										<th>제목</th> -->
-<!-- 										<th>작성일</th> -->
-<!-- 										<th>조회수</th> -->
-<!-- 									</tr> -->
-<!-- 								</thead> -->
 								<tbody>
 									<c:forEach items="${list}" var="noticeVo">
-										<tr>
+										<tr style="text-align: center;">
 											<td>${noticeVo.nno}</td>
 											<td><a href="/sjw/about/noticeRead" class="n_title" style="color: #525252;" data-nno="${noticeVo.nno}">${noticeVo.n_title}</a></td>
 											<td>${noticeVo.n_date}</td>

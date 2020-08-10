@@ -101,12 +101,6 @@
 	<sql id="search">
 		<if test="searchType != null">
 			<choose>
-				<when test='searchType == "all"'>
-					where q_title like '%' || #{keyword} || '%'
-					or q_content like '%' || #{keyword} || '%'
-					or q_kind like '%' || #{keyword} || '%'
-					or m_id like '%' || #{keyword} || '%'
-				</when>
 				<when test='searchType == "N"'>
 					where q_answer like '%' || 'N' || '%'
 				</when>
@@ -119,9 +113,11 @@
 				<when test='searchType == "id"'>
 					where m_id like '%' || #{keyword} || '%'
 				</when>
-				<when test='searchType == "tc"'>
+				<when test='searchType == "t"'>
 					where q_title like '%' || #{keyword} || '%'
-					or q_content like '%' || #{keyword} || '%'
+				</when>
+				<when test='searchType == "c"'>
+					where q_content like '%' || #{keyword} || '%'
 				</when>
 			</choose>
 		</if>

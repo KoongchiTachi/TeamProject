@@ -5,6 +5,8 @@
 
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 
+<%@ include file="/WEB-INF/views/include/kmk/hideForm.jsp" %>
+
 <style>
 .wishList {
 	min-height: 100vh;
@@ -47,6 +49,15 @@
 
 <script>
 $(function() {
+	// 응찰하기 버튼 클릭
+	$(".btnConsign").click(function(e) {
+		e.preventDefault(); 
+		var pno = $(this).attr("data-pno"); 
+		$("#hideForm > input[name=pno]").val(pno); 
+		$("#hideForm").attr("action", $(this).attr("href")); 
+		$("#hideForm").submit(); 
+	});
+	
 	// chkAll
 	$("#chkAll").click(function() {
 		var chk = $(this).prop("checked");
@@ -171,17 +182,17 @@ $(function() {
 								<tr>
 									<td><input type="checkbox" class="chkWish" data-wno="${wishlistVo.wno}"></td>
 									<td class="thumb" style="width : 200px; vertical-align: middle;">
-										<a href="">
+										<a>
 											<img src="/resources/img/bag/${wishlistVo.p_img1}" alt="${wishlistVo.p_img1}" style="width : 120px; height : 120px;">
 										</a>
 									</td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${wishlistVo.p_name}</strong><br>
-									<td class="left" style="width : 500px; vertical-align : middle;"><a href="">${wishlistVo.p_info}</a></td>
+									<td class="left" style="width : 500px; vertical-align : middle;"><strong class="">${wishlistVo.p_info}</strong></td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${wishlistVo.p_price}" /></strong><br>
 									<td class="button" style="width : 200px; vertical-align : middle;">
 										<c:if test="${wishlistVo.p_state == 's01'}">
 											<div> 
-												<a href="#none" onclick="NewWishlist.actionOrder('order', 0)" class="btn btn-sm btn-outline-dark btnConsign">응찰하기</a>  
+												<a href="/kmk/auction/product" onclick="NewWishlist.actionOrder('order', 0)" class="btn btn-sm btn-outline-dark btnConsign" data-pno="${wishlistVo.pno}">응찰하기</a>  
 											</div>
 										</c:if>
 										<c:if test="${wishlistVo.p_state == 's02'}">

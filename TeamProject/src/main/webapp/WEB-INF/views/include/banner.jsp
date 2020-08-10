@@ -44,68 +44,68 @@ html, body {
 	<div id="demo" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<!-- 슬라이드 쇼 -->
-			<div class="carousel-item active">
-				<!--가로-->
-				<img class="d-block w-100" src="/resources/img/main-bg.jpg" alt="First slide">
-				<div class="carousel-caption d-none d-md-block" style="top : 400px;">
-					<div class="hero-text">
-                        <h1>A Luxury Auction</h1>
-                    </div>
-                    <!-- Search Filter Section Begin -->
-					    <section class="search-filter">
-					        <div class="container" style="margin-top : 450px;">
-					            <div class="row">
-					                <div class="col-lg-12">
-					                    <form action="#" class="check-form">
-					                        <h4>최근 등록 상품</h4>
-					                        <div class="datepicker"> 
-					                            <p>From</p>
-					                            <input type="text" class="datepicker-1" value="dd / mm / yyyy">
-					                            <img src="/resources/img/calendar.png" alt="">
-					                        </div>
-					                        <div class="datepicker">
-					                            <p>To</p>
-					                            <input type="text" class="datepicker-2" value="dd / mm / yyyy">
-					                            <img src="/resources/img/calendar.png" alt="">
-					                        </div>
-					                        <div class="room-quantity">
-					                            <div class="single-quantity">
-					                                <p>Adults</p>
-					                                <div class="pro-qty"><input type="text" value="0"></div>
-					                            </div>
-					                            <div class="single-quantity">
-					                                <p>Children</p>
-					                                <div class="pro-qty"><input type="text" value="0"></div>
-					                            </div>
-					                            <div class="single-quantity last">
-					                                <p>Rooms</p>
-					                                <div class="pro-qty"><input type="text" value="0"></div>
-					                            </div>
-					                        </div>
-					                        <div class="room-selector">
-					                            <p>Room</p>
-					                            <select class="suit-select">
-					                                <option>Eg. Master suite</option>
-					                                <option value="">Double Room</option>
-					                                <option value="">Single Room</option>
-					                                <option value="">Special Room</option>
-					                            </select>
-					                        </div>
-					                        <button type="submit">Go</button>
-					                    </form>
-					                </div>
-					            </div>
-					        </div>
-					    </section>
-					<!-- Search Filter Section End -->
-                    
+				<div class="carousel-item active">
+					<!--가로-->
+					<img class="d-block w-100" src="/resources/img/main-bg.jpg" alt="First slide">
+					<div class="carousel-caption d-none d-md-block" style="top : 400px;">
+						<div class="hero-text">
+	                        <h1>A Luxury Auction</h1>
+	                    </div>
+	                    <!-- Search Filter Section Begin -->
+						    <section class="search-filter">
+						        <div class="container" style="margin-top : 450px;">
+						            <div class="row">
+						                <div class="col-lg-12">
+						                    <form action="#" class="check-form">
+						                        <h4>최근 등록 상품</h4>
+						                        <div class="datepicker"> 
+						                            <p>From</p>
+						                            <input type="text" class="datepicker-1" value="dd / mm / yyyy">
+						                            <img src="/resources/img/calendar.png" alt="">
+						                        </div>
+						                        <div class="datepicker">
+						                            <p>To</p>
+						                            <input type="text" class="datepicker-2" value="dd / mm / yyyy">
+						                            <img src="/resources/img/calendar.png" alt="">
+						                        </div>
+						                        <div class="room-quantity">
+						                            <div class="single-quantity">
+						                                <p>Adults</p>
+						                                <div class="pro-qty"><input type="text" value="0"></div>
+						                            </div>
+						                            <div class="single-quantity">
+						                                <p>Children</p>
+						                                <div class="pro-qty"><input type="text" value="0"></div>
+						                            </div>
+						                            <div class="single-quantity last">
+						                                <p>Rooms</p>
+						                                <div class="pro-qty"><input type="text" value="0"></div>
+						                            </div>
+						                        </div>
+						                        <div class="room-selector">
+						                            <p>Room</p>
+						                            <select class="suit-select">
+						                                <option>Eg. Master suite</option>
+						                                <option value="">Double Room</option>
+						                                <option value="">Single Room</option>
+						                                <option value="">Special Room</option>
+						                            </select>
+						                        </div>
+						                        <button type="submit">Go</button>
+						                    </form>
+						                </div>
+						            </div>
+						        </div>
+						    </section>
+						<!-- Search Filter Section End -->
+	                    
+					</div>
 				</div>
-			</div>
-			<c:forEach items="${list}" var="adminBannerVo"> 
-				<div class="carousel-item">
-					<img class="d-block w-100" src="/uploadBanner/displayFile?bn_img=${adminBannerVo.bn_img}">
-				</div>
-			</c:forEach>
+				<c:forEach items="${list}" var="adminBannerVo"> 
+					<div class="carousel-item">
+						<img class="d-block w-100" src="/uploadBanner/displayFile?bn_img=${adminBannerVo.bn_img}">
+					</div>
+				</c:forEach>
 			<!-- / 슬라이드 쇼 끝 -->
 			
 			<!-- 왼쪽 오른쪽 화살표 버튼 -->
@@ -134,6 +134,7 @@ html, body {
 			</ul>
 			<!-- 인디케이터 끝 -->
 		</div>
+	</div>
 </body>
 </html>
 

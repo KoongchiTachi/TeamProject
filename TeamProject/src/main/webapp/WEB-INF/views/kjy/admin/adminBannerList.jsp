@@ -47,8 +47,8 @@ $(function() {
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-8">
-				<h2 style="margin-bottom : 20px; font-weight: bold; font-size: 45px;">배너 목록</h2>
-				<h5 style="margin-bottom : 50px;">배너 이미지는 메인 이미지 포함 3개까지 보입니다.</h5> 
+				<h2 style="margin-bottom : 70px; font-weight: bold; font-size: 45px;">배너 목록</h2>
+<!-- 				<h5 style="margin-bottom : 50px;">배너 이미지는 메인 이미지 포함 3개까지 보입니다.</h5>  -->
 				<table class="table table-hover">
 				<thead>
 					<tr>

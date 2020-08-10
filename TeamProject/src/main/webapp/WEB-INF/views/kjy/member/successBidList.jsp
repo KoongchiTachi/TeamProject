@@ -94,12 +94,12 @@ $(function() {
 							<c:forEach items="${list}" var="bidVo">
 								<tr>
 									<td class="thumb" style="width : 200px; vertical-align: middle;">
-										<a href="">
+										<a>
 											<img src="/resources/img/bag/${bidVo.p_img1}" alt="${bidVo.p_img1}" style="width : 120px; height : 120px;">
 										</a>
 									</td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.p_name}</strong><br>
-									<td class="left" style="width : 400px; vertical-align : middle;"><a href="">${bidVo.p_info}</a></td>
+									<td class="left" style="width : 400px; vertical-align : middle;"><strong class="">${bidVo.p_info}</strong></td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${bidVo.b_price}" /></strong><br>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.b_date}</strong><br>
 								</tr>

@@ -13,13 +13,16 @@
 	margin-top: 200px;
 	margin-bottom: 100px;
 }
-.btnConsign {
+.btnWithDraw {
 	border : none;
 	color : #ffffff;
 	background-color: #f9ad81;
+	width : 80px;
+	height : 30px;
 }
-.btnConsign:hover {
+.btnWithDraw:hover {
 	color : #000000;
+	cursor : pointer;
 	background-color: #ffffff;
 }
 .pagination > li > a {
@@ -30,10 +33,20 @@
   	background-color: #f9ad81;
   	border : solid 1px #f9ad81;
 }
+.btnCancel:hover {
+	cursor : pointer;
+}
 </style>
 
 <script>
 $(function() {
+	// 입금 계좌번호
+	$(".btnWithDraw").click(function() {
+		var that = $(this);
+		var price = that.attr("data-price");
+// 		$("#modal_price").val(price);
+	});
+	
 	// 페이징
 	$("a.page-link").click(function(e) {
 		e.preventDefault();
@@ -77,10 +90,11 @@ $(function() {
 					<thead>
 						<tr>
 							<th scope="col" style="width : 200px;">이미지</th>
+							<th scope="col" style="width : 200px;">브랜드</th>
 							<th scope="col" style="width : 200px;">상품명</th>
-							<th scope="col" style="width : 400px;">상품정보</th>
 							<th scope="col" style="width : 200px;">낙찰가격</th>
-							<th scope="col" style="width : 200px;">낙찰일시</th>
+							<th scope="col" style="width : 300px;">낙찰일시</th>
+							<th scope="col" style="width : 300px;">비고</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -98,10 +112,14 @@ $(function() {
 											<img src="/resources/img/bag/${bidVo.p_img1}" alt="${bidVo.p_img1}" style="width : 120px; height : 120px;">
 										</a>
 									</td>
-									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.p_name}</strong><br>
-									<td class="left" style="width : 400px; vertical-align : middle;"><strong class="">${bidVo.p_info}</strong></td>
-									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${bidVo.b_price}" /></strong><br>
-									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.b_date}</strong><br>
+									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.b_name}</strong></td>
+									<td class="left" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.p_info}</strong></td>
+									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${bidVo.b_price}"/></strong></td>
+									<td class="price" style="width : 300px; vertical-align : middle;"><strong class="">${bidVo.b_date}</strong></td>
+									<td class="price" style="width : 300px; vertical-align : middle;">
+										<strong class="" style="color : red;">은행 계좌번호<br/><fmt:formatNumber type="currency" value="${bidVo.b_price}"/><br/>입금해주십시오.</strong>
+<%-- 										<a id="modal-87510" href="#modal-container-87510" role="button" class="btn btn-sm btnWithDraw" data-toggle="modal" data-price="${bidVo.b_price}">입금하기</a> --%>
+									</td>
 								</tr>
 							</c:forEach>
 						</c:when>
@@ -148,6 +166,34 @@ $(function() {
 		</c:choose>
 
 	</div>
+	
+	<!-- 입금 계좌번호 모달창 -->
+<!-- 			<a id="modal-87510" href="#modal-container-87510" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
+<!-- 			<div class="modal fade" id="modal-container-87510" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
+<!-- 				<div class="modal-dialog" role="document"> -->
+<!-- 					<div class="modal-content"> -->
+<!-- 						<div class="modal-header"> -->
+<!-- 							<h5 class="modal-title" id="myModalLabel"> -->
+<!-- 								입금 계좌번호 -->
+<!-- 							</h5>  -->
+<!-- 							<button type="button" class="close" data-dismiss="modal"> -->
+<!-- 								<span aria-hidden="true">×</span> -->
+<!-- 							</button> -->
+<!-- 						</div> -->
+<!-- 						<div class="modal-body"> -->
+<!-- 							<label for="modal_price" style="width : 30%; float: left; margin-top : 7px;">입금하실 금액</label> -->
+<!-- 							<input type="text" value="" id="modal_price" class="form-control" style="width : 60%;"/><br/> -->
+<!-- 							<label for="modal_bank" style="width : 30%; float: left; margin-top : 7px;">입금하실 은행</label> -->
+<!-- 							<input type="text" value="은행 계좌번호" id="modal_bank" class="form-control" style="width : 60%;"/><br/> -->
+<!-- 						</div> -->
+<!-- 						<div class="modal-footer">  -->
+<!-- 							<button type="button" class="btn btn-secondary btnCancel" data-dismiss="modal">확인</button> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+		<!-- 입금 계좌번호 모달창 -->
+	
 </div>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

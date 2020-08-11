@@ -19,7 +19,6 @@ public class MemberVo {
 	private int m_trade;
 	private String g_name;
 	private int g_discount;
-	private int m_warn;
 
 	public String getM_id() {
 		return m_id;
@@ -141,21 +140,12 @@ public class MemberVo {
 		this.g_discount = g_discount;
 	}
 
-	public int getM_warn() {
-		return m_warn;
-	}
-
-	public void setM_warn(int m_warn) {
-		this.m_warn = m_warn; 
-	}
-
 	@Override
 	public String toString() {
 		return "MemberVo [m_id=" + m_id + ", m_pw=" + m_pw + ", m_name=" + m_name + ", m_phone=" + m_phone
 				+ ", m_address=" + m_address + ", m_address2=" + m_address2 + ", m_zip=" + m_zip + ", m_account="
 				+ m_account + ", m_bank=" + m_bank + ", m_email=" + m_email + ", join_date=" + join_date + ", m_grade="
-				+ m_grade + ", m_trade=" + m_trade + ", g_name=" + g_name + ", g_discount=" + g_discount + ", m_warn="
-				+ m_warn + "]";
+				+ m_grade + ", m_trade=" + m_trade + ", g_name=" + g_name + ", g_discount=" + g_discount + "]";
 	}
 
 }

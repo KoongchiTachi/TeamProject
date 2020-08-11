@@ -41,8 +41,9 @@
 	<select id="successBidList" resultType="BidVo">
 		select * from
 			(select rownum rnum, a.* from
-				(select b.m_id, p.p_img1, p.p_name, p.p_info, b.b_price, b.b_date from tbl_product p, tbl_bid b
-					where p.t_bidding = #{m_id} and b.m_id = p.t_bidding and b.pno = p.pno and b.b_note = '낙찰예정') a)
+				(select b.m_id, p.p_img1, p.p_name, p.p_info, b.b_price, b.b_date, br.b_name
+				 from tbl_product p, tbl_bid b, code_brand br
+				 where p.t_bidding = #{m_id} and b.m_id = p.t_bidding and b.pno = p.pno and p.p_brand = br.b_code and b.b_note = '낙찰예정') a)
 		where rnum between #{startRow} and #{endRow}  
 	</select> 
 	

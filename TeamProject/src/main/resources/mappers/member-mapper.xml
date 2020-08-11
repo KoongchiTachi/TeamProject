@@ -20,7 +20,7 @@
 		from (select rownum rnum, a.*
 			  from (select * from tbl_member m
 			  		<include refid="search"></include>
-                    order by m_warn asc, join_date desc) a)
+                    order by m_trade asc, join_date desc) a)
 		where rnum between #{startRow} and #{endRow}
 	</select>
 	

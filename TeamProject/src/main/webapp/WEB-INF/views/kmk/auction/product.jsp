@@ -224,8 +224,7 @@
 							<h3>배송안내</h3>
 							<div class="item-intu">
 								<ul>
-									<li></li>
-									<li>
+									<li style="display:list-item;"> 
 										본 상품에 한하여 낙찰자 직접픽업 또는 배송업체를 통해 유료로 배송드립니다. (서울
 										50,000원 / 수도권 100,000원 / 그 외 지역 150,000원) 단, 배송지역에 따라
 										배송비가 소폭 변동 될 수 있으니 양해부탁드립니다.
@@ -235,43 +234,13 @@
 						</div>
 						<div class="col-lg-6">
 							<h3>상품소개</h3>
-							<div class="artist-intu" id="myList">
-								<span><strong>상품</strong>
-								<br><br>1<br>1<br><br>
-								</span><span></span><span><strong>정보</strong>
-								<br><br><br>
-								<p style="line-height: 1.2;">외 다수&nbsp;</p>
-								<br><br>
-								</span><span><strong>상세</strong>
-								<br><br><br>
-								</span>
-								<div id="loadMore"
-									style="padding: 4px 12px !important; margin-bottom: 10px"
-									class="pull-left btn btn-white-border mobile-bbt">더보기</div>
-								<div id="showLess"
-									style="padding: 4px 12px !important; margin-bottom: 10px"
-									class="pull-right btn-white-border mobile-bbt">닫기</div>
-							</div>
+							<div class="artist-intu"> 
+								<span>${productVo.p_size}</span>
+							</div> 
 						</div>
 					</div>
-<script>
-$(document).ready(function () {
-	size_li = $("#myList span").length;
-	x=2;
-	$('#myList span:lt('+x+')').show();
-	$('#loadMore').click(function () {
-		x= (x+1 <= size_li) ? x+1 : size_li;
-		$('#myList span:lt('+x+')').show();
-	});
-	$('#showLess').click(function () {
-		x=(x-3<0) ? 3 : x-3;
-		$('#myList span').not(':lt('+x+')').hide();
-	});
-});
-</script>
 				</div>
 			</div>
-			
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="warning">
@@ -338,180 +307,71 @@ $(document).ready(function () {
 		<div class="modal-content">
 			<div class="bidding-box2">
 				<div class="row py-5 p-4 bg-white rounded shadow-sm">
-						<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">응찰</div>
-						<div class="p-4">
-							<p class="policy mb-4" style="color: red; font-weight: 900;"> 
-								응찰 이후 취소는 Luxion 약관에 의거하여 불이익이 발생할 수 있습니다. 금액을 확인 후 응찰하시겠습니까?
-							</p> 
-							<ul class="list-unstyled mb-4">
-								<li class="d-flex justify-content-between py-3 border-bottom">
-									<strong class="text-muted">시작가</strong>
-									<strong>
-										<fmt:setLocale value="ko_KR" />
-										<fmt:formatNumber type="currency" value="${productVo.s_price}"/> 원
-									</strong>
-								</li> 
-								<li class="d-flex justify-content-between py-3 border-bottom">
-									<strong class="text-muted">현재가</strong>
-									<strong>
-										<fmt:setLocale value="ko_KR"/>
-										<c:choose>
-											<c:when test="${productVo.p_price != 0}">
-												<fmt:formatNumber type="currency" value="${productVo.p_price}"/>
-											</c:when> 
-											<c:otherwise> 
-												<fmt:formatNumber type="currency" value="${productVo.s_price}"/>
-											</c:otherwise>
-										</c:choose> 원
-									</strong> 
-								</li>
-								<li class="d-flex justify-content-between py-3 border-bottom">
-									<strong class="text-muted">응찰 단위</strong>
-									<strong>
-										<fmt:formatNumber type="currency" value="${unit}"/> 원 
-									</strong>
-								</li>
-								<li class="d-flex justify-content-between py-3 border-bottom">
-									<strong class="text-muted">응찰 금액</strong>
-									<div class="input-group">
-										<input type="text" name="quant[1]" id="bid_price"class="form-control input-number"
-											style="font-size: 17px; font-weight: bold; text-align: right;" 
-												<c:choose>
-													<c:when test="${productVo.p_price == 0}">
-														value="<fmt:formatNumber type="currency" value="${productVo.s_price + unit}"/>"
-													</c:when> 
-													<c:otherwise> 
-														value="<fmt:formatNumber type="currency" value="${productVo.p_price + unit}"/>"
-													</c:otherwise>
-												</c:choose>
-											min="${productVo.s_price}" max="1000000000" id="now_quant" readonly>
-										<span class="input-group-btn">
-											<button type="button" class="btn bid-number btn-number"
-												data-type="plus" data-field="quant[1]">
-												<span class="mdi mdi-plus"></span>
-											</button>
-										</span> 
-										<span class="input-group-btn">
-											<button type="button" class="btn bid-number btn-number"
-												disabled="disabled" data-type="minus" data-field="quant[1]">
-												<span class="mdi mdi-minus"></span> 
-											</button>
-										</span>
-									</div>
-								</li>
-							</ul>
-							<a id="bid_Subscription" href="/kmk/auction/premium" class="btn btn-dark rounded-pill py-2 btn-block">신청</a>
-						</div>
+					<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">응찰</div>
+					<div class="p-4">
+						<p class="policy mb-4" style="color: red; font-weight: 900;"> 
+							응찰 이후 취소는 Luxion 약관에 의거하여 불이익이 발생할 수 있습니다. 금액을 확인 후 응찰하시겠습니까?
+						</p> 
+						<ul class="list-unstyled mb-4">
+							<li class="d-flex justify-content-between py-3 border-bottom">
+								<strong class="text-muted">시작가</strong>
+								<strong>
+									<fmt:setLocale value="ko_KR" />
+									<fmt:formatNumber type="currency" value="${productVo.s_price}"/> 원
+								</strong>
+							</li> 
+							<li class="d-flex justify-content-between py-3 border-bottom">
+								<strong class="text-muted">현재가</strong>
+								<strong>
+									<fmt:setLocale value="ko_KR"/>
+									<c:choose>
+										<c:when test="${productVo.p_price != 0}">
+											<fmt:formatNumber type="currency" value="${productVo.p_price}"/>
+										</c:when> 
+										<c:otherwise> 
+											<fmt:formatNumber type="currency" value="${productVo.s_price}"/>
+										</c:otherwise>
+									</c:choose> 원
+								</strong> 
+							</li>
+							<li class="d-flex justify-content-between py-3 border-bottom">
+								<strong class="text-muted">응찰 단위</strong>
+								<strong>
+									<fmt:formatNumber type="currency" value="${unit}"/> 원 
+								</strong>
+							</li>
+							<li class="d-flex justify-content-between py-3 border-bottom">
+								<strong class="text-muted">응찰 금액</strong>
+								<div class="input-group">
+									<input type="text" name="quant[1]" id="bid_price"class="form-control input-number"
+										style="font-size: 17px; font-weight: bold; text-align: right;" 
+											<c:choose>
+												<c:when test="${productVo.p_price == 0}">
+													value="<fmt:formatNumber type="currency" value="${productVo.s_price + unit}"/>"
+												</c:when> 
+												<c:otherwise> 
+													value="<fmt:formatNumber type="currency" value="${productVo.p_price + unit}"/>"
+												</c:otherwise>
+											</c:choose>
+										min="${productVo.s_price}" max="1000000000" id="now_quant" readonly>
+									<span class="input-group-btn">
+										<button type="button" class="btn bid-number btn-number"
+											data-type="plus" data-field="quant[1]">
+											<span class="mdi mdi-plus"></span>
+										</button>
+									</span> 
+									<span class="input-group-btn">
+										<button type="button" class="btn bid-number btn-number"
+											disabled="disabled" data-type="minus" data-field="quant[1]">
+											<span class="mdi mdi-minus"></span> 
+										</button>
+									</span>
+								</div>
+							</li>
+						</ul>
+						<a id="bid_Subscription" href="/kmk/auction/premium" class="btn btn-dark rounded-pill py-2 btn-block">신청</a>
+					</div>
 				</div>
-				<!-- 				<div class="row">  -->
-<!-- 					<div class="col-lg-12 " style="border-right: 1px solid #ddd;"> -->
-<!-- 						<div class="bid-left">  -->
-<!-- 							<div class="row">  -->
-<!-- 								<div class="col-xs-6"> -->
-<!-- 					 				<h3>응찰</h3>  -->
-<!--  							</div>  -->
-<!-- 								<div class="col-xs-6"> -->
-<!-- 									<div class="bding2"> -->
-<!-- 										<div class="form-group"> -->
-<!-- 											<div class="row pd-b10"> -->
-<!-- 												<label for="###" class="col-sm-6 control-label gray-color">남은시간</label> -->
-<!-- 												<div class="col-sm-6"> -->
-<!-- 													<strong class="import-color" id="time"></strong> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 											<div class="row pd-b10">  -->
-<!-- 												<label for="###" class="col-sm-6 control-label gray-color">시작가</label> -->
-<!-- 												<div class="col-sm-6"> -->
-<!-- 													<strong class="normal-color"> -->
-<%-- 														<fmt:setLocale value="ko_KR" /> --%>
-<%-- 														<fmt:formatNumber type="currency" value="${productVo.s_price}" /> --%>
-<!-- 													</strong> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 											<div class="row pd-b10"> -->
-<!-- 												<label for="###" class="col-sm-6 control-label gray-color">현재가</label> -->
-<!-- 												<div class="col-sm-6"> -->
-<%-- 													<fmt:setLocale value="ko_KR" />  --%>
-<%-- 													<c:choose> --%>
-<%-- 														<c:when test="${productVo.p_price != 0}"> --%>
-<%-- 															<fmt:formatNumber type="currency" value="${productVo.p_price}" /> --%>
-<%-- 														</c:when>  --%>
-<%-- 														<c:otherwise>  --%>
-<%-- 															<fmt:formatNumber type="currency" value="${productVo.s_price}" /> --%>
-<%-- 														</c:otherwise> --%>
-<%-- 													</c:choose> --%>
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 											<div class="row pd-b10"> -->
-<!-- 												<label for="###" class="col-sm-6 control-label gray-color">응찰단위</label> -->
-<!-- 												<div class="col-sm-6"> -->
-<!-- 													<strong class="normal-color"> -->
-<%-- 														<c:choose> --%>
-<%-- 															<c:when test="${productVo.s_price >= 1000000}"> --%>
-<%-- 																<fmt:formatNumber type="currency" value="100000"/>  --%>
-<%-- 															</c:when> --%>
-<%-- 															<c:when test="${productVo.s_price <= 1000000}"> --%>
-<%-- 																<fmt:formatNumber type="currency" value="50000"/> --%>
-<%-- 															</c:when> --%>
-<%-- 														</c:choose> --%>
-<!-- 													</strong> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 											<div class="row pd-b10"> -->
-<!-- 												<label for="###" class="col-sm-6 control-label gray-color">응찰금액</label> -->
-<!-- 												<div class="col-sm-6"> -->
-<!-- 													<strong class="import-color"></strong> -->
-<!-- 													<form name="form1" method="post" -->
-<!-- 														action="online-auctiuon-bid-proc.php"> -->
-<!-- 														<input type="hidden" name="owcode" value="OW2007250001"> -->
-<!-- 														<input type="hidden" name="oacode" value="O2007001"> -->
-<!-- 														<input type="hidden" name="page" value="1"> -->
-<!-- 														<div class="input-group "> -->
-<!-- 															<input type="text" name="quant[1]" class="form-control input-number" -->
-<!-- 																style="font-size: 17px; font-weight: bold;" value="380,000원"  -->
-<%-- 																min="${productVo.s_price}" max="1000000000" id="now_quant" readonly> --%>
-<!-- 															<span class="input-group-btn"> -->
-<!-- 																<button type="button" class="btn bid-number btn-number" -->
-<!-- 																	data-type="plus" data-field="quant[1]"> -->
-<!-- 																	<span class="glyphicon glyphicon-plus"></span> -->
-<!-- 																</button> -->
-<!-- 															</span> <span class="input-group-btn"> -->
-<!-- 																<button type="button" class="btn bid-number btn-number" -->
-<!-- 																	disabled="disabled" data-type="minus" data-field="quant[1]"> -->
-<!-- 																	<span class="glyphicon glyphicon-minus"></span> -->
-<!-- 																</button> -->
-<!-- 															</span> -->
-<!-- 														</div> -->
-<!-- 													</div> -->
-<!-- 														<div class="bid-button"> -->
-<!-- 														<div class=""> -->
-<!-- 															<button class="btn btn-artday2 " style="width: 100%;" data-toggle="modal" href="#bid"  -->
-<!-- 															type="button" id="bid_button">응찰하기</button> -->
-<!-- 															<div class="modal " id="bid"> -->
-<!-- 																<div class="bid-dialog " style=""> -->
-<!-- 																	<div class="modal-content"> -->
-<!-- 																		<div class="modal-body">  -->
-<!-- 																			응찰 이후 취소는 Luxion 약관에 의거하여<br> 불이익이 발생할 수 있습니다. <br> -->
-<!-- 																			금액을 확인 후 응찰하시겠습니까? -->
-<!-- 																		</div> -->
-<!-- 																		<div class="modal-footer"> -->
-<!-- 																			<a href="#" data-dismiss="modal" class=" bid-cancel " style="color: #333">취소</a> -->
-<!-- 																			<a href="javascript:bid_proc();" class=" bid-submit " style="color: #fff;">응찰하기</a> -->
-<!-- 																		</div> -->
-<!-- 																	</div> -->
-<!-- 																</div> -->
-<!-- 															</div> -->
-<!-- 														</div> -->
-<!-- 													</div>  -->
-<!-- 												</form> -->
-<!-- 												</div> -->
-<!-- 											</div>  -->
-<!-- 									</div>  -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div>  -->
 			</div>
 		</div>
 	</div>
@@ -529,7 +389,7 @@ $(function() {
 			var timeLeft = untilDate - currentDate;
 	
 			var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
- 			//if (days < 10) days = "0" + days; 
+ 			//if (days < 10) days = "0" + days;
 			
 			var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			if (hours < 10) hours = "0" + hours;
@@ -568,7 +428,7 @@ $(function() {
 		var b_price;
 		if (${productVo.p_price == 0}) {  
 			 b_price = ${productVo.s_price} + ${unit};
-		} else { 
+		} else {
 			 b_price = ${productVo.p_price} + ${unit};
 		};  
 		var s_price = <%=session.getAttribute("s_price")%>;

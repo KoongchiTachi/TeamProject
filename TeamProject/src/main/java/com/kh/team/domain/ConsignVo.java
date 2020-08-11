@@ -2,7 +2,7 @@ package com.kh.team.domain;
 
 import java.sql.Timestamp;
 
-public class ConsignListVo {
+public class ConsignVo {
 	private String csno;
 	private String m_id;
 	private String cs_name;
@@ -114,7 +114,7 @@ public class ConsignListVo {
 
 	@Override
 	public String toString() {
-		return "ConsignListVo [csno=" + csno + ", m_id=" + m_id + ", cs_name=" + cs_name + ", cs_price=" + cs_price
+		return "ConsignVo [csno=" + csno + ", m_id=" + m_id + ", cs_name=" + cs_name + ", cs_price=" + cs_price
 				+ ", cs_start=" + cs_start + ", cs_info=" + cs_info + ", cs_period=" + cs_period + ", cs_img=" + cs_img
 				+ ", cs_etc=" + cs_etc + ", cs_state=" + cs_state + ", cs_date=" + cs_date + ", p_name=" + p_name + "]";
 	}

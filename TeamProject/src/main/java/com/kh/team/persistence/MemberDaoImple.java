@@ -15,7 +15,7 @@ import com.kh.team.domain.MemberVo;
 @Repository
 public class MemberDaoImple implements MemberDao {
 
-	private static final String NAMESPACE = "mappers.board-mapper.";
+	private static final String NAMESPACE = "mappers.member-mapper.";
 	
 	@Inject
 	private SqlSession sqlSession;

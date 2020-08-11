@@ -10,8 +10,7 @@
                         <div class="footer-logo">
                             <a href="#"><img src="/resources/img/logo.png" alt=""></a>
                         </div>
-                        <p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua.</p>
+                        <p>Luxion은 2020년 8월에 설립된 국내대표 명품 경매회사입니다.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -27,8 +26,8 @@
                     <div class="footer-item">
                         <h5>Contact Info</h5>
                         <ul>
-                            <li><img src="/resources/img/placeholder.png" alt="">1525 Boring Lane,<br />Los Angeles, CA</li>
-                            <li><img src="/resources/img/phone.png" alt="">+1 (603)535-4592</li>
+                            <li><img src="/resources/img/placeholder.png" alt="">울산광역시 남구 삼산로35번길 19<br/>446-77</li>
+                            <li><img src="/resources/img/phone.png" alt="">(052)123-4567</li>
                         </ul>
                     </div>
                 </div>
@@ -36,16 +35,6 @@
         </div>
         
        	<div class="row">
-<!--                     <div class="col-lg-12"> -->
-<!--                         <ul> -->
-<!--                             <li class="active"><a href="./home.jsp">Home</a></li> -->
-<!--                             <li><a href="#">About</a></li> -->
-<!--                             <li><a href="#">Rooms</a></li> -->
-<!--                             <li><a href="#">Facilities</a></li> -->
-<!--                             <li><a href="#">News</a></li> -->
-<!--                             <li><a href="#">Contact</a></li> -->
-<!--                         </ul> -->
-<!--                     </div> -->
            	<div class="col-lg-12 ">
 				<div class="small text-white text-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

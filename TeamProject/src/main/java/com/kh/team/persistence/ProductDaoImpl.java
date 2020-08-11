@@ -120,4 +120,9 @@ public class ProductDaoImpl implements ProductDao {
 		sqlSession.update(PRODUCT + "matchingBidding", param);
 	}
 
+	@Override
+	public List<ProductVo> bannerItems() throws Exception {
+		return sqlSession.selectList(PRODUCT + "bannerItems");
+	}
+
 }

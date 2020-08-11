@@ -7,13 +7,18 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.kh.team.domain.AdminBannerVo;
+import com.kh.team.domain.ProductVo;
 import com.kh.team.persistence.BannerDao;
+import com.kh.team.persistence.ProductDao;
 
 @Service
 public class BannerServiceImple implements BannerService {
 
 	@Inject
 	private BannerDao bannerDao;
+	
+	@Inject
+	private ProductDao productDao;
 	
 	@Override
 	public void insertBanner(AdminBannerVo adminBannerVo) throws Exception {
@@ -43,6 +48,11 @@ public class BannerServiceImple implements BannerService {
 		} else {
 			return true;
 		}
+	}
+
+	@Override
+	public List<ProductVo> bannerItems() throws Exception {
+		return productDao.bannerItems();
 	}
 
 }

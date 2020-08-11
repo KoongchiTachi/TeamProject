@@ -3,13 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="mappers.consignList-mapper">
+<mapper namespace="mappers.consign-mapper">
 
 	<insert id="insertConsign">
 	
 	</insert>
 	
-	<select id="consignList" resultType="ConsignListVo">
+	<select id="consignList" resultType="ConsignVo">
 		select * 
 		from (select rownum rnum, a.*
 		      from (select c.cs_img, c.cs_name, c.cs_info, c.cs_date, s.p_name

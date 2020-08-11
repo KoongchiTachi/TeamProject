@@ -10,23 +10,27 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.kh.team.domain.ConsignListPagingDto;
-import com.kh.team.domain.ConsignListVo;
+import com.kh.team.domain.ConsignVo;
+import com.kh.team.domain.MemberVo;
 
 @Repository
-public class ConsignListDaoImple implements ConsignListDao {
+public class ConsignDaoImpl implements ConsignDao {
 
-	private static final String NAMESPACE = "mappers.consignList-mapper.";
+	private static final String NAMESPACE = "mappers.consign-mapper.";
+	private static final String MEMBER = "mappers.member-mapper.";
 	
-	@Inject
+	 
+	@Inject 
 	private SqlSession sqlSession;
-	
-	@Override
-	public void insertConsign(ConsignListVo consignListVo) throws Exception {
-		sqlSession.insert(NAMESPACE + "insertConsign", consignListVo);
-	}
 
+	// 위탁 신청 폼
 	@Override
-	public List<ConsignListVo> consignList(String m_id, int startRow, int endRow) throws Exception {
+	public MemberVo selectMemberByConsign(String m_id) throws Exception {
+		return sqlSession.selectOne(MEMBER + "selectMemberByConsign", m_id);
+	} 
+ 
+	@Override
+	public List<ConsignVo> consignList(String m_id, int startRow, int endRow) throws Exception {
 		Map<String, Object> param = new HashMap<>();
 		param.put("m_id", m_id);
 		param.put("startRow", startRow);

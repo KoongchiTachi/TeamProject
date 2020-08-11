@@ -3,6 +3,7 @@ package com.kh.team.service;
 import java.util.List;
 
 import com.kh.team.domain.AdminBannerVo;
+import com.kh.team.domain.ProductVo;
 
 public interface BannerService {
 	// 배너 등록
@@ -19,5 +20,8 @@ public interface BannerService {
 	
 	// 배너 이름 확인
 	public boolean getBannerName(AdminBannerVo adminBannerVo) throws Exception;
+	
+	// 최근 등록 상품
+	public List<ProductVo> bannerItems() throws Exception;
 
 }

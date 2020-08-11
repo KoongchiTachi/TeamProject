@@ -3319,9 +3319,9 @@ span.round-tab i {
 }
 
 /** ê´€ì‹¬ìž‘í’ˆ **/
-* {
+/* * {
 	font-family: 'Roboto', sans-serif;
-}
+} */
 
 @
 keyframes click-wave { 0% {

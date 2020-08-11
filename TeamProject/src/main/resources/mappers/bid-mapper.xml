@@ -49,7 +49,7 @@
 	<select id="successBidCount" resultType="int">
 		select count(*) 
 		from tbl_bid b, tbl_product p
-		where p.pno = b.pno and p.p_progress = 'p06' and b.m_id = #{m_id}
+		where p.t_bidding = #{m_id} and b.m_id = p.t_bidding and b.pno = p.pno and b.b_note = '낙찰예정'
 	</select>
 	
 	<select id="successBidProGrade" resultType="int">

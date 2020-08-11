@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kh.team.domain.ConsignListPagingDto;
-import com.kh.team.domain.ConsignListVo;
+import com.kh.team.domain.ConsignVo;
 import com.kh.team.domain.MemberVo;
 import com.kh.team.domain.WishlistVo;
 import com.kh.team.service.ConsignListService;
@@ -29,7 +29,7 @@ public class ConsignListController {
 	
 	// 위탁 추가
 	@RequestMapping(value = "/addConsign", method = RequestMethod.GET)
-	public void insertConsign(ConsignListVo consignListVo) throws Exception {
+	public void insertConsign(ConsignVo consignListVo) throws Exception {
 		
 	}
 	
@@ -43,7 +43,7 @@ public class ConsignListController {
 		consignListPagingDto.setTotalCount(totalCount);
 		int startRow = consignListPagingDto.getStartRow();
 		int endRow = consignListPagingDto.getEndRow();
-		List<ConsignListVo> list = consignListService.consignList(m_id, startRow, endRow);
+		List<ConsignVo> list = consignListService.consignList(m_id, startRow, endRow);
 		MemberVo memberVo = memberService.selectMember(m_id);
 		String m_name = memberVo.getM_name();
 		

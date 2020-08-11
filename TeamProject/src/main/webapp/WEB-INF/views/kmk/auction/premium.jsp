@@ -274,7 +274,7 @@ $(function() {
      	});
     });
  	
- 	// 0810 active
+ 	// Home menu active
 	$(".nav2").addClass("active");
 	
 }); 

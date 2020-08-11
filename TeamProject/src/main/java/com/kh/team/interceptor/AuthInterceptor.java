@@ -14,7 +14,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 			throws Exception {
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
-		System.out.println("m_id: " + m_id);
+//		System.out.println("m_id: " + m_id);
 		
 		// 로그인 되어 있지 않다면
 		if (m_id == null || m_id.equals("")) {

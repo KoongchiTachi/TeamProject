@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.kh.team.domain.AdminBannerVo;
+import com.kh.team.domain.ProductVo;
 import com.kh.team.persistence.ProductDao;
 import com.kh.team.service.BannerService;
 
@@ -35,15 +36,12 @@ public class HomeController/* implements Runnable*/ {
 	private List<Timestamp> p_untilList;
 	
 	Thread th = new Thread(new Runnable() {
-		
 		@SuppressWarnings("deprecation")
 		@Override
 		public void run() {
 			while (true) {
 				try {
-					Thread.sleep(1000);
 					for (Timestamp time : p_untilList) {
-						System.out.println("----------------------------------th");
 						long p_until = time.getTime();
 						long now = new Date().getTime();
 						String pno = productDao.findPno(time);
@@ -52,22 +50,19 @@ public class HomeController/* implements Runnable*/ {
 							productDao.bidWhether(pno);
 							String m_id = productDao.topBidding(pno);
 							if (m_id != null) productDao.matchingBidding(m_id, pno);
-							System.out.println("m_ id , pno : " + m_id + "/" + pno);
 							p_untilList = productDao.selectP_until(); 
-							System.out.println("p_until Changed : p_untilList:" + p_untilList);
 							break;
 						}
-					}
+					} th.sleep(1000);
 				} catch (Exception e1) {
 					e1.printStackTrace();
-				}
-			}
+				} 
+			} 
 		}
 	}); 
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) throws Exception {
-		System.out.println("정상 작동됨2");
 		logger.info("정상 작동됨.", locale);
 		if (isCheckP_until == false) {
 			p_untilList = productDao.selectP_until();
@@ -76,6 +71,8 @@ public class HomeController/* implements Runnable*/ {
 		}
 		List<AdminBannerVo> list = bannerService.bannerList();
 		int count = bannerService.getBannerCount();
+		List<ProductVo> items = bannerService.bannerItems();
+		model.addAttribute("items", items);
 		model.addAttribute("list", list);
 		model.addAttribute("count", count);
 		return "home";

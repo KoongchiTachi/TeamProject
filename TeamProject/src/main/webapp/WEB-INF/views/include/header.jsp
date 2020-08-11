@@ -56,7 +56,7 @@
     </div>
 
     <!-- Header Section Begin -->
-    <header class="header-section">
+    <header class="header-section mont_font">
         <div class="container-fluid">
             <div class="inner-header"> 
                 <div class="logo">

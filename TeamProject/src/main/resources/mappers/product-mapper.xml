@@ -86,7 +86,7 @@
 	<!-- 경매중인 상품 날짜 얻기 -->
 	<select id="selectP_until" resultType="java.sql.Timestamp">
 		select p_until from tbl_product
-		where p_state = 's02'
+		where p_state = 's01' 
 	</select>
 	
 	<!-- 마감된 상품 번호 얻기 -->
@@ -95,4 +95,9 @@
 		where p_until = #{time}
 	</select>
 	
+	<!-- 최근 등록 상품 -->
+	<select id="bannerItems" resultType="ProductVo">
+		select p.pno, p.p_img1, b.b_name, p.p_price, p.s_price, p.p_name from tbl_product p, code_brand b
+		where b.b_code = p.p_brand and p_state = 's01' and rownum &lt;= 5 order by pno desc
+	</select>	
 </mapper>

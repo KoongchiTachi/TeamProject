@@ -55,6 +55,8 @@
 			<exclude-mapping path="/kjy/member/checkDupId"/> 
 			<exclude-mapping path="/kjy/member/emailAuth"/> 
 			<exclude-mapping path="/kjy/member/joinRun"/>
+			<exclude-mapping path="/kjy/member/findId"/>
+			<exclude-mapping path="/kjy/member/findPw"/>
 			<exclude-mapping path="/kjy/member/bidSubscription"/>
 			<exclude-mapping path="/kmk/auction/attentionProduct"/> 
 			<beans:ref bean="authInterceptor"/> 

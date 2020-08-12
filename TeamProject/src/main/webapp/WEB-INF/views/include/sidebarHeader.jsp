@@ -261,7 +261,6 @@ a.article, a.article:hover {
 						<li><a href="/kjy/admin/adminBannerForm">배너 입력</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Contact</a></li>
 			</ul>
 			<ul class="list-unstyled CTAs">
 				<li><a href="/admin/logout" class="download">Logout</a></li>

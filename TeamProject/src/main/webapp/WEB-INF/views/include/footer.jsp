@@ -10,7 +10,6 @@
                         <div class="footer-logo">
                             <a href="#"><img src="/resources/img/logo.png" alt=""></a>
                         </div>
-                        <p>Luxion은 2020년 8월에 설립된 국내대표 명품 경매회사입니다.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">

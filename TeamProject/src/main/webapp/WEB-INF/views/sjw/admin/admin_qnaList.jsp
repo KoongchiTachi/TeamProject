@@ -126,7 +126,7 @@ $(function() {
 								<c:if test="${qnaPagingDto.searchType == 'Y'}">selected</c:if>
 							>답변완료</option>
 							</optgroup>
-							<optgroup label="검색">
+							<optgroup label="검색조건">
 							<option value="kind"
 								<c:if test="${qnaPagingDto.searchType == 'kind'}">selected</c:if>
 							>문의유형</option>

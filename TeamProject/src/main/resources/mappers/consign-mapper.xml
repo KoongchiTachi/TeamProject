@@ -12,9 +12,9 @@
 	<select id="consignList" resultType="ConsignVo">
 		select * 
 		from (select rownum rnum, a.*
-		      from (select c.cs_img1, c.cs_name, c.cs_info, c.cs_date, s.p_name
-		            from tbl_consign c, code_progress s
-		            where c.cs_state = s.p_code and c.m_id = #{m_id}) a)
+		      from (select c.cs_img1, c.cs_name, c.cs_date, s.p_name, br.b_name, b.b_price, g.g_discount
+					from tbl_consign c, code_progress s, code_brand br, tbl_bid b, tbl_product p, tbl_member m, code_grade g
+					where c.cs_state = s.p_code and br.b_code = c.cs_brand and c.m_id = p.m_id and c.m_id = m.m_id and m.m_grade = g.g_code and p.pno = b.bno and c.m_id = #{m_id}) a)
 		where rnum between #{startRow} and #{endRow}
 	</select>
 	

@@ -15,6 +15,9 @@ public class ConsignVo {
 	private String cs_state;
 	private Timestamp cs_date;
 	private String p_name;
+	private String b_name;
+	private int b_price;
+	private int g_discount;
 
 	public String getCsno() {
 		return csno;
@@ -112,12 +115,36 @@ public class ConsignVo {
 		this.cs_img1 = cs_img1;
 	}
 
+	public String getB_name() {
+		return b_name;
+	}
+
+	public void setB_name(String b_name) {
+		this.b_name = b_name;
+	}
+
+	public int getB_price() {
+		return b_price;
+	}
+
+	public void setB_price(int b_price) {
+		this.b_price = b_price;
+	}
+
+	public int getG_discount() {
+		return g_discount;
+	}
+
+	public void setG_discount(int g_discount) {
+		this.g_discount = g_discount;
+	}
+
 	@Override
 	public String toString() {
 		return "ConsignVo [csno=" + csno + ", m_id=" + m_id + ", cs_name=" + cs_name + ", cs_price=" + cs_price
 				+ ", cs_start=" + cs_start + ", cs_info=" + cs_info + ", cs_period=" + cs_period + ", cs_img1="
 				+ cs_img1 + ", cs_etc=" + cs_etc + ", cs_state=" + cs_state + ", cs_date=" + cs_date + ", p_name="
-				+ p_name + "]";
+				+ p_name + ", b_name=" + b_name + ", b_price=" + b_price + ", g_discount=" + g_discount + "]";
 	}
 
 }

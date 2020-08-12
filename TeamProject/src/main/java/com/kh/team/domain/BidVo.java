@@ -19,6 +19,7 @@ public class BidVo {
 	private String s_name;
 	private String p_name;
 	private String b_name;
+	private int g_discount;
 
 	public int getBno() {
 		return bno;
@@ -116,11 +117,20 @@ public class BidVo {
 		this.b_name = b_name;
 	}
 
+	public int getG_discount() {
+		return g_discount;
+	}
+
+	public void setG_discount(int g_discount) {
+		this.g_discount = g_discount;
+	}
+
 	@Override
 	public String toString() {
 		return "BidVo [bno=" + bno + ", m_id=" + m_id + ", b_price=" + b_price + ", b_date=" + b_date + ", b_note="
 				+ b_note + ", pno=" + pno + ", p_img1=" + p_img1 + ", p_info=" + p_info + ", p_price=" + p_price
-				+ ", s_name=" + s_name + ", p_name=" + p_name + ", b_name=" + b_name + "]";
+				+ ", s_name=" + s_name + ", p_name=" + p_name + ", b_name=" + b_name + ", g_discount=" + g_discount
+				+ "]";
 	}
 
 }

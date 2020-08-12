@@ -88,8 +88,8 @@ $(function() {
 					<thead>
 						<tr>
 							<th scope="col" style="width : 200px;">이미지</th>
-							<th scope="col" style="width : 200px;">상품명</th>
-							<th scope="col" style="width : 400px;">상품정보</th>
+							<th scope="col" style="width : 300px;">브랜드</th>
+							<th scope="col" style="width : 300px;">상품명</th>
 							<th scope="col" style="width : 200px;">응찰가격</th>
 							<th scope="col" style="width : 200px;">응찰일시</th>
 							<th scope="col" style="width : 200px;">현재가격</th>
@@ -111,8 +111,8 @@ $(function() {
 											<img src="/resources/img/bag/${bidVo.p_img1}" alt="${bidVo.p_img1}" style="width : 120px; height : 120px;">
 										</a>
 									</td>
-									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.p_name}</strong><br>
-									<td class="left" style="width : 400px; vertical-align : middle;"><strong class="">${bidVo.p_info}</strong></td>
+									<td class="price" style="width : 300px; vertical-align : middle;"><strong class="">${bidVo.b_name}</strong><br>
+									<td class="left" style="width : 300px; vertical-align : middle;"><strong class="">${bidVo.p_name}</strong></td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${bidVo.b_price}" /></strong><br>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.b_date}</strong><br>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${bidVo.p_price}" /></strong><br>

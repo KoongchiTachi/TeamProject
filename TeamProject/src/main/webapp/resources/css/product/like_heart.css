@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/* body { */
+/*   display: -webkit-box; */
+/*   display: flex; */
+/*   -webkit-box-pack: center; */
+/*           justify-content: center; */
+/*   -webkit-box-align: center;  */
+/*           align-items: center; */
+/*   min-height: 100vh; */
+/*   margin: 0; */ 
+/* } */
+
+.like-button {
+  display: inline-block;
+  position: relative;
+  font-size: 18px;
+  cursor: pointer;
+}
+.like-button::before {
+  font-size: 2em;
+  color: #000;
+  content: "♥";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(400%, -80%);
+          transform: translate(400%, -80%); 
+} 
+.like-button::after {
+  font-size: 2em;
+  color: #ff3252;
+  content: "♥";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(400%, -80%) scale(0);
+          transform: translate(400%, -80%) scale(0);
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;  
+  transition: transform 0.2s, -webkit-transform 0.2s;
+} 
+.like-button.liked::after { 
+  -webkit-transform: translate(400%, -80%) scale(1.1);
+          transform: translate(400%, -80%) scale(1.1);
+}

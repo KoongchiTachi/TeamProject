@@ -36,6 +36,9 @@
 	<beans:bean id="bannerUploadPath" class="java.lang.String">
 		<beans:constructor-arg value="//192.168.0.208/Team/banner"/>
 	</beans:bean>
+	<beans:bean id="p_imgUploadPath" class="java.lang.String">
+		<beans:constructor-arg value="//192.168.0.208/Team/Product"/>	
+	</beans:bean>
 	
 	
 	 

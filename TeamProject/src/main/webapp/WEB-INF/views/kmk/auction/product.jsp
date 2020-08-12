@@ -346,8 +346,18 @@
 							</li>
 							<li class="d-flex justify-content-between py-3 border-bottom">
 								<strong class="text-muted">응찰 금액</strong>
-								<div class="input-group">
-									<input type="text" name="quant[1]" id="bid_price"class="form-control input-number"
+								<!-- <div class="input-group"> -->
+								<strong>
+									<c:choose>
+										<c:when test="${productVo.p_price == 0}">
+											<fmt:formatNumber type="currency" value="${productVo.s_price + unit}"/> 원
+										</c:when> 
+										<c:otherwise>
+											<fmt:formatNumber type="currency" value="${productVo.p_price + unit}"/> 원
+										</c:otherwise>
+									</c:choose>
+								</strong>
+									<%-- <input type="text" name="quant[1]" id="bid_price"class="form-control input-number"
 										style="font-size: 17px; font-weight: bold; text-align: right;" 
 											<c:choose>
 												<c:when test="${productVo.p_price == 0}">
@@ -357,8 +367,8 @@
 													value="<fmt:formatNumber type="currency" value="${productVo.p_price + unit}"/>"
 												</c:otherwise>
 											</c:choose>
-										min="${productVo.s_price}" max="1000000000" id="now_quant" readonly>
-									<span class="input-group-btn">
+										min="${productVo.s_price}" max="1000000000" id="now_quant" readonly> --%>
+									<!-- <span class="input-group-btn">
 										<button type="button" class="btn bid-number btn-number"
 											data-type="plus" data-field="quant[1]">
 											<span class="mdi mdi-plus"></span>
@@ -369,8 +379,8 @@
 											disabled="disabled" data-type="minus" data-field="quant[1]">
 											<span class="mdi mdi-minus"></span> 
 										</button>
-									</span>
-								</div>
+									</span> --> 
+								<!-- </div> -->
 							</li>
 						</ul>
 						<a id="bid_Subscription" href="/kmk/auction/premium" class="btn btn-dark rounded-pill py-2 btn-block">신청</a>

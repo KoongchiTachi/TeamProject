@@ -10,7 +10,7 @@ public class ConsignVo {
 	private int cs_start;
 	private String cs_info;
 	private String cs_period;
-	private String cs_img;
+	private String cs_img1;
 	private String cs_etc;
 	private String cs_state;
 	private Timestamp cs_date;
@@ -72,14 +72,6 @@ public class ConsignVo {
 		this.cs_period = cs_period;
 	}
 
-	public String getCs_img() {
-		return cs_img;
-	}
-
-	public void setCs_img(String cs_img) {
-		this.cs_img = cs_img;
-	}
-
 	public String getCs_etc() {
 		return cs_etc;
 	}
@@ -112,11 +104,20 @@ public class ConsignVo {
 		this.p_name = p_name;
 	}
 
+	public String getCs_img1() {
+		return cs_img1;
+	}
+
+	public void setCs_img1(String cs_img1) {
+		this.cs_img1 = cs_img1;
+	}
+
 	@Override
 	public String toString() {
 		return "ConsignVo [csno=" + csno + ", m_id=" + m_id + ", cs_name=" + cs_name + ", cs_price=" + cs_price
-				+ ", cs_start=" + cs_start + ", cs_info=" + cs_info + ", cs_period=" + cs_period + ", cs_img=" + cs_img
-				+ ", cs_etc=" + cs_etc + ", cs_state=" + cs_state + ", cs_date=" + cs_date + ", p_name=" + p_name + "]";
+				+ ", cs_start=" + cs_start + ", cs_info=" + cs_info + ", cs_period=" + cs_period + ", cs_img1="
+				+ cs_img1 + ", cs_etc=" + cs_etc + ", cs_state=" + cs_state + ", cs_date=" + cs_date + ", p_name="
+				+ p_name + "]";
 	}
 
 }

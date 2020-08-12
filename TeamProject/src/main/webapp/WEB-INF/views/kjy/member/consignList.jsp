@@ -93,7 +93,7 @@ $(function() {
 							<c:forEach items="${list}" var="consignListVo">
 								<tr>
 									<td class="thumb" style="width : 200px; vertical-align: middle;">
-										<img src="/resources/img/bag/${consignListVo.cs_img}" alt="${consignListVo.cs_img}" style="width : 120px; height : 120px;">
+										<img src="/resources/img/bag/${consignListVo.cs_img1}" alt="${consignListVo.cs_img1}" style="width : 120px; height : 120px;">
 									</td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${consignListVo.cs_name}</strong><br>
 									<td class="left" style="width : 400px; vertical-align : middle;"><a href="">${consignListVo.cs_info}</a></td>

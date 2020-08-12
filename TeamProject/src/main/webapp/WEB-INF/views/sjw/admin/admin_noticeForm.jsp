@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h3 class="text-center">
-				공지사항 입력
+				공지사항 작성
 				</h3>
 				<div class="row">
 					<div class="col-md-2"></div>

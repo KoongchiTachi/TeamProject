@@ -21,6 +21,12 @@
 		<include refid="search"></include>
 	</select>
 	
+		<!-- 게시글 수 -->
+	<select id="getCount2" resultType="int">
+		select count(*) from tbl_faq
+		<include refid="search"></include>
+	</select>
+	
 	<!-- faq f_cate = f1001 회원 관련 목록 -->
 	<select id="faq1" resultType="FaqVo">
 		select * from tbl_faq

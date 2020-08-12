@@ -2,14 +2,20 @@ package com.kh.team.service;
 
 import java.util.List;
 import com.kh.team.domain.FaqPagingDto;
+import com.kh.team.domain.FaqPagingDto2;
 import com.kh.team.domain.FaqVo;
 
 public interface FaqService {
 	
-	// faq 목록 (페이징)
+	// faq 목록 (페이징) - 관리자
 	public List<FaqVo> faqList(FaqPagingDto faqPagingDto) throws Exception;
-	// 게시글 수
+	// 게시글 수 - 관리자
 	public int getCount(FaqPagingDto faqPagingDto) throws Exception;
+	
+	// faq 목록 (페이징)
+	public List<FaqVo> faqList(FaqPagingDto2 faqPagingDto2) throws Exception;
+	// 게시글 수
+	public int getCount2(FaqPagingDto2 faqPagingDto2) throws Exception;
 	
 	// faq f_cate = f1001 회원 관련 목록
 	public List<FaqVo> faq1() throws Exception;

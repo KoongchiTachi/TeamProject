@@ -106,7 +106,7 @@ $(function() {
 	
 	$("a.page-link").each(function () {
 		var page = $(this).attr("href");
-		if (page == "${faqPagingDto.page}") {
+		if (page == "${faqPagingDto2.page}") {
 			$(this).parent().addClass("active");
 			return;
 		}
@@ -117,10 +117,10 @@ $(function() {
 </script>
 <form id="frmPage" action="/sjw/contact/faqList" method="get">
 	<input type="hidden" name="fno" value="${faqVo.fno}"/>
-	<input type="hidden" name="page" value="${faqPagingDto.page}"/>
-	<input type="hidden" name="perPage" value="${faqPagingDto.perPage}"/>
-	<input type="hidden" name="searchType" value="${faqPagingDto.searchType}"/>
-	<input type="hidden" name="keyword" value="${faqPagingDto.keyword}"/>
+	<input type="hidden" name="page" value="${faqPagingDto2.page}"/>
+	<input type="hidden" name="perPage" value="${faqPagingDto2.perPage}"/>
+	<input type="hidden" name="searchType" value="${faqPagingDto2.searchType}"/>
+	<input type="hidden" name="keyword" value="${faqPagingDto2.keyword}"/>
 </form> 
 <section class="contact-section spad">
 	<div class="container faq">
@@ -151,7 +151,7 @@ $(function() {
 				<c:forEach items="${list}" var="faqVo">
 					<div class="col-sm-12 col-md-12 col-lg-12" id="heading">
 						<input class="ac-input" id="ac-1" name="accordion-1" type="radio" />
-						<label class="ac-label" for="ac-1">${faqVo.f_title}<i></i></label>
+						<label class="ac-label" for="ac-1" style="font-size: 18px;">${faqVo.f_title}<i></i></label>
 						<div class="article ac-content">
 							<p class="text-justify" style="color: #5E5E5E; font-size: 15px;">${faqVo.f_content}</p>
 						</div>
@@ -162,11 +162,16 @@ $(function() {
 				<div class="col-md-5"></div>
 				<div class="col-md-2">
 					<div class="pagination" style="margin-top: 25px;">
-						<c:forEach begin="${faqPagingDto.startPage}"
-							end="${faqPagingDto.endPage}" var="v">
+						<c:if test="${faqPagingDto2.startPage != 1}">
+						<li class="page-item">
+							<a class="page-link" href="${faqPagingDto2.startPage - 1}">&laquo;</a>
+						</li>
+						</c:if>
+						<c:forEach begin="${faqPagingDto2.startPage}"
+							end="${faqPagingDto2.endPage}" var="v">
 							<li class="page-item"
 								<c:choose>
- 							<c:when test="${faqPagingDto.page == v}">
+ 							<c:when test="${faqPagingDto2.page == v}">
  								class="page-item active"
  							</c:when>
  							<c:otherwise>
@@ -175,6 +180,11 @@ $(function() {
  						</c:choose>>
 								<a class="page-link" href="${v}">${v}</a>
 						</c:forEach>
+						<c:if test="${faqPagingDto2.endPage < faqPagingDto2.totalPage}">
+						<li class="page-item">
+							<a class="page-link" href="${faqPagingDto2.endPage + 1}">&raquo;</a>
+						</li>
+						</c:if>
 					</div>
 				</div>
 				<div class="col-md-5">
@@ -182,17 +192,17 @@ $(function() {
 						<div class="blog-search">
 							<select class="mdb-select md-form colorful-select dropdown-primary" name="searchType" style="width: 100px; height: 42px; border: none; border-bottom: 1px solid gray;">
 								<option value="tc"
-									<c:if test="${faqPagingDto.searchType == 'tc'}">selected</c:if>
+									<c:if test="${faqPagingDto2.searchType == 'tc'}">selected</c:if>
 								>전체</option>
 								<option value="t"
-									<c:if test="${faqPagingDto.searchType == 't'}">selected</c:if>
+									<c:if test="${faqPagingDto2.searchType == 't'}">selected</c:if>
 								>제목</option>
 								<option value="c"
-									<c:if test="${faqPagingDto.searchType == 'c'}">selected</c:if>
+									<c:if test="${faqPagingDto2.searchType == 'c'}">selected</c:if>
 								>내용</option>
 							</select>&nbsp;
 							<input type="text" id="keyword" name="keyword"
-								placeholder="제목/내용 입력" value="${faqPagingDto.keyword}">
+								placeholder="제목/내용 입력" value="${faqPagingDto2.keyword}">
 							<button type="button" id="btnSearch">검색</button>
 						</div>
 					</div>
@@ -202,12 +212,12 @@ $(function() {
 	</div>
 
 	<div class="row" style="margin-top: 50px;">
-		<div class="col-md-4"></div>
-		<div class="col-md-6">
-			<div class="moreFaq" align="left">
+		<div class="col-md-5"></div>
+		<div class="col-md-5" align="center">
+			<div class="moreFaq" align="left" style="margin-left: -100px;">
 				<p style="font-size: 16px;">
 					· 더 궁금하신 사항은 1:1문의를 이용해 주세요.&emsp;<a href="/sjw/contact/qnaForm"
-						class="primary-btn" style="height: 60px; color:black; font-weight:bold; background-color: white;" >1:1문의 바로가기</a>
+						class="primary-btn" style="height: 55px; color:black; font-weight:bold; background-color: white;" >1:1문의 바로가기</a>
 				</p>
 			</div>
 		</div>

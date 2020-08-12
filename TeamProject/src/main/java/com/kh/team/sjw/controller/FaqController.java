@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.kh.team.domain.FaqPagingDto;
+import com.kh.team.domain.FaqPagingDto2;
 import com.kh.team.domain.FaqVo;
 import com.kh.team.service.FaqService;
 
@@ -19,13 +19,13 @@ public class FaqController {
 	
 	// faq 목록 - 페이징
 	@RequestMapping(value = "/faqList", method = RequestMethod.GET)
-	public void faqList(FaqPagingDto faqPagingDto, Model model) throws Exception {
-		faqPagingDto.setPageInfo();
-		int totalCount = faqService.getCount(faqPagingDto);
-		faqPagingDto.setTotalCount(totalCount);
-		List<FaqVo> list = faqService.faqList(faqPagingDto);
+	public void faqList(FaqPagingDto2 faqPagingDto2, Model model) throws Exception {
+		faqPagingDto2.setPageInfo();
+		int totalCount = faqService.getCount2(faqPagingDto2);
+		faqPagingDto2.setTotalCount(totalCount);
+		List<FaqVo> list = faqService.faqList(faqPagingDto2);
 		model.addAttribute("list", list);
-		model.addAttribute("faqPagingDto", faqPagingDto);  
+		model.addAttribute("faqPagingDto2", faqPagingDto2);  
 	}
 	
 	// faq f_cate = f1001 회원 관련 목록

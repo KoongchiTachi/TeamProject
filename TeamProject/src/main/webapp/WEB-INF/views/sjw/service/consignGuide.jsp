@@ -57,7 +57,7 @@ $(function() {
                     		<li> · 신속하고 친절한 배송</li> 
 						</ul>
 						<br/><br/><br/>
-						<span style="font-size: 21px; color: #585858">소장하신 물품을 럭션에 위탁하시려면 다음의 절차에 따라 신청해주세요.</span>
+						<span style="font-size: 21px; color: #585858">&nbsp;&nbsp;&nbsp;소장하신 물품을 럭션에 위탁하시려면 다음의 절차에 따라 신청해주세요.</span>
 					</div>
                     </div>
                 </div>

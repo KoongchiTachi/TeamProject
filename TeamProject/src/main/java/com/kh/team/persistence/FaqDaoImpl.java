@@ -1,10 +1,14 @@
 package com.kh.team.persistence;
 
 import java.util.List;
+
 import javax.inject.Inject;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+
 import com.kh.team.domain.FaqPagingDto;
+import com.kh.team.domain.FaqPagingDto2;
 import com.kh.team.domain.FaqVo;
 
 @Repository
@@ -15,16 +19,28 @@ public class FaqDaoImpl implements FaqDao {
 	@Inject
 	private SqlSession sqlSession;
 	
-	// faq 목록 (페이징)
+	// faq 목록 (페이징) - 관리자
 	@Override
 	public List<FaqVo> faqList(FaqPagingDto faqPagingDto) throws Exception {
 		List<FaqVo> list = sqlSession.selectList(NAMESPACE + "faqList", faqPagingDto);
 		return list;
 	}
-	// 게시글 수
+	// 게시글 수 - 관리자
 	@Override
 	public int getCount(FaqPagingDto faqPagingDto) throws Exception {
 		return sqlSession.selectOne(NAMESPACE + "getCount", faqPagingDto);
+	}
+	
+	// faq 목록 (페이징)
+	@Override
+	public List<FaqVo> faqList(FaqPagingDto2 faqPagingDto2) throws Exception {
+		List<FaqVo> list = sqlSession.selectList(NAMESPACE + "faqList", faqPagingDto2);
+		return list;
+	}
+	// 게시글 수
+	@Override
+	public int getCount2(FaqPagingDto2 faqPagingDto2) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + "getCount2", faqPagingDto2);
 	}
 	
 	// faq f_cate = f1001 회원 관련 목록

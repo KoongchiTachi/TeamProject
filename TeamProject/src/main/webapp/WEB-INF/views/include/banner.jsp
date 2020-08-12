@@ -75,7 +75,7 @@ $('.carousel').carousel({
 													<div class='img-overlay'>
 														<p style="color: red;">${fn:toUpperCase(item.b_name)}</p> 
 														<p>${item.p_name}</p>
-														<p> 
+														<p>
 															<fmt:setLocale value="ko_KR" /> 
 															<c:choose>
 																<c:when test="${item.p_price != 0}">

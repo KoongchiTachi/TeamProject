@@ -1233,6 +1233,7 @@ to {
 	margin: auto;
 	display: table-cell;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
 @media ( max-width : 768px) {
@@ -3523,7 +3524,7 @@ opacity
 	border: 1px solid #d9d9d9;
 	padding: 5px 10px;
 	background: #fff;
-	width: 120px;
+	width: 120px; 
 	height: 80px;
 	font-size: 12px;
 	border-radius: 4px;

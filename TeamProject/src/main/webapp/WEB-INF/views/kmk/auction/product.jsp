@@ -10,7 +10,7 @@
 
 <link rel="stylesheet" href="/resources/css/product/product.css" type="text/css">
 <link rel="stylesheet" href="/resources/css/product/concept.css" type="text/css">
-<link href="/resources/js/product/bxslider.css" rel="stylesheet">
+<link rel="stylesheet" href="/resources/js/product/bxslider.css" type="text/css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/resources/js/product/bxslider.js"></script>
 <script src="/resources/js/product/bid.js"></script> 
@@ -87,7 +87,7 @@
 					<div class="row">
 						<div class="col-lg-10 col-xs-12">
 							<div class="row">
-								<div class="thumbnail ">
+								<div class="thumbnail">
 									<a class=" text-center moreview btn-example" id="target_lightgallery" 
 									style="width: 100%; display: table-cell; vertical-align: middle;">
 										<ul class="th-list lightgallery">
@@ -103,9 +103,13 @@
 											<li class="plpl" data-responsive="/resources/img/bag/${productVo.p_img4}"
 												data-src="/resources/img/bag/${productVo.p_img4}" alt="4">
 												<img class="" src="/resources/img/bag/${productVo.p_img4}" /></li>
+											<%-- <li><a href="#"><img src="/resources/img/bag/${productVo.p_img1}" class="img1"/></a></li>
+											<li><a href="#"><img src="/resources/img/bag/${productVo.p_img2}" class="img2"/></a></li>
+											<li><a href="#"><img src="/resources/img/bag/${productVo.p_img3}" class="img3"/></a></li>
+											<li><a href="#"><img src="/resources/img/bag/${productVo.p_img4}" class="img4"/></a></li> --%>
 										</ul>
 									</a>
-								</div> 
+								</div>
 							</div> 
 						</div>
 						<div class="col-lg-2 col-xs-12 ">

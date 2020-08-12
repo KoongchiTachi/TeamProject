@@ -42,6 +42,6 @@ public interface ProductDao {
 	public List<Timestamp> selectP_until() throws Exception;
 	// 마감된 상품 번호 조회 ( 날짜 )
 	public String findPno(Timestamp time) throws Exception;
-	// 최근 등록 상품 ( 4개 )
+	// 최근 등록 상품 ( 5개 )
 	public List<ProductVo> bannerItems() throws Exception;
 }

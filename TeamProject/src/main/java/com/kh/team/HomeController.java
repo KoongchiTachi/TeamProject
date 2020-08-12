@@ -72,7 +72,6 @@ public class HomeController/* implements Runnable*/ {
 		List<AdminBannerVo> list = bannerService.bannerList();
 		int count = bannerService.getBannerCount();
 		List<ProductVo> items = bannerService.bannerItems();
-		System.out.println("items" + items);
 		model.addAttribute("items", items);
 		model.addAttribute("list", list);
 		model.addAttribute("count", count);

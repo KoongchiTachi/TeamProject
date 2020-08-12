@@ -10,11 +10,14 @@ public class ConsignVo {
 	private int cs_start;
 	private String cs_info;
 	private String cs_period;
-	private String cs_img;
+	private String cs_img1;
 	private String cs_etc;
 	private String cs_state;
 	private Timestamp cs_date;
 	private String p_name;
+	private String b_name;
+	private int b_price;
+	private int g_discount;
 
 	public String getCsno() {
 		return csno;
@@ -72,14 +75,6 @@ public class ConsignVo {
 		this.cs_period = cs_period;
 	}
 
-	public String getCs_img() {
-		return cs_img;
-	}
-
-	public void setCs_img(String cs_img) {
-		this.cs_img = cs_img;
-	}
-
 	public String getCs_etc() {
 		return cs_etc;
 	}
@@ -112,11 +107,44 @@ public class ConsignVo {
 		this.p_name = p_name;
 	}
 
+	public String getCs_img1() {
+		return cs_img1;
+	}
+
+	public void setCs_img1(String cs_img1) {
+		this.cs_img1 = cs_img1;
+	}
+
+	public String getB_name() {
+		return b_name;
+	}
+
+	public void setB_name(String b_name) {
+		this.b_name = b_name;
+	}
+
+	public int getB_price() {
+		return b_price;
+	}
+
+	public void setB_price(int b_price) {
+		this.b_price = b_price;
+	}
+
+	public int getG_discount() {
+		return g_discount;
+	}
+
+	public void setG_discount(int g_discount) {
+		this.g_discount = g_discount;
+	}
+
 	@Override
 	public String toString() {
 		return "ConsignVo [csno=" + csno + ", m_id=" + m_id + ", cs_name=" + cs_name + ", cs_price=" + cs_price
-				+ ", cs_start=" + cs_start + ", cs_info=" + cs_info + ", cs_period=" + cs_period + ", cs_img=" + cs_img
-				+ ", cs_etc=" + cs_etc + ", cs_state=" + cs_state + ", cs_date=" + cs_date + ", p_name=" + p_name + "]";
+				+ ", cs_start=" + cs_start + ", cs_info=" + cs_info + ", cs_period=" + cs_period + ", cs_img1="
+				+ cs_img1 + ", cs_etc=" + cs_etc + ", cs_state=" + cs_state + ", cs_date=" + cs_date + ", p_name="
+				+ p_name + ", b_name=" + b_name + ", b_price=" + b_price + ", g_discount=" + g_discount + "]";
 	}
 
 }

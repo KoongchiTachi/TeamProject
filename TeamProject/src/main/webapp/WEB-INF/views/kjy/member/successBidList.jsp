@@ -40,11 +40,11 @@
 
 <script>
 $(function() {
-	// 입금 계좌번호
+	// 입금할 금액과 계좌번호
 	$(".btnWithDraw").click(function() {
 		var that = $(this);
 		var price = that.attr("data-price");
-// 		$("#modal_price").val(price);
+		$("#modal_price").val(price);
 	});
 	
 	// 페이징
@@ -116,9 +116,8 @@ $(function() {
 									<td class="left" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.p_info}</strong></td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${bidVo.b_price}"/></strong></td>
 									<td class="price" style="width : 300px; vertical-align : middle;"><strong class="">${bidVo.b_date}</strong></td>
-									<td class="price" style="width : 300px; vertical-align : middle;">
-										<strong class="" style="color : red;">은행 계좌번호<br/><fmt:formatNumber type="currency" value="${bidVo.b_price}"/><br/>입금해주십시오.</strong>
-<%-- 										<a id="modal-87510" href="#modal-container-87510" role="button" class="btn btn-sm btnWithDraw" data-toggle="modal" data-price="${bidVo.b_price}">입금하기</a> --%>
+									<td class="price luxtion" style="width : 300px; vertical-align : middle;">
+										<a id="modal-87510" href="#modal-container-87510" role="button" class="btn btn-sm btnWithDraw" data-toggle="modal" data-price="<fmt:formatNumber type="currency" value="${bidVo.b_price + (bidVo.b_price * (bidVo.g_discount/100)) + 10000}"/>">입금하기</a>
 									</td>
 								</tr>
 							</c:forEach>
@@ -168,30 +167,32 @@ $(function() {
 	</div>
 	
 	<!-- 입금 계좌번호 모달창 -->
-<!-- 			<a id="modal-87510" href="#modal-container-87510" role="button" class="btn" data-toggle="modal">Launch demo modal</a> -->
-<!-- 			<div class="modal fade" id="modal-container-87510" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
-<!-- 				<div class="modal-dialog" role="document"> -->
-<!-- 					<div class="modal-content"> -->
-<!-- 						<div class="modal-header"> -->
-<!-- 							<h5 class="modal-title" id="myModalLabel"> -->
-<!-- 								입금 계좌번호 -->
-<!-- 							</h5>  -->
-<!-- 							<button type="button" class="close" data-dismiss="modal"> -->
-<!-- 								<span aria-hidden="true">×</span> -->
-<!-- 							</button> -->
-<!-- 						</div> -->
-<!-- 						<div class="modal-body"> -->
-<!-- 							<label for="modal_price" style="width : 30%; float: left; margin-top : 7px;">입금하실 금액</label> -->
-<!-- 							<input type="text" value="" id="modal_price" class="form-control" style="width : 60%;"/><br/> -->
-<!-- 							<label for="modal_bank" style="width : 30%; float: left; margin-top : 7px;">입금하실 은행</label> -->
-<!-- 							<input type="text" value="은행 계좌번호" id="modal_bank" class="form-control" style="width : 60%;"/><br/> -->
-<!-- 						</div> -->
-<!-- 						<div class="modal-footer">  -->
-<!-- 							<button type="button" class="btn btn-secondary btnCancel" data-dismiss="modal">확인</button> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
+			<div class="modal fade" id="modal-container-87510" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="myModalLabel">
+								입금 계좌번호
+							</h5> 
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div> 
+						<div class="modal-body">
+							<label for="modal_price" style="width : 30%; float: left; margin-top : 10px;">입금하실 금액</label>
+							<input type="text" id="modal_price" class="form-control" style="width : 70%; margin-top : 3px;" readonly/><br/>
+							<label for="modal_bank" style="width : 30%; float: left; margin-top : 7px;">입금하실 은행</label>
+							<input type="text" value="하나은행 196-910005-084267 (주)럭션" id="modal_bank" class="form-control" style="width : 70%;" readonly/><br/>
+						</div>
+						<div class="modal-footer"> 
+							<span class="col-sm-8 text-left" style="color : red;">입금하실 금액은 낙찰금액에<br/>수수료와 배송비가 포함됩니다.</span>
+							<div class="col-sm-4 text-right">
+								<button type="button" class="btn btn-secondary btnCancel" data-dismiss="modal">확인</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		<!-- 입금 계좌번호 모달창 -->
 	
 </div>

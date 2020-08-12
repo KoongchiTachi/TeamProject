@@ -163,9 +163,9 @@ $(function() {
 					<thead>
 						<tr>
 							<th scope="col"><input type="checkbox" id="chkAll"></th>
-							<th scope="col" style="width : 200px;">이미지</th>
-							<th scope="col" style="width : 200px;">상품명</th>
-							<th scope="col" style="width : 500px;">상품정보</th>
+							<th scope="col" style="width : 300px;">이미지</th>
+							<th scope="col" style="width : 300px;">브랜드</th>
+							<th scope="col" style="width : 300px;">상품명</th>
 							<th scope="col" style="width : 200px;">현재가</th>
 							<th scope="col" style="width : 200px;">선택</th>
 						</tr>
@@ -181,13 +181,13 @@ $(function() {
 							<c:forEach items="${list}" var="wishlistVo">
 								<tr>
 									<td><input type="checkbox" class="chkWish" data-wno="${wishlistVo.wno}"></td>
-									<td class="thumb" style="width : 200px; vertical-align: middle;">
+									<td class="thumb" style="width : 300px; vertical-align: middle;">
 										<a>
 											<img src="/resources/img/bag/${wishlistVo.p_img1}" alt="${wishlistVo.p_img1}" style="width : 120px; height : 120px;">
 										</a>
 									</td>
-									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${wishlistVo.p_name}</strong><br>
-									<td class="left" style="width : 500px; vertical-align : middle;"><strong class="">${wishlistVo.p_info}</strong></td>
+									<td class="price" style="width : 300px; vertical-align : middle;"><strong class="">${wishlistVo.b_name}</strong><br>
+									<td class="left" style="width : 300px; vertical-align : middle;"><strong class="">${wishlistVo.p_name}</strong></td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${wishlistVo.p_price}" /></strong><br>
 									<td class="button" style="width : 200px; vertical-align : middle;">
 										<c:if test="${wishlistVo.p_state == 's01'}">

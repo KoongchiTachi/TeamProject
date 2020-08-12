@@ -154,7 +154,7 @@
 								</p>
 								<p class="product"><strong><!-- <span>No.2007250001</span>--></strong></p>
 								<dl class="product-info">
-									<dd>${productVo.p_info}</dd>
+									<dd>${productVo.p_size}</dd>
 								</dl>
 							</div>
 							<div class="goods-value">
@@ -239,7 +239,7 @@
 						<div class="col-lg-6">
 							<h3>상품소개</h3>
 							<div class="artist-intu"> 
-								<span>${productVo.p_size}</span>
+								<span>${productVo.p_info}</span>
 							</div> 
 						</div>
 					</div>

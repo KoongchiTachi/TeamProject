@@ -248,6 +248,7 @@ $(function() {
      	that.click(function() { 
 			if (m_id == "") {
 				alert("관심상품 등록은 로그인 이후 가능합니다.");
+				document.location = '/kjy/member/login';
 				return;
 			}
 			var url = "/kmk/auction/check/" + pno + "/" + m_id;

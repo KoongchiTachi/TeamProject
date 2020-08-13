@@ -114,15 +114,15 @@
  
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container mt-5" style="max-width: 1440px; margin-top: 200;">  
+<div class="container mt-5" style="max-width: 1440px; margin-top: 400;">  
   
 	<!--Section: Content-->
 	<section class="dark-grey-text text-xs-center">
 
 		<!-- Section heading -->
-		<h3 class="font-weight-bold mb-4 pb-2">Our bestsellers</h3>
-		<!-- Section description -->
-		<p class="grey-text w-responsive mx-auto mb-5">GUCCI PRADA CHANEL LOUISVUITTON HERMES CARTIER</p>
+		<h3 class="font-weight-bold mb-4 pb-2"><!-- Our bestsellers --></h3>
+		<!-- Section description --> 
+		<p class="grey-text w-responsive mx-auto mb-5"><br/><!-- GUCCI PRADA CHANEL LOUISVUITTON HERMES CARTIER --></p>
 
 		<!-- Grid row --> 
 		<div class="row">

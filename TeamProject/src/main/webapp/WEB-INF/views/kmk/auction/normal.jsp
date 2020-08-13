@@ -93,7 +93,8 @@
 	.btn:active, .btn:hover, .btn:focus {
 	  background-color:white;
 	}
-/* 0810 active */
+	
+/* 0810 active */ 
 .inner-header .main-menu ul li a.active {
 	color: #F9AD81;
 }
@@ -113,29 +114,16 @@
 <%@ include file="/WEB-INF/views/include/kmk/hideForm.jsp" %>
  
 <!------ Include the above in your HEAD tag ---------->
-
-<!-- body side -->
-<div class="container-fluid" style="margin-top: 120;">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="jumbotron">
-				<h2>
-					카테고리 
-				</h2>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="container mt-5" style="max-width: 1440px;">  
+ 
+<div class="container mt-5" style="max-width: 1440px; margin-top: 400">  
   
 	<!--Section: Content-->
 	<section class="dark-grey-text text-xs-center">
 
 		<!-- Section heading -->
-		<h3 class="font-weight-bold mb-4 pb-2">Our bestsellers</h3>
+		<h3 class="font-weight-bold mb-4 pb-2"><!-- Our bestsellers --></h3>
 		<!-- Section description -->
-		<p class="grey-text w-responsive mx-auto mb-5">GUCCI PRADA CHANEL LOUISVUITTON HERMES CARTIER</p>
+		<p class="grey-text w-responsive mx-auto mb-5"><br/><!-- GUCCI PRADA CHANEL LOUISVUITTON HERMES CARTIER --></p>
 
 		<!-- Grid row --> 
 		<div class="row">
@@ -146,10 +134,14 @@
 				<div class="tile align-items-center" data-pno="${premium.pno}" id="tile">
 					<!-- Card image --> 
 					<div class="wrapper">
-					<div class="title" >${premium.b_name}</div>
+					<div class="title" 
+					<%-- <c:if test="${premium.b_name == 'Yves Saint Laurent'}">
+						style="font-size: 24px; font-weight: 900;" 
+					</c:if>  --%>
+					>${premium.b_name}</div>
 					<div class="p_logo">
-						<img alt="premium" src="/resources/img/logo/premium_icon.png">
-						<button class="like-button
+						<img alt="normal" src="/resources/img/logo/normal_icon.png" >
+						<button class="like-button 
 						<c:forEach items="${wish}" var="wishVo">
 							<c:if test="${wishVo.pno == premium.pno}">
 								liked 

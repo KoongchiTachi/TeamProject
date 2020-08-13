@@ -1678,7 +1678,7 @@
 
 
 // new slider ( 0811 )
-$(function () {
+/*$(function () {
 	$(".lightgallery .plpl").click(function (event) {
 		//배너 이미지 클릭 시
 		var src = $(this).parents(".banner").html(); //모든 banner의 콘텐츠를 src 변수에 저장
@@ -1736,7 +1736,7 @@ $(function () {
 			$(".btn_box").delay(300).remove();
 		});
 	});
-});
+});*/
 
 
 

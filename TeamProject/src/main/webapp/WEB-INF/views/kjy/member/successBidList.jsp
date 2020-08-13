@@ -113,7 +113,7 @@ $(function() {
 										</a>
 									</td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.b_name}</strong></td>
-									<td class="left" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.p_info}</strong></td>
+									<td class="left" style="width : 200px; vertical-align : middle;"><strong class="">${bidVo.p_name}</strong></td>
 									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${bidVo.b_price}"/></strong></td>
 									<td class="price" style="width : 300px; vertical-align : middle;"><strong class="">${bidVo.b_date}</strong></td>
 									<td class="price luxtion" style="width : 300px; vertical-align : middle;">

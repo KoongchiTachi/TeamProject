@@ -101,7 +101,8 @@ $(function() {
 
 <div class="container" style="margin-top: 150px;">
 	<br>
-		<p class="text-center">지난 경매 내역입니다.</p>
+		<!-- <p class="text-center">지난 경매 내역입니다.</p> -->
+		<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold" style="text-align: center;">지난 경매 내역</div>
 	<hr>
 	<div class="card col-lg-12 mx-auto">
 		<table class="table table-hover shopping-cart-wrap">
@@ -129,7 +130,7 @@ $(function() {
 									</dl>
 									<dl class="param param-inline small">   
 										<dt>사이즈</dt>
-										<dd>${product.p_info}</dd>
+										<dd>${product.p_size}</dd> 
 									</dl>
 									<dl class="param param-inline small">
 										<dt>색상</dt>

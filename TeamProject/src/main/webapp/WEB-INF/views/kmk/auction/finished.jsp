@@ -99,8 +99,8 @@ $(function() {
 });
 </script>
 
-<div class="container" style="margin-top: 150px;">
-	<br>
+<div class="container" style="margin-top: 150px; margin-bottom: 50px;"> 
+	<br> 
 		<!-- <p class="text-center">지난 경매 내역입니다.</p> -->
 		<div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold" style="text-align: center;">지난 경매 내역</div>
 	<hr>

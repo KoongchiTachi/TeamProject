@@ -13,7 +13,7 @@
 	<select id="wishList" resultType="WishlistVo">
 		select * 
 		from (select rownum rnum, a.*
-			  from (select w.wno, m.m_id, p.pno, p.p_img1, p.p_info, p.p_price, p.p_name, p.p_state, br.b_name
+			  from (select w.wno, m.m_id, p.pno, p.p_img1, p.p_info, p.p_price, p.s_price, p.p_name, p.p_state, br.b_name
 			 		from tbl_wish w, tbl_product p, tbl_member m, code_brand br
 			  		where m.m_id = w.m_id and w.pno = p.pno and p.p_brand = br.b_code and m.m_id = #{m_id}) a)
 		where rnum between #{startRow} and #{endRow}

@@ -188,7 +188,16 @@ $(function() {
 									</td>
 									<td class="price" style="width : 300px; vertical-align : middle;"><strong class="">${wishlistVo.b_name}</strong><br>
 									<td class="left" style="width : 300px; vertical-align : middle;"><strong class="">${wishlistVo.p_name}</strong></td>
-									<td class="price" style="width : 200px; vertical-align : middle;"><strong class=""><fmt:formatNumber type="currency" value="${wishlistVo.p_price}" /></strong><br>
+									<td class="price" style="width : 200px; vertical-align : middle;"><strong class="">
+									<c:choose>
+										<c:when test="${wishlistVo.p_price == 0 }">
+											<fmt:formatNumber type="currency" value="${wishlistVo.s_price}" />
+										</c:when>
+										<c:otherwise>
+											<fmt:formatNumber type="currency" value="${wishlistVo.p_price}" />
+										</c:otherwise>
+									</c:choose>
+									</strong><br>
 									<td class="button" style="width : 200px; vertical-align : middle;">
 										<c:if test="${wishlistVo.p_state == 's01'}">
 											<div> 

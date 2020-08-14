@@ -8,9 +8,18 @@ public class WishlistVo {
 	private String p_img1;
 	private String p_info;
 	private int p_price;
+	private int s_price;
 	private String p_name;
 	private String p_state;
 	private String b_name;
+
+	public int getS_price() {
+		return s_price;
+	}
+
+	public void setS_price(int s_price) {
+		this.s_price = s_price;
+	}
 
 	public String getPno() {
 		return pno;

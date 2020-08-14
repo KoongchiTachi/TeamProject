@@ -188,7 +188,16 @@
 									<div class="col-lg-5 col-xs-12">
 										<div class="row bt-are">
 											<div class="col-lg-6 col-xs-6 "> 
-												<a class=" text-center backlink2 mobile-bbt" href="/kmk/auction/premium">리스트</a>
+												<a class=" text-center backlink2 mobile-bbt" 
+												<c:choose>
+								                	<c:when test="${productVo.s_price >= 1000000}">
+								                		href="/kmk/auction/premium"
+								                	</c:when> 
+								                	<c:otherwise>
+								                		href="/kmk/auction/normal" 
+								                	</c:otherwise>
+								                </c:choose> 
+												>리스트</a>
 											</div>
 											<div class="col-lg-6 col-xs-6 ">
 												<a class="text-center backlink3 mobile-bbt" data-toggle="modal" 

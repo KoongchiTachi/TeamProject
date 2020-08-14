@@ -50,7 +50,8 @@ public class HomeController/* implements Runnable*/ {
 							productDao.bidWhether(pno);
 							String m_id = productDao.topBidding(pno);
 							if (m_id != null) productDao.matchingBidding(m_id, pno);
-							p_untilList = productDao.selectP_until(); 
+							p_untilList = productDao.selectP_until();
+							System.out.println("마감상품 변경");
 							break;
 						}
 					} th.sleep(1000);

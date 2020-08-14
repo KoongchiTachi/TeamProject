@@ -235,7 +235,6 @@ $(function() {
 	$("a.Cbtn-primary").click(function(e) {
 		e.preventDefault(); 
 		var pno = $(this).attr("data-pno");
-		console.log(pno);
 		$.ajax({ 
 			"type" : "POST",
 			"url"  : "/kmk/auction/checkstate/" + pno,  
@@ -243,12 +242,9 @@ $(function() {
 			"data" : pno,
 			"success"	: function(rData) {
 				if (rData == "no") {
-					console.log(rData);
 					alert("이미 마감된 상품입니다.");
 					window.location.href= "/kmk/auction/premium";
 					return; 
-				} else {
-					console.log(rData);
 				}
 			},
 			"error"		: function(request,status,error) { 

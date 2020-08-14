@@ -74,7 +74,6 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public String checkstate(String pno) throws Exception {
-		System.out.println(pno);
 		return productDao.checkstate(pno);
 	}
 

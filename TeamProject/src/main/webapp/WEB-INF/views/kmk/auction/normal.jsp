@@ -240,6 +240,22 @@ $(function() {
 	$("a.Cbtn-primary").click(function(e) {
 		e.preventDefault(); 
 		var pno = $(this).attr("data-pno"); 
+		$.ajax({ 
+			"type" : "POST",
+			"url"  : "/kmk/auction/checkstate/" + pno,  
+			"dataType" 	: "text",
+			"data" : pno,
+			"success"	: function(rData) {
+				if (rData == "no") {
+					alert("이미 마감된 상품입니다.");
+					window.location.href= "/kmk/auction/normal";
+					return; 
+				}
+			},
+			"error"		: function(request,status,error) { 
+             	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			} 
+		});	 
 		$("#hideForm > input[name=pno]").val(pno); 
 		$("#hideForm").attr("action", $(this).attr("href")); 
 		$("#hideForm").submit(); 

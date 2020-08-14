@@ -67,7 +67,7 @@ public class HomeController/* implements Runnable*/ {
 		logger.info("정상 작동됨.", locale);
 		if (isCheckP_until == false) {
 			p_untilList = productDao.selectP_until();
-			th.start();
+//			th.start();
 			isCheckP_until = true;
 		}
 		List<AdminBannerVo> list = bannerService.bannerList();

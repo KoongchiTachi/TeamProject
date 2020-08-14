@@ -94,6 +94,12 @@
 		select pno from tbl_product
 		where p_until = #{time}
 	</select>
+	
+	<!-- 상태 확인 -->
+	<select id="checkstate" resultType="String">
+		select p_state from tbl_product
+		where pno = #{pno}
+	</select>
 	 
 	<!-- 최근 등록 상품 -->
 	<select id="bannerItems" resultType="ProductVo">

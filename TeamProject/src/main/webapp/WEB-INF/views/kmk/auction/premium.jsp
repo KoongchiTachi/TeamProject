@@ -171,7 +171,7 @@
 							</c:choose>
 						</div>
 					</div>
-					<div class="footer"> 
+					<div class="footer">
 						<a href="/kmk/auction/product" class="Cbtn Cbtn-primary" data-pno="${premium.pno}">응찰하기</a>
 					</div> 
 				</div>
@@ -234,7 +234,27 @@ $(function() {
  	// product bid page
 	$("a.Cbtn-primary").click(function(e) {
 		e.preventDefault(); 
-		var pno = $(this).attr("data-pno"); 
+		var pno = $(this).attr("data-pno");
+		console.log(pno);
+		$.ajax({ 
+			"type" : "POST",
+			"url"  : "/kmk/auction/checkstate/" + pno,  
+			"dataType" 	: "text",
+			"data" : pno,
+			"success"	: function(rData) {
+				if (rData == "no") {
+					console.log(rData);
+					alert("이미 마감된 상품입니다.");
+					window.location.href= "/kmk/auction/premium";
+					return; 
+				} else {
+					console.log(rData);
+				}
+			},
+			"error"		: function(request,status,error) { 
+             	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			} 
+		});	 
 		$("#hideForm > input[name=pno]").val(pno); 
 		$("#hideForm").attr("action", $(this).attr("href")); 
 		$("#hideForm").submit(); 

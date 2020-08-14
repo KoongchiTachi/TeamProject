@@ -107,6 +107,19 @@ public class AuctionController {
 		return "/kmk/auction/finished";
 	}
 	
+	// 경매 종료 확인
+	@ResponseBody
+	@RequestMapping(value="/checkstate/{pno}", method = RequestMethod.POST)
+	public String checkstate(@PathVariable("pno") String pno) throws Exception {
+		String state = productService.checkstate(pno);
+		System.out.println("state : " + state);
+		if (state.equals("s02")) {
+			return "no";
+		} else {
+			return "pass";
+		}
+	}
+	
 	// 응찰 방법 안내
 	@RequestMapping(value="/howBid", method = RequestMethod.GET)
 	public String howBid() throws Exception {

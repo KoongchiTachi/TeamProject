@@ -469,7 +469,7 @@ $(function() {
 		$.ajax({ 
 			"type" : "post",
 			"url"  : url, 
-			"dataType" 	: "text", 
+			"dataType" 	: "text",
 			"data" : sendData,    
 			"success"	: function(data, textStatus, jqXHR){
                 alert("응찰되었습니다.");

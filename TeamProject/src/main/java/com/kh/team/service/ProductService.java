@@ -27,4 +27,6 @@ public interface ProductService {
 	public List<WishVo> attentionItems(String m_id) throws Exception;
 	// 응찰 내역
 	public List<BidVo> bidList(String pno) throws Exception;
+	// 마감 확인
+	public String checkstate(String pno) throws Exception;
 }

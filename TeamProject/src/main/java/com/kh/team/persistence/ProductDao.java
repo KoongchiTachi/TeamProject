@@ -44,4 +44,6 @@ public interface ProductDao {
 	public String findPno(Timestamp time) throws Exception;
 	// 최근 등록 상품 ( 5개 )
 	public List<ProductVo> bannerItems() throws Exception;
+	// 마감 확인
+	public String checkstate(String pno) throws Exception;
 }

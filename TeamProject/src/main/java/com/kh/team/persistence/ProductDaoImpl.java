@@ -125,4 +125,9 @@ public class ProductDaoImpl implements ProductDao {
 		return sqlSession.selectList(PRODUCT + "bannerItems");
 	}
 
+	@Override
+	public String checkstate(String pno) throws Exception {
+		return sqlSession.selectOne(PRODUCT + "checkstate", pno);
+	}
+
 }
